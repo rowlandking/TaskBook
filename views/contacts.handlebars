@@ -45,12 +45,13 @@
     <li class="active"><a href="#">Contacts</a></li>
 </ul>
 </div>
-		<div class = "tasks">
-		<h4>Contacts</h4>
-
-		</div>
-		<p>
-		</p>
+		<div class = "lists">
+		<ul class="list-group">
+			{{#each mycontacts}}
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 </body>

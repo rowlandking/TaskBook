@@ -28,27 +28,29 @@
 			</div>
 		</div>-->
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="GlobalHeader">
-    TaskBook
-  </div>
-</nav>
-<div class = "navContainer">
-<ul class="nav nav-tabs nav-justified">
-	<li><a href="/tasks">My Tasks</a></li>
-    <li class="active"><a href="#">Lists</a></li>
-    <li><a href="/groups">Groups</a></li>
-    <li><a href="/contacts">Contacts</a></li>
-</ul>
-</div>
-		<div class = "tasks">
-		
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	  <div class="GlobalHeader">
+	    TaskBook
+	  </div>
+	</nav>
 
-		</div>
-		<p>
+	<div class = "navContainer">
+	<ul class="nav nav-tabs nav-justified">
+		<li><a href="/tasks">My Tasks</a></li>
+	    <li class="active"><a href="#">Lists</a></li>
+	    <li><a href="/groups">Groups</a></li>
+	    <li><a href="/contacts">Contacts</a></li>
+	</ul>
+	</div>
 
-		</p>
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
+	<div class = "lists">
+		<ul class="list-group">
+			{{#each mylists}}
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 <html>
@@ -45,19 +46,25 @@
   <li><a href="/contacts">Contacts</a></li>
 </ul>
 </div>
-		<div class = "taskAdd">
+		<div class = "addtasks">
 			<form name="taskForm" onSubmit="return taskValidate()" method="post">
 			<!--<form onSubmit="taskValidate(); return false;">-->
 				<input id="box" type="text" name="tname" title="Task Title" style="color:#888"; value="New Task..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
 				<input type="submit" value="Add">
 			</form>
 		</div>
-		<p>
 
+	<div class = "lists">
+		<ul class="list-group">
+			{{#each mytasks}}
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
 
-		</p>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/taskbook.js"></script>
 </body>
 </html>
+
