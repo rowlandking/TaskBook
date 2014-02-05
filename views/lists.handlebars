@@ -47,10 +47,16 @@
 		</div>
 		<div class = "lists">
 		<ul class="list-group">
+
   <li class="list-group-item">
     <span class="badge">14</span>
     Cras justo odio
   </li>
+  {{#each mylists}}
+  <li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+
+  {{/each}}
+
 </ul>
 </div>
 		<script src="https://code.jquery.com/jquery.js"></script>
