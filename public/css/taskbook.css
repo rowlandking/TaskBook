@@ -26,11 +26,60 @@
     clear:both;
 }
 
-.tasks {
+/*.tasks {
     clear:both;
     text-align: center;
     overflow: hidden;
     visibility: visible;
+}*/
+
+.taskAdd {
+    top:100px;/**/
+    left:0px;
+    right:0px;
+    clear:both;
+    text-align: center;
+    overflow: hidden;
+    visibility: visible;
+    position:fixed;
+    z-index:1030;
+    width: 100%;
+    /*form {
+        margin: 24px 0 0 0;
+    }
+
+    form legend {
+        font-size: 1.125em;
+        font-weight: bold;
+    }
+
+    form fieldset {
+        margin: 0 0 32px 0;
+        padding: 8px;
+        border: 1px solid #ccc;
+    }
+
+    form label {
+        float: left;
+        width: 125px;
+    }
+
+    form label, form input {
+        margin: 5px 0;
+    }
+
+    form input {
+        width: 100%;
+    }
+    form span {
+        display: block;
+        overflow: hidden;
+        padding: 0 5px 0 0;
+    }*/
+}
+
+.taskAdd #box {
+    width: 90%;
 }
 /*
 .nav nav-tab{
