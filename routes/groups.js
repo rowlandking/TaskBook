@@ -4,7 +4,7 @@
  */
 
 exports.view = function(req, res){
-  res.render('tasks',{
+  res.render('groups',{
   	'projects': [
       { 'name': 'Waiting in Line',
         'image': 'lorempixel.people.1.jpeg',
