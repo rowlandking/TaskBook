@@ -1,0 +1,9 @@
+<SCRIPT LANGUAGE="JavaScript"><!--
+function taskFunction() {
+    //do stuff
+    if (condition)
+        return true;
+
+    return false;    
+}
+//--></SCRIPT>
