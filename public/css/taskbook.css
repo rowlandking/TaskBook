@@ -18,23 +18,39 @@
     overflow: hidden;
    
      text-align: center;
-     font-size: 40px;
+     font-size: 35px;
      left: 10px;
      right: 10px;
+     height: 45px;
      width: inherit;
     clear:both;
 }
 
 .tasks {
     clear:both;
-text-align: center;
+    text-align: center;
     overflow: hidden;
     visibility: visible;
 }
-
+/*
 .nav nav-tab{
      clear:both;
      text-align: center;
     overflow: hidden;
     visibility: visible;
+}
+*/
+.navContainer{
+    top:45px;
+    width: inherit;
+    clear:both;
+    text-align: center;
+    overflow: hidden;
+    visibility: visible;
+    position:fixed;
+    z-index:1030;
+    /* position: fixed;
+     right: 0;
+     left: 0;
+     z-index: 1030;*/
 }
