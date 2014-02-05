@@ -44,8 +44,11 @@
   <li><a href="/contacts">Contacts</a></li>
 </ul>
 		<div class = "tasks">
-		<h4>Tasks</h4>
-
+			<form name="taskForm" onSubmit="return taskValidate()" method="post">
+			<!--<form onSubmit="taskValidate(); return false;">-->
+				Task: <input type="text" name="tname">
+				<input type="submit" value="Add">
+			</form>
 		</div>
 		<p><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -54,5 +57,6 @@
 		</p>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/taskbook.js"></script>
 </body>
 </html>
