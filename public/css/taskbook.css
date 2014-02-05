@@ -41,8 +41,9 @@
 }
 */
 .navContainer{
-    top:45px;
-    width: inherit;
+    top:45px;/**/
+    left:0px;
+    right:0px;
     clear:both;
     text-align: center;
     overflow: hidden;
