@@ -50,7 +50,7 @@
 		<div class = "addtasks">
 			<form name="taskForm" onSubmit="return taskValidate()" method="post">
 			<!--<form onSubmit="taskValidate(); return false;">-->
-				Task: <input type="text" name="tname">
+				<input id="box" type="text" name="tname" title="Task Title" style="color:#888"; value="New Task..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
 				<input type="submit" value="Add">
 			</form>
 		</div>
