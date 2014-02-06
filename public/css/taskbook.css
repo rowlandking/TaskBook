@@ -34,7 +34,7 @@
 }*/
 
 .addtasks {
-    top:93px;/**/
+    top:90px;/**/
     /*width: 90%;
     left:0px;
     right:0px;*/
@@ -80,7 +80,7 @@
 }
 
 .addlists {
-    top:93px;/**/
+    top:90px;/**/
     /*width: 90%;
     left:0px;
     right:0px;*/
@@ -126,7 +126,7 @@
 }
 
 .addgroups {
-    top:93px;/**/
+    top:90px;/**/
     /*width: 90%;
     left:0px;
     right:0px;*/
@@ -150,6 +150,8 @@
     width:50px;
 }
 
+
+
 #editgroup {
     right: 0;
     left: 0;
@@ -172,7 +174,7 @@
 }
 
 .addcontacts {
-    top:93px;/**/
+    top:90px;/**/
     /*width: 90%;
     left:0px;
     right:0px;*/
@@ -311,25 +313,33 @@
      font-size:25px;
 }
 
-.myalertstyle{
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+.lists .list-group .myalertstyle{
+    right: 10px;
+    left: 10px;
+    margin-right:0px;
+    margin-left: 0px;
+    top: 150px;
+    bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     /* give it dimensions */
     min-height: 10em;
-    width: 95%;
-    height: 95%;
     clear:both;
     text-align: center;
     overflow: hidden;
-    visibility: hidden;
+    visibility: visible;
     position:fixed;
     z-index:1040;
+<<<<<<< .mine
+}
+=======
+}
+>>>>>>> .theirs
+
+.activeButton
+{
+    color:#FFFFFF;
+    background-color: #44dd4f;
 }
 
 .filterclass{
@@ -338,7 +348,11 @@
           width:100%;
      height:50px;
 
+<<<<<<< .mine
 }
+=======
+
+>>>>>>> .theirs
 
 .filterclass.container{
      width:inherit;
