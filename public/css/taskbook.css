@@ -331,3 +331,39 @@
     position:fixed;
     z-index:1040;
 }
+
+.filterclass{
+     width:inherit;
+     margin-top:8px;
+          width:100%;
+     height:50px;
+
+}
+
+.filterclass.container{
+     width:inherit;
+     margin-top:5px;
+     margin-left:0;
+     margin-right:10px;
+     left:0px;
+          width:100%;
+          height:50px;
+}
+
+.filterclass btn.btn-default.dropdown-toggle{
+     left:0px;
+     right:0px;
+     margin-left:auto;
+     margin-right:auto;
+          height:50px;
+
+
+}
+
+.filterclass .btn-group {
+     width:100%;
+     height:50px;
+}
+.filterclass .dropdown-menu{
+     width:100%;
+}

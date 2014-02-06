@@ -111,21 +111,35 @@
 			{{#each mytasks}}
 			<a href="#" onclick="visibleForm('edittask{{id}}')" style="  color: #000000;
   text-decoration: none; "/>
-			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li></a>
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}<!--<div class="glyphicon glyphicon-{{status}}" style="width: inherit; text-align:right; margin-right:0px"</div>--></li></a>
 			<div id="edittask{{id}}" class="alert alert-info" style="display:none">
 			<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
 			<strong>Edit Task</strong> Better check yourself, you're not looking too good.<br>
 			<button type="button" class="default" onClick="visibleForm('edittask{{id}}')">Add</button>
 			<button type="button" class="default" onClick="visibleForm('edittask{{id}}')">Cancel</button>
 		</div>
+
 			{{/each}}
 		</ul>
 	</div>
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    BOTTOM BAR
-  </div>
-</nav>
+		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+		  <div class="container filterclass btn-group-justified">
+		  
+		<div class="btn-group dropup ">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    Filter Tasks <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="#">Upcoming Tasks</a></li>
+		    <li><a href="#">Recently Completed</a></li>
+		    <li><a href="#">Starred Tasks</a></li>
+		    <li class="divider"></li>
+		    <li><a href="#">View All</a></li>
+		  </ul>
+		</div>
+
+		  </div>
+		</nav>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/taskbook.js"></script>
