@@ -153,10 +153,18 @@ body {
     color: #444;
 }
 
+.logo
+{
+	width: 30%;
+	position: center;
+	margin-left: 575px;
+
+}
+
 #slick-login input[type="text"],#slick-login input[type="password"] {
 	width: 100%;
 	height: 100px;
-	positon: relative;
+	position: relative;
 	margin-top: 7px;
 	font-size: 50px;
 	color: #444;
