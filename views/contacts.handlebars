@@ -77,17 +77,36 @@
     <a href="/tasks"><button type="button" class="btn btn-default navbuttons">My Tasks</button></a>
   </div>
   <div class="btn-group">
-    <a href="#"><button type="button" class="btn btn-default navbuttons">Lists</button></a>
+    <a href="/lists"><button type="button" class="btn btn-default navbuttons">Lists</button></a>
   </div>
   <div class="btn-group">
     <a href="/groups"><button type="button" class="btn btn-default navbuttons">Groups</button></a>
   </div>
     <div class="btn-group">
-    <a href="/contacts"><button type="button" class="btn btn-default navbuttons">Contacts</button></a>
+    <a href="#"><button type="button" class="btn btn-default navbuttons">Contacts</button></a>
   </div>
 </div>
 </div>
 </div>
+
+<div class = "addcontacts">
+  <div class="input-group">
+    <input type="text" class="form-control" name="cname" title="Contact Title" style="color:#888"; value="New Contact..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" onClick="visibleForm('editcontact')">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </span>
+    
+  </div><!-- /input-group -->
+</div>
+<div id="editcontact" class="alert alert-info">
+  <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+  <strong>Edit Contact</strong> Better check yourself, you're not looking too good.<br>
+  <button type="button" class="default" onClick="visibleForm('editcontact')">Add</button>
+  <button type="button" class="default" onClick="visibleForm('editcontact')">Cancel</button>
+</div>
+
 		<div class = "lists">
 		<ul class="list-group">
 			{{#each mycontacts}}
@@ -97,5 +116,6 @@
 	</div>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
+    <script src="/js/taskbook.js"></script>
 </body>
 </html>

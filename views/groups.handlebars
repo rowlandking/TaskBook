@@ -9,6 +9,7 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/taskbook.css" rel="stylesheet">
+	<script src="/public/js/jquery.js" type="text/javascript"></script>
 	<script src="/routes/jquery.js" type="text/javascript"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<!-- this is a comment in HTML -->
@@ -71,10 +72,10 @@
     <a href="/tasks"><button type="button" class="btn btn-default navbuttons">My Tasks</button></a>
   </div>
   <div class="btn-group">
-    <a href="#"><button type="button" class="btn btn-default navbuttons">Lists</button></a>
+    <a href="/lists"><button type="button" class="btn btn-default navbuttons">Lists</button></a>
   </div>
   <div class="btn-group">
-    <a href="/groups"><button type="button" class="btn btn-default navbuttons">Groups</button></a>
+    <a href="#"><button type="button" class="btn btn-default navbuttons">Groups</button></a>
   </div>
     <div class="btn-group">
     <a href="/contacts"><button type="button" class="btn btn-default navbuttons">Contacts</button></a>
@@ -90,6 +91,23 @@
 			</div>
 		</div>-->
 
+<div class = "addgroups">
+  <div class="input-group">
+    <input type="text" class="form-control" name="gname" title="Group Title" style="color:#888"; value="New Group..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" onClick="visibleForm('editgroup')">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </span>
+    
+  </div><!-- /input-group -->
+</div>
+<div id="editgroup" class="alert alert-info">
+  <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+  <strong>Edit Group</strong> Better check yourself, you're not looking too good.<br>
+  <button type="button" class="default" onClick="visibleForm('editgroup')">Add</button>
+  <button type="button" class="default" onClick="visibleForm('editgroup')">Cancel</button>
+</div>
 
 </div>
 	<div class = "lists">
@@ -103,6 +121,7 @@
 		</p>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
+    <script src="/js/taskbook.js"></script>
 
 
 </body>

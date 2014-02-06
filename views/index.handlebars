@@ -1,19 +1,20 @@
 <!doctype html>
 <head>
 <meta charset="utf-8">
-<title>Slick Login</title>
-<meta name="description" content="slick Login">
-<meta name="author" content="Webdesigntuts+">
+<title>Taskbook</title>
 <link rel="stylesheet" type="text/css" href="/css/loginstyle.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
-<script type="text/javascript" src="/routes/placeholder.js"></script>
 </head>
+
 <body>
 <form id="slick-login">
-<label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="me@tutsplus.com">
+	<script type="text/javascript">
+    function LoginForm(){
+        window.location='/tasks';
+    }
+</script>
+<label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="weare@awesome.com">
 <label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="password">
-<input type="submit" value="Log In">
+<input type="submit" value="Log In" onclick="LoginForm">
 </form>
 
 	<div>

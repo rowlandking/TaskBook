@@ -6,6 +6,7 @@
  */
 $(function()
 {
+    window.location.href='/tasks';
     // check placeholder browser support
     if (!Modernizr.input.placeholder)
     {
@@ -46,7 +47,9 @@ $(function()
                     $(this).val('');
                 }
             })
+           
         });
- 
+                                                                                                                                            
     }
+
 });
