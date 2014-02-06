@@ -39,6 +39,7 @@
 <br>
 <br>
 <div class = "navContainer">
+	
 <ul class="nav nav-tabs nav-justified">
   <li class="active"><a href="#">My Tasks</a></li>
   <li><a href="/lists">Lists</a></li>
@@ -46,17 +47,29 @@
   <li><a href="/contacts">Contacts</a></li>
 </ul>
 </div>
-		<div class = "tasks">
-			<form name="taskForm" onSubmit="return taskValidate()" method="post">
-			<!--<form onSubmit="taskValidate(); return false;">-->
-				Task: <input type="text" name="tname">
-				<input type="submit" value="Add">
-			</form>
+		<div class = "addtasks">
+			<div class="input-group">
+				<input type="text" class="form-control" name="tname" title="Task Title" style="color:#888"; value="New Task..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" onClick="visibleForm()">+</button>
+				</span>
+				<div id="edittask" class="alert alert-info">
+					<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+					<strong>Edit Task</strong> Better check yourself, you're not looking too good.<br>
+					<button type="button" class="default" onClick="visibleForm()">Add</button>
+					<button type="button" class="default" onClick="visibleForm()">Cancel</button>
+				</div>
+			</div><!-- /input-group -->
 		</div>
-		<p>
 
+	<div class = "lists">
+		<ul class="list-group">
+			{{#each mytasks}}
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
 
-		</p>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/taskbook.js"></script>

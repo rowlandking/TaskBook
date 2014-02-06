@@ -92,10 +92,13 @@
     <li><a href="/contacts">Contacts</a></li>
 </ul>
 </div>
-		<div class = "tasks">
-		
-
-		</div>
+	<div class = "lists">
+		<ul class="list-group">
+			{{#each mygroups}}
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
 		<p>
 		</p>
 		<script src="https://code.jquery.com/jquery.js"></script>

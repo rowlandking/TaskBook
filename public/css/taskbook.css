@@ -1,4 +1,3 @@
-
 /* applies to anything of class "example-class-selector" */
 
 /*
@@ -17,7 +16,7 @@
 
 .GlobalHeader {
     overflow: hidden;
-   
+     
      text-align: center;
      font-size: 35px;
      left: 10px;
@@ -27,69 +26,56 @@
     clear:both;
 }
 
-.tasks {
+/*.tasks {
     clear:both;
     text-align: center;
     overflow: hidden;
     visibility: visible;
-}
-/*
-.nav nav-tab{
-     clear:both;
-     text-align: center;
-    overflow: hidden;
-    visibility: visible;
-}
-*/
-.navContainer{
-    top:45px;
-    width: inherit;
+}*/
+
+.addtasks {
+    top:97px;/**/
+    /*width: 90%;
+    left:0px;
+    right:0px;*/
     clear:both;
     text-align: center;
     overflow: hidden;
     visibility: visible;
     position:fixed;
     z-index:1030;
-    /* position: fixed;
-     right: 0;
-     left: 0;
-     z-index: 1030;*/
 }
 
-/* applies to anything of class "example-class-selector" */
-
-/*
-.GlobalHeader{
-     position:absolute;
-     text-align: center;
-     left: 10px;
-     right: 10px;
-     width: inherit;
-     ;
-}
-
-.tasks{
-     position:absolute;
-}*/
-
-.GlobalHeader {
-    overflow: hidden;
-   
-     text-align: center;
-     font-size: 35px;
-     left: 10px;
-     right: 10px;
-     height: 45px;
-     width: inherit;
-    clear:both;
-}
-
-.tasks {
+#edittask {
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* give it dimensions */
+    min-height: 10em;
+    width: 95%;
+    height: 95%;
     clear:both;
     text-align: center;
     overflow: hidden;
-    visibility: visible;
+    visibility: hidden;
+    position:fixed;
+    z-index:1030;
 }
+
+.alert-info {
+    /*Background color*/
+    background-image: linear-gradient(to bottom,#FFFFFF 0,#FFFFFF 100%);
+    border-color: #9acfea;
+
+    /*Text color*/
+    color: #18262C;
+}
+
 /*
 .nav nav-tab{
      clear:both;
@@ -99,7 +85,7 @@
 }
 */
 .navContainer{
-    top:45px;/**/
+    top:48px;/**/
     left:0px;
     right:0px;
     font-size: 18px;
@@ -108,17 +94,64 @@
     overflow: hidden;
     visibility: visible;
     position:fixed;
-    z-index:1030;
+    opacity: 100%;
+    z-index:1020;
+    background: white;
     /* position: fixed;
      right: 0;
      left: 0;
      z-index: 1030;*/
 }
 
+/*
+@media (min-width: 768px) {
+     .navContainer{
+          display:none;
+     }
+}*/
+@media (min-width: 768px) {
+     .lists{
+          
+          width:inherit;
+          clear:both;
+          top:150px;
+         left:0px;
+         right:0px;
+         font-size: 17px;
+         clear:both;
+         text-align: left;
+         overflow: hidden;
+         visibility: visible;
+         position:relative;
+         z-index:1010;
+     
+     }
+}
+
 .lists{
-     z-index:1030;
+
      width:inherit;
      clear:both;
-     float:right;
+     top:150px;
+     left:0px;
+     right:0px;
+     font-size: 17px;
+     clear:both;
+     overflow: hidden;
+     visibility: visible;
+     position:relative;
+     z-index:1010;
+     text-align: left;
 
 }
+
+
+.btn.btn-default{
+  color: #000000;
+  text-decoration: none; /* no underline */
+  border:4;
+border-color: #F1F1F1;
+  background-image:none;
+  font-size:18px;
+}
+
