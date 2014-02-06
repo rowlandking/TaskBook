@@ -59,7 +59,7 @@
     z-index:1020;
 }
 
-.addlists .input-group .form-control{
+.addlists.input-group.form-control{
      height:48px;
 }
 
@@ -185,6 +185,7 @@
 
 
 .navbuttons{
+     margin-top:3px;
   color: #000000;
   text-decoration: none; /* no underline */
   border:1px;
