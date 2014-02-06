@@ -47,7 +47,7 @@
 }
 
 .addlists {
-    top:87px;/**/
+    top:82px;/**/
     /*width: 90%;
     left:0px;
     right:0px;*/
@@ -61,8 +61,14 @@
 
 .addlists .input-group .form-control{
      height:45px;
-     left:0px;
-     right:15px;
+     margin-left:0px;
+     width:100%;
+}
+
+.addlists button.btn.btn-default {
+    margin-left: 0px;
+    height:45px;
+    width:45px;
 }
 
 #edittask {
