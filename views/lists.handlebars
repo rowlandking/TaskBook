@@ -113,6 +113,22 @@
 	</ul>
 	</div>
 -->
+
+<div class = "addlists">
+  <div class="input-group">
+    <input type="text" class="form-control" name="lname" title="List Title" style="color:#888"; value="New List..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" onClick="visibleForm('editlist')">+</button>
+    </span>
+    <div id="editlist" class="alert alert-info">
+      <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+      <strong>Edit List</strong> Better check yourself, you're not looking too good.<br>
+      <button type="button" class="default" onClick="visibleForm('editlist')">Add</button>
+      <button type="button" class="default" onClick="visibleForm('editlist')">Cancel</button>
+    </div>
+  </div><!-- /input-group -->
+</div>
+
 	<div class = "lists">
 		<ul class="list-group">
 			{{#each mylists}}
@@ -122,5 +138,6 @@
 	</div>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+  <script src="/js/taskbook.js"></script>
 </body>
 </html>
