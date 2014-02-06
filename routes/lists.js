@@ -6,101 +6,26 @@
 exports.view = function(req, res){
   res.render('lists',{
   	'mylists': [
-      { 'name': 'Waiting in Line',
+      { 'name': 'Daily Reminders',
         'taskcount': '20'
       },
-      { 'name': 'Needfinding',
+      { 'name': 'Apartment Stuff',
         'taskcount': '2'
       },
-      { 'name': 'Prototyping',
+      { 'name': 'CSE 170 Project',
         'taskcount': '34'
       },
-      { 'name': 'Heuristic Evaluation',
+      { 'name': 'CSE 131 Compilers',
         'taskcount': '14'
       },
-      { 'name': 'Visualization',
+      { 'name': 'Groceries to buy',
         'taskcount': '5'
       },
-      { 'name': 'Social design',
+      { 'name': 'Gifts to buy for people',
         'taskcount': '12'
       },
       { 'name': 'Gestural interaction',
         'taskcount': '7'
-      },
-      { 'name': 'Design tools',
-        'taskcount': '14'
-      },
-      { 'name': 'Waiting in Line',
-        'taskcount': '20'
-      },
-      { 'name': 'Needfinding',
-        'taskcount': '2'
-      },
-      { 'name': 'Prototyping',
-        'taskcount': '34'
-      },
-      { 'name': 'Heuristic Evaluation',
-        'taskcount': '14'
-      },
-      { 'name': 'Visualization',
-        'taskcount': '5'
-      },
-      { 'name': 'Social design',
-        'taskcount': '12'
-      },
-      { 'name': 'Gestural interaction',
-        'taskcount': '7'
-      },
-      { 'name': 'Design tools',
-        'taskcount': '14'
-      },
-      { 'name': 'Waiting in Line',
-        'taskcount': '20'
-      },
-      { 'name': 'Needfinding',
-        'taskcount': '2'
-      },
-      { 'name': 'Prototyping',
-        'taskcount': '34'
-      },
-      { 'name': 'Heuristic Evaluation',
-        'taskcount': '14'
-      },
-      { 'name': 'Visualization',
-        'taskcount': '5'
-      },
-      { 'name': 'Social design',
-        'taskcount': '12'
-      },
-      { 'name': 'Gestural interaction',
-        'taskcount': '7'
-      },
-      { 'name': 'Design tools',
-        'taskcount': '14'
-      },
-      { 'name': 'Waiting in Line',
-        'taskcount': '20'
-      },
-      { 'name': 'Needfinding',
-        'taskcount': '2'
-      },
-      { 'name': 'Prototyping',
-        'taskcount': '34'
-      },
-      { 'name': 'Heuristic Evaluation',
-        'taskcount': '14'
-      },
-      { 'name': 'Visualization',
-        'taskcount': '5'
-      },
-      { 'name': 'Social design',
-        'taskcount': '12'
-      },
-      { 'name': 'Gestural interaction',
-        'taskcount': '7'
-      },
-      { 'name': 'Design tools',
-        'taskcount': '14'
       }
     ]
   });
