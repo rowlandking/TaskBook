@@ -219,12 +219,12 @@ body {
 	background-clip: padding-box;
 	border-radius: 6px;
 
-	background-color: #5466da;
-	background-image: -webkit-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-	background-image: -moz-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-	background-image: -o-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-	background-image: -ms-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-	background-image: linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+	background-color: #137854;
+	background-image: -webkit-linear-gradient(bottom, #137854 0%, #137854 100%);
+	background-image: -moz-linear-gradient(bottom, #137854 0%, #137854 100%);
+	background-image: -o-linear-gradient(bottom, #137854 0%, #137854 100%);
+	background-image: -ms-linear-gradient(bottom, #137854 0%, #137854 100%);
+	background-image: linear-gradient(bottom, #137854 0%, #137854 100%);
 	
 	-webkit-box-shadow: inset 0px 1px 0px #9ab1ec;
 	box-shadow: inset 0px 1px 0px #9ab1ec;
