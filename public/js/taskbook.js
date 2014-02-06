@@ -1,14 +1,14 @@
-function visibleForm() {
+function visibleForm(name) {
     //do stuff
     /*var x=document.forms["taskForm"]["tname"].value;
     if (x==null || x=="" || x="New Task...") {
     	alert("Enter a task");
     	return false;
     }*/
-    if (document.getElementById('edittask').style.visibility=="visible") {
-    	document.getElementById('edittask').style.visibility="hidden";
+    if (document.getElementById(name).style.visibility=="visible") {
+    	document.getElementById(name).style.visibility="hidden";
     }
-    else document.getElementById('edittask').style.visibility="visible";
+    else document.getElementById(name).style.visibility="visible";
 
     return true;
 }
