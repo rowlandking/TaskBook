@@ -133,9 +133,13 @@
 .btn.btn-default{
   color: #000000;
   text-decoration: none; /* no underline */
-  border:4;
-border-color: #F1F1F1;
-  background-image:none;
+  border:1px;
+  border-color: #000000;
+  background-image: #0000000;
   font-size:18px;
+  border-radius: 0px;
+}
+.navbar-brand{
+     font-size:25px;
 }
 
