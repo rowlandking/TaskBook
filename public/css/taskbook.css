@@ -51,12 +51,16 @@
     /*width: 90%;
     left:0px;
     right:0px;*/
-    clear:both;
+    font-size: 15px;
     text-align: center;
     overflow: hidden;
     visibility: visible;
     position:fixed;
     z-index:1020;
+}
+
+.addlists .input-group .form-control{
+     height:48px;
 }
 
 #edittask {
@@ -119,7 +123,7 @@
 }
 */
 .navContainer{
-    top:48px;/**/
+    top:50px;/**/
     left:0px;
     right:0px;
     font-size: 18px;
@@ -148,7 +152,7 @@
           
           width:inherit;
           clear:both;
-          top:150px;
+          top:135px;
          left:0px;
          right:0px;
          font-size: 17px;
@@ -166,7 +170,7 @@
 
      width:inherit;
      clear:both;
-     top:150px;
+     top:135px;
      left:0px;
      right:0px;
      font-size: 17px;
@@ -180,12 +184,17 @@
 }
 
 
-.btn.btn-default{
+.navbuttons{
   color: #000000;
   text-decoration: none; /* no underline */
-  border:4;
-border-color: #F1F1F1;
-  background-image:none;
+  border:1px;
+  border-color: #000000;
+  background-image: none;
   font-size:18px;
+  border-radius: 0px;
+}
+
+.navbar-brand{
+     font-size:25px;
 }
 
