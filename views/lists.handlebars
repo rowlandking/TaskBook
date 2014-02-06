@@ -30,16 +30,19 @@
 			</div>
 		</div>-->
 
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
       <a class="navbar-brand" href="#">TaskBook</a>
 
 
@@ -48,10 +51,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">My Tasks</a></li>
-        <li><a href="#">Lists</a></li>
-        <li><a href="#">Tasks</a></li>
-        <li><a href="#">Groups</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Help</a></li>
+            <li class="divider"></li>
         
       </ul>
 
@@ -59,8 +61,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Karen Wu <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#">User Profile</a></li>
             <li class="divider"></li>
             <li><a href="#">Logout</a></li>
           </ul>
@@ -70,22 +71,32 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+
 <div class="navContainer">
 <div class="btn-group btn-group-justified">
   <div class="btn-group">
-    <button type="button" class="btn btn-default">My Tasks</button>
+    <a href="/tasks"><button type="button" class="btn btn-default">My Tasks</button></a>
   </div>
   <div class="btn-group">
-    <button type="button" class="btn btn-default">Lists</button>
+    <a href="#"><button type="button" class="btn btn-default">Lists</button></a>
   </div>
   <div class="btn-group">
-    <button type="button" class="btn btn-default">Groups</button>
+    <a href="/groups"><button type="button" class="btn btn-default">Groups</button></a>
   </div>
     <div class="btn-group">
-    <button type="button" class="btn btn-default">Contacts</button>
+    <a href="/contacts"><button type="button" class="btn btn-default">Contacts</button></a>
   </div>
 </div>
 </div>
+<!--
+<div class="navContainer">
+	<ul class="nav nav-pills nav-justified">
+        <li><a href="/tasks">My Tasks</a></li>
+        <li class="active"><a href="#">Lists</a></li>
+        <li><a href="/tasks">Tasks</a></li>
+        <li><a href="/groups">Groups</a></li>
+</ul>
+</div>-->
 <!--	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	  <div class="GlobalHeader">
 	    TaskBook

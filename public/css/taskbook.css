@@ -85,7 +85,7 @@
 }
 */
 .navContainer{
-    top:51px;/**/
+    top:48px;/**/
     left:0px;
     right:0px;
     font-size: 18px;
@@ -103,11 +103,12 @@
      z-index: 1030;*/
 }
 
+/*
 @media (min-width: 768px) {
      .navContainer{
           display:none;
      }
-}
+}*/
 @media (min-width: 768px) {
      .lists{
           
@@ -143,3 +144,14 @@
      text-align: left;
 
 }
+
+
+.btn.btn-default{
+  color: #000000;
+  text-decoration: none; /* no underline */
+  border:4;
+border-color: #F1F1F1;
+  background-image:none;
+  font-size:18px;
+}
+
