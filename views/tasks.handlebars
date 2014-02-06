@@ -109,7 +109,15 @@
 	<div class = "lists">
 		<ul class="list-group">
 			{{#each mytasks}}
-			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+			<a href="#" onclick="visibleForm('edittask{{id}}')" style="  color: #000000;
+  text-decoration: none; "/>
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li></a>
+			<div id="edittask{{id}}" class="alert alert-info" style="display:none">
+			<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+			<strong>Edit Task</strong> Better check yourself, you're not looking too good.<br>
+			<button type="button" class="default" onClick="visibleForm('edittask{{id}}')">Add</button>
+			<button type="button" class="default" onClick="visibleForm('edittask{{id}}')">Cancel</button>
+		</div>
 			{{/each}}
 		</ul>
 	</div>
