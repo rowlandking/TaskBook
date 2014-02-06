@@ -150,6 +150,8 @@
     width:50px;
 }
 
+
+
 #editgroup {
     right: 0;
     left: 0;
@@ -328,4 +330,10 @@
     visibility: visible;
     position:fixed;
     z-index:1040;
+}
+
+.activeButton
+{
+    color:#FFFFFF;
+    background-color: #44dd4f;
 }
