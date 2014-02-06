@@ -371,17 +371,11 @@
     visibility: visible;
     position:fixed;
     z-index:1040;
-<<<<<<< .mine
-}
-=======
-}
->>>>>>> .theirs
 
-.activeButton
-{
-    color:#FFFFFF;
-    background-color: #44dd4f;
 }
+
+
+
 
 .filterclass{
      width:inherit;
@@ -389,11 +383,8 @@
           width:100%;
      height:50px;
 
-<<<<<<< .mine
 }
-=======
 
->>>>>>> .theirs
 
 .filterclass.container{
      width:inherit;
@@ -412,7 +403,6 @@
      margin-right:auto;
           height:50px;
 
-
 }
 
 .filterclass .btn-group {
@@ -421,4 +411,9 @@
 }
 .filterclass .dropdown-menu{
      width:100%;
+}
+.activeButton
+{
+    color:#FFFFFF;
+    background-color: #44dd4f;
 }
