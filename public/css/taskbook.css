@@ -150,6 +150,8 @@
     width:50px;
 }
 
+
+
 #editgroup {
     right: 0;
     left: 0;
@@ -311,3 +313,8 @@
      font-size:25px;
 }
 
+.activeButton
+{
+    color:#FFFFFF;
+    background-color: #44dd4f;
+}
