@@ -13,6 +13,21 @@ function visibleForm(name) {
     return true;
 }
 
+function visibleTaskForm(name) {
+    //do stuff
+    /*var x=document.forms["taskForm"]["tname"].value;
+    if (x==null || x=="" || x="New Task...") {
+        alert("Enter a task");
+        return false;
+    }*/
+    if (document.getElementById(name).style.display=="block") {
+        document.getElementById(name).style.display="none";
+    }
+    else document.getElementById(name).style.display="block";
+
+    return true;
+}
+
 function inputFocus(i){
     if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
 }

@@ -7,10 +7,12 @@ exports.view = function(req, res){
   res.render('tasks',{
   	'mytasks': [
       { 'name': 'Waiting in Line',
-        'id':'0'
+        'id':'0',
+        'status':'star'
       },
       { 'name': 'Needfinding',
-        'id':'1'
+        'id':'1',
+        'status':'fire'
       },
       { 'name': 'Prototyping',
         'id':'2'
