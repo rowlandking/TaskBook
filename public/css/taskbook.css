@@ -16,7 +16,7 @@
 
 .GlobalHeader {
     overflow: hidden;
-   
+     
      text-align: center;
      font-size: 35px;
      left: 10px;
@@ -69,7 +69,7 @@
 }
 */
 .navContainer{
-    top:50px;/**/
+    top:51px;/**/
     left:0px;
     right:0px;
     font-size: 18px;
@@ -88,8 +88,13 @@
 }
 
 @media (min-width: 768px) {
+     .navContainer{
+          display:none;
+     }
+}
+@media (min-width: 768px) {
      .lists{
-
+          
           width:inherit;
           clear:both;
           top:150px;
@@ -110,7 +115,7 @@
 
      width:inherit;
      clear:both;
-     top:100px;
+     top:150px;
      left:0px;
      right:0px;
      font-size: 17px;
