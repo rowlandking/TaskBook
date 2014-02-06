@@ -47,11 +47,18 @@
 </ul>
 </div>
 		<div class = "addtasks">
-			<form name="taskForm" onSubmit="return taskValidate()" method="post">
-			<!--<form onSubmit="taskValidate(); return false;">-->
-				<input id="box" type="text" name="tname" title="Task Title" style="color:#888"; value="New Task..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
-				<input type="submit" value="Add">
-			</form>
+			<div class="input-group">
+				<input type="text" class="form-control" name="tname" title="Task Title" style="color:#888"; value="New Task..." onfocus="inputFocus(this)" onBlur="inputBlur(this)">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" onClick="visibleForm()">Add</button>
+				</span>
+				<div id="edittask" class="alert alert-info">
+					<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+					<strong>Edit Task</strong> Better check yourself, you're not looking too good.<br>
+					<button type="button" class="default" onClick="visibleForm()">Done</button>
+					<button type="button" class="default" onClick="visibleForm()">Cancel</button>
+				</div>
+			</div><!-- /input-group -->
 		</div>
 
 	<div class = "lists">
