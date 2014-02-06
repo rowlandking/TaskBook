@@ -61,6 +61,8 @@
 
 .addlists .input-group .form-control{
      height:45px;
+     left:0px;
+     right:15px;
 }
 
 #edittask {
