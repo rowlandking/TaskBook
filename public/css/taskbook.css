@@ -51,12 +51,16 @@
     /*width: 90%;
     left:0px;
     right:0px;*/
-    clear:both;
+    font-size: 15px;
     text-align: center;
     overflow: hidden;
     visibility: visible;
     position:fixed;
     z-index:1020;
+}
+
+.addlists .input-group .form-control{
+     height:45px;
 }
 
 #edittask {
@@ -148,7 +152,7 @@
           
           width:inherit;
           clear:both;
-          top:150px;
+          top:135px;
          left:0px;
          right:0px;
          font-size: 17px;
@@ -166,7 +170,7 @@
 
      width:inherit;
      clear:both;
-     top:150px;
+     top:135px;
      left:0px;
      right:0px;
      font-size: 17px;
