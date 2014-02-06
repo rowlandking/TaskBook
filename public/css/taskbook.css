@@ -184,7 +184,7 @@
 }
 
 
-.btn.btn-default{
+.navbuttons{
   color: #000000;
   text-decoration: none; /* no underline */
   border:1px;
@@ -193,6 +193,7 @@
   font-size:18px;
   border-radius: 0px;
 }
+
 .navbar-brand{
      font-size:25px;
 }
