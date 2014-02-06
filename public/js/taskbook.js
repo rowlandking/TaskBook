@@ -12,6 +12,9 @@ function visibleForm(name) {
 
     return true;
 }
+function logOut(){
+    window.location.href ='/';
+}
 
 function visibleTaskForm(name) {
     //do stuff
