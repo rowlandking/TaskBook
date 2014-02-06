@@ -1,12 +1,16 @@
-function taskValidate() {
+function visibleForm() {
     //do stuff
-    var x=document.forms["taskForm"]["tname"].value;
+    /*var x=document.forms["taskForm"]["tname"].value;
     if (x==null || x=="" || x="New Task...") {
     	alert("Enter a task");
     	return false;
+    }*/
+    if (document.getElementById('edittask').style.visibility=="visible") {
+    	document.getElementById('edittask').style.visibility="hidden";
     }
+    else document.getElementById('edittask').style.visibility="visible";
 
-    return true;    
+    return true;
 }
 
 function inputFocus(i){
