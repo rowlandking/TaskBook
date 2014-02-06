@@ -60,7 +60,7 @@
 }
 
 .addlists .input-group .form-control{
-     height:45px;
+     height:48px;
 }
 
 #edittask {
@@ -123,7 +123,7 @@
 }
 */
 .navContainer{
-    top:48px;/**/
+    top:50px;/**/
     left:0px;
     right:0px;
     font-size: 18px;
@@ -189,7 +189,7 @@
   text-decoration: none; /* no underline */
   border:1px;
   border-color: #000000;
-  background-image: #0000000;
+  background-image: none;
   font-size:18px;
   border-radius: 0px;
 }
