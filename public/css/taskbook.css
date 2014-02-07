@@ -442,3 +442,8 @@
 #contacticon img{
     float: left;
 }
+
+.contactName{
+    font-weight: bold;
+    font-size: 200% ;
+}

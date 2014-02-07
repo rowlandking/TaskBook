@@ -21,7 +21,7 @@ function showContact(name, name_Field, contactName) {
         alert("Enter a task");
         return false;
     }*/
-    document.getElementById(name_Field).value = "awesome";
+    document.getElementById(name_Field).innerHTML = contactName;
 
     if (document.getElementById(name).style.visibility=="visible") {
         document.getElementById(name).style.visibility="hidden";
