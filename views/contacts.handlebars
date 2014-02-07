@@ -117,10 +117,18 @@
   <button type="button" class="default" onClick="visibleForm('settingspage')">Save</button>
 </div>
 
-		<div class = "lists">
+ <div id="contactpage" class="alert alert-info ">
+      <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+      <div id="contact_field"> Contact Name </div>
+      <img id="contacticon"src="/images/usericon.png" width="300" height="300" >
+      <button type="button" class="default" onClick="visibleForm('contactpage')">Add</button>
+      <button type="button" class="default" onClick="visibleForm('contactpage')">Cancel</button>
+    </div>
+<div class = "lists">
 		<ul class="list-group">
 			{{#each mycontacts}}
-			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
+      <a href="#" onClick="showContact('contactpage', 'contact_field', '{{name}}')" style="  color: #000000; text-decoration: none; "/>
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li></a>
 			{{/each}}
 		</ul>
 	</div>

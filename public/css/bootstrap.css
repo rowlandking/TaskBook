@@ -5213,7 +5213,7 @@ a.badge:focus {
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #428bca;
-  background-color: #ffffff;
+  background-color: #5aec58;
 }
 
 .nav-pills > li > a > .badge {

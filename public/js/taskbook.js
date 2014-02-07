@@ -5,10 +5,30 @@ function visibleForm(name) {
     	alert("Enter a task");
     	return false;
     }*/
+
     if (document.getElementById(name).style.visibility=="visible") {
     	document.getElementById(name).style.visibility="hidden";
     }
     else document.getElementById(name).style.visibility="visible";
+
+    return true;
+}
+
+function showContact(name, name_Field, contactName) {
+    //do stuff
+    /*var x=document.forms["taskForm"]["tname"].value;
+    if (x==null || x=="" || x="New Task...") {
+        alert("Enter a task");
+        return false;
+    }*/
+    document.getElementById(name_Field).value = "awesome";
+
+    if (document.getElementById(name).style.visibility=="visible") {
+        document.getElementById(name).style.visibility="hidden";
+    }
+    else document.getElementById(name).style.visibility="visible";
+
+
 
     return true;
 }
