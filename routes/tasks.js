@@ -6,53 +6,73 @@
 exports.view = function(req, res){
   res.render('tasks',{
   	'mytasks': [
-      { 'name': 'Waiting in Line',
-        'id':'0'
+      { 'name': 'Take out the trash',
+        'id':'0',
+        'status':'star'
       },
-      { 'name': 'Needfinding',
-        'id':'1'
+      { 'name': 'Buy Eggs',
+        'id':'1',
+        'status':'fire'
       },
-      { 'name': 'Prototyping',
+      { 'name': 'Finish Week 5 Assignment',
         'id':'2'
       },
-      { 'name': 'Heuristic Evaluation',
+      { 'name': 'Create Documentation',
         'id':'3'
       },
-      { 'name': 'Visualization',
+      { 'name': 'Watch Lecture Videos',
         'id':'4'
       },
-      { 'name': 'Social design',
+      { 'name': 'Study for Midterm',
         'id':'5'
       },
-      { 'name': 'Gestural interaction',
+      { 'name': 'Go on a date',
         'id':'6'
       },
-      { 'name': 'Design tools',
+      { 'name': 'Learn Html & Css',
         'id':'7'
       },
-      { 'name': 'Waiting in Line',
+      { 'name': 'Call Karen to set up group meeting',
         'id':'8'
       },
-      { 'name': 'Needfinding',
+      { 'name': 'Call Clarence for spec sheets',
         'id':'9'
       },
-      { 'name': 'Prototyping',
+      { 'name': 'Watch Captain America',
         'id':'10'
       },
-      { 'name': 'Heuristic Evaluation',
+      { 'name': 'Do the Heuristic Evaluation',
         'id':'11'
       },
-      { 'name': 'Visualization',
+      { 'name': 'Buy textbooks',
         'id':'12'
       },
-      { 'name': 'Social design',
+      { 'name': 'Study for CSE 170 Midterm',
         'id':'13'
       },
-      { 'name': 'Gestural interaction',
+      { 'name': 'Make a compiler',
         'id':'14'
       },
-      { 'name': 'Design tools',
+      { 'name': 'Have Fun',
         'id':'15'
+      },
+      { 'name': 'Go on a date',
+        'id':'16'
+      },
+      { 'name': 'Learn Html & Css',
+        'id':'17'
+      },
+      { 'name': 'Call Karen to set up group meeting',
+        'id':'18'
+      },
+      { 'name': 'Call Clarence for spec sheets',
+        'id':'19'
+      },
+      { 'name': 'Watch Captain America',
+        'id':'20'
+      },
+      { 'name': 'Do the Heuristic Evaluation',
+        'id':'21'
       }
     ]
   });

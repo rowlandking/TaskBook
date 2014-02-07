@@ -12,11 +12,14 @@ exports.view = function(req, res){
       { 'name': 'Karen Wu',
         'taskcount': '2'
       },
-      { 'name': 'Prototyping',
+      { 'name': 'Clarence Siu',
         'taskcount': '34'
       },
-      { 'name': 'Heuristic Evaluation',
+      { 'name': 'Scott Klemmer',
         'taskcount': '14'
+      },
+      { 'name': 'Jessica Hsi',
+        'taskcount': '24'
       },
       
     ]

@@ -42,7 +42,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="#">TaskBook</a>
+      <img src="/images/tblogo.png" width="150" height="50">
 
 
     </div>
@@ -50,8 +50,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#" onClick="visibleForm('settingspage');">Settings</a></li>
+            <li><a href="#" onClick="visibleForm('helppage');">Help</a></li>
             <li class="divider"></li>
         
       </ul>
@@ -62,7 +62,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">User Profile</a></li>
             <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#" onClick="logOut()">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -130,7 +130,17 @@
   <button type="button" class="default" onClick="visibleForm('editlist')">Add</button>
   <button type="button" class="default" onClick="visibleForm('editlist')">Cancel</button>
 </div>
+<div id="helppage" class="alert alert-info">
+  <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+  <strong>Help</strong> To add a new task please click the "My Tasks" tab on the navigation menu.<br>
+  <button type="button" class="default" onClick="visibleForm('helppage')">Got it!</button>
+</div>
 
+<div id="settingspage" class="alert alert-info">
+  <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+  <strong>Settings</strong> You want to change some settings.<br>
+  <button type="button" class="default" onClick="visibleForm('settingspage')">Save</button>
+</div>
 	<div class = "lists">
 		<ul class="list-group">
 			{{#each mylists}}
@@ -142,10 +152,28 @@
         <button type="button" class="default" onClick="visibleTaskForm('editlist{{id}}')">Add</button>
         <button type="button" class="default" onClick="visibleTaskForm('editlist{{id}}')">Cancel</button>
       </div>
+			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li>
 			{{/each}}
 		</ul>
 	</div>
-  
+	<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+		  <div class="container filterclass btn-group-justified">
+		  
+		<div class="btn-group dropup ">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    Filter Lists <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="#">By Group</a></li>
+		    <li><a href="#">By Urgency</a></li>
+		    <li><a href="#">Starred Lists</a></li>
+		    <li class="divider"></li>
+		    <li><a href="#">View All</a></li>
+		  </ul>
+		</div>
+
+		  </div>
+		</nav>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
   <script src="/js/taskbook.js"></script>
