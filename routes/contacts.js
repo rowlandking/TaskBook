@@ -21,6 +21,24 @@ exports.view = function(req, res){
       { 'name': 'Jessica Hsi',
         'taskcount': '24'
       },
+      { 'name': 'Melissa Cameron',
+        'taskcount': '24'
+      },
+      { 'name': 'Galit Hofree',
+        'taskcount': '24'
+      },
+      { 'name': 'Melody Kim',
+        'taskcount': '76'
+      },
+      { 'name': 'Adam Mekrut',
+        'taskcount': '17'
+      },
+      { 'name': 'Laura Pina',
+        'taskcount': '98'
+      },
+      { 'name': 'Yu Xia',
+        'taskcount': '45'
+      },
       
     ]
   });
