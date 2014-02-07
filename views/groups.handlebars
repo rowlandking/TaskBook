@@ -140,14 +140,9 @@
 	<div class = "lists">
 		<ul class="list-group">
 			{{#each mygroups}}
-      <a href="#" onClick="visibleTaskForm('editgroup{{id}}')" style="  color: #000000; text-decoration: none; "/>
+      <a href="#" onClick="visibleForm('editgroup')" style="  color: #000000; text-decoration: none; "/>
 			<li class="list-group-item"> <span class="badge">{{taskcount}}</span>{{name}}</li></a>
-     
-        <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
-        <strong>Edit Group</strong> Better check yourself, you're not looking too good.<br>
-        <button type="button" class="default" onClick="visibleTaskForm('editgroup{{id}}')">Add</button>
-        <button type="button" class="default" onClick="visibleTaskForm('editgroup{{id}}')">Cancel</button>
-  
+
 			{{/each}}
 		</ul>
 	</div>
