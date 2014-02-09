@@ -121,12 +121,12 @@ table {
 body {
 	font-family: sans-serif;
 	
-	background-color: #44dd4f;
-	background-image: -webkit-linear-gradient(bottom, #44dd4f 0%, #44dd4f 100%);
-	background-image: -moz-linear-gradient(bottom, #44dd4f 0%, #44dd4f 100%);
-	background-image: -o-linear-gradient(bottom, #44dd4f 0%, #44dd4f 100%);
-	background-image: -ms-linear-gradient(bottom, #44dd4f 0%, #44dd4f 100%);
-	background-image: linear-gradient(bottom, #44dd4f 0%, #44dd4f 100%);
+	background-color: #FFB140;
+	background-image: -webkit-linear-gradient(bottom, #FFB140 0%, #FFB140 100%);
+	background-image: -moz-linear-gradient(bottom, #FFB140 0%, #FFB140 100%);
+	background-image: -o-linear-gradient(bottom, #FFB140 0%, #FFB140 100%);
+	background-image: -ms-linear-gradient(bottom, #FFB140 0%, #FFB140 100%);
+	background-image: linear-gradient(bottom, #FFB140 0%, #FFB140 100%);
 }
 
 #slick-login {
@@ -155,12 +155,15 @@ body {
 
 .logo
 {
-	width: 30%;
+	max-width: 100%;
 	position: center;
-	margin-left: 575px;
-
 }
 
+.loginlogo
+{
+	max-width: 100%;
+	position: center;
+}
 #slick-login input[type="text"],#slick-login input[type="password"] {
 	width: 100%;
 	height: 100px;
