@@ -44,6 +44,9 @@ exports.viewProject = function(req, res) { 
     	'tasks':[
     	{
     		'name':'Wash Dishes'
+    	},
+    	    	{
+    		'name':'Clean Toilet'
     	}
     	]
     },
