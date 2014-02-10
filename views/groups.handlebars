@@ -57,6 +57,16 @@
   <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-pencil"></span> </button>
 </div>
 
+{{#each lists}}
+<div class="panel panel-primary">
+  <div class="panel-body">
+    {{name}}
+  </div>
+  {{#each tasks}}
+  <div class="panel-footer">{{name}}</div>
+  {{/each}}
+</div>
+{{/each}}
 
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>

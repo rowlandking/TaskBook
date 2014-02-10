@@ -37,6 +37,31 @@ exports.viewProject = function(req, res) { 
         'image': 'lorempixel.city.2.jpeg',
         'id': 'project8'
       }
+    ],
+    'lists':[
+    {
+    	'name':'Chores',
+    	'tasks':[
+    	{
+    		'name':'Wash Dishes'
+    	}
+    	]
+    },
+    {
+		'name':'Schoolwork',
+    	'tasks':[
+    	{
+    		'name':'Turn in essay'
+    	},
+    	{
+    		'name':'Read Chapter 1'
+    	},
+    	{
+    		'name':'Finish lab'
+    	}
+    	]
+    },
+
     ]
   });
 };

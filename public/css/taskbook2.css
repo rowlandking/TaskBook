@@ -27,6 +27,8 @@
 }
 
 .groupTitle{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     width:inherit;
     height:50px;
     text-align: center;
