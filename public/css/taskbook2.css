@@ -16,6 +16,32 @@
 }
 
 .logo{
-    margin-bottom: auto;
-    max-width:120px;
+    position: absolute;
+    margin:  0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.logotext{
+    width: 120px;
+}
+
+.groupTitle{
+    width:inherit;
+    height:50px;
+    text-align: center;
+}
+
+.groupTitleText{
+    position:absolute;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30px;
+    width:100%;
+    height:50px;
+    overflow: hidden;
+}
+
+.pin{
+    margin-top:3px
 }

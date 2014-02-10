@@ -25,7 +25,9 @@
 
 <body>
 
+
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="logo">  <img class ="logotext" src="/images/taskbook.png"></img> </div>
   <div class="container" style="text-align: center">
     <!-- Old Button<button type="button" class="btn btn-default navbar-btn fleft" ><span class="glyphicon glyphicon-th-large"></span> </button>-->
     <div class="btn-group fleft buttoncenter">
@@ -40,17 +42,21 @@
         </ul>
       </div>
     </div>
-
-    <img class ="logo" src="/images/taskbook.png"></img>
     <button type="button" class="btn btn-default navbar-btn fright" ><span class="glyphicon glyphicon-cog"></span> </button>
     <button type="button" class="btn btn-default navbar-btn fright" ><span class="glyphicon glyphicon-bullhorn"></span> </button>
 
   </div>
 </nav>
 
-<h1>
-  {{projectName}}
-</h1>
+
+<h2 class="groupTitleText">{{projectName}}</h2>
+<div class="groupTitle">
+  <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-pushpin"></span> </button>
+  <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-sort"></span> </button>
+  <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-filter"></span> </button>
+  <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-pencil"></span> </button>
+</div>
+
 
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
