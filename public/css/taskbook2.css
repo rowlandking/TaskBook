@@ -1,0 +1,21 @@
+
+.fleft{
+    float:left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.buttoncenter{
+    margin-top:10px
+}
+
+.fright{
+    float:right;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.logo{
+    margin-bottom: auto;
+    max-width:120px;
+}
