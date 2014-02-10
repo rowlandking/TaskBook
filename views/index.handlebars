@@ -2,7 +2,10 @@
 <head>
 <meta charset="utf-8">
 <title>Taskbook</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="/css/loginstyle.css" />
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,10 +23,25 @@
 <label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="password">
 <input type="button" value="Log In" onclick="LoginForm()">
 </form>
+
+
+
+</div>
+<div id="signupbutton">
+<a href="#" onclick="signup('signup')">New to Taskbook? Create an account!</a>
 </div>
 
+<div id="signup" class="alert alert-info">
+			<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+			<strong>Sign Up</strong> Better check yourself, you're not looking too good.<br>
+			<button type="button" class="default" onClick="signup('signup')">Add</button>
+			<button type="button" class="default" onClick="signup('signup')">Cancel</button>
+		</div>
 
 <br>
-
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/taskbook.js"></script>
+</body>
 </body>
 </html>
