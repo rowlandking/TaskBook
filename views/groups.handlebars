@@ -72,7 +72,7 @@
           <li role="presentation" class="divider"></li>
           <li role="presentation" class="dropdown-header">Karen Wu</li>
           <li><a href="#">Edit Profile</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="/">Logout</a></li>
         </ul>
       </div>
     </div>
@@ -115,20 +115,28 @@
         </ul>
       </div>
     </div>
-     <div class="btn-group fleft buttoncenter">
+   <!--  <div class="btn-group fleft buttoncenter">
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-pushpin groupBtnIcon"></span> </button>
       </div>
-    </div>
+    </div>-->
      <div class="btn-group fleft buttoncenter">
       <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil groupBtnIcon"></span> </button>
-
+        <button type="button" class="btn btn-default dropdown-toggle groupBtn" onclick="toggleEditGroup('editgroup', 'groupnamefield','{{projectName}}')"><span class="glyphicon glyphicon-pencil groupBtnIcon"></span> </button>
       </div>
     </div>
 </div>
 
-<div class="list">
+
+<div id="editgroup" class="alert alert-info">
+      <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+      <strong><h1 id="groupnamefield">X</h1></strong> Better check yourself, you're not looking too good.<br>
+      <button type="button" class="default" onClick="signup('signup')">Save</button>
+      <button type="button" class="default" onClick="signup('signup')">Cancel</button>
+    </div>
+
+
+<div id="grouplists" class="list">
 {{#each lists}}
 <div class="panel panel-primary">
   <div class="panel-body">
@@ -137,14 +145,14 @@
   {{#each tasks}}
   <div class="panel-footer {{filters}}">{{name}}</div>
   {{/each}}
-  <a href="#" onclick="">
-  <div id="add-{{name}}"class="panel-footer {{filters}}"style="text-align:right">Add Task</div>
-  </a>
+
+  <div onclick="" id="add-{{name}}"class="panel-footer {{filters}}"style="text-align:right">Add Task</div>
+
 </div>
 
 {{/each}}
-<a href="#" onclick"">
-<div class="panel panel-primary">
+
+<div id="addgrouplists" class="panel panel-primary" onclick="">
   <div class="panel-body">
     Add List
   </div>
@@ -154,7 +162,7 @@
   </a>
     -->
 </div>
-</a>
+
 </div>
 
 		<script src="https://code.jquery.com/jquery.js"></script>
