@@ -51,6 +51,22 @@
     font-size: 20px;
 }
 
+
+.groupBtn{
+    width: 10px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right:15px;
+    background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+    background-repeat: repeat;
+
+}
+
+.groupBtnIcon{
+
+    right:7px;
+
+}
 .navbar{
     margin-bottom: 2px;
 }
