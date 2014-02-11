@@ -49,10 +49,15 @@
         <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn"></span> 
         </button>
         <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
-          <li role="presentation" class="dropdown-header">Announcements</li>
-          {{#each groups}}
-          <li><a href="/groups/{{name}}">{{name}}</a></li>
+
+          <li role="presentation" class="dropdown-header">Notifications</li>
+          <li role="presentation" class="divider"></li>
+          {{#each announcements}}
+          <li role="presentation" class="dropdown-header">{{type}}     <span class="glyphicon glyphicon-remove"></span></li>
+           <li><a href="/groups/{{name}}">{{name}}</a></li>
+           <li role="presentation" class="divider"></li>
           {{/each}}
+          <li><a href="/groups/{{name}}">View More</a></li>
         </ul>
       </div>
     </div>
@@ -80,10 +85,53 @@
 
 <h2 class="groupTitleText">{{projectName}}</h2>
 <div class="groupTitle">
-  <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-pushpin"></span> </button>
+  <!--<button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-pushpin"></span> </button>
   <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-sort"></span> </button>
-  <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-filter"></span> </button>
-  <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-pencil"></span> </button>
+  <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-pencil"></span> </button>-->
+
+ <div class="btn-group fright buttoncenter">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-filter"></span> </button>
+        <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
+          <li role="presentation" class="dropdown-header">Filters</li>
+          <li><a href="#">Red</a></li>
+           <li><a href="#">Yellow</a></li>
+          <li role="presentation" class="divider"></li>
+          <li><a href="#">Customize Filters</a></li>
+        </ul>
+      </div>
+    </div>
+
+       <div class="btn-group fright buttoncenter">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil"></span> </button>
+        <!--No dropdown here, just do popup with members-->
+      </div>
+    </div>
+     <div class="btn-group fleft buttoncenter">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pushpin"></span> </button>
+        <ul class="dropdown-menu dropdown-menu-left" style="right: auto; left: 0;">
+          <li role="presentation" class="dropdown-header">Filters</li>
+          <li><a href="#">Red</a></li>
+           <li><a href="#">Yellow</a></li>
+          <li role="presentation" class="divider"></li>
+          <li><a href="#">Customize Filters</a></li>
+        </ul>
+      </div>
+    </div>
+     <div class="btn-group fleft buttoncenter">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-sort"></span> </button>
+        <ul class="dropdown-menu dropdown-menu-left" style="right: auto; left: 0;">
+          <li role="presentation" class="dropdown-header">Sort By</li>
+          <li><a href="#">None</a></li>
+           <li><a href="#">Priority</a></li>
+          <li role="presentation" class="divider"></li>
+          <li><a href="#">Customize Sort</a></li>
+        </ul>
+      </div>
+    </div>
 </div>
 
 <div class="list">

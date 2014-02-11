@@ -22,6 +22,15 @@ exports.viewProject = function(req, res) { 
         'id': 'project4'
       }
     ],
+       'announcements': [
+      { 'type': 'Reminder',
+        'name': 'Buy Toilet Paper'
+      },
+      { 
+        'type': 'Reminder',
+        'name': 'Clean Toilet'
+      }
+    ],
     'lists':[
     {
     	'name':'Chores',
