@@ -36,14 +36,43 @@
           <span class="glyphicon glyphicon-th-large"></span> 
         </button>
         <ul class="dropdown-menu">
+          <li role="presentation" class="dropdown-header">My Groups</li>
           {{#each groups}}
           <li><a href="/groups/{{name}}">{{name}}</a></li>
           {{/each}}
         </ul>
       </div>
     </div>
-    <button type="button" class="btn btn-default navbar-btn fright" ><span class="glyphicon glyphicon-cog"></span> </button>
-    <button type="button" class="btn btn-default navbar-btn fright" ><span class="glyphicon glyphicon-bullhorn"></span> </button>
+
+     <div class="btn-group fright buttoncenter ">
+      <div class="btn-group"><!--navbar-btn-->
+        <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn"></span> 
+        </button>
+        <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
+          <li role="presentation" class="dropdown-header">Announcements</li>
+          {{#each groups}}
+          <li><a href="/groups/{{name}}">{{name}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+     <div class="btn-group fright buttoncenter">
+      <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
+          <li role="presentation" class="dropdown-header">Settings</li>
+          <li><a href="#">{{name}}</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation" class="dropdown-header">Karen Wu</li>
+          <li><a href="#">Edit Profile</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    
 
   </div>
 </nav>
@@ -64,10 +93,17 @@
     {{name}}
   </div>
   {{#each tasks}}
-  <div class="panel-footer">{{name}}</div>
+  <div class="panel-footer {{filters}}">{{name}}</div>
   {{/each}}
+  <a href="#" onclick="">
+  <div id="add-{{name}}"class="panel-footer {{filters}}"style="text-align:right">Add Task</div>
+  </a>
 </div>
+
 {{/each}}
+<a href="#" onclick"">
+<div class="panel-footer {{filters}}" >Add List</div>
+</a>
 </div>
 
 		<script src="https://code.jquery.com/jquery.js"></script>
