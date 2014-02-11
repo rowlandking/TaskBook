@@ -37,12 +37,19 @@
 .groupTitleText{
     position:absolute;
     text-align: center;
+    text-overflow:ellipsis;
     margin: 0 auto;
-    font-size: 30px;
+    font-size: 20px;
     width:100%;
     height:50px;
     overflow: hidden;
 }
+
+.groupTitleText h2{
+    font-size: 20px;
+}
+
+
 
 .pin{
     margin-top:3px
