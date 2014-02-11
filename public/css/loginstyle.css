@@ -41,6 +41,7 @@ table {
 }
 
 /* CSS Animations */
+/*
 @keyframes "login" {
  0% {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -114,7 +115,7 @@ table {
  }
 
 }
-
+*/
 /* Main CSS */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
