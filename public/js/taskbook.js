@@ -111,10 +111,25 @@ function addList(){
 
 }
 */
-$("#addgrouplists").click(function(){
+
+$("#addgrouplistsarea").click(function(){
+  $("#addlisttext").hide();
+  $("#addlistinputform").show();
+    $("#addgrouplistsarea").hide();
+});
+
+$("#addgrouptlistssubmit").click(function(fname){
+  $("#addlisttext").show();
+  $("#addlistinputform").hide();
+  $("#addgrouplistsarea").show();
+  if(document.getElementById('addlistinput').value ==null||document.getElementById('addlistinput').value ==''){
+    document.getElementById('addlistinput').value = "New List Name";
+  }
      var html ='<div class="panel panel-primary">';
-        html +=' <div id = "'+'NEW LIST NAME HERE'+'"class="panel-body ">' +'NEW LIST NAME HERE'+ '</div>';
+        html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-body ">' +document.getElementById('addlistinput').value+ '</div>';
         html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'
   $("#grouplists").append(
     html);
+    document.getElementById('addlistinput').value = "";
+
 });
