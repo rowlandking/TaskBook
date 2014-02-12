@@ -143,9 +143,9 @@ $("#addgrouptlistssubmit").click(function(fname){
 
 
 function addlisttaskssubmit(div){
-      $("#addlisttext").show();
-  $("#addlistinputform").hide();
-    $("#addgrouplistsarea").show();
+  $("#addlisttasksarea"+div).show();
+  $("#addtaskinputform"+div).hide();
+    $("#addtasktext"+div).show();
  if(document.getElementById('addtaskinput'+div).value ==null||document.getElementById('addtaskinput'+div).value ==''){
     document.getElementById('addtaskinput'+div).value = "New Task Name";
   }
