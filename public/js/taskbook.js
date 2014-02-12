@@ -132,8 +132,13 @@ $("#addgrouptlistssubmit").click(function(fname){
   if(document.getElementById('addlistinput').value ==null||document.getElementById('addlistinput').value ==''){
     document.getElementById('addlistinput').value = "New List Name";
   }
-     var html ='<div class="panel panel-primary">';
-        html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-body ">' +document.getElementById('addlistinput').value+ '</div>';
+  /*
+     var html ='<div class="panel panel-default">';
+        html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading">' +document.getElementById('addlistinput').value+ '</div>';
+        html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'
+        */
+        var html ='<div class="panel panel-default">';
+        html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading">' +document.getElementById('addlistinput').value+ '</div>';
         html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'
   $("#grouplists").append(
     html);
@@ -149,9 +154,13 @@ function addlisttaskssubmit(div){
  if(document.getElementById('addtaskinput'+div).value ==null||document.getElementById('addtaskinput'+div).value ==''){
     document.getElementById('addtaskinput'+div).value = "New Task Name";
   }
-     var html ='<div class="panel-footer">';
+  /*
+     var html ='<div class="panel-body">';
         html += document.getElementById('addtaskinput'+div).value;
-        html +='</div>'
+        html +='</div>'*/
+         var html =' <li class="list-group-item {{filters}}">';
+        html += document.getElementById('addtaskinput'+div).value;
+        html +='</li>'
   $("#list"+div).append(
     html);
     document.getElementById('addtaskinput'+div).value = "";

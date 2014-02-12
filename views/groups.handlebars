@@ -138,15 +138,19 @@
 
 <div id="grouplists" class="list">
 {{#each lists}}
-<div class="panel panel-primary">
-  <div class="panel-body">
+<div class="panel panel-default">
+  <div class="panel-heading">
     {{name}}
   </div>
+   <ul class="list-group">
   <div id="list{{id}}">
+
   {{#each tasks}}
-  <div class="panel-footer {{filters}}">{{name}}</div>
+  <!--<div class="panel-body {{filters}}">{{name}}</div>-->
+  <li class="list-group-item {{filters}}">{{name}}</li>
   {{/each}}
   </div>
+  </ul>
   <!--<div onclick="" id="add-{{id}}"class="panel-footer"style="text-align:right">Add Task</div>-->
    <div id="addlisttasksarea{{id}}" onclick="addgrouplistsareafunction({{id}})" style="width:inherit, height:inherit;">
   <div id="addtasktext{{id}}" class="panel-footer" style="text-align:right">
@@ -155,6 +159,8 @@
      <form action="" id="addtaskinputform{{id}}" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput{{id}}" class="addtaskinput" type="text" name="fname" >
   <input type="submit" value="Submit"   onclick="addlisttaskssubmit({{id}});return false;" id="addlisttasksubmit{{id}}">
 </form>
+
+  
   
     <!-- on click add code
   <a href="#" onclick="">
@@ -170,7 +176,7 @@
 
 
 </div>
-<div id="addgrouplists" class="panel panel-primary" onclick="">
+<div id="addgrouplists" class="panel panel-default" onclick="">
   <div id="addgrouplistsarea">
   <div id="addlisttext" class="panel-body">
     Add List   </div>
