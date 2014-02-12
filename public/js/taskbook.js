@@ -13,14 +13,9 @@ function visibleForm(name) {
 
     return true;
 }
-
+/*
 function signup(name) {
     //do stuff
-    /*var x=document.forms["taskForm"]["tname"].value;
-    if (x==null || x=="" || x="New Task...") {
-        alert("Enter a task");
-        return false;
-    }*/
 
     if (document.getElementById(name).style.visibility=="visible") {
         document.getElementById(name).style.visibility="hidden";
@@ -28,7 +23,7 @@ function signup(name) {
     else document.getElementById(name).style.visibility="visible";
 
     return true;
-}
+}*/
 
 
 function showContact(name, name_Field, contactName) {
@@ -169,3 +164,41 @@ function addlisttaskssubmit(div){
 
 //append to list{{id}}
 //<div class="panel-footer {{filters}}">{{name}}</div>
+
+
+function signup(){
+    $("#signupbutton").show();
+    $("#loginbutton").hide();
+    $("#confirmpassword").show();
+}
+
+function SignupForm(){
+    if(validateEmail()){
+    window.location.href='/groups/Book%20Club';
+    }
+}
+function LoginForm(){
+        window.location.href='/groups/Book%20Club';
+}
+
+function validateEmail(){
+    var x=document.forms["slick-login"]["inputemail"].value;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  {
+  alert("Not a valid e-mail address");
+  return false;
+  }
+  return validatePassword();
+}
+
+function validatePassword(){
+      var x=document.forms["slick-login"]["inputpassword"].value;
+      var y=document.forms["slick-login"]["confirmpassword"].value;
+      if(x!=y){
+        alert("Passwords don't match.");
+        return false;
+      }
+      return true;
+}

@@ -15,26 +15,28 @@
     </div>
 <div class ="login">	
 <form id="slick-login">
-	<script type="text/javascript">
-    function LoginForm(){
-        window.location.href='/groups/Book%20Club';
-    }
-</script>
-<label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="Email">
-<label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="password">
-<input type="button" value="Log In" onclick="LoginForm()">
+<div id="textboxes">
+<label for="username">username</label><input id="inputemail" type="text" name="Username" class="placeholder" placeholder="Email">
+<label for="password">password</label><input id="inputpassword" type="password" name="password" class="placeholder" placeholder="Password">
+<label for="passwordconfirm">password</label><input id="confirmpassword" style="display:none" type="password" name="passwordconfirm" class="placeholder" placeholder="Confirm Password">
+</div>
+<input id="loginbutton" type="button" value="Log In" onclick="LoginForm()">
+<input id="signupbutton" type="button" value="Sign up" style="display:none" onclick="SignupForm()">
 </form>
 
 
 
 </div>
 <div id="signupbutton">
-<a href="#" onclick="signup('signup')">New to Taskbook? Create an account!</a>
+<a href="#" onclick="signup()">New to Taskbook? Create an account!</a>
 </div>
 
 <div id="signup" class="alert alert-info">
 			<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
 			<strong>Sign Up</strong> Better check yourself, you're not looking too good.<br>
+						<div class="input-group">
+  <input type="text" class="form-control" placeholder="Username">
+</div>
 			<button type="button" class="default" onClick="signup('signup')">Add</button>
 			<button type="button" class="default" onClick="signup('signup')">Cancel</button>
 		</div>
