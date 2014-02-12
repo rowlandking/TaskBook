@@ -123,6 +123,10 @@ $("#alpha").click(function(){
   $(".alphasort").show();
 });
 
+$("#profilebutton").click(function(){
+  $("#editprofile").show();
+});
+
 $("#addgrouplistsarea").click(function(){
   $("#addlisttext").hide();
   $("#addlistinputform").show();

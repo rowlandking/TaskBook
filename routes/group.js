@@ -108,15 +108,15 @@ exports.viewProject = function(req, res) {
 		'name':'Schoolwork',
     	'tasks':[
     	{
-    		'name':'Turn in essay'
+    		'name':'Turn in essay',
         'name2':'Finish lab'
     	},
     	{
-    		'name':'Read Chapter 1'
+    		'name':'Read Chapter 1',
         'name2':'Read Chapter 1'
     	},
     	{
-    		'name':'Finish lab'
+    		'name':'Finish lab',
         'name2':'Turn in essay'
     	}
     	]
