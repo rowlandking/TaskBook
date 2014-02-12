@@ -1,4 +1,4 @@
-exports.viewProject = function(req, res) { 
+exports.viewProject = function(req, res) {
   // controller code goes here 
   var name = req.params.name;
   console.log("The Group : " + name);
@@ -39,12 +39,16 @@ exports.viewProject = function(req, res) { 
     	{
     		'name':'Wash Dishes',
         'filters': 'yellow',
+        'name2':'Buy Cheese',
+        'filters2': 'yellow',
         'id':'2',
         'index':'3'
     	},
   	  {
     		'name':'Clean Toilet',
         'filters': 'yellow',
+        'name2':'Buy Toilet Paper',
+        'filters2': 'red',
          'id':'3',
         'index':'6'
 
@@ -52,36 +56,48 @@ exports.viewProject = function(req, res) { 
       {
         'name':'Wipe Counters',
         'filters': 'yellow',
+        'name2':'Clean Toilet',
+        'filters2': 'yellow',
         'id':'4',
         'index':'8'
       },
       {
         'name':'Buy Toilet Paper',
         'filters': 'red',
+        'name2':'Find Apartment Key',
+        'filters2': 'red',
         'id':'5',
         'index':'1'
       },
       {
         'name':'Get Eggs',
         'filters': 'yellow',
+        'name2':'Get Eggs',
+        'filters2': 'yellow',
         'id':'6',
         'index':'5'
       },
       {
         'name':'Buy Cheese',
         'filters': 'yellow',
+        'name2':'Walk Dog',
+        'filters2':'yellow',
         'id':'7',
         'index':'9'
       },
       {
         'name':'Find Apartment Key',
         'filters': 'red',
+        'name2':'Wash Dishes',
+        'filters2': 'yellow',
         'id':'8',
         'index':'2'
       },
       {
         'name':'Walk Dog',
         'filters':'yellow',
+        'name2':'Wipe Counters',
+        'filters2': 'yellow',
         'id':'9',
         'index':'4'
       }
@@ -93,12 +109,15 @@ exports.viewProject = function(req, res) { 
     	'tasks':[
     	{
     		'name':'Turn in essay'
+        'name2':'Finish lab'
     	},
     	{
     		'name':'Read Chapter 1'
+        'name2':'Read Chapter 1'
     	},
     	{
     		'name':'Finish lab'
+        'name2':'Turn in essay'
     	}
     	]
     },

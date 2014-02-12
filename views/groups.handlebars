@@ -108,8 +108,8 @@
         <!--No dropdown here, just do popup with members-->
                 <ul class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;">
           <li role="presentation" class="dropdown-header">Sort By</li>
-          <li><a href="#">None</a></li>
-           <li><a href="#">Priority</a></li>
+          <li><a href="#" id="non">None</a></li>
+           <li><a href="#" id="alpha">Alphabetical</a></li>
           <li role="presentation" class="divider"></li>
           <li><a href="#">Customize Sort</a></li>
         </ul>
@@ -147,7 +147,8 @@
 
   {{#each tasks}}
   <!--<div class="panel-body {{filters}}">{{name}}</div>-->
-  <li class="list-group-item {{filters}}">{{name}}</li>
+  <li class="list-group-item nonsort {{filters}}">{{name}}</li>
+  <li class="list-group-item alphasort {{filters}}" style="display:none">{{name2}}</li>
   {{/each}}
   </div>
   </ul>
