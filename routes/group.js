@@ -33,6 +33,7 @@ exports.viewProject = function(req, res) { 
     ],
     'lists':[
     {
+      'id':'1',
     	'name':'Chores',
     	'tasks':[
     	{
@@ -87,6 +88,7 @@ exports.viewProject = function(req, res) { 
     	]
     },
     {
+    'id':'2',
 		'name':'Schoolwork',
     	'tasks':[
     	{

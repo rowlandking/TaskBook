@@ -122,6 +122,7 @@
     outline:0; 
 }
 
+
 #addlistinputform{
     width: 70%;
     margin-right: auto;
@@ -137,3 +138,47 @@
     width: inherit;
     height: inherit;
 }
+
+
+.addlistinput{
+    width: inherit;
+    margin-top: 10px;
+    margin-bottom:auto;
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 1px 0px;  
+    border-color: blue; 
+    outline:0; 
+}
+
+.addtaskinputform{
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    height: inherit;
+    display: none;
+}
+.addtaskinput{
+    width: inherit;
+    margin-top: 10px;
+    margin-bottom:auto;
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 1px 0px;  
+    border-color: blue; 
+    outline:0; 
+}
+#addlistinputform{
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    height: inherit;
+    display: none;
+}
+

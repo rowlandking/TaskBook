@@ -142,11 +142,26 @@
   <div class="panel-body">
     {{name}}
   </div>
+  <div id="list{{id}}">
   {{#each tasks}}
   <div class="panel-footer {{filters}}">{{name}}</div>
   {{/each}}
+  </div>
+  <!--<div onclick="" id="add-{{id}}"class="panel-footer"style="text-align:right">Add Task</div>-->
+   <div id="addlisttasksarea{{id}}" onclick="addgrouplistsareafunction({{id}})" style="width:inherit, height:inherit;">
+  <div id="addtasktext{{id}}" class="panel-footer" style="text-align:right">
+    Add List   </div>
+    </div>
+     <form action="" id="addtaskinputform{{id}}" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput{{id}}" class="addtaskinput" type="text" name="fname" >
+  <input type="submit" value="Submit"   onclick="addlisttaskssubmit({{id}});return false;" id="addlisttasksubmit{{id}}">
+</form>
+  
+    <!-- on click add code
+  <a href="#" onclick="">
+  <div id="add-{{name}}"class="panel-footer {{filters}}"style="text-align:right">Add Task</div>
+  </a>
+    -->
 
-  <div onclick="" id="add-{{name}}"class="panel-footer {{filters}}"style="text-align:right">Add Task</div>
 
 </div>
 
@@ -160,7 +175,7 @@
   <div id="addlisttext" class="panel-body">
     Add List   </div>
     </div>
-     <form action="" id="addlistinputform"> <input id="addlistinput" class="addlistinput" type="text" name="fname">
+     <form action="" id="addlistinputform"> <input id="addlistinput" class="addlistinput" type="text" name="fname" >
   <input type="submit" value="Submit" onclick="return false;" id="addgrouptlistssubmit">
 </form>
   
