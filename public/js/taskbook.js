@@ -216,3 +216,18 @@ function validatePassword(){
       }
       return true;
 }
+//hides the tasks based on filterName
+var filterNames = new Array('.ready', '.needsoon', '.urgent');
+function filterTasks(selected_filter)
+{
+  for(var filterName in filterNames)
+  {
+    if(filterNames[filterName]!=selected_filter)
+    {
+      $(filterNames[filterName]).hide();
+    }
+   
+  }
+ if($(selected_filter).is(":visible") == false)
+      $(selected_filter).show();
+}

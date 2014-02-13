@@ -38,7 +38,7 @@ exports.viewProject = function(req, res) {
     	'tasks':[
     	{
     		'name':'Wash Dishes',
-        'filters': 'yellow',
+        'filters': 'ready',
         'name2':'Buy Cheese',
         'filters2': 'yellow',
         'id':'2',
@@ -46,7 +46,7 @@ exports.viewProject = function(req, res) {
     	},
   	  {
     		'name':'Clean Toilet',
-        'filters': 'yellow',
+        'filters': 'needsoon',
         'name2':'Buy Toilet Paper',
         'filters2': 'red',
          'id':'3',
@@ -55,7 +55,7 @@ exports.viewProject = function(req, res) {
     	},
       {
         'name':'Wipe Counters',
-        'filters': 'yellow',
+        'filters': 'needsoon',
         'name2':'Clean Toilet',
         'filters2': 'yellow',
         'id':'4',
@@ -63,7 +63,7 @@ exports.viewProject = function(req, res) {
       },
       {
         'name':'Buy Toilet Paper',
-        'filters': 'red',
+        'filters': 'urgent',
         'name2':'Find Apartment Key',
         'filters2': 'red',
         'id':'5',
@@ -71,7 +71,7 @@ exports.viewProject = function(req, res) {
       },
       {
         'name':'Get Eggs',
-        'filters': 'yellow',
+        'filters': 'needsoon',
         'name2':'Get Eggs',
         'filters2': 'yellow',
         'id':'6',
@@ -79,7 +79,7 @@ exports.viewProject = function(req, res) {
       },
       {
         'name':'Buy Cheese',
-        'filters': 'yellow',
+        'filters': 'ready',
         'name2':'Walk Dog',
         'filters2':'yellow',
         'id':'7',
@@ -87,7 +87,7 @@ exports.viewProject = function(req, res) {
       },
       {
         'name':'Find Apartment Key',
-        'filters': 'red',
+        'filters': 'ready',
         'name2':'Wash Dishes',
         'filters2': 'yellow',
         'id':'8',
@@ -95,7 +95,7 @@ exports.viewProject = function(req, res) {
       },
       {
         'name':'Walk Dog',
-        'filters':'yellow',
+        'filters':'needsoon',
         'name2':'Wipe Counters',
         'filters2': 'yellow',
         'id':'9',
