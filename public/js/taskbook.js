@@ -256,7 +256,23 @@ function addmemberareafunction()
 //groupmemberslist
 
 
+function editGroupName(groupName)
+{
+  $("#groupnamefield").hide();
+  $("#editgroupname").show();
+  $("#editgroupname").html(groupName);
+}
 
+function showHeader()
+{
+  if($("#groupnamefield").is(":visible") == false)
+      $("#groupnamefield").show();
+  if($("#editgroupname").is(":visible") == true)
+    $("#editgroupname").hide();
+
+
+
+}
 //mouseover will create highlight
 $('li').mouseover(function()
   {

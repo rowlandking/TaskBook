@@ -243,3 +243,12 @@
 -webkit-user-select: none;
 -webkit-touch-callout: none;   /*prevent copy paste popups on hover*/     
 }
+.editGroupHeader
+{
+    font-size:2.5em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    height: 100px;
+    display:none;
+}
