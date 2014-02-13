@@ -208,7 +208,7 @@
 .membercontainer {
   margin-right: auto;
   margin-left: auto;
-  width:400px;
+  width:200px;
   height:200px;
   overflow-y:scroll;
   -webkit-overflow-scrolling:touch;
@@ -216,7 +216,7 @@
 .addMemberPanel{
     margin-right: auto;
     margin-left: auto;
-    width:400px;    
+    width:200px;    
     display:block;
 }
 
@@ -224,13 +224,12 @@
 {
     margin-right: auto;
     margin-left: auto;
-    width:400px;
     margin-top: 10px;
     display:none;
 }
 .addmemberinput
 {
-    width: 300;
+    width: 100px;
     margin-top: -10px;
     margin-bottom:auto;
     background-color: white;  
