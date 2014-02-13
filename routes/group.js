@@ -8,6 +8,7 @@ exports.viewProject = function(req, res) {
       { 'name': 'CSE 170 Project',
         'image': 'lorempixel.people.1.jpeg',
         'id': 'project1'
+        
       },
       { 'name': 'CSE 130',
         'image': 'lorempixel.city.1.jpeg',
@@ -30,6 +31,33 @@ exports.viewProject = function(req, res) {
         'type': 'Reminder',
         'name': 'Clean Toilet'
       }
+    ],
+    'contacts':[
+          {
+            'name': 'Thuy Pham'
+          },
+          {
+            'name': 'Carla Sun'
+          },
+          {
+            'name': 'Tim Pham'
+          },
+          {
+            'name': 'Thuy Tran'
+          },
+          {
+            'name': 'Diana Pham'
+          },
+          {
+            'name': 'Marly Phung'
+          },
+          {
+            'name': 'David Phan'
+          },
+          {
+            'name': 'Troy Dam'
+          }
+
     ],
     'lists':[
     {

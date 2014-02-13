@@ -85,8 +85,14 @@ function toggleEditGroup(name, name_Field, groupName) {
         document.getElementById(name).style.visibility="hidden";
     }
     else document.getElementById(name).style.visibility="visible";
-
-
+ 
+    
+    /*if( $("#"+name).is(":visible") == true ){
+      $("#"+name).hide();
+    }
+    else{
+      $("#"+name).show();
+    }*/
 
     return true;
 }
@@ -231,3 +237,30 @@ function filterTasks(selected_filter)
  if($(selected_filter).is(":visible") == false)
       $(selected_filter).show();
 }
+
+//hide the form after click save/cancel
+
+function hideForm(the_id)
+{
+   document.getElementById(the_id).style.visibility="hidden";
+}
+
+
+//groupmemberslist
+
+
+$('li').mouseover(function()
+  {
+          if ($('li ul li:hover').length) 
+          {
+              $('li ul li:hover').css('background','red'); 
+          }
+          else
+          {
+               $('li:hover').css('background','red'); 
+          }
+  });
+$('li').mouseout(function()
+  {
+          $(this).css('background', 'transparent');
+  });
