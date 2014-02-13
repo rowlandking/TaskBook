@@ -273,6 +273,16 @@ function showHeader()
 
 
 }
+
+$("#editgroup").mousedown(function()
+{
+  if($("#editgroupname").is(":visible"))
+    {
+      $("#editgroupname").hide();
+    }
+  if($("#groupnamefield").is(":visible") == false)
+      $("#groupnamefield").show();
+});
 //mouseover will create highlight
 $('li').mouseover(function()
   {
