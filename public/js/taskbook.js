@@ -282,6 +282,9 @@ $("#editgroup").mousedown(function()
     }
   if($("#groupnamefield").is(":visible") == false)
       $("#groupnamefield").show();
+
+  if($("#editgroupname").val().length > 0)
+    $("#groupnamefield").html($("#editgroupname").val());
 });
 //mouseover will create highlight
 $('li').mouseover(function()
