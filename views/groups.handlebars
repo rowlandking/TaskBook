@@ -37,7 +37,8 @@
         <ul class="dropdown-menu">
           <li role="presentation" class="dropdown-header">My Groups</li>
           {{#each groups}}
-          <li><a href="/groups/{{name}}">{{name}}</a></li>
+          <li><a href="/groups/{{name}}">{{name}}</a>
+          </li>
           {{/each}}
         </ul>
       </div>
@@ -138,11 +139,20 @@
 <div id="editgroup" class="alert alert-info" style:"overflow-y:scroll">
       <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
       <strong><h1 id="groupnamefield">X</h1></strong><br> 
-      <div class="membercontainer">
+      <div class="panel-default">
+      <div class="membercontainer panel-heading"><strong>Members</strong>
         {{#each contacts}}
         <li class="list-group-item">{{name}}</li>
         {{/each}}
       </div>
+    </div>
+ 
+    <div id="addMember" onClick="addmemberareafunction()" class="panel-footer addMemberPanel" style="text-align:right">
+    Add Member</div>
+  <form action="" id="addmemberinputform" class="addmemberinputform" onsubmit="return false;"> 
+    <input id="addmemberinput" class="addmemberinput" type="text" name="fname" >
+    <input type="submit" value="Submit" onClick="addmembersubmit();return false;" id="addmembersubmit">
+  </form>
       <button type="button" class="default" onClick="hideForm('editgroup')">Save</button>
       <button type="button" class="default" onClick="hideForm('editgroup')">Cancel</button>
     </div>

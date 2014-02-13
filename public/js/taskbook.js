@@ -246,6 +246,13 @@ function hideForm(the_id)
 }
 
 
+
+function addmemberareafunction()
+{
+  $("#addMember").hide();
+  $("#addmemberinputform").show();
+}
+
 //groupmemberslist
 
 
@@ -255,7 +262,7 @@ $('li').mouseover(function()
   {
           if ($('li ul li:hover').length) 
           {
-              $('li ul li:hover').css('background','#ffa500'); 
+              $('li ul li:hover').css('background','#ffa500'); //#ffa500 --> orange
           }
           else
           {
