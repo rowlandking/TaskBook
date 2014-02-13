@@ -249,18 +249,20 @@ function hideForm(the_id)
 //groupmemberslist
 
 
+
+//mouseover will create highlight
 $('li').mouseover(function()
   {
           if ($('li ul li:hover').length) 
           {
-              $('li ul li:hover').css('background','red'); 
+              $('li ul li:hover').css('background','#ffa500'); 
           }
           else
           {
-               $('li:hover').css('background','red'); 
+               $('li:hover').css('background','#ffa500'); 
           }
   });
 $('li').mouseout(function()
   {
-          $(this).css('background', 'transparent');
+          $(this).css('background', 'white');
   });
