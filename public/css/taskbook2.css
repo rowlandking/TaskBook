@@ -206,10 +206,12 @@
 }
 
 .membercontainer {
-  position:center;
+  margin-right: auto;
+  margin-left: auto;
   width:200px;
   height:200px;
   overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
 }
 
 
