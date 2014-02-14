@@ -278,7 +278,7 @@ function saveFilter()
   else
   { 
     $("#newFilter").hide();
-    $("#filterName").css('border-color', 'white');
+    $("#filterName").css('border-color', 'black');
     $("#filterName").attr('placeholder', 'Name');
     $("#filterKeywords").attr('placeholder', 'Keywords');
     $('#filterAssignedTo').attr('placeholder', 'Assigned To');
@@ -293,12 +293,12 @@ function saveFilter()
 
 
 
-  //append to filter list
+  //append to filter list????
 }
 function cancelFilter()
 {
   $("#newFilter").hide();
-  $("#filterName").css('border-color', 'white');
+  $("#filterName").css('border-color', 'black');
   $("#filterName").attr('placeholder', 'Name');
   $("#filterKeywords").attr('placeholder', 'Keywords');
   $('#filterAssignedTo').attr('placeholder', 'Assigned To');
@@ -312,6 +312,22 @@ function cancelFilter()
 
 }
 
+function editTaskFunction(task)
+{
+  $("#editTask").show();
+  $("#taskDescription").val(task);
+}
+
+function saveEditTask()
+{
+  $("#editTask").hide();
+
+}
+function cancelEditTask()
+{
+  $("#editTask").hide();
+
+}
 /*
 var $datepicker = $("#dp");
 $(function($) {
