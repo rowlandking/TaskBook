@@ -206,11 +206,25 @@ function LoginForm(){
 function checkLogin(){
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
+    //If either are null, return error
+    if(x==null||x==""){
+        $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Please Input Email!");
+        $('.errormsg').css("display","block");
+        return false;
+    }
+    else if(y==null||y==""){
+        $('#inputpassword').css("background-color", "yellow");
+        $('.errormsg').html("Please Input Password!");
+        $('.errormsg').css("display","block");
+        return false;
+    }
 
-    if(x!=y){
+    //Check Database for email/password
+    else if(x!=y){
         $('#inputpassword').css("background-color", "yellow");
         $('.errormsg').html("Incorrect Password!");
-         $('.errormsg').css("display","block");
+        $('.errormsg').css("display","block");
         return false;
     }
     return true;
