@@ -270,17 +270,49 @@ function newFilter()
 
 function saveFilter()
 {
-  $("#newFilter").hide();
+  if($("#filterName").val().length == 0)
+  {
+    $("#filterName").css('border-color', 'red');
+    $("#filterName").attr('placeholder', 'Filter needs a name');
+  }
+  else
+  { 
+    $("#newFilter").hide();
+    $("#filterName").css('border-color', 'white');
+    $("#filterName").attr('placeholder', 'Name');
+    $("#filterKeywords").attr('placeholder', 'Keywords');
+    $('#filterAssignedTo').attr('placeholder', 'Assigned To');
+    $('#dp').attr('placeholder','Due Date dd/mm/yy');
+    
+    $("#filterKeywords").val('');
+    $("#filterAssignedTo").val('');
+    $("#filterName").val('');
+    $("#dp").val('');
+
+}
+
+
 
   //append to filter list
 }
 function cancelFilter()
 {
   $("#newFilter").hide();
+  $("#filterName").css('border-color', 'white');
+  $("#filterName").attr('placeholder', 'Name');
+  $("#filterKeywords").attr('placeholder', 'Keywords');
+  $('#filterAssignedTo').attr('placeholder', 'Assigned To');
+  $('#dp').attr('placeholder','Due Date dd/mm/yy');
+  
+  $("#filterKeywords").val('');
+  $("#filterAssignedTo").val('');
+  $("#filterName").val('');
+  $("#dp").val('');
+
 
 }
 
-
+/*
 var $datepicker = $("#dp");
 $(function($) {
 $datepicker.datepicker({
@@ -289,7 +321,7 @@ $datepicker.datepicker({
     });
 });
 //$datepicker.datepicker('setDate', new Date());
-
+*/
 
 //hide header when editing group name
 $("#editgroup").mousedown(function()
