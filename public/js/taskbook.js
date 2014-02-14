@@ -320,7 +320,30 @@ function hideForm(the_id)
    document.getElementById(the_id).style.visibility="hidden";
 }
 
+/*function addmembersubmit(){
+   var html =' <li class="list-group-item">'+$('#addmemberinput').val()+'</li>';
 
+
+  $(".membercontainer").append(
+    html);
+    $('#addmemberinput').val("asdf");
+    return false;
+}*/
+
+$('#addmembersubmit').click(function(){
+    var str = $('#addmemberinput').val()
+    if(str==null||str==""){
+        return false;
+    }
+   var html =' <li class="list-group-item">'+str+'</li>';
+
+
+  $(".membercontainer").append(
+    html);
+    $('#addmemberinput').val("");
+$('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
+    return false;
+});
 
 function addmemberareafunction()
 {
