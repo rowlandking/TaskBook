@@ -190,6 +190,10 @@ function signup(){
     $("#signupbutton").show();
     $("#loginbutton").hide();
     $("#confirmpassword").show();
+    $('#inputemail').css("background-color", "white");
+    $('#inputpassword').css("background-color", "white");
+    $('.errormsg').css("display","none");
+
 }
 
 function SignupForm(){
@@ -206,38 +210,88 @@ function LoginForm(){
 function checkLogin(){
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
+    //If either are null, return error
+    if(x==null||x==""){
+        $('#inputemail').css("background-color", "yellow");
+        $('#inputpassword').css("background-color", "white");
+        $('.errormsg').html("Please Input Email!");
+        $('.errormsg').css("display","block");
+        return false;
+    }
 
-    if(x!=y){
+    else {
+        var atpos=x.indexOf("@");
+        var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+          {
+          $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Email Not Valid!");
+        $('.errormsg').css("display","block");
+          return false;
+          }
+    }
+    
+    if(y==null||y==""){
+        $('#inputemail').css("background-color", "white");
         $('#inputpassword').css("background-color", "yellow");
-        $('.errormsg').html("Incorrect Password!");
-         $('.errormsg').css("display","block");
+        $('.errormsg').html("Please Input Password!");
+        $('.errormsg').css("display","block");
+        return false;
+    }
+
+    //Check Database for email/password
+    else if(x!=y){
+        $('#inputpassword').css("background-color", "yellow");
+        $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Incorrect Email/Password!");
+        $('.errormsg').css("display","block");
         return false;
     }
     return true;
 }
 
 function validateEmail(){
+    $('#inputemail').css("background-color", "white");
+    $('#inputpassword').css("background-color", "white");
+    $('#confirmpassword').css("background-color", "white");
+    $('.errormsg').css("display","none");
     var x=document.forms["slick-login"]["inputemail"].value;
-var atpos=x.indexOf("@");
-var dotpos=x.lastIndexOf(".");
-if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-  {
-  alert("Not a valid e-mail address");
-  return false;
-  }
-  return validatePassword();
-}
+    var z=document.forms["slick-login"]["inputpassword"].value;
+    var y=document.forms["slick-login"]["confirmpassword"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+      {
+        $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Not a Valid Email!");
+        $('.errormsg').css("display","block");
+      return false;
+      }
+    else{// Check if email is taken
 
-function validatePassword(){
-      var x=document.forms["slick-login"]["inputpassword"].value;
-      var y=document.forms["slick-login"]["confirmpassword"].value;
-      if(x!=y){
+    }
+        $('#inputemail').css("background-color", "white");
+    if(z.length<4){
+        $('#inputpassword').css("background-color", "yellow");
+        $('.errormsg').html("Password Is Too Short!");
+        $('.errormsg').css("display","block");
+        return false;
+    }
+
+      if(z!=y){
+        $('#inputpassword').css("background-color", "yellow");
         $('#confirmpassword').css("background-color", "yellow");
+        $('.errormsg').html("Passwords Don't Match!");
+        $('.errormsg').css("display","block");
         //alert("Passwords don't match.");
 
         return false;
       }
       return true;
+}
+
+function validatePassword(){
+
 }
 //hides the tasks based on filterName
 var filterNames = new Array('.ready', '.needsoon', '.urgent');
