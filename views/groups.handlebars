@@ -82,12 +82,11 @@
   </div>
 </nav>
 
-<div id="editprofile" class="alert alert-info" style="display:none">
-      <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+<!--<div id="editprofile" class="alert alert-info" style="display:none">
       <strong>Edit Profile</strong> Better check yourself, you're not looking too good.<br>
       <button type="button" class="default">Add</button>
       <button type="button" class="default">Cancel</button>
-</div>
+</div>-->
 
 
 <h2 class="groupTitleText">{{projectName}}</h2>
@@ -205,6 +204,23 @@
   <button type="button" class="default" onClick="cancelEditTask()"> Cancel </button>
 </div>
 
+
+<div id="editProfile"  class="alert alert-info hover">
+<strong><h1>Profile</h1></strong>
+<br>
+<form id="profileForm">
+  <div id="profilediv">
+    <strong>Name:</strong><input id="username" type="text" value="Karen Wu">
+  <br><br>
+    <strong>Password:</strong><input id="userpassword" type="text" value="********">
+  <br><br>
+    <strong>E-Mail:</strong><input id="useremail" type="text" value="aznkarebear@gmail.com">
+  </div>
+  <br><br>
+</form>
+  <button type="button" class="default" onClick="saveEditProfile()"> Save </button>
+  <button type="button" class="default" onClick="cancelEditProfile()"> Cancel </button>
+</div>
 
 <div id="grouplists" class="list hover">
 {{#each lists}}
