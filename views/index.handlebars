@@ -20,6 +20,7 @@
 <label for="password">password</label><input id="inputpassword" type="password" name="password" class="placeholder" placeholder="Password">
 <label for="passwordconfirm">password</label><input id="confirmpassword" style="display:none" type="password" name="passwordconfirm" class="placeholder" placeholder="Confirm Password">
 </div>
+<div class = "errormsg"></div>
 <input id="loginbutton" type="button" value="Log In" onclick="LoginForm()">
 <input id="signupbutton" type="button" value="Sign up" style="display:none" onclick="SignupForm()">
 </form>
@@ -34,9 +35,9 @@
 <div id="signup" class="alert alert-info">
 			<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
 			<strong>Sign Up</strong> Better check yourself, you're not looking too good.<br>
-						<div class="input-group">
-  <input type="text" class="form-control" placeholder="Username">
-</div>
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Username">
+			</div>
 			<button type="button" class="default" onClick="signup('signup')">Add</button>
 			<button type="button" class="default" onClick="signup('signup')">Cancel</button>
 		</div>
@@ -45,6 +46,7 @@
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/taskbook.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script>
 </body>
 </body>
 </html>

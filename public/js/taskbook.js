@@ -198,7 +198,22 @@ function SignupForm(){
     }
 }
 function LoginForm(){
+    if(checkLogin()){
         window.location.href='/groups/Book%20Club';
+    }
+}
+
+function checkLogin(){
+    var x=document.forms["slick-login"]["inputemail"].value;
+    var y=document.forms["slick-login"]["inputpassword"].value;
+
+    if(x!=y){
+        $('#inputpassword').css("background-color", "yellow");
+        $('.errormsg').html("Incorrect Password!");
+         $('.errormsg').css("display","block");
+        return false;
+    }
+    return true;
 }
 
 function validateEmail(){
@@ -217,7 +232,9 @@ function validatePassword(){
       var x=document.forms["slick-login"]["inputpassword"].value;
       var y=document.forms["slick-login"]["confirmpassword"].value;
       if(x!=y){
-        alert("Passwords don't match.");
+        $('#confirmpassword').css("background-color", "yellow");
+        //alert("Passwords don't match.");
+
         return false;
       }
       return true;
