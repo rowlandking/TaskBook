@@ -209,11 +209,26 @@ function checkLogin(){
     //If either are null, return error
     if(x==null||x==""){
         $('#inputemail').css("background-color", "yellow");
+        $('#inputpassword').css("background-color", "white");
         $('.errormsg').html("Please Input Email!");
         $('.errormsg').css("display","block");
         return false;
     }
-    else if(y==null||y==""){
+
+    else {
+        var atpos=x.indexOf("@");
+        var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+          {
+          $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Email Not Valid!");
+        $('.errormsg').css("display","block");
+          return false;
+          }
+    }
+    
+    if(y==null||y==""){
+        $('#inputemail').css("background-color", "white");
         $('#inputpassword').css("background-color", "yellow");
         $('.errormsg').html("Please Input Password!");
         $('.errormsg').css("display","block");
@@ -223,7 +238,8 @@ function checkLogin(){
     //Check Database for email/password
     else if(x!=y){
         $('#inputpassword').css("background-color", "yellow");
-        $('.errormsg').html("Incorrect Password!");
+        $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Incorrect Email/Password!");
         $('.errormsg').css("display","block");
         return false;
     }
@@ -232,13 +248,13 @@ function checkLogin(){
 
 function validateEmail(){
     var x=document.forms["slick-login"]["inputemail"].value;
-var atpos=x.indexOf("@");
-var dotpos=x.lastIndexOf(".");
-if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-  {
-  alert("Not a valid e-mail address");
-  return false;
-  }
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+      {
+      alert("Not a valid e-mail address");
+      return false;
+      }
   return validatePassword();
 }
 
