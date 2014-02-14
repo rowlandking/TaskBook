@@ -130,7 +130,7 @@ $("#alpha").click(function(){
 });
 
 $("#profilebutton").click(function(){
-  $("#editprofile").show();
+  $("#editProfile").show();
 });
 
 $("#addgrouplistsarea").click(function(){
@@ -343,6 +343,17 @@ function saveEditTask()
 function cancelEditTask()
 {
   $("#editTask").hide();
+
+}
+
+function saveEditProfile()
+{
+  $("#editProfile").hide();
+
+}
+function cancelEditProfile()
+{
+  $("#editProfile").hide();
 
 }
 /*
