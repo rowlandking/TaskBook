@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  hideUrgencyIcon();
+})
+
 function visibleForm(name) {
     //do stuff
     /*var x=document.forms["taskForm"]["tname"].value;
@@ -409,6 +413,14 @@ function cancelEditProfile()
 {
   $("#editProfile").hide();
 
+}
+function hideUrgencyIcon()
+{
+  var id;
+  for (id=2; id < 10; id++) {
+    var filter = $('#task'+id).attr("class");
+    if(filter.indexOf('needsoon') > -1) {$('#task'+id+' .glyphicon-fire').show();}
+  }
 }
 /*
 var $datepicker = $("#dp");
