@@ -263,17 +263,35 @@ function editGroupName(groupName)
   $("#editgroupname").html(groupName);
 }
 
-function showHeader()
+function newFilter()
 {
-  if($("#groupnamefield").is(":visible") == false)
-      $("#groupnamefield").show();
-  if($("#editgroupname").is(":visible") == true)
-    $("#editgroupname").hide();
+  $("#newFilter").show();
+}
 
+function saveFilter()
+{
+  $("#newFilter").hide();
 
+  //append to filter list
+}
+function cancelFilter()
+{
+  $("#newFilter").hide();
 
 }
 
+
+var $datepicker = $("#dp");
+$(function($) {
+$datepicker.datepicker({
+        showButtonPanel: true,
+        dateFormat: 'm-d-yy'
+    });
+});
+//$datepicker.datepicker('setDate', new Date());
+
+
+//hide header when editing group name
 $("#editgroup").mousedown(function()
 {
   if($("#editgroupname").is(":visible"))

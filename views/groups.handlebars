@@ -1,13 +1,15 @@
 
 <html>
 <head>
-	<title>HCI Project Portfolio</title>	
+	<title>Taskbook</title>	
 	<meta charset="utf-8">
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/taskbook2.css" rel="stylesheet">
+  <script src="/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
 	<script src="/js/jquery.js" type="text/javascript"></script>
 	<!--script src="/routes/jquery.js" type="text/javascript"></script>-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -105,10 +107,12 @@
            <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
           <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li>
           <li role="presentation" class="divider"></li>
-          <li><a href="#">Customize Filters</a></li>
+          <li><a href="#" onClick="newFilter()">New Filter</a></li>
         </ul>
       </div>
     </div>
+
+   
 
        <div class="btn-group fright buttoncenter">
       <div class="btn-group">
@@ -136,6 +140,7 @@
 </div>
 
 
+
 <div id="editgroup"  class="alert alert-info hover" style:"overflow-y:scroll">
       <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
       <strong><h1 id="groupnamefield" onClick="editGroupName('{{projectName}}')"></h1></strong><br>
@@ -157,6 +162,25 @@
       <button type="button" class="default" onClick="hideForm('editgroup')">Save</button>
       <button type="button" class="default" onClick="hideForm('editgroup')">Cancel</button>
     </div>
+
+<div id="newFilter"  class="alert alert-info hover">
+        <strong><h1>New Filter</h1></strong>
+        <br>
+        <form>
+          <strong>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><input type="text"><br><br>
+          <strong>Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><input type="text"><br><br>
+          <strong>Assigned to:</strong> <input type="text"><br><br>
+          <strong>Due Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><input id="dp" type="text"><br><br>
+          <strong>Priority:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><select name="priority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+        </form>
+        <button type="button" class="default" onClick="saveFilter()"> Save </button>
+        <button type="button" class="default" onClick="cancelFilter()"> Cancel </button>
+
+</div>
 
 
 <div id="grouplists" class="list hover">
