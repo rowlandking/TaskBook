@@ -1,0 +1,41 @@
+[
+    {
+      "id":"100",
+      "name":"Chores",
+      "tasks":[
+      {
+        "name":"Wash Dishes",
+        "filters": "ready",
+        "id":"1000"
+      },
+      {
+        "name":"Take Out Trash",
+        "filters": "ready",
+        "id":"1001"
+      },
+      {
+        "name":"Clean Dog",
+        "filters": "ready",
+        "id":"1002"
+      }
+      ]
+    },
+    {
+    "id":"101",
+    "name":"Schoolwork",
+      "tasks":[
+      {
+        "name":"Turn in essay",
+        "id":"1003"
+      },
+      {
+        "name":"Read Chapter 1",
+       "id":"1004"
+      },
+      {
+        "name":"Finish lab",
+        "id":"1005"
+      }
+      ]
+    }
+]

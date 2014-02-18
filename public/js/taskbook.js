@@ -448,6 +448,8 @@ function cancelFilter()
 
 function editTaskFunction(listid, taskid)
 {
+  /* Local Storage Method
+
   var listIndex = findList(listid);
   var taskIndex = findTask(listIndex,taskid);
 
@@ -456,20 +458,39 @@ function editTaskFunction(listid, taskid)
   console.log(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);
 
   $("#editTask").show();
-  $("#taskTitle").val(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);
+  $("#taskTitle").val(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);*/
+
   //$("#taskDescription").val(description);
   //$("#taskTitle").val(task);
   //$("#taskTitle").val(task);
+
+  console.log("User clicked on color button");
+  $.get("/grouplists",{ field1: listid, field2: taskid },newFunction2);
+
+  $("#editTask").show();
+  $("#taskTitle").val();
+
+}
+
+function newFunction2(result){
+  $("#editTask").show();
+  $("#taskTitle").val(result['name']);
+  console.log(result);
+}
+function clearTaskFields(){
+   $("#taskTitle").val("");
 }
 
 function saveEditTask()
 {
   $("#editTask").hide();
-
+  //Put onto Server
+  clearTaskFields();
 }
 function cancelEditTask()
 {
   $("#editTask").hide();
+  clearTaskFields();
 
 }
 

@@ -9,8 +9,8 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var groups = require('./routes/groups');
-var group = require('./routes/group');
-
+var group = require('./routes/group'); //Not needed
+var grouplists = require('./routes/grouplists');
 
 var index = require('./routes/index');
 var project = require('./routes/project');
@@ -49,6 +49,7 @@ app.get('/tasks', tasks.view);
 app.get('/lists', lists.view);
 app.get('/groups', groups.view);
 app.get('/contacts', contacts.view);
+app.get('/grouplists',grouplists.returnLists)
 // Example route
 // app.get('/users', user.list);
 
