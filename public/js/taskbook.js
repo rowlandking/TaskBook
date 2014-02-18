@@ -1,18 +1,33 @@
 var taskStorage = new Array(); 
 var listStorage = new Array();
+var S_TASKNAME = 1;
+var S_LISTNAME = 1;
+var S_TASKID = 0;
+var S_LISTID = 0;
+var S_DESCRIPTION = 2;
+var S_ASSIGNEDTO = 3;
+var S_TASKLIST = 2;
+
+// listStorage[INDEX]=[S_LISTID,S_LISTNAME,S_TASKLIST]
+// listStorage[INDEX][S_TASKLIST] = [S_TASKID, S_TASKNAME, S_DESCRIPTION, S_ASSIGNEDTO, __,___]
 function setupFakeStorage(){
   taskStorage[0]=["1000","Wash Dishes","description1",["Me","Him","Her"],"datedue","urgent"];
   taskStorage[1]=["1001","Take Out Trash","description2",["Me","Him","Her"],"datedue","urgent"];
   taskStorage[2]=["1002","Clean Dog","description3",["Me","Him","Her"],"datedue","urgent"];
 
   listStorage[0]=["100","chores", [taskStorage[0],taskStorage[1],taskStorage[2]]];
-  listStorage[1]=["101","schoolwork", [taskStorage[0],taskStorage[2],taskStorage[2]]];
+
+  taskStorage[0]=["1003","Turn in essay","description1",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[1]=["1004","Read Chapter 1","description2",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[2]=["1005","Finish Lab","description3",["Me","Him","Her"],"datedue","urgent"];
+
+  listStorage[1]=["101","schoolwork", [taskStorage[0],taskStorage[1],taskStorage[2]]];
   console.log(taskStorage[0]);
 }
 
 function findList(id){
   for(var i=0;i<listStorage.length;i++){
-    if(listStorage[i][0] == id){
+    if(listStorage[i][S_LISTID] == id){
       return i;
     }
   }
@@ -20,8 +35,8 @@ function findList(id){
 }
 
 function findTask(listIndex, taskid){
-  for(var i=0;i<listStorage[listIndex][2].length;i++){
-    if(listStorage[listIndex][2][i][0] == taskid){
+  for(var i=0;i<listStorage[listIndex][S_TASKLIST].length;i++){
+    if(listStorage[listIndex][S_TASKLIST][i][S_TASKID] == taskid){
       return i;
     }
   }
@@ -438,10 +453,10 @@ function editTaskFunction(listid, taskid)
 
   console.log(listIndex);
   console.log(taskIndex);
-  console.log(listStorage[listIndex][2][taskIndex][1]);
+  console.log(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);
 
   $("#editTask").show();
-  $("#taskTitle").val(listStorage[listIndex][2][taskIndex][1]);
+  $("#taskTitle").val(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);
   //$("#taskDescription").val(description);
   //$("#taskTitle").val(task);
   //$("#taskTitle").val(task);
