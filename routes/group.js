@@ -1,8 +1,13 @@
-exports.viewProject = function(req, res) {
-  // controller code goes here 
-  console.log("group.js");
-  var name = req.params.name;
-  var groupList = JSON.stringify([
+
+var REALDATA = false;
+var groupList;
+var announcementList;
+var contactList;
+var listList;
+var fakelistList
+
+function retrieveFakeGroupList(){
+    groupList = JSON.stringify([
       { "name": "CSE 170 Project",
         "image": "lorempixel.people.1.jpeg",
         "id": "project1"
@@ -21,7 +26,9 @@ exports.viewProject = function(req, res) {
         "id": "project4"
       }
     ]);
-   var announcementList =  JSON.stringify([
+}
+function retrieveFakeAnnouncementList(){
+  announcementList =  JSON.stringify([
       { "type": "Reminder",
         "name": "Buy Toilet Paper"
       },
@@ -30,7 +37,9 @@ exports.viewProject = function(req, res) {
         "name": "Clean Toilet"
       }
     ]);
-  var contactList = JSON.stringify([
+}
+function retrieveFakeContactList(){
+  contactList = JSON.stringify([
           {
             "name": "Thuy Pham"
           },
@@ -57,7 +66,10 @@ exports.viewProject = function(req, res) {
           }
 
     ]);
-  var listList = JSON.stringify([
+}
+
+function retrievelistList(){
+  listList = JSON.stringify([
     {
       "id":"1",
       "name":"Chores",
@@ -125,7 +137,9 @@ exports.viewProject = function(req, res) {
     },
 
     ]);
-  var fakelistList = JSON.stringify([
+}
+function retrieveFakeListList(){
+  fakelistList = JSON.stringify([
     {
       "id":"100",
       "name":"Chores",
@@ -167,6 +181,22 @@ exports.viewProject = function(req, res) {
     }
 
     ]);
+}
+
+
+exports.viewProject = function(req, res) {
+  // controller code goes here 
+  console.log("group.js");
+  var name = req.params.name;
+
+  if(REALDATA ==false){
+  retrieveFakeGroupList();
+  retrieveFakeAnnouncementList();
+  retrievelistList();
+  retrieveFakeListList();
+  retrieveFakeContactList();
+  }
+
   console.log('The Group : ' + name);
   console.log(JSON.parse(groupList));
   console.log(fakelistList);
