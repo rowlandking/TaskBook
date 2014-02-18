@@ -17,6 +17,25 @@ var project = require('./routes/project');
 var tasks = require('./routes/tasks');
 var lists = require('./routes/lists');
 var contacts = require('./routes/contacts');
+//mongo
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://karen:Password_1234@troup.mongohq.com:10034/taskbook');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:')); 
+db.once('open', function callback () {
+  // yay!
+});
+
+
+
+
+
+//var silence = new Kitten({ name: 'Silence' })
+//console.log(silence.name); // 'Silence'
+
+
+
 // Example route
 // var user = require('./routes/user');
 
@@ -49,7 +68,11 @@ app.get('/tasks', tasks.view);
 app.get('/lists', lists.view);
 app.get('/groups', groups.view);
 app.get('/contacts', contacts.view);
+
+//app.get('/kitty', kittySchema.speak);
+
 app.get('/grouplists',grouplists.returnLists)
+
 // Example route
 // app.get('/users', user.list);
 
