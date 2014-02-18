@@ -1,7 +1,35 @@
 var taskStorage = new Array(); 
+var listStorage = new Array();
+function setupFakeStorage(){
+  taskStorage[0]=["1000","Wash Dishes","description1",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[1]=["1001","Take Out Trash","description2",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[2]=["1002","Clean Dog","description3",["Me","Him","Her"],"datedue","urgent"];
 
+  listStorage[0]=["100","chores", [taskStorage[0],taskStorage[1],taskStorage[2]]];
+  listStorage[1]=["101","schoolwork", [taskStorage[0],taskStorage[2],taskStorage[2]]];
+  console.log(taskStorage[0]);
+}
+
+function findList(id){
+  for(var i=0;i<listStorage.length;i++){
+    if(listStorage[i][0] == id){
+      return i;
+    }
+  }
+  return -1;
+}
+
+function findTask(listIndex, taskid){
+  for(var i=0;i<listStorage[listIndex][2].length;i++){
+    if(listStorage[listIndex][2][i][0] == taskid){
+      return i;
+    }
+  }
+  return -1;
+}
 $(document).ready(function() {
-  hideUrgencyIcon();
+  //hideUrgencyIcon();
+  setupFakeStorage();
 })
 
 function visibleForm(name) {
@@ -402,10 +430,18 @@ function cancelFilter()
 
 }
 
-function editTaskFunction(task)
+
+function editTaskFunction(listid, taskid)
 {
+  var listIndex = findList(listid);
+  var taskIndex = findTask(listIndex,taskid);
+
+  console.log(listIndex);
+  console.log(taskIndex);
+  console.log(listStorage[listIndex][2][taskIndex][1]);
+
   $("#editTask").show();
-  $("#taskTitle").val(task);
+  $("#taskTitle").val(listStorage[listIndex][2][taskIndex][1]);
   //$("#taskDescription").val(description);
   //$("#taskTitle").val(task);
   //$("#taskTitle").val(task);

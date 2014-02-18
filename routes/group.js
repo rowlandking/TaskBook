@@ -126,6 +126,48 @@ exports.viewProject = function(req, res) {
     	]
     },
 
+    ],
+    'fakelists':[
+    {
+      'id':'100',
+      'name':'Chores',
+      'tasks':[
+      {
+        'name':'Wash Dishes',
+        'filters': 'ready',
+        'id':'1000'
+      },
+      {
+        'name':'Take Out Trash',
+        'filters': 'ready',
+        'id':'1001'
+      },
+      {
+        'name':'Clean Dog',
+        'filters': 'ready',
+        'id':'1002'
+      }
+      ]
+    },
+    {
+    'id':'101',
+    'name':'Schoolwork',
+      'tasks':[
+      {
+        'name':'Turn in essay',
+        'name2':'Finish lab'
+      },
+      {
+        'name':'Read Chapter 1',
+        'name2':'Read Chapter 1'
+      },
+      {
+        'name':'Finish lab',
+        'name2':'Turn in essay'
+      }
+      ]
+    },
+
     ]
   });
 };

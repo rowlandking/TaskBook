@@ -210,7 +210,7 @@
 </div>
 
 <div id="grouplists" class="list hover">
-{{#each lists}}
+{{#each fakelists}}
 <div class="panel panel-default">
   <div class="panel-heading">
     {{name}}
@@ -220,7 +220,7 @@
 
   {{#each tasks}}
   <!--<div class="panel-body {{filters}}">{{name}}</div>-->
-  <li onClick="editTaskFunction('{{name}}')" class="list-group-item {{filters}}" id="task{{id}}">{{name}} </li>
+  <li onClick="editTaskFunction({{../id}},{{id}})" class="list-group-item {{filters}}" id="task{{id}}">{{name}} </li>
   {{/each}}
   </div>
   </ul>
