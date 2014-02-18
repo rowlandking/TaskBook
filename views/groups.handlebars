@@ -95,20 +95,6 @@
   <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-sort"></span> </button>
   <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-pencil"></span> </button>-->
 
- <div class="btn-group fright buttoncenter">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
-        <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
-          <li role="presentation" class="dropdown-header">Filters</li>
-          <li><a href="#" onClick="filterTasks('.ready')">Ready</a></li>
-           <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
-          <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li>
-          <li role="presentation" class="divider"></li>
-          <li><a href="#" onClick="newFilter()">New Filter</a></li>
-        </ul>
-      </div>
-    </div>
-
    
 
        <div class="btn-group fright buttoncenter">
@@ -184,6 +170,7 @@
 <strong><h1>Task</h1></strong>
 <br>
 <form>
+<strong>Title:&nbsp;&nbsp;&nbsp;</strong><input id="taskTitle" type="text"><br><br>
 <strong>Description:&nbsp;&nbsp;&nbsp;</strong><input id="taskDescription" type="text"><br><br>
 <strong>Assigned To:&nbsp;</strong><input id="taskAssignedTo" type="text">
   <br><br>
@@ -223,7 +210,7 @@
 </div>
 
 <div id="grouplists" class="list hover">
-{{#each lists}}
+{{#each fakelists}}
 <div class="panel panel-default">
   <div class="panel-heading">
     {{name}}
@@ -233,8 +220,7 @@
 
   {{#each tasks}}
   <!--<div class="panel-body {{filters}}">{{name}}</div>-->
-  <li onClick="editTaskFunction('{{name}}')" class="list-group-item nonsort {{filters}}" id="task{{id}}">{{name}} <span class="glyphicon glyphicon-fire" style="display:none"></span> </li>
-  <li onClick="editTaskFunction('{{name2}}')" class="list-group-item alphasort {{filters}}" style="display:none">{{name2}}</li>
+  <li onClick="editTaskFunction({{../id}},{{id}})" class="list-group-item {{filters}}" id="task{{id}}">{{name}} </li>
   {{/each}}
   </div>
   </ul>

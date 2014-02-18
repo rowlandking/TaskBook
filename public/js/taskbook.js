@@ -1,6 +1,52 @@
 
+var taskStorage = new Array(); 
+var listStorage = new Array();
+var S_TASKNAME = 1;
+var S_LISTNAME = 1;
+var S_TASKID = 0;
+var S_LISTID = 0;
+var S_DESCRIPTION = 2;
+var S_ASSIGNEDTO = 3;
+var S_TASKLIST = 2;
+
+// listStorage[INDEX]=[S_LISTID,S_LISTNAME,S_TASKLIST]
+// listStorage[INDEX][S_TASKLIST] = [S_TASKID, S_TASKNAME, S_DESCRIPTION, S_ASSIGNEDTO, __,___]
+function setupFakeStorage(){
+  taskStorage[0]=["1000","Wash Dishes","description1",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[1]=["1001","Take Out Trash","description2",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[2]=["1002","Clean Dog","description3",["Me","Him","Her"],"datedue","urgent"];
+
+  listStorage[0]=["100","chores", [taskStorage[0],taskStorage[1],taskStorage[2]]];
+
+  taskStorage[0]=["1003","Turn in essay","description1",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[1]=["1004","Read Chapter 1","description2",["Me","Him","Her"],"datedue","urgent"];
+  taskStorage[2]=["1005","Finish Lab","description3",["Me","Him","Her"],"datedue","urgent"];
+
+  listStorage[1]=["101","schoolwork", [taskStorage[0],taskStorage[1],taskStorage[2]]];
+  console.log(taskStorage[0]);
+}
+
+function findList(id){
+  for(var i=0;i<listStorage.length;i++){
+    if(listStorage[i][S_LISTID] == id){
+      return i;
+    }
+  }
+  return -1;
+}
+
+function findTask(listIndex, taskid){
+  for(var i=0;i<listStorage[listIndex][S_TASKLIST].length;i++){
+    if(listStorage[listIndex][S_TASKLIST][i][S_TASKID] == taskid){
+      return i;
+    }
+  }
+  return -1;
+}
+
 $(document).ready(function() {
-  hideUrgencyIcon();
+  //hideUrgencyIcon();
+  setupFakeStorage();
 })
 
 function visibleForm(name) {
@@ -124,16 +170,6 @@ function addgrouplistsareafunction(div){
     $("#addtasktext"+div).hide();
 };
 
-$("#non").click(function(){
-  $(".alphasort").hide();
-  $(".nonsort").show();
-});
-
-$("#alpha").click(function(){
-  $(".nonsort").hide();
-  $(".alphasort").show();
-});
-
 $("#profilebutton").click(function(){
   $("#editProfile").show();
 });
@@ -230,7 +266,7 @@ function LoginForm(){
 }
 
 function checkLogin(){
-   $.get("/kitty", callback);
+   //$.get("/kitty", callback);
    function callback(){}
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
@@ -430,20 +466,52 @@ function cancelFilter()
 
 }
 
-function editTaskFunction(task)
+
+function editTaskFunction(listid, taskid)
 {
+  /* Local Storage Method
+
+  var listIndex = findList(listid);
+  var taskIndex = findTask(listIndex,taskid);
+
+  console.log(listIndex);
+  console.log(taskIndex);
+  console.log(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);
+
   $("#editTask").show();
-  $("#taskDescription").val(task);
+  $("#taskTitle").val(listStorage[listIndex][S_TASKLIST][taskIndex][S_TASKNAME]);*/
+
+  //$("#taskDescription").val(description);
+  //$("#taskTitle").val(task);
+  //$("#taskTitle").val(task);
+
+  console.log("User clicked on color button");
+  $.get("/grouplists",{ field1: listid, field2: taskid },newFunction2);
+
+  $("#editTask").show();
+  $("#taskTitle").val();
+
+}
+
+function newFunction2(result){
+  $("#editTask").show();
+  $("#taskTitle").val(result['name']);
+  console.log(result);
+}
+function clearTaskFields(){
+   $("#taskTitle").val("");
 }
 
 function saveEditTask()
 {
   $("#editTask").hide();
-
+  //Put onto Server
+  clearTaskFields();
 }
 function cancelEditTask()
 {
   $("#editTask").hide();
+  clearTaskFields();
 
 }
 
