@@ -21,7 +21,9 @@ var contacts = require('./routes/contacts');
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 //mongo
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOHQ_URL);
+//mongoose.connect(process.env.MONGOHQ_URL);
+
+console.log(mongoose.connection.readyState);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:')); 
@@ -75,7 +77,7 @@ app.get('/contacts', contacts.view);
 
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
-app.get('/grouplists',grouplists.returnLists)
+app.get('/grouplists',grouplists.returnLists);
 
 // Example route
 // app.get('/users', user.list);
