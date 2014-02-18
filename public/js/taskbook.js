@@ -44,6 +44,10 @@ function findTask(listIndex, taskid){
   return -1;
 }
 
+$(document).load(function(){
+
+})
+
 $(document).ready(function() {
   //hideUrgencyIcon();
   setupFakeStorage();
@@ -130,6 +134,7 @@ function toggleEditGroup(name, name_Field, groupName) {
         alert("Enter a task");
         return false;
     }*/
+
     document.getElementById(name_Field).innerHTML = groupName;
 
     if (document.getElementById(name).style.visibility=="visible") {
@@ -254,6 +259,31 @@ function signup(){
         }
     });*/
 }
+function getCookie(cname)
+{
+var name = cname + "=";
+var ca = document.cookie.split(';');
+for(var i=0; i<ca.length; i++) 
+  {
+  var c = ca[i].trim();
+  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+return "";
+}
+function checkCookie()
+{
+var username=getCookie("TBuserID");
+if (username!="")
+  {
+  //alert("Welcome again " + username);
+  console.log("Welcome Again" + username);
+  return true;
+  }
+else 
+  {
+  return false;
+  }
+}
 
 function SignupForm(){
     if(validateEmail()){
@@ -261,6 +291,8 @@ function SignupForm(){
     }
 }
 function LoginForm(){
+    document.cookie = "TBuserid=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie="TBuserID=12345";
     if(checkLogin()){
         window.location.href='/groups/Book%20Club';
     }
