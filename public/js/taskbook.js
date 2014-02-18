@@ -125,16 +125,6 @@ function addgrouplistsareafunction(div){
     $("#addtasktext"+div).hide();
 };
 
-$("#non").click(function(){
-  $(".alphasort").hide();
-  $(".nonsort").show();
-});
-
-$("#alpha").click(function(){
-  $(".nonsort").hide();
-  $(".alphasort").show();
-});
-
 $("#profilebutton").click(function(){
   $("#editProfile").show();
 });
