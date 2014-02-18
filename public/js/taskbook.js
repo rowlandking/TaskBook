@@ -409,7 +409,7 @@ function cancelFilter()
 function editTaskFunction(task)
 {
   $("#editTask").show();
-  $("#taskDescription").val(task);
+  $("#taskTitle").val(task);
 }
 
 function saveEditTask()
