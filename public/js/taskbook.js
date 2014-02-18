@@ -266,8 +266,8 @@ function LoginForm(){
 }
 
 function checkLogin(){
-   //$.get("/kitty", callback);
-   function callback(){}
+   $.get("/kitty");
+   //function callback(){}
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
     //If either are null, return error

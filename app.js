@@ -27,7 +27,7 @@ db.once('open', function callback () {
   // yay!
 });
 
-
+var kitty = require('./routes/kitty');
 
 
 
@@ -69,7 +69,7 @@ app.get('/lists', lists.view);
 app.get('/groups', groups.view);
 app.get('/contacts', contacts.view);
 
-//app.get('/kitty', kittySchema.speak);
+app.get('/kitty', kitty.speak);
 
 app.get('/grouplists',grouplists.returnLists)
 
