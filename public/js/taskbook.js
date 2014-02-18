@@ -1,3 +1,5 @@
+var taskStorage = new Array(); 
+
 $(document).ready(function() {
   hideUrgencyIcon();
 })
@@ -414,6 +416,9 @@ function editTaskFunction(task)
 {
   $("#editTask").show();
   $("#taskTitle").val(task);
+  //$("#taskDescription").val(description);
+  //$("#taskTitle").val(task);
+  //$("#taskTitle").val(task);
 }
 
 function saveEditTask()
