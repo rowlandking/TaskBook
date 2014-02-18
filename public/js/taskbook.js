@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   hideUrgencyIcon();
 })
@@ -198,6 +199,23 @@ function signup(){
     $('#inputpassword').css("background-color", "white");
     $('.errormsg').css("display","none");
 
+
+    /*var record = new kittySchema(
+
+        kittySchema.speak();          
+    );*/
+    
+   
+
+   /* record.save(function(err))
+    {
+        if(err){
+          console.log(err);
+          res.status(500).json({status: 'failure'});
+        }else{
+          res.json({status: 'success'});
+        }
+    });*/
 }
 
 function SignupForm(){
@@ -212,6 +230,8 @@ function LoginForm(){
 }
 
 function checkLogin(){
+   $.get("/kitty", callback);
+   function callback(){}
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
     //If either are null, return error
@@ -244,7 +264,7 @@ function checkLogin(){
     }
 
     //Check Database for email/password
-    else if(x!=y){
+    if(x!=y){
         $('#inputpassword').css("background-color", "yellow");
         $('#inputemail').css("background-color", "yellow");
         $('.errormsg').html("Incorrect Email/Password!");
