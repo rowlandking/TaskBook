@@ -220,8 +220,7 @@
 
   {{#each tasks}}
   <!--<div class="panel-body {{filters}}">{{name}}</div>-->
-  <li onClick="editTaskFunction('{{name}}')" class="list-group-item nonsort {{filters}}" id="task{{id}}">{{name}} <span class="glyphicon glyphicon-fire" style="display:none"></span> </li>
-  <li onClick="editTaskFunction('{{name2}}')" class="list-group-item alphasort {{filters}}" style="display:none">{{name2}}</li>
+  <li onClick="editTaskFunction('{{name}}')" class="list-group-item {{filters}}" id="task{{id}}">{{name}} </li>
   {{/each}}
   </div>
   </ul>

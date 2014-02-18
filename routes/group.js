@@ -67,51 +67,43 @@ exports.viewProject = function(req, res) {
     	{
     		'name':'Wash Dishes',
         'filters': 'ready',
-        'id':'2',
-        'index':'3'
+        'id':'2'
     	},
   	  {
     		'name':'Clean Toilet',
         'filters': 'needsoon',
-         'id':'3',
-        'index':'6'
+         'id':'3'
 
     	},
       {
         'name':'Wipe Counters',
         'filters': 'needsoon',
-        'id':'4',
-        'index':'8'
+        'id':'4'
       },
       {
         'name':'Buy Toilet Paper',
         'filters': 'urgent',
-        'id':'5',
-        'index':'1'
+        'id':'5'
       },
       {
         'name':'Get Eggs',
         'filters': 'needsoon',
-        'id':'6',
-        'index':'5'
+        'id':'6'
       },
       {
         'name':'Buy Cheese',
         'filters': 'ready',
-        'id':'7',
-        'index':'9'
+        'id':'7'
       },
       {
         'name':'Find Apartment Key',
         'filters': 'ready',
-        'id':'8',
-        'index':'2'
+        'id':'8'
       },
       {
         'name':'Walk Dog',
         'filters':'needsoon',
-        'id':'9',
-        'index':'4'
+        'id':'9'
       }
     	]
     },
