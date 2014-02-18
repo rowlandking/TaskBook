@@ -17,9 +17,11 @@ var project = require('./routes/project');
 var tasks = require('./routes/tasks');
 var lists = require('./routes/lists');
 var contacts = require('./routes/contacts');
+
+var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 //mongo
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://karen:Password_1234@troup.mongohq.com:10034/taskbook');
+mongoose.connect(process.env.MONGOHQ_URL);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:')); 
@@ -28,6 +30,8 @@ db.once('open', function callback () {
 });
 
 var kitty = require('./routes/kitty');
+var contact = require('./routes/contactmodel');
+
 
 
 
@@ -70,7 +74,7 @@ app.get('/groups', groups.view);
 app.get('/contacts', contacts.view);
 
 app.get('/kitty', kitty.speak);
-
+app.get('/contactmodel', contact.contactExists);
 app.get('/grouplists',grouplists.returnLists)
 
 // Example route

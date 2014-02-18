@@ -266,8 +266,10 @@ function LoginForm(){
 }
 
 function checkLogin(){
-   $.get("/kitty");
+   //$.get("/kitty");
    //function callback(){}
+   $.get("/contactmodel");
+    
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
     //If either are null, return error

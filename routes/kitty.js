@@ -28,7 +28,7 @@ exports.speak = function()
 	newKitten.save(function (err, newKitten) {
   if (err) // TODO handle the error
   	newKitten.speak();
-});
+  });
 }
 console.log(silence.name); // 'Silence'
 
