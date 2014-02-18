@@ -30,6 +30,7 @@ exports.contactExists = function()
 	Contact.find({name:'Scott Klemmer'}, function(error, data){
 		console.log(data['email']);
 		console.log("no data");
+		
 
 	});
 }

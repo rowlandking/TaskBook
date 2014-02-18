@@ -269,6 +269,7 @@ function LoginForm(){
 function checkLogin(){
    //$.get("/kitty");
    //function callback(){}
+   console.log("check login");
    $.get("/contactmodel");
     
     var x=document.forms["slick-login"]["inputemail"].value;
