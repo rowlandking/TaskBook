@@ -304,8 +304,10 @@ function LoginForm(){
 function checkLogin(){
    //$.get("/kitty");
    //function callback(){}
-   $.get("/contactmodel");
-    
+  console.log("check login");
+   $.get("/contactmodel", callback);
+   function callback(){}
+
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
     //If either are null, return error
