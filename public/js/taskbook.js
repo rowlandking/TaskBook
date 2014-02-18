@@ -214,9 +214,10 @@ function addlisttaskssubmit(div){
      var html ='<div class="panel-body">';
         html += document.getElementById('addtaskinput'+div).value;
         html +='</div>'*/
-         var html =' <li class="list-group-item {{filters}}">';
+         var html =' <li class="list-group-item {{filters}}" onClick="editTaskFunction(101,1001)">';
         html += document.getElementById('addtaskinput'+div).value;
         html +='</li>'
+  
   $("#list"+div).append(
     html);
     document.getElementById('addtaskinput'+div).value = "";
@@ -393,9 +394,8 @@ $('#addmembersubmit').click(function(){
     if(str==null||str==""){
         return false;
     }
-   var html =' <li class="list-group-item">'+str+'</li>';
-
-
+   var html =' <li class="list-group-item" onClick="editTaskFunction(101,1001)">'+str+'</li>';
+  
   $(".membercontainer").append(
     html);
     $('#addmemberinput').val("");
