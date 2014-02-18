@@ -67,16 +67,12 @@ exports.viewProject = function(req, res) {
     	{
     		'name':'Wash Dishes',
         'filters': 'ready',
-        'name2':'Buy Cheese',
-        'filters2': 'yellow',
         'id':'2',
         'index':'3'
     	},
   	  {
     		'name':'Clean Toilet',
         'filters': 'needsoon',
-        'name2':'Buy Toilet Paper',
-        'filters2': 'red',
          'id':'3',
         'index':'6'
 
@@ -84,48 +80,36 @@ exports.viewProject = function(req, res) {
       {
         'name':'Wipe Counters',
         'filters': 'needsoon',
-        'name2':'Clean Toilet',
-        'filters2': 'yellow',
         'id':'4',
         'index':'8'
       },
       {
         'name':'Buy Toilet Paper',
         'filters': 'urgent',
-        'name2':'Find Apartment Key',
-        'filters2': 'red',
         'id':'5',
         'index':'1'
       },
       {
         'name':'Get Eggs',
         'filters': 'needsoon',
-        'name2':'Get Eggs',
-        'filters2': 'yellow',
         'id':'6',
         'index':'5'
       },
       {
         'name':'Buy Cheese',
         'filters': 'ready',
-        'name2':'Walk Dog',
-        'filters2':'yellow',
         'id':'7',
         'index':'9'
       },
       {
         'name':'Find Apartment Key',
         'filters': 'ready',
-        'name2':'Wash Dishes',
-        'filters2': 'yellow',
         'id':'8',
         'index':'2'
       },
       {
         'name':'Walk Dog',
         'filters':'needsoon',
-        'name2':'Wipe Counters',
-        'filters2': 'yellow',
         'id':'9',
         'index':'4'
       }
