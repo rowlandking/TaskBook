@@ -183,7 +183,6 @@ function retrieveFakeListList(){
     ]);
 }
 
-
 exports.viewProject = function(req, res) {
   // controller code goes here 
   console.log("group.js");

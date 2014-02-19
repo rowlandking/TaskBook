@@ -9,7 +9,7 @@ var contactSchema = mongoose.Schema({
 
 var Contact = mongoose.model('Contact', contactSchema);
 
-exports.saveContact = function(name_, email_, password_)
+/*exports.saveContact = function(name_, email_, password_)
 {
 	//console.log("saving contacts");
 	//var name_ = "Scott Klemmer";
@@ -22,13 +22,13 @@ exports.saveContact = function(name_, email_, password_)
 		if(err)
 			console.log("there's an error in contacts");
 	});
-}
+}*/
 
-exports.contactExists = function(req, res)
+exports.contactExists = function()
 {
 	console.log("does the contact exist");
 	Contact.find({name:'Scott Klemmer'}, function(error, data){
-		console.log(data['email']);
+		//console.log(data['email']);
 		console.log("no data");
 
 	});
