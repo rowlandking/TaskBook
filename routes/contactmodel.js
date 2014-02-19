@@ -24,7 +24,7 @@ exports.saveContact = function(name_, email_, password_)
 	});
 }
 
-exports.contactExists = function(req, res)
+exports.contactExists = function()
 {
 	console.log("does the contact exist");
 	Contact.find({name:'Scott Klemmer'}, function(error, data){
