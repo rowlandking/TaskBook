@@ -8,7 +8,6 @@ $(document).ready(function() {
   if(checkCookie()){
 
   }
-  setupFakeStorage();
 })
 
 function visibleForm(name) {

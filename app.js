@@ -8,15 +8,16 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
-var groups = require('./routes/groups');
-var group = require('./routes/group'); //Not needed
+//var groups = require('./routes/groups');
+var group = require('./routes/group'); 
 var grouplists = require('./routes/grouplists');
 
 var index = require('./routes/index');
+/*
 var project = require('./routes/project');
 var tasks = require('./routes/tasks');
 var lists = require('./routes/lists');
-var contacts = require('./routes/contacts');
+var contacts = require('./routes/contacts');*/
 
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 //mongo
@@ -70,16 +71,18 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
-app.get('/groups/:name', group.viewProject);
-app.get('/tasks', tasks.view);
-app.get('/lists', lists.view);
-app.get('/groups', groups.view);
-app.get('/contacts', contacts.view);
+app.get('/groups/:id', group.viewGroup);
+//app.get('/tasks', tasks.view);
+//app.get('/lists', lists.view);
+//app.get('/groups', groups.view);
+//app.get('/contacts', contacts.view);
 
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
+app.get('/listtask',grouplists.returnTask);
+//app.get('/contactmodel', contact.taskExists);
 app.get('/grouplists',grouplists.returnLists);
-
+app.get('/addtask',grouplists.returnLists);
 // Example route
 // app.get('/users', user.list);
 

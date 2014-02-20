@@ -208,24 +208,32 @@ $("#addgrouptlistssubmit").click(function(fname){
 });
 
 
-function addlisttaskssubmit(div){
-  $("#addlisttasksarea"+div).show();
-  $("#addtaskinputform"+div).hide();
-    $("#addtasktext"+div).show();
- if(document.getElementById('addtaskinput'+div).value ==null||document.getElementById('addtaskinput'+div).value ==''){
-    document.getElementById('addtaskinput'+div).value = "New Task Name";
+function addlisttaskssubmit(listID){
+  $("#addlisttasksarea"+listID).show();
+  $("#addtaskinputform"+listID).hide();
+    $("#addtasktext"+listID).show();
+ if(document.getElementById('addtaskinput'+listID).value ==null||document.getElementById('addtaskinput'+listID).value ==''){
+    document.getElementById('addtaskinput'+listID).value = "New Task Name";
   }
   /*
-     var html ='<div class="panel-body">';
-        html += document.getElementById('addtaskinput'+div).value;
-        html +='</div>'*/
-         var html =' <li class="list-group-item {{filters}}" onClick="editTaskFunction(101,1001)">';
-        html += document.getElementById('addtaskinput'+div).value;
-        html +='</li>'
-  
-  $("#list"+div).append(
+     var html ='<listID class="panel-body">';
+        html += document.getElementById('addtaskinput'+listID).value;
+        html +='</listID>'*/
+
+  // ADD THE TASK NAME INTO DB: document.getElementById('addtaskinput'+listID).value
+    //.get
+  // RETURN VALUE
+  var newTaskID = 1001;// STICK RETURN VALUE HERE
+  addTaskToList(listID, newTaskID); 
+/*
+  var html =' <li class="list-group-item {{filters}}" onClick="editTaskFunction(101,1001)">'; 
+  html += document.getElementById('addtaskinput'+listID).value;
+  html +='</li>'
+
+  $("#list"+listID).append(
     html);
-    document.getElementById('addtaskinput'+div).value = "";
+    document.getElementById('addtaskinput'+listID).value = "";*/
+
 
 }
 
@@ -375,7 +383,7 @@ function editTaskFunction(listid, taskid)
   //$("#taskTitle").val(task);
 
   console.log("User clicked on color button");
-  $.get("/grouplists",{ field1: listid, field2: taskid },newFunction2);
+  $.get("/listtask",{ field1: listid, field2: taskid },newFunction2);
 
   $("#editTask").show();
   $("#taskTitle").val();
@@ -462,3 +470,18 @@ $('li').mouseout(function()
   {
           $(this).css('background', 'white');
   });
+
+
+
+function clearTasksFromLists(){
+  $(".listsoftasks").empty();
+}
+
+function addTaskToList(listID,taskID){
+   var html =' <li class="list-group-item" onClick="editTaskFunction('+listID+','+taskID+')">';  //PUT THE LIST & ID of the TASK!
+        html += document.getElementById('addtaskinput'+listID).value;
+        html +='</li>'
+  
+  $("#list"+listID).append(
+    html);
+}
