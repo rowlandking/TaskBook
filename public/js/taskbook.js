@@ -235,6 +235,7 @@ function addlisttaskssubmit(listID){
   $("#addlisttasksarea"+listID).show();
   $("#addtaskinputform"+listID).hide();
     $("#addtasktext"+listID).show();
+    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value}, addTaskCallback);
  if(document.getElementById('addtaskinput'+listID).value ==null||document.getElementById('addtaskinput'+listID).value ==''){
     document.getElementById('addtaskinput'+listID).value = "New Task Name";
   }
@@ -257,6 +258,10 @@ function addlisttaskssubmit(listID){
     html);*/
     document.getElementById('addtaskinput'+listID).value = "";
 
+
+}
+
+function addTaskCallback() {
 
 }
 
@@ -517,7 +522,6 @@ function addTaskToList(listID,taskID){
   
   $("#list"+listID).append(
     html);
-
 }
 
 function addTaskToList2(listID,taskID, name){
