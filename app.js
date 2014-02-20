@@ -78,7 +78,6 @@ app.get('/contacts', contacts.view);
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
 app.get('/listtask',grouplists.returnTask);
-app.get('/contactmodel', contact.taskExists);
 app.get('/grouplists',grouplists.returnLists);
 
 // Example route
