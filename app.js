@@ -69,7 +69,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
-app.get('/groups/:name', group.viewProject);
+app.get('/groups/:id', group.viewGroup);
 app.get('/tasks', tasks.view);
 app.get('/lists', lists.view);
 app.get('/groups', groups.view);
@@ -77,6 +77,7 @@ app.get('/contacts', contacts.view);
 
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
+app.get('/listtask',grouplists.returnTask);
 app.get('/grouplists',grouplists.returnLists);
 
 // Example route

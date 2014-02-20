@@ -375,7 +375,7 @@ function editTaskFunction(listid, taskid)
   //$("#taskTitle").val(task);
 
   console.log("User clicked on color button");
-  $.get("/grouplists",{ field1: listid, field2: taskid },newFunction2);
+  $.get("/listtask",{ field1: listid, field2: taskid },newFunction2);
 
   $("#editTask").show();
   $("#taskTitle").val();
