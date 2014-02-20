@@ -95,6 +95,19 @@
   <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-sort"></span> </button>
   <button type="button" class="btn btn-default navbar-btn fright pin" ><span class="glyphicon glyphicon-pencil"></span> </button>-->
 
+<div class="btn-group fright buttoncenter">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
+    <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
+      <li role="presentation" class="dropdown-header">Filters</li>
+      <li><a href="#" onClick="filterTasks('.ready')">Ready</a></li>
+      <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
+      <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li>
+      <li role="presentation" class="divider"></li>
+      <li><a href="#" onClick="newFilter()">New Filter</a></li>
+    </ul>
+  </div>
+</div>
    
 
        <div class="btn-group fright buttoncenter">
