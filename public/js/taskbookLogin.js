@@ -128,7 +128,7 @@ function checkLogin(){
     var resultDB = false;
   function loginresponse(result){
     console.log('the result : please  ' + result['email'] + ' pw:' + result['password']);
-    if((JSON.stringify(result['password'])==y)){
+    if((result['password']==y)){
     resultDB = true;
   }
    }
