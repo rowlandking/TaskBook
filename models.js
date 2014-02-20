@@ -12,7 +12,7 @@ var contactSchema = mongoose.Schema({
 exports.Contact = mongoose.model('Contact', contactSchema);
 
 var groupSchema = Schema({
-	name:{type: String, index:{unique:true}}
+	name: String
 });
 
 exports.Group = mongoose.model('Group', groupSchema);

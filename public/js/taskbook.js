@@ -452,9 +452,14 @@ function cancelEditProfile()
 }
 function AddGroup()
 {
+  $.get("/addGroup", {name: document.getElementById('groupname').value}, addGroupCallBack);
   $("#addGroup").hide();
-
 }
+function addGroupCallBack(result)
+{
+  
+}
+
 function CancelAddGroup()
 {
   $("#addGroup").hide();

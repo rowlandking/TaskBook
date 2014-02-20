@@ -2,7 +2,7 @@ var models = require('../models');
 
 exports.addGroup = function(req, res)
 {
-	new models.Group({
+	var newGroup = new models.Group({
 		"name": req.query.name
 	})
 	.save(afterSaving);
@@ -10,8 +10,9 @@ exports.addGroup = function(req, res)
 	function afterSaving(err) {
 		if (err) {
 			console.log(err);
-			res.send(500);
 		}
+		console.log("New Group:"+newGroup);
+		res.json(newGroup);
 		//res.redirect('/');
 	}
 }
