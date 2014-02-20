@@ -24,7 +24,7 @@ var local_database_uri  = 'mongodb://localhost/' + local_database_name;
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 var database_uri = process.env.MONGOHQ_URL || local_database_uri;
 //mongo
-mongoose.connect(database_uri);
+mongoose.connect(MONGOHQ_URL);
 
 console.log(mongoose.connection.readyState);
 
