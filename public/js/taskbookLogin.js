@@ -125,11 +125,13 @@ function checkLogin(){
     }
 
     //Check Database for email/password
+    var result = false;
   function loginresponse(result){
-    console.log('the result : please  ' + result['email']);
+    console.log('the result : please  ' + result['email'] + 'pw:' + result['password']);
+    result = true;
    }
   $.get("/contactmodel", {email:x, password:y},loginresponse);
-    if(x!=y){
+    if(result){
         $('#inputpassword').css("background-color", "yellow");
         $('#inputemail').css("background-color", "yellow");
         $('.errormsg').html("Incorrect Email/Password!");
