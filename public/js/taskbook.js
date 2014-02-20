@@ -212,6 +212,7 @@ function addlisttaskssubmit(div){
   $("#addlisttasksarea"+div).show();
   $("#addtaskinputform"+div).hide();
     $("#addtasktext"+div).show();
+    $.get("/addTask",{ name: document.getElementById('addtaskinput'+div).value}, addTaskCallback);
  if(document.getElementById('addtaskinput'+div).value ==null||document.getElementById('addtaskinput'+div).value ==''){
     document.getElementById('addtaskinput'+div).value = "New Task Name";
   }
@@ -226,6 +227,10 @@ function addlisttaskssubmit(div){
   $("#list"+div).append(
     html);
     document.getElementById('addtaskinput'+div).value = "";
+
+}
+
+function addTaskCallback() {
 
 }
 
