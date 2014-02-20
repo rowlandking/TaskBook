@@ -165,28 +165,36 @@ function retrieveAnnouncements(id){
 function retrieveContacts(id){
   return JSON.stringify([
           {
-            "name": "Thuy Pham"
+            "name": "Thuy Pham",
+            "id": "1"
           },
           {
-            "name": "Carla Sun"
+            "name": "Carla Sun",
+            "id": "2"
           },
           {
-            "name": "Tim Pham"
+            "name": "Tim Pham",
+            "id": "3"
           },
           {
-            "name": "Thuy Tran"
+            "name": "Thuy Tran",
+            "id": "4"
           },
           {
-            "name": "Diana Pham"
+            "name": "Diana Pham",
+            "id": "5"
           },
           {
-            "name": "Marly Phung"
+            "name": "Marly Phung",
+            "id": "6"
           },
           {
-            "name": "David Phan"
+            "name": "David Phan",
+            "id": "7"
           },
           {
-            "name": "Troy Dam"
+            "name": "Troy Dam",
+            "id": "8"
           }
 
     ]);
