@@ -128,6 +128,8 @@ function checkLogin(){
     var resultDB = false;
   function loginresponse(result){
     console.log('the result : please  ' + result['email'] + ' pw:' + result['password']);
+    console.log("Password:"+result['password']);
+    console.log("Input:"+y);
     if((result['password']==y)){
     resultDB = true;
   }
