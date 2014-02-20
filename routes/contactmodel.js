@@ -25,21 +25,20 @@ var newContact = new Contact({name:"", email:"", password:""});
 	});
 }*/
 
-exports.contactExists = function()
+exports.contactExists = function(req, res)
 {
 	var data_;
 	console.log("does the contact exist");
-	newContact = Contact.find({name:'Scott Klemmer'}, function(error, data){
+	Contact.find({name:'Scott Klemmer'}, function(error, data){
 		//console.log(data['email']);
 		//console.log("no data");
 		//data_ = data.email;
-		if(err) console.log(err);
-    	
+		if(error) console.log(error);
     	res.send();
 
 	});
 	console.log("found something");
-	console.log("yohoho" + newContact.name);
+	//console.log("yohoho" + newContact.name);
 }
 
 	
