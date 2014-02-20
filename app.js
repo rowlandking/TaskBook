@@ -83,8 +83,8 @@ app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
 app.get('/listtask',grouplists.returnTask);
 //app.get('/contactmodel', contact.taskExists);
-app.get('/grouplists',grouplists.returnLists);
-app.get('/addtask',grouplists.returnLists);
+app.get('/applyFilter',grouplists.applyFilter);
+app.get('/applySort',grouplists.applySort);
 // Example route
 // app.get('/users', user.list);
 
