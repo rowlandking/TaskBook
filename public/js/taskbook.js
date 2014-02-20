@@ -201,9 +201,26 @@ $("#addgrouptlistssubmit").click(function(fname){
         html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading">' +document.getElementById('addlistinput').value+ '</div>';
         html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'
         */
+        /*
         var html ='<div class="panel panel-default">';
-        html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading">' +document.getElementById('addlistinput').value+ '</div>';
-        html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'
+        html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading"><strong>' +document.getElementById('addlistinput').value+ '</strong></div>';
+        html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'*/
+    var listID=1;
+    var html=""
+    html+='<div class="panel panel-default">';
+    html+='<div class="panel-heading">';
+    html+='<strong>'+document.getElementById('addlistinput').value+'</strong>';
+    html+='</div>';
+    html+='<ul class="list-group">';
+    html+='<div id="list'+listID+'" class="listsoftasks">';
+    html+='</div></ul>';
+    html+='<div id="addlisttasksarea'+listID+'" onclick="addgrouplistsareafunction('+listID+')" style="width:inherit, height:inherit;">';
+    html+='<div id="addtasktext'+listID+'" class="panel-footer" style="text-align:right">Add Task</div>';
+    html+='</div>';
+    html+='<form action="" id="addtaskinputform'+listID+'" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput'+listID+'" class="addtaskinput" type="text" name="fname" >';
+    html+='<input type="submit" value="Submit"   onclick="addlisttaskssubmit('+listID+');return false;" id="addlisttasksubmit'+listID+'">';
+    html+='</form>';
+    html+='</div>';
   $("#grouplists").append(
     html);
     document.getElementById('addlistinput').value = "";
@@ -234,8 +251,8 @@ function addlisttaskssubmit(listID){
   html +='</li>'
 
   $("#list"+listID).append(
-    html);
-    document.getElementById('addtaskinput'+listID).value = "";*/
+    html);*/
+    document.getElementById('addtaskinput'+listID).value = "";
 
 
 }
@@ -487,6 +504,7 @@ function addTaskToList(listID,taskID){
   
   $("#list"+listID).append(
     html);
+
 }
 
 function addTaskToList2(listID,taskID, name){
@@ -507,7 +525,7 @@ function filterTasks(name){
 
 function sortTasks(name){
   FILTERTYPE = name;
-    $.get("/applySort",{sort:name },fillTasksCallback);
+    $.get("/applySort",{sort:name},fillTasksCallback);
 
 }
 
