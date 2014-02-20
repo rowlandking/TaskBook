@@ -220,7 +220,11 @@ function addlisttaskssubmit(listID){
         html += document.getElementById('addtaskinput'+listID).value;
         html +='</listID>'*/
 
-  addTaskToList(listID, 1001); //QUERY DB for new Task #
+  // ADD THE TASK NAME INTO DB: document.getElementById('addtaskinput'+listID).value
+    //.get
+  // RETURN VALUE
+  var newTaskID = 1001;// STICK RETURN VALUE HERE
+  addTaskToList(listID, newTaskID); 
 /*
   var html =' <li class="list-group-item {{filters}}" onClick="editTaskFunction(101,1001)">'; 
   html += document.getElementById('addtaskinput'+listID).value;
