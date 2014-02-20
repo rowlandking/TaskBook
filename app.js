@@ -8,15 +8,16 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
-var groups = require('./routes/groups');
-var group = require('./routes/group'); //Not needed
+//var groups = require('./routes/groups');
+var group = require('./routes/group'); 
 var grouplists = require('./routes/grouplists');
 
 var index = require('./routes/index');
+/*
 var project = require('./routes/project');
 var tasks = require('./routes/tasks');
 var lists = require('./routes/lists');
-var contacts = require('./routes/contacts');
+var contacts = require('./routes/contacts');*/
 
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 //mongo
