@@ -1,6 +1,7 @@
 [
     {
       "id":"100",
+      "groupid":"0",
       "name":"Chores",
       "tasks":[
       {
@@ -22,6 +23,7 @@
     },
     {
     "id":"101",
+    "groupid":"0",
     "name":"Schoolwork",
       "tasks":[
       {
