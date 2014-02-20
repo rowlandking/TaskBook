@@ -1,4 +1,4 @@
-
+var userID = "";
 
 function getCookie(cname)
 {
@@ -11,6 +11,7 @@ for(var i=0; i<ca.length; i++)
   }
 return "";
 }
+
 function checkCookie()
 {
 var username=getCookie("TBuserID");
@@ -18,10 +19,15 @@ if (username!="")
   {
   //alert("Welcome again " + username);
   console.log("Welcome Again" + username);
+  userID = username;
   return true;
   }
 else 
   {
   return false;
   }
+}
+
+function getUserID(){
+  return userID
 }

@@ -37,7 +37,7 @@
         <ul class="dropdown-menu">
           <li role="presentation" class="dropdown-header">My Groups</li>
           {{#each groups}}
-          <li><a href="/groups/{{name}}">{{name}}</a>
+          <li><a href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
         </ul>
@@ -223,13 +223,13 @@
 </div>
 
 <div id="grouplists" class="list hover">
-{{#each fakelists}}
+{{#each lists}}
 <div class="panel panel-default">
   <div class="panel-heading">
     {{name}}
   </div>
    <ul class="list-group">
-  <div id="list{{id}}">
+  <div id="list{{id}}" class="listsoftasks">
 
   {{#each tasks}}
   <!--<div class="panel-body {{filters}}">{{name}}</div>-->
