@@ -1,4 +1,5 @@
 var lists = require('../AllLists.json');
+var groups = require('../AllGroups.json');
 var REALDATA = false;
 var groupList;
 var announcementList;
@@ -9,20 +10,17 @@ var fakelistList
 function retrieveFakeGroupList(){
     groupList = JSON.stringify([
       { "name": "CSE 170 Project",
-        "image": "lorempixel.people.1.jpeg",
         "id": "1"
         
       },
       { "name": "CSE 130",
-        "image": "lorempixel.city.1.jpeg",
+
         "id": "2"
       },
       { "name": "Apartment 3449",
-        "image": "lorempixel.technics.1.jpeg",
         "id": "3"
       },
       { "name": "Book Club",
-        "image": "lorempixel.abstract.1.jpeg",
         "id": "4"
       }
     ]);
@@ -30,39 +28,49 @@ function retrieveFakeGroupList(){
 function retrieveFakeAnnouncementList(){
   announcementList =  JSON.stringify([
       { "type": "Reminder",
-        "name": "Buy Toilet Paper"
+        "name": "Buy Toilet Paper",
+        "id":"1"
       },
       { 
         "type": "Reminder",
-        "name": "Clean Toilet"
+        "name": "Clean Toilet",
+        "id":"2"
       }
     ]);
 }
 function retrieveFakeContactList(){
   contactList = JSON.stringify([
           {
-            "name": "Thuy Pham"
+            "name": "Thuy Pham",
+            "id": "1"
           },
           {
-            "name": "Carla Sun"
+            "name": "Carla Sun",
+            "id": "2"
           },
           {
-            "name": "Tim Pham"
+            "name": "Tim Pham",
+            "id": "3"
           },
           {
-            "name": "Thuy Tran"
+            "name": "Thuy Tran",
+            "id": "4"
           },
           {
-            "name": "Diana Pham"
+            "name": "Diana Pham",
+            "id": "5"
           },
           {
-            "name": "Marly Phung"
+            "name": "Marly Phung",
+            "id": "6"
           },
           {
-            "name": "David Phan"
+            "name": "David Phan",
+            "id": "7"
           },
           {
-            "name": "Troy Dam"
+            "name": "Troy Dam",
+            "id": "8"
           }
 
     ]);
@@ -195,29 +203,37 @@ exports.viewGroup = function(req, res) {
   retrieveFakeListList();
   retrieveFakeContactList();
   }
-else{
-  var userID = getUserID();
+  else{
+    var userID = getUserID();
 
-  // Get the groups that the user is in
-  groupList = retrieveGroupList(userID);
+    // Get the groups that the user is in
+    groupList = retrieveGroupList(userID);
 
-  //Get the lists in the currently group
-  listList = retrieveCurrentGroupList(id);
+    //Get the lists in the currently group
+    listList = retrieveCurrentGroupList(id);
 
-  //Get Announcement List that the user has
-  announcementList = retrieveAnnouncements(id);
+    //Get Announcement List that the user has
+    announcementList = retrieveAnnouncements(id);
 
-  //Get Contact List
-  contactList = retrieveContacts(id);
+    //Get Contact List
+    contactList = retrieveContacts(id);
 
-}
+  }
+  var groupName;
+  
+  for(var i = 0; i<groups.length;i++){
 
+    if(parseInt(groups[i]['id'])==parseInt(id)){
+      groupName = groups[i]['name'];
+      break;
+    }
+  }
 
-  console.log('The Group : ' + id);
+  console.log('The Group : ' + groupName);
   console.log(JSON.parse(groupList));
   console.log(fakelistList);
   res.render('groups',{
-  	'projectName': id,
+  	'projectName': groupName,
   	'groups': JSON.parse(groupList),
     'announcements':announcementList,
     'contacts': JSON.parse(contactList),
