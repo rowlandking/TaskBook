@@ -80,8 +80,7 @@ function SignupForm(){
     }
 }
 function LoginForm(){
-    document.cookie = "TBuserid=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    document.cookie="TBuserID=12345";
+    
     if(checkLogin()){
         window.location.href='/groups/Book%20Club';
     }
@@ -129,13 +128,14 @@ function checkLogin(){
     }
 
     //Check Database for email/password
-
+  var userID;
   function loginresponse(result){
     console.log('the result : please  ' + result['email'] + ' pw:' + result['password']);
     console.log("Password:"+result['password']);
     console.log("Input:"+y);
     if((result['password']==y)){
     resultDB = true;
+    userID = result['_id'];
     console.log("Set To True");
 
 
@@ -152,6 +152,9 @@ function checkLogin(){
         $('.errormsg').css("display","block");
         return false;
     }
+
+    document.cookie = "TBuserid=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie="TBuserID="+userID;
     return true;
 }
 

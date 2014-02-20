@@ -182,6 +182,9 @@ $("#profilebutton").click(function(){
   $("#editProfile").show();
 });
 
+$("#addGroupButton").click(function(){
+  $("#addGroup").show();
+});
 $("#addgrouplistsarea").click(function(){
   $("#addlisttext").hide();
   $("#addlistinputform").show();
@@ -442,6 +445,16 @@ function cancelEditProfile()
   $("#editProfile").hide();
 
 }
+function AddGroup()
+{
+  $("#addGroup").hide();
+
+}
+function CancelAddGroup()
+{
+  $("#addGroup").hide();
+
+}
 function hideUrgencyIcon()
 {
   var id;
@@ -540,3 +553,5 @@ function fillTasksCallback(result){
     }
   }
 }
+
+

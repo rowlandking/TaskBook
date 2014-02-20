@@ -40,8 +40,11 @@
           <li><a href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
+           <li role="presentation" class="divider"></li>
+        <li id="addGroupButton"><a href="#">Create New Group</a></li>
+      
         </ul>
-      </div>
+    </div>
     </div>
 
      <div class="btn-group fright buttoncenter ">
@@ -221,6 +224,20 @@
   <button type="button" class="default" onClick="saveEditProfile()"> Save </button>
   <button type="button" class="default" onClick="cancelEditProfile()"> Cancel </button>
 </div>
+
+<div id="addGroup"  class="alert alert-info hover">
+<strong><h1>Add Group</h1></strong>
+<br>
+<form id="groupForm">
+  <div id="groupdiv">
+    <strong>Name:</strong><input id="groupname" type="text" value="Group Name">
+  </div>
+  <br><br>
+</form>
+  <button type="button" class="default" onClick="AddGroup()"> Add Group </button>
+  <button type="button" class="default" onClick="CancelAddGroup()"> Cancel </button>
+</div>
+
 
 <div id="grouplists" class="list hover">
 {{#each lists}}

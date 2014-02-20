@@ -4,7 +4,6 @@ exports.returnTask = function(req, res) {
 	// get a random palette from the top ones
 	var retLists = lists[req.query.field1];//['tasks'][req.query.field2];//[lists[0]];
 	//res.send('Your random palette is called: ' + randomPalette['title']);
-
 	
 	var listIndex=-1;
 	var taskIndex=-1;

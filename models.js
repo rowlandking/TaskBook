@@ -15,3 +15,8 @@ var groupSchema = mongoose.Schema({
 
 exports.Group = mongoose.model('Group', groupSchema);
 
+
+exports.generateJSONFILES = function(req, res) {
+	console.log("Generating JSON FILES");
+
+}
