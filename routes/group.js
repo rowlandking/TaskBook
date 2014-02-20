@@ -11,7 +11,6 @@ function retrieveFakeGroupList(){
     groupList = JSON.stringify([
       { "name": "CSE 170 Project",
         "id": "1"
-        
       },
       { "name": "CSE 130",
 
@@ -29,12 +28,14 @@ function retrieveFakeAnnouncementList(){
   announcementList =  JSON.stringify([
       { "type": "Reminder",
         "name": "Buy Toilet Paper",
-        "id":"1"
+        "groupid":"1",
+        "taskid":"1"
       },
       { 
         "type": "Reminder",
         "name": "Clean Toilet",
-        "id":"2"
+        "groupid":"2",
+        "taskid":"2"
       }
     ]);
 }
@@ -243,7 +244,7 @@ exports.viewGroup = function(req, res) {
   res.render('groups',{
   	'projectName': groupName,
   	'groups': JSON.parse(groupList),
-    'announcements':announcementList,
+    'announcements':JSON.parse(announcementList),
     'contacts': JSON.parse(contactList),
     'lists':JSON.parse(listList),
     //'fakelists': JSON.parse(fakelistList),

@@ -89,8 +89,9 @@ function checkLogin(){
    //$.get("/kitty");
    //function callback(){}
   console.log("check login");
-   $.get("/contactmodel");
-   //function callback(){}
+
+   
+
 
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
@@ -124,7 +125,17 @@ function checkLogin(){
     }
 
     //Check Database for email/password
-    if(x!=y){
+    var resultDB = false;
+  function loginresponse(result){
+    console.log('the result : please  ' + result['email'] + ' pw:' + result['password']);
+    console.log("Password:"+result['password']);
+    console.log("Input:"+y);
+    if((result['password']==y)){
+    resultDB = true;
+  }
+   }
+  $.get("/contactmodel", {email:x, password:y},loginresponse);
+    if(!resultDB){
         $('#inputpassword').css("background-color", "yellow");
         $('#inputemail').css("background-color", "yellow");
         $('.errormsg').html("Incorrect Email/Password!");

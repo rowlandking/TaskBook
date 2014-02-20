@@ -12,6 +12,7 @@ var handlebars = require('express3-handlebars')
 var group = require('./routes/group'); 
 var grouplists = require('./routes/grouplists');
 var grouptasks = require('./routes/taskmodel');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 /*
@@ -19,16 +20,17 @@ var project = require('./routes/project');
 var tasks = require('./routes/tasks');
 var lists = require('./routes/lists');
 var contacts = require('./routes/contacts');*/
-
+var local_database_name = 'TaskBook';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name;
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
+var database_uri = process.env.MONGOHQ_URL || local_database_uri;
 //mongo
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOHQ_URL);
+mongoose.connect(database_uri);
 
 console.log(mongoose.connection.readyState);
 
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:')); 
+db.on('error', console.error.bind(console, 'dude connection error:')); 
 db.once('open', function callback () {
   // yay!
   console.log('run run');
@@ -83,8 +85,8 @@ app.get('/contactmodel', contact.contactExists);
 app.get('/addTask', grouptasks.addTask);
 app.get('/listtask',grouplists.returnTask);
 //app.get('/contactmodel', contact.taskExists);
-app.get('/grouplists',grouplists.returnLists);
-app.get('/addtask',grouplists.returnLists);
+app.get('/applyFilter',grouplists.applyFilter);
+app.get('/applySort',grouplists.applySort);
 // Example route
 // app.get('/users', user.list);
 
