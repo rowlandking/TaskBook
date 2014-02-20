@@ -89,8 +89,11 @@ function checkLogin(){
    //$.get("/kitty");
    //function callback(){}
   console.log("check login");
-   $.get("/contactmodel");
-   //function callback(){}
+   function loginresponse(result){
+    console.log('the result : ' + result);
+   }
+   
+   $.get("/contactmodel", loginresponse);
 
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
