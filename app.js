@@ -11,6 +11,7 @@ var handlebars = require('express3-handlebars')
 var groups = require('./routes/groups');
 var group = require('./routes/group'); //Not needed
 var grouplists = require('./routes/grouplists');
+var grouptasks = require('./routes/taskmodel');
 
 var index = require('./routes/index');
 var project = require('./routes/project');
@@ -77,7 +78,7 @@ app.get('/contacts', contacts.view);
 
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
-app.get('/contactmodel', contact.taskExists);
+app.get('/addTask', grouptasks.addTask);
 app.get('/grouplists',grouplists.returnLists);
 
 // Example route
