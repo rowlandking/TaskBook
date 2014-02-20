@@ -8,3 +8,10 @@ var contactSchema = mongoose.Schema({
 });
 
 exports.Contact = mongoose.model('Contact', contactSchema);
+
+var groupSchema = mongoose.Schema({
+	name:{type: String, index:{unique:true}}
+});
+
+exports.Group = mongoose.model('Group', groupSchema);
+
