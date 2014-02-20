@@ -90,7 +90,7 @@ function checkLogin(){
    //function callback(){}
   console.log("check login");
    function loginresponse(result){
-    console.log('the result : please  ' + result['email']);
+    console.log('the result : please  ' + result);
    }
    
    $.get("/contactmodel", loginresponse);
