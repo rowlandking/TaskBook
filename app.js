@@ -12,6 +12,7 @@ var handlebars = require('express3-handlebars')
 var group = require('./routes/group'); 
 var grouplists = require('./routes/grouplists');
 var grouptasks = require('./routes/taskmodel');
+var groupgroups = require('./routes/groupmodel');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
@@ -25,7 +26,7 @@ var local_database_uri  = 'mongodb://localhost/' + local_database_name;
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 var database_uri = process.env.MONGOHQ_URL || local_database_uri;
 //mongo
-mongoose.connect(database_uri);
+mongoose.connect(MONGOHQ_URL);
 
 console.log(mongoose.connection.readyState);
 
@@ -84,6 +85,7 @@ app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
 app.get('/addTask', grouptasks.addTask);
 app.get('/listtask',grouplists.returnTask);
+app.get('/addGroup', groupgroups.addGroup);
 //app.get('/contactmodel', contact.taskExists);
 app.get('/applyFilter',grouplists.applyFilter);
 app.get('/applySort',grouplists.applySort);

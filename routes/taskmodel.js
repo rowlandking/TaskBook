@@ -1,29 +1,52 @@
-var mongoose = require('mongoose');
+var models = require('../models');
 
-var taskSchema = mongoose.Schema({
+/*var taskSchema = new mongoose.Schema({
     name: String,
-    //filters: String,
-    //id: {type: Number, index:{unique:true}}
+    filters: String,
+    id: {type: Number, index:{unique:true}}
     
 });
 
 var Task = mongoose.model('Task', taskSchema);
-
+*/
 exports.addTask = function(req, res)
 {
-	console.log("saving contacts");
+	var task_data = req.body;
+	console.log(task_data);
 
-	//var name_ = "Scott Klemmer";
-	//var email_ = "sk@gmail.com";
-	//var password_= "1234";
-	var currTask = new Task({name: req.query.name/*, filters: null, id: 5*/});
+	new models.Task({
+		"name": req.query.name,
+		"filters": req.query.filters
+	})
+	.save(afterSaving);
 
-	currTask.save(function(err, currTask)
-	{
-		if(err)
-			console.log("there's an error in tasks");
-	});
+	function afterSaving(err) {
+		if (err) {
+			console.log(err);
+			res.send(500);
+		}
+		//res.redirect('/');
+	}
 }
+
+function addTaskCallBack(){
+}
+
+exports.deleteTask = function(req, res) {
+  var taskID = req.params.id;
+
+  models.Task
+    .find({"_id": taskID})
+    .remove()
+    .exec(afterRemoving);
+
+  function afterRemoving(err, tasks) {
+    if(err) console.log(err);
+    res.send(500);
+  }
+}
+
+//exports.editTask = 
 
 /*exports.taskExists = function(req, res)
 {
