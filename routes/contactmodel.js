@@ -39,12 +39,6 @@ exports.contactExists = function(req, res)
 		//console.log("no data");
 		//data_ = data.email;
 		if(error) console.log(error);
-		if(data[0]['password'] == password){
-			data[0]['password'] = true;
-		}
-		else{
-			data[0]['password'] = false;
-		}
     	res.json(data[0]);
 
 	});

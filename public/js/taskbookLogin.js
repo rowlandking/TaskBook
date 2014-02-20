@@ -128,7 +128,7 @@ function checkLogin(){
     var resultDB = false;
   function loginresponse(result){
     console.log('the result : please  ' + result['email'] + 'pw:' + result['password']);
-    resultDB = Boolean(result['password']);
+    //resultDB = result['password'];
    }
   $.get("/contactmodel", {email:x, password:y},loginresponse);
     if(!resultDB){
