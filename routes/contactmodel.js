@@ -1,4 +1,6 @@
-var mongoose = require('mongoose');
+var models = require('../models');
+
+/*var mongoose = require('mongoose');
 
 var contactSchema = mongoose.Schema({
     name: String,
@@ -8,7 +10,7 @@ var contactSchema = mongoose.Schema({
 });
 
 var Contact = mongoose.model('Contact', contactSchema);
-var newContact = new Contact({name:"", email:"", password:""});
+var newContact = new Contact({name:"", email:"", password:""});*/
 
 /*exports.saveContact = function(name_, email_, password_)
 {
@@ -29,7 +31,7 @@ exports.contactExists = function(req, res)
 {
 	var data_;
 	console.log("does the contact exist");
-	Contact.find({name:'Scott Klemmer'}, function(error, data){
+	models.Contact.find({name:'Scott Klemmer'}, function(error, data){
 		//console.log(data['email']);
 		//console.log("no data");
 		//data_ = data.email;
