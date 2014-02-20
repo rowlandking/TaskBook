@@ -485,3 +485,28 @@ function addTaskToList(listID,taskID){
   $("#list"+listID).append(
     html);
 }
+
+function addTaskToList2(listID,taskID, name){
+   var html =' <li class="list-group-item" onClick="editTaskFunction('+listID+','+taskID+')">';  //PUT THE LIST & ID of the TASK!
+        html += name;
+        html +='</li>'
+  
+  $("#list"+listID).append(
+    html);
+}
+
+function filterTasks(){
+  clearTasksFromLists();
+    $.get("/applyFilter",{ },filterTasksCallback);
+
+}
+var returnedLists;
+function filterTasksCallback(result){
+  returnedLists = result;
+      for(var i = 0; i<returnedLists.length;i++){
+      console.log(returnedLists);
+      for(var j = 0; j<returnedLists[i]['tasks'].length;j++){
+        addTaskToList2(returnedLists[i]['id'], returnedLists[i]['tasks'][j]['id'], returnedLists[i]['tasks'][j]['name']); 
+    }
+  }
+}
