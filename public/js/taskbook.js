@@ -205,7 +205,7 @@ $("#addgrouptlistssubmit").click(function(fname){
         var html ='<div class="panel panel-default">';
         html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading"><strong>' +document.getElementById('addlistinput').value+ '</strong></div>';
         html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'*/
-    var listID=1;
+    var listID=1; // Connect with DB and return the listID
     var html=""
     html+='<div class="panel panel-default">';
     html+='<div class="panel-heading">';
