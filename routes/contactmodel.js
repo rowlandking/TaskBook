@@ -33,6 +33,9 @@ exports.contactExists = function()
 		//console.log(data['email']);
 		//console.log("no data");
 		//data_ = data.email;
+		if(err) console.log(err);
+    	
+    	res.send();
 
 	});
 	console.log("found something");

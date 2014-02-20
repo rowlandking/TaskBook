@@ -11,6 +11,7 @@ var handlebars = require('express3-handlebars')
 //var groups = require('./routes/groups');
 var group = require('./routes/group'); 
 var grouplists = require('./routes/grouplists');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 /*
@@ -18,16 +19,17 @@ var project = require('./routes/project');
 var tasks = require('./routes/tasks');
 var lists = require('./routes/lists');
 var contacts = require('./routes/contacts');*/
-
+var local_database_name = 'TaskBook';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name;
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
+var database_uri = process.env.MONGOHQ_URL || local_database_uri;
 //mongo
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOHQ_URL);
+mongoose.connect(database_uri);
 
 console.log(mongoose.connection.readyState);
 
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:')); 
+db.on('error', console.error.bind(console, 'dude connection error:')); 
 db.once('open', function callback () {
   // yay!
   console.log('run run');
