@@ -89,9 +89,7 @@ function checkLogin(){
    //$.get("/kitty");
    //function callback(){}
   console.log("check login");
-   function loginresponse(result){
-    console.log('the result : please  ' + result['email']);
-   }
+
    
 
 
@@ -127,6 +125,9 @@ function checkLogin(){
     }
 
     //Check Database for email/password
+  function loginresponse(result){
+    console.log('the result : please  ' + result['email']);
+   }
   $.get("/contactmodel", {email:x, password:y},loginresponse);
     if(x!=y){
         $('#inputpassword').css("background-color", "yellow");

@@ -30,7 +30,7 @@ var newContact = new Contact({name:"", email:"", password:""});*/
 exports.contactExists = function(req, res)
 {
 	var data_;
-	var email_ = req.param.email;
+	var email_ = req.query.email;
 	var password = req.param.password;
 	console.log("does the contact exist");
 	models.Contact.find({email:email_}, function(error, data){
