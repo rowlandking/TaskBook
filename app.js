@@ -21,7 +21,7 @@ var contacts = require('./routes/contacts');
 var MONGOHQ_URL="mongodb://karen:1234@troup.mongohq.com:10034/taskbook";
 //mongo
 var mongoose = require('mongoose');
-//mongoose.connect(process.env.MONGOHQ_URL);
+mongoose.connect(process.env.MONGOHQ_URL);
 
 console.log(mongoose.connection.readyState);
 
@@ -29,6 +29,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:')); 
 db.once('open', function callback () {
   // yay!
+  console.log('run run');
 });
 
 var kitty = require('./routes/kitty');
