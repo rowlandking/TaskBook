@@ -9,6 +9,9 @@ var S_DESCRIPTION = 2;
 var S_ASSIGNEDTO = 3;
 var S_TASKLIST = 2;
 
+var FILTERTYPE;
+var SORTTYPE;
+
 // listStorage[INDEX]=[S_LISTID,S_LISTNAME,S_TASKLIST]
 // listStorage[INDEX][S_TASKLIST] = [S_TASKID, S_TASKNAME, S_DESCRIPTION, S_ASSIGNEDTO, __,___]
 function setupFakeStorage(){
@@ -495,13 +498,22 @@ function addTaskToList2(listID,taskID, name){
     html);
 }
 
-function filterTasks(){
-  clearTasksFromLists();
-    $.get("/applyFilter",{ },filterTasksCallback);
+function filterTasks(name){
+  SORTTYPE = name;
+    $.get("/applyFilter",{filter:name},fillTasksCallback);
+
 
 }
+
+function sortTasks(name){
+  FILTERTYPE = name;
+    $.get("/applySort",{sort:name },fillTasksCallback);
+
+}
+
 var returnedLists;
-function filterTasksCallback(result){
+function fillTasksCallback(result){
+  clearTasksFromLists();
   returnedLists = result;
       for(var i = 0; i<returnedLists.length;i++){
       console.log(returnedLists);

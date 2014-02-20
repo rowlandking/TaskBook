@@ -34,3 +34,10 @@ exports.applyFilter = function(req, res) {
 	//Return List based on filter
 	res.json(lists);
 }
+
+exports.applySort = function(req, res) {
+	// Apply filter to DB
+
+	//Return List based on filter
+	res.json(lists);
+}

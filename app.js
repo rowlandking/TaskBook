@@ -82,7 +82,7 @@ app.get('/contactmodel', contact.contactExists);
 app.get('/listtask',grouplists.returnTask);
 //app.get('/contactmodel', contact.taskExists);
 app.get('/applyFilter',grouplists.applyFilter);
-
+app.get('/applySort',grouplists.applySort);
 // Example route
 // app.get('/users', user.list);
 
