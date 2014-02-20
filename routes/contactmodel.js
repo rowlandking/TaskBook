@@ -30,8 +30,10 @@ var newContact = new Contact({name:"", email:"", password:""});*/
 exports.contactExists = function(req, res)
 {
 	var data_;
+	var email_ = req.param.email;
+	var password = req.param.password;
 	console.log("does the contact exist");
-	models.Contact.find({name:'Scott Klemmer'}, function(error, data){
+	models.Contact.find({email:email_}, function(error, data){
 		//console.log(data['email']);
 		//console.log("no data");
 		//data_ = data.email;

@@ -93,7 +93,7 @@ function checkLogin(){
     console.log('the result : please  ' + result['email']);
    }
    
-   $.get("/contactmodel", loginresponse);
+
 
     var x=document.forms["slick-login"]["inputemail"].value;
     var y=document.forms["slick-login"]["inputpassword"].value;
@@ -127,6 +127,7 @@ function checkLogin(){
     }
 
     //Check Database for email/password
+  $.get("/contactmodel", {email:x; password:y},loginresponse);
     if(x!=y){
         $('#inputpassword').css("background-color", "yellow");
         $('#inputemail').css("background-color", "yellow");
