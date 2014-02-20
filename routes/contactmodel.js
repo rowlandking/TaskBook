@@ -33,7 +33,7 @@ exports.contactExists = function(req, res)
 	var email_ = req.query.email;
 	var password = req.param.password;
 	console.log("does the contact exist");
-	models.Contact.find({email:"sk@gmail.com"}, function(error, data){
+	models.Contact.find({email:email_}, function(error, data){
 		//console.log(data['email']);
 		//console.log("no data");
 		//data_ = data.email;
