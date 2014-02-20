@@ -15,7 +15,7 @@ function retrieveFakeGroupList(){
       { "name": "CSE 130",
 
         "id": "2"
-      },
+      },  
       { "name": "Apartment 3449",
         "id": "3"
       },
@@ -218,7 +218,7 @@ exports.viewGroup = function(req, res) {
     // Get the groups that the user is in
     groupList = retrieveGroupList(userID);
 
-    //Get the lists in the currently group
+    //Get the lists in the current group
     listList = retrieveCurrentGroupList(id);
 
     //Get Announcement List that the user has
@@ -226,7 +226,7 @@ exports.viewGroup = function(req, res) {
 
     //Get Contact List
     contactList = retrieveContacts(id);
-
+ 
   }
   var groupName;
   
