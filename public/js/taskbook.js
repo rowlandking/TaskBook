@@ -52,7 +52,7 @@ $(document).load(function(){
 })
 
 $(document).ready(function() {
-  //hideUrgencyIcon();
+  hideUrgencyIcon();
   setupFakeStorage();
 })
 
@@ -444,7 +444,7 @@ function CancelAddGroup()
 function hideUrgencyIcon()
 {
   var id;
-  for (id=2; id < 10; id++) {
+  for (id=1000; id < 1008; id++) {
     var filter = $('#task'+id).attr("class");
     if(filter.indexOf('needsoon') > -1) {$('#task'+id+' .glyphicon-fire').show();}
   }
