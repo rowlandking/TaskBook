@@ -1,4 +1,4 @@
-
+var homepage;
     var resultDB = false;
 
 $(document).load(function(){
@@ -76,7 +76,7 @@ function signup(){
 
 function SignupForm(){
     if(validateEmail()){
-    window.location.href='/groups/Book%20Club';
+    window.location.href='/groups/'+homepage;
     }
 }
 function LoginForm(){
@@ -197,8 +197,32 @@ function validateEmail(){
 
         return false;
       }
-      return true;
+          $.ajaxSetup({
+      async: false
+      });
+    $.get("/AddNewUser", {email:x, password:y},addnewusercallback);
+    //sleep(2000);
+    return true;
 }
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+var hello;
+function addnewusercallback(result){
+    hello =console.log("addnewusercallback: " + result);
+      homepage = result['groupID'];
+      userID = result['contactID'];
+    document.cookie = "TBuserid=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie="TBuserID="+userID;
+       
+    }
+
 
 function validatePassword(){
 
