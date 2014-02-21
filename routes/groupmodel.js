@@ -6,7 +6,7 @@ exports.addGroup = function(req, res)
 		"name": "TEST"+req.query.name
 	})
 	.save(afterSaving);
-	var objectId = mongoose.Types.ObjectId(req.query.UserID);
+	var objectId = mongoose.Types.ObjectId(req.cookies.TBuserID);
 	console.log("Contact Id: "+objectId)
 	function afterSaving(err, data) {
 		if (err) {
