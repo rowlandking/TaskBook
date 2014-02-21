@@ -5,7 +5,7 @@ var models = require('../models');
 var mongoose = require('mongoose');
 
 
-var REALDATA = true;//false;
+var REALDATA = false;
 var groupList;
 var announcementList;
 var contactList;
@@ -320,12 +320,14 @@ exports.viewGroup = function(req, res) {
   console.log('The Group : ' + groupName);
   console.log('GroupList'+JSON.parse(groupList));
   console.log('Fake List'+ fakelistList);
+  console.log('Fake List'+ listList);
+
   res.render('groups',{
   	'projectName': groupName,
   	'groups': JSON.parse(groupList),
     'announcements':JSON.parse(announcementList),
     'contacts': JSON.parse(contactList),
-    //'lists':JSON.parse(listList),
+    'lists':JSON.parse(listList),
     //'fakelists': JSON.parse(fakelistList),
   });
 };
