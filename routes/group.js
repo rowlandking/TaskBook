@@ -137,12 +137,21 @@ function retrieveGroupList(userid){
   var objectId = mongoose.Types.ObjectId(userid);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
   
+
+  var groupqueryRESULT;
   function afterQuery(err, data) {
     console.log("=====Finished Retrieving======");
     if(err) console.log(err);
-    console.log("Query - Group List: "+data[0]);
+    console.log("Query - Group List: "+data);
+
+    groupqueryRESULT = data;
     //res.json(projects[0]);
   }
+
+  //for(var i = 0; i<groupqueryRESULT.length;i++){
+   // models.Group.find({"contactID" : objectId}).exec(afterQuery);
+  //}
+
   // Return JSON list from DB
   return JSON.stringify([
       { "name": "CSE 170 Project",
