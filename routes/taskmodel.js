@@ -1,5 +1,6 @@
 var models = require('../models');
-
+var lists = require('../AllLists.json');
+var fs = require('fs');
 /*var taskSchema = new mongoose.Schema({
     name: String,
     filters: String,
@@ -12,13 +13,39 @@ var Task = mongoose.model('Task', taskSchema);
 exports.addTask = function(req, res)
 {
 	var task_data = req.body;
+	var listID = req.query.listid;
 	console.log(task_data);
 
-	new models.Task({
+	//for(var i = 0; i < lists.length; i++){}
+
+	console.log('add task tired');
+	console.log('the json\n' + JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,''));
+
+	var jStr = JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,'');
+	var taskCount = jStr.match(/name/g).length;
+	var newTaskID = taskCount + 1000;
+	console.log('taskCount ' + taskCount);
+
+	var newTask = '{\"name\":\"' + req.query.name  + '\" ,\"filters\":\"' + req.query.filters + '\",\"id\":\"'+ newTaskID + '\"}';
+
+	var modTaskField = '[' + jStr + ',' + newTask + ']';
+
+	console.log(modTaskField);
+
+	lists[0]['tasks'] = JSON.parse(modTaskField);
+
+	var finalstr = JSON.stringify(lists);
+
+	fs.writeFile('AllLists.json', finalstr, function (err) {});
+
+
+	console.log('after parse : ' + JSON.stringify(lists));
+
+	/*new models.Task({
 		"name": req.query.name,
 		"filters": req.query.filters
 	})
-	.save(afterSaving);
+	.save(afterSaving);*/
 
 	function afterSaving(err) {
 		if (err) {
@@ -27,6 +54,8 @@ exports.addTask = function(req, res)
 		}
 		//res.redirect('/');
 	}
+
+	res.send(newTaskID);
 }
 
 function addTaskCallBack(){
