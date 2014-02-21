@@ -11,6 +11,7 @@ var handlebars = require('express3-handlebars')
 //var groups = require('./routes/groups');
 var group = require('./routes/group'); 
 var grouplists = require('./routes/grouplists');
+var group_list = require('.routes/listmodel');
 var grouptasks = require('./routes/taskmodel');
 var groupgroups = require('./routes/groupmodel');
 var mongoose = require('mongoose');
@@ -85,7 +86,8 @@ app.get('/groups/:id',group.viewGroup);
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
 app.get('/addTask', grouptasks.addTask);
-app.get('/listtask',grouplists.returnTask);
+app.get('/listTask',grouplists.returnTask);
+app.get('/listTask',group_list.addList);
 app.get('/addGroup', groupgroups.addGroup);
 //app.get('/contactmodel', contact.taskExists);
 app.get('/applyFilter',grouplists.applyFilter);
