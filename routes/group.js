@@ -1,6 +1,10 @@
 var lists = require('../AllLists.json');
 var groups = require('../AllGroups.json');
-var REALDATA = false;
+var models = require('../models');
+var mongoose = require('mongoose');
+
+
+var REALDATA = true;//false;
 var groupList;
 var announcementList;
 var contactList;
@@ -152,6 +156,31 @@ function retrieveGroupList(id){
     ]);
 }
 
+function retrieveListList(id){
+  var list_url = '/listmodel/'+id;
+  var objectId = mongoose.Types.ObjectId(id);
+  //function callback(){}
+
+  //$.get(list_url, callback);
+  //var data_;
+  models.List.find({"groupID": objectId}).exec(afterfindList);
+
+  function afterfindList(err, data)
+  {
+    if(err) console.log(err);
+    //res.json(data[0]);
+    //data_ = data;
+    //console.log(JSON.stringify(data[0].toObject));
+    //return data[0];//.toObject();
+    console.log('afterfindList\n');
+    console.log(data);
+    return data;
+  }
+    //console.log(JSON.stringify(data_[0]));
+
+
+}
+
 function retrieveAnnouncements(id){
   return JSON.stringify([
       { "type": "Reminder",
@@ -219,7 +248,17 @@ exports.viewGroup = function(req, res) {
     groupList = retrieveGroupList(userID);
 
     //Get the lists in the current group
-    listList = retrieveCurrentGroupList(id);
+    listList = retrieveListList(id);
+    //listList = JSON.stringify(listList);
+    console.log('listlist');
+    console.log(listList);
+    //var it = Iterator(listList);
+    /*for (pair in listList)
+    {
+      console.log("hello");
+      console.log(pair);
+    }*/
+
 
     //Get Announcement List that the user has
     announcementList = retrieveAnnouncements(id);
@@ -246,7 +285,7 @@ exports.viewGroup = function(req, res) {
   	'groups': JSON.parse(groupList),
     'announcements':JSON.parse(announcementList),
     'contacts': JSON.parse(contactList),
-    'lists':JSON.parse(listList),
+    //'lists':JSON.parse(listList),
     //'fakelists': JSON.parse(fakelistList),
   });
 };
