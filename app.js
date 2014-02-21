@@ -39,6 +39,7 @@ db.once('open', function callback () {
 
 var kitty = require('./routes/kitty');
 var contact = require('./routes/contactmodel');
+var list = require('./routes/listmodel');
 
 
 
@@ -89,6 +90,7 @@ app.get('/addGroup', groupgroups.addGroup);
 //app.get('/contactmodel', contact.taskExists);
 app.get('/applyFilter',grouplists.applyFilter);
 app.get('/applySort',grouplists.applySort);
+app.get('/listmodel/:groupID', list.findLists)
 // Example route
 // app.get('/users', user.list);
 
