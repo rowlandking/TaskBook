@@ -444,9 +444,9 @@ function CancelAddGroup()
 function hideUrgencyIcon()
 {
   var id;
-  for (id=1000; id < 1008; id++) {
+  for (id=1000; id < 1006; id++) {
     var filter = $('#task'+id).attr("class");
-    if(filter.indexOf('needsoon') > -1) {$('#task'+id+' .glyphicon-fire').show();}
+    if(filter.indexOf('ready') > -1) {$('#task'+id+' .glyphicon-fire').show();}
   }
 }
 /*
@@ -514,12 +514,27 @@ function addTaskToList2(listID,taskID, name){
     html);
 }
 
-function filterTasks(name){
+/*function filterTasks(name){
   SORTTYPE = name;
     $.get("/applyFilter",{filter:name},fillTasksCallback);
 
 
-}
+}*/
+//hides the tasks based on filterName
+ var filterNames = new Array('.ready', '.needsoon', '.urgent');
+ function filterTasks(selected_filter)
+ {
+   for(var filterName in filterNames)
+   {
+     if(filterNames[filterName]!=selected_filter)
+     {
+       $(filterNames[filterName]).hide();
+     }
+    
+   }
+  if($(selected_filter).is(":visible") == false)
+       $(selected_filter).show();
+ }
 
 function sortTasks(name){
   FILTERTYPE = name;
