@@ -1,3 +1,4 @@
+var models = require('../models');
 var lists = require('../AllLists.json');
 var groups = require('../AllGroups.json');
 var REALDATA = false;
@@ -6,7 +7,7 @@ var announcementList;
 var contactList;
 var listList;
 var fakelistList
-
+var mongoose = require('mongoose');
 function retrieveFakeGroupList(){
     groupList = JSON.stringify([
       { "name": "CSE 170 Project",
@@ -122,14 +123,26 @@ function retrieveFakeListList(){
     ]);
 }
 
+
+
 function getUserID(){
-  return 1;
+  return req.cookies.TBuserID;
 }
-function retrieveGroupList(id){
+function retrieveGroupList(userid){
   //Apply Filters
 
   //Query DB
-
+  console.log("======Retrieve Group List======");
+  console.log("UserId: "+ userid);
+  var objectId = mongoose.Types.ObjectId(userid);
+  models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
+  
+  function afterQuery(err, data) {
+    console.log("=====Finished Retrieving======");
+    if(err) console.log(err);
+    console.log("Query - Group List: "+data[0]);
+    //res.json(projects[0]);
+  }
   // Return JSON list from DB
   return JSON.stringify([
       { "name": "CSE 170 Project",
@@ -204,8 +217,8 @@ exports.viewGroup = function(req, res) {
   // controller code goes here 
   console.log("group.js");
   var id = req.params.id;
-
   if(REALDATA ==false){
+  retrieveGroupList(req.cookies.TBuserID);
   retrieveFakeGroupList();
   retrieveFakeAnnouncementList();
   //retrievelistList();
@@ -213,7 +226,6 @@ exports.viewGroup = function(req, res) {
   retrieveFakeContactList();
   }
   else{
-    var userID = getUserID();
 
     // Get the groups that the user is in
     groupList = retrieveGroupList(userID);
@@ -239,8 +251,8 @@ exports.viewGroup = function(req, res) {
   }
 
   console.log('The Group : ' + groupName);
-  console.log(JSON.parse(groupList));
-  console.log(fakelistList);
+  console.log('GroupList'+JSON.parse(groupList));
+  console.log('Fake List'+ fakelistList);
   res.render('groups',{
   	'projectName': groupName,
   	'groups': JSON.parse(groupList),
