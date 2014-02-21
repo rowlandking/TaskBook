@@ -48,6 +48,7 @@ exports.contactExists = function(req, res)
 
 exports.AddContactToDB = function(req, res)
 {
+	var USERID;
 	var email_ = req.query.email;
 	var password_ = req.param.password;
 	console.log("does the contact exist");
@@ -55,13 +56,44 @@ exports.AddContactToDB = function(req, res)
 		"name": "user",
 		"email": email_,
 		"password":password_
-	})
-	.save(afterSaving2);
-	function afterSaving2(err, data2) {	
-		console.log("Added New Contact:"+data2);
-		//res.json(data2);
-		res.send();
-	}
+	});
+	newContact.save(function (err, data) {	
+		console.log("Added New Contact:"+data);
+		//res.json(data);
+
+		//res.send();
+
+		/*********************
+		* Copied Code From GroupModel.js
+		**********************/
+		
+		var newGroup = new models.Group({
+			"name": "My Group"
+		})
+		.save(function (err, data2) {
+			//res.json(data2);
+			console.log("Contact Id: "+data['_id'])
+			if (err) {
+				console.log(err);
+			}
+			console.log("New Group:"+data2);
+			
+			var newGroupContact = new models.GroupContact({
+				"groupID": data2['_id'],
+				"contactID" : data['_id']
+			}).save(function (err, data3) {	
+				console.log("New GroupContact:"+data3);
+				res.json(data3);
+			});
+
+			//res.json(data);
+			//res.redirect('/');
+			
+		});
+	
+	});
+	//////////////////END COPY
+
 	console.log("found something");
 	//console.log("yohoho" + newContact.name);
 	//  $.get("/AddNewUser", {email:"sk2@gmail.com", password:"1234"},func1); ADD THIS TO FRONT END
