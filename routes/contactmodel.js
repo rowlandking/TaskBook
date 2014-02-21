@@ -50,7 +50,8 @@ exports.AddContactToDB = function(req, res)
 {
 	var USERID;
 	var email_ = req.query.email;
-	var password_ = req.param.password;
+	var password_ = req.query.password;
+	console.log("pass" + password_);
 	console.log("does the contact exist");
 	var newContact = new models.Contact({
 		"name": "user",

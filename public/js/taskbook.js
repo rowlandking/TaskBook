@@ -52,7 +52,7 @@ $(document).load(function(){
 })
 
 $(document).ready(function() {
-  //hideUrgencyIcon();
+  hideUrgencyIcon();
   setupFakeStorage();
 })
 
@@ -230,12 +230,20 @@ $("#addgrouptlistssubmit").click(function(fname){
 
 });
 
+$.ajaxSetup({
+      async: false
+      });
+
+var new_TaskID;
+function addTaskCallback(result) {
+  new_TaskID = parseInt(result);
+}
 
 function addlisttaskssubmit(listID){
   $("#addlisttasksarea"+listID).show();
   $("#addtaskinputform"+listID).hide();
     $("#addtasktext"+listID).show();
-    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value}, addTaskCallback);
+    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value, listid : listID}, addTaskCallback);
  if(document.getElementById('addtaskinput'+listID).value ==null||document.getElementById('addtaskinput'+listID).value ==''){
     document.getElementById('addtaskinput'+listID).value = "New Task Name";
   }
@@ -247,23 +255,21 @@ function addlisttaskssubmit(listID){
   // ADD THE TASK NAME INTO DB: document.getElementById('addtaskinput'+listID).value
     //.get
   // RETURN VALUE
-  var newTaskID = 1001;// STICK RETURN VALUE HERE
+  var newTaskID = new_TaskID;// STICK RETURN VALUE HERE
   addTaskToList(listID, newTaskID); 
+  location.reload();
 /*
   var html =' <li class="list-group-item {{filters}}" onClick="editTaskFunction(101,1001)">'; 
   html += document.getElementById('addtaskinput'+listID).value;
   html +='</li>'
 
-  $("#list"+listID).append(
+  $("#list"+listID).append(   
     html);*/
     document.getElementById('addtaskinput'+listID).value = "";
 
 
 }
 
-function addTaskCallback() {
-
-}
 
 //append to list{{id}}
 //<div class="panel-footer {{filters}}">{{name}}</div>
@@ -444,9 +450,9 @@ function CancelAddGroup()
 function hideUrgencyIcon()
 {
   var id;
-  for (id=2; id < 10; id++) {
+  for (id=1000; id < 1006; id++) {
     var filter = $('#task'+id).attr("class");
-    if(filter.indexOf('needsoon') > -1) {$('#task'+id+' .glyphicon-fire').show();}
+    if(filter.indexOf('ready') > -1) {$('#task'+id+' .glyphicon-fire').show();}
   }
 }
 /*
@@ -514,12 +520,27 @@ function addTaskToList2(listID,taskID, name){
     html);
 }
 
-function filterTasks(name){
+/*function filterTasks(name){
   SORTTYPE = name;
     $.get("/applyFilter",{filter:name},fillTasksCallback);
 
 
-}
+}*/
+//hides the tasks based on filterName
+ var filterNames = new Array('.ready', '.needsoon', '.urgent');
+ function filterTasks(selected_filter)
+ {
+   for(var filterName in filterNames)
+   {
+     if(filterNames[filterName]!=selected_filter)
+     {
+       $(filterNames[filterName]).hide();
+     }
+    
+   }
+  if($(selected_filter).is(":visible") == false)
+       $(selected_filter).show();
+ }
 
 function sortTasks(name){
   FILTERTYPE = name;

@@ -12,7 +12,7 @@ var listList;
 var fakelistList
 var mongoose = require('mongoose');
 function retrieveFakeGroupList(){
-    groupList = JSON.stringify([
+    groupList = JSON.stringify(groups);/*[
       { "name": "CSE 170 Project",
         "id": "1"
       },
@@ -26,7 +26,7 @@ function retrieveFakeGroupList(){
       { "name": "Book Club",
         "id": "4"
       }
-    ]);
+    ]);*/
 }
 function retrieveFakeAnnouncementList(){
   announcementList =  JSON.stringify([
@@ -82,7 +82,8 @@ function retrieveFakeContactList(){
 }
 
 function retrieveFakeListList(){
-  listList = JSON.stringify([
+  listList = JSON.stringify(lists);
+  /*JSON.stringify([
     {
       "id":"100",
       "name":"Chores",
@@ -123,7 +124,7 @@ function retrieveFakeListList(){
       ]
     }
 
-    ]);
+    ]);*/
 }
 
 
@@ -198,15 +199,15 @@ function retrieveGroupList(userid){
     ]);
 }
 
-function retrieveListList(id){
+function retrieveListList(id, callbacklist){
   var list_url = '/listmodel/'+id;
   var objectId = mongoose.Types.ObjectId(id);
   //function callback(){}
-
+  console.log('inside retrieve ' + id);
   //$.get(list_url, callback);
   //var data_;
   models.List.find({"groupID": objectId}).exec(afterfindList);
-
+  var jsonString = "";
   function afterfindList(err, data)
   {
     if(err) console.log(err);
@@ -216,9 +217,28 @@ function retrieveListList(id){
     //return data[0];//.toObject();
     console.log('afterfindList\n');
     console.log(data);
-    return data;
+
+    jsonString = '[';
+    for(var i = 0; i < data.length; i++)
+    {
+      jsonString+='{ \"id\":' + data[i]['_id'] + ','
+                       + '\"name\":' + data[i]['name'] + ','
+                       + "\"tasks\": }";
+
+      if(i != data.length-1)
+        jsonString+=',';
+
+    }
+
+    jsonString+=']';
+    console.log('jsonstring');
+    console.log(jsonString);
+    //return jsonString;
+    callbacklist(jsonString);
+    //res.send();
   }
     //console.log(JSON.stringify(data_[0]));
+
 
 
 }
