@@ -18,11 +18,26 @@ var groupSchema = Schema({
 exports.Group = mongoose.model('Group', groupSchema);
 
 //var GroupObjectId = groupSchema.ObjectId;
+/*var listSchema = new Schema({
+    name: String,
+    groupID: ObjectId
+    
+});*/
+
+var groupcontactSchema = Schema({
+	groupID:ObjectId,
+	contactID:ObjectId
+});
+
+exports.GroupContact = mongoose.model('GroupContact', groupcontactSchema);
+
+//var GroupObjectId = groupSchema.ObjectId;
 var listSchema = new Schema({
     name: String,
     groupID: ObjectId
     
 });
+
 
 exports.List = mongoose.model('List', listSchema);
 

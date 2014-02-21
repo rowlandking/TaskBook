@@ -1,20 +1,35 @@
 var models = require('../models');
-
+var mongoose = require('mongoose');
 exports.addGroup = function(req, res)
 {
 	var newGroup = new models.Group({
-		"name": req.query.name
+		"name": "TEST"+req.query.name
 	})
 	.save(afterSaving);
-
-	function afterSaving(err) {
+	var objectId = mongoose.Types.ObjectId(req.cookies.TBuserID);
+	console.log("Contact Id: "+objectId)
+	function afterSaving(err, data) {
 		if (err) {
 			console.log(err);
 		}
-		console.log("New Group:"+newGroup);
-		res.json(newGroup);
+		console.log("New Group:"+data);
+		
+		var newGroupContact = new models.GroupContact({
+			"groupID": data['_id'],
+			"contactID" : objectId
+		}).save(afterSaving2);
+
+		function afterSaving2(err, data2) {	
+			console.log("New GroupContact:"+data2);
+			res.json(data2);
+		}
+
+
+
+		//res.json(data);
 		//res.redirect('/');
 	}
+
 }
 
 function addGroupCallBack(){

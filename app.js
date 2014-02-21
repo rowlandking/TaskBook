@@ -76,7 +76,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
-app.get('/groups/:id', group.viewGroup);
+app.get('/groups/:id',group.viewGroup);
 //app.get('/tasks', tasks.view);
 //app.get('/lists', lists.view);
 //app.get('/groups', groups.view);
@@ -97,3 +97,4 @@ app.get('/listmodel/:groupID', list.findLists)
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
