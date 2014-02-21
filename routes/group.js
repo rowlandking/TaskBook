@@ -4,7 +4,6 @@ var groups = require('../AllGroups.json');
 var models = require('../models');
 var mongoose = require('mongoose');
 
-
 var REALDATA = false;
 var groupList;
 var announcementList;
@@ -144,13 +143,34 @@ function retrieveGroupList(userid){
   
 
   var groupqueryRESULT;
+  var resultstring="";
   function afterQuery(err, data) {
     console.log("=====Finished Retrieving======");
     if(err) console.log(err);
     console.log("Query - Group List: "+data);
 
     groupqueryRESULT = data;
+    count = groupqueryRESULT.length;
+    for (var i = 0; i < groupqueryRESULT.length; i++)
+    {
+      //console.log("Only groupID: "+groupqueryRESULT[i]['groupID']);
+      models.Group.find({"_id" : groupqueryRESULT[i]['groupID']}).exec(
+      function (err, data) {
+        resultstring += '{"name":"'+data[0]['name']+'","id":"'+data[0]['id']+'"},';
+        count--;
+        console.log("result: ");
+        console.log(resultstring);
+      });
+    }
+    console.log("Check1: Reached after the for loop");
     //res.json(projects[0]);
+    if (count == 0) {
+      console.log("Check2");
+      groupDone = true;
+      console.log("count: "+count);
+      resultstring = resultstring.substring(0, resultstring.length - 1);
+      return resultstring;
+    }
   }
 
   //for(var i = 0; i<groupqueryRESULT.length;i++){
