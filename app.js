@@ -91,10 +91,11 @@ app.get('/addGroup', groupgroups.addGroup);
 app.get('/applyFilter',grouplists.applyFilter);
 app.get('/applySort',grouplists.applySort);
 app.get('/listmodel/:groupID', list.findLists)
+app.get('/addNewUser', contact.AddContactToDB);
 // Example route
 // app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function(){ 
   console.log('Express server listening on port ' + app.get('port'));
 });
 

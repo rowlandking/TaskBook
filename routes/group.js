@@ -215,6 +215,25 @@ function retrieveAnnouncements(id){
     ]);
 }
 function retrieveContacts(id){
+
+
+  console.log("does the contact exist");
+  var objectId = mongoose.Types.ObjectId(id);
+  models.Contact.find({"_id":objectId}, function(error, data){
+
+    //console.log(data['email']);
+    //console.log("no data");
+    //data_ = data.email;
+    if(error) console.log(error);
+    console.log(data);
+
+  });
+  console.log("found something");
+
+
+
+
+
   return JSON.stringify([
           {
             "name": "Thuy Pham",
@@ -266,7 +285,7 @@ exports.viewGroup = function(req, res) {
   else{
 
     // Get the groups that the user is in
-    groupList = retrieveGroupList(userID);
+    groupList = retrieveGroupList(req.cookies.TBuserID);
 
     //Get the lists in the current group
     listList = retrieveListList(id);
