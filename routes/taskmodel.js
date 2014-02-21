@@ -16,15 +16,16 @@ exports.addTask = function(req, res)
 
 	new models.Task({
 		"name": req.query.name,
-		"filters": req.query.filters
+		//"filters": req.query.filters
 	})
 	.save(afterSaving);
 
-	function afterSaving(err) {
+	function afterSaving(err, data) {
 		if (err) {
 			console.log(err);
 			res.send(500);
 		}
+		data.send(data);
 		//res.redirect('/');
 	}
 }
