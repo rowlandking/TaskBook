@@ -314,60 +314,80 @@ exports.viewGroup = function(req, res) {
   // controller code goes here 
   console.log("group.js");
   var id = req.params.id;
-  if(REALDATA ==false){
-  retrieveGroupList(req.cookies.TBuserID);
-  retrieveFakeGroupList();
-  retrieveFakeAnnouncementList();
-  //retrievelistList();
-  retrieveFakeListList();
-  retrieveFakeContactList();
-  }
-  else{
+  var userid = req.cookies.TBuserID;
+  var groupName;
 
-    // Get the groups that the user is in
-    groupList = retrieveGroupList(req.cookies.TBuserID);
 
-    //Get the lists in the current group
-    listList = retrieveListList(id);
-    //listList = JSON.stringify(listList);
-    console.log('listlist');
-    console.log(listList);
-    //var it = Iterator(listList);
-    /*for (pair in listList)
+
+  //Query DB
+  console.log("======Retrieve Group List======");
+  console.log("UserId: "+ userid);
+  var objectId = mongoose.Types.ObjectId(userid);
+  models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
+  
+
+
+  var resultstring="";
+  function afterQuery(err, data) {
+    console.log("=====Finished Retrieving Groups======");
+    if(err) console.log(err);
+    console.log("Query - Group List: "+data);
+    var groupqueryRESULT = data;
+    count = groupqueryRESULT.length;
+    console.log("Result Count: "+count);
+    /*
+    for (var i = 0; i < groupqueryRESULT.length; i++)
     {
-      console.log("hello");
-      console.log(pair);
+      //console.log("Only groupID: "+groupqueryRESULT[i]['groupID']);
+      models.Group.find({"_id" : groupqueryRESULT[i]['groupID']}).exec(
+      function (err, data) {
+        resultstring += '{"name":"'+data[0]['name']+'","id":"'+data[0]['id']+'"},';
+        count--;
+        console.log("result: ");
+        console.log(resultstring);
+      });
+    }
+    */
+    resultstring += '[';
+    for(var i=0;i<count;i++){
+      console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
+      resultstring += '{' + '\"name\":\"' + groupqueryRESULT[i]['groupID'] + '\",\"id\":\"' + groupqueryRESULT[i]['groupID']  + '\"}';
+      if((i+1)!=groupqueryRESULT.length) resultstring += ',';
+    }
+    resultstring +=']';
+    console.log("ResultString: " + resultstring);
+    groupList = resultstring;
+    console.log("Check1: Reached after the for loop");
+    //res.json(projects[0]);
+    /*
+    if (count == 0) {
+      console.log("Check2");
+      groupDone = true;
+      console.log("count: "+count);
+      resultstring = resultstring.substring(0, resultstring.length - 1);
+      return resultstring;
     }*/
 
+    //retrieveFakeContactList();
+    retrieveFakeContactList();
+    retrieveFakeAnnouncementList();
+    retrieveFakeListList();
 
-    //Get Announcement List that the user has
-    announcementList = retrieveAnnouncements(id);
+    groupName = id;
+      console.log('The Group : ' + groupName);
+      console.log('GroupList '+  (groupList));
+      console.log('Fake List '+ listList);
+      console.log('Contact List '+ contactList);
+      console.log('announcementList');
 
-    //Get Contact List
-    contactList = retrieveContacts(id);
- 
+      res.render('groups',{
+        'projectName': groupName,
+        'groups': JSON.parse(groupList),
+        'announcements':JSON.parse(announcementList),
+        'contacts': JSON.parse(contactList),
+        'lists':JSON.parse(listList),
+        //'fakelists': JSON.parse(fakelistList),
+      });
   }
-  var groupName;
-  
-  for(var i = 0; i<groups.length;i++){
-
-    if(parseInt(groups[i]['id'])==parseInt(id)){
-      groupName = groups[i]['name'];
-      break;
-    }
-  }
-
-  console.log('The Group : ' + groupName);
-  console.log('GroupList'+JSON.parse(groupList));
-  console.log('Fake List'+ fakelistList);
-  console.log('Fake List'+ listList);
-
-  res.render('groups',{
-  	'projectName': groupName,
-  	'groups': JSON.parse(groupList),
-    'announcements':JSON.parse(announcementList),
-    'contacts': JSON.parse(contactList),
-    'lists':JSON.parse(listList),
-    //'fakelists': JSON.parse(fakelistList),
-  });
-};
+  console.log("End of group.js");
+  };
