@@ -208,7 +208,20 @@ $("#addgrouptlistssubmit").click(function(fname){
         var html ='<div class="panel panel-default">';
         html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading"><strong>' +document.getElementById('addlistinput').value+ '</strong></div>';
         html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'*/
+    
+    var curr_url  = window.location.href.toString();
+    var url_parts = curr_url.split("/");
+    var group_id = url_parts[url_parts.length - 1];
+    $.get('/addList', {name: document.getElementById('addlistinput').value, groupid: group_id }, addListcallback);
+    
     var listID=1; // Connect with DB and return the listID
+
+    function addListcallback(result)
+    {
+      //console.log('the list id is : ' + result['_id']);
+      listID = result['_id'];
+    }
+
     var html=""
     html+='<div class="panel panel-default">';
     html+='<div class="panel-heading">';

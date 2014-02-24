@@ -17,8 +17,11 @@ exports.findLists = function(req, res){
 
 exports.addList = function(req, res)
 {
+	var groupid_ = req.query.groupid;
+	//console.log('inside addList : the groupid is :  ' + groupid_);
 	var newList = new models.List({
-		"name": "TEST"+req.query.name
+		"name": req.query.name,
+		"groupID" :  mongoose.Types.ObjectId(groupid_)
 	})
 	.save(afterSaving);
 	var objectId = mongoose.Types.ObjectId(req.cookies.TBuserID);
@@ -27,9 +30,10 @@ exports.addList = function(req, res)
 		if (err) {
 			console.log(err);
 		}
-		console.log("New List:"+data);
+		//console.log("New List:"+data);
+		res.json(data);
 	}
-
+//return the listid
 }
 
 function addListCallBack(){
