@@ -333,17 +333,28 @@ exports.viewGroup = function(req, res) {
     if(err) console.log(err);
     console.log("Query - Group List: "+data);
     var groupqueryRESULT = data;
+    var ALLGROUPIDS = '';
     count = groupqueryRESULT.length;
     console.log("Result Count: "+count);
 
     resultstring += '[';
+    ALLGROUPIDS += '[';
     for(var i=0;i<count;i++){
       console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
       resultstring += '{' + '\"name\":\"' + groupqueryRESULT[i]['groupID'] + '\",\"id\":\"' + groupqueryRESULT[i]['groupID']  + '\"}';
-      if((i+1)!=groupqueryRESULT.length) resultstring += ',';
+      
+      ALLGROUPIDS += '\''+groupqueryRESULT[i]['groupID']+'\'';
+
+      if((i+1)!=groupqueryRESULT.length){
+        resultstring += ',';
+        ALLGROUPIDS += ',';
+      }
+
     }
     resultstring +=']';
-    console.log("ResultString: " + resultstring);
+    ALLGROUPIDS +=']';
+    console.log("ResultString: ");
+    console.log(resultstring);
     var groupList2 = JSON.parse(resultstring);
     //groupList2 = JSON.parse(groupList2);
     console.log("Check1: Reached after the for loop");
@@ -355,21 +366,29 @@ exports.viewGroup = function(req, res) {
 
   
   //groupList = JSON.stringify(groupList);
-  console.log("Group List: "+groupList2);
+  console.log("Group List: ");
+  console.log(groupList2);
   
+
+  //objectId = mongoose.Types.ObjectId(groupList2[i]['id']);
+  //console.log("Query For: ");
+  //console.log(groupList2[i]);
   /*
-  for(var i=0;i<count;i++){
-  objectId = mongoose.Types.ObjectId(groupList2[i]['id']);
-  console.log("Query For: "+groupList2[i]);
-
-  models.Group.find({"_id" : objectId}).exec(function(err, data2){
+  models.Group.find({"_id" : { $in: 
+        ALLGROUPIDS
+    }
+  }).exec(function(err, data2){
     console.log("=====Finished Retrieving Group Name======");
-    console.log("Query - Group Name: " + data2);
-    if(err) console.log(err);
-    groupList2[i]['name'] = data[0]['name'];
+    console.log("Query - Group Name: ");
+    console.log(data2);
+    if(err){
+      console.log("Error: ");
+      console.log(err);
+    }
+    //groupList2[i]['name'] = data[0]['name'];
   });
-  }*/
-
+  
+*/
   
 
                         retrieveFakeContactList();
