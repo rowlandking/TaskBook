@@ -312,17 +312,17 @@ function retrieveContacts(id){
 }
 exports.viewGroup = function(req, res) {
   // controller code goes here 
-  console.log("group.js");
+  console.log("=======Entered group.js=======");
   var id = req.params.id;
-  var userid = req.cookies.TBuserID;
-  var groupName;
+  var USERID = req.cookies.TBuserID;
+  var GROUPNAME;
 
 
 
   //Query DB
   console.log("======Retrieve Group List======");
-  console.log("UserId: "+ userid);
-  var objectId = mongoose.Types.ObjectId(userid);
+  console.log("CURRENT USERID: "+ USERID);
+  var objectId = mongoose.Types.ObjectId(USERID);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
   
 
@@ -335,19 +335,7 @@ exports.viewGroup = function(req, res) {
     var groupqueryRESULT = data;
     count = groupqueryRESULT.length;
     console.log("Result Count: "+count);
-    /*
-    for (var i = 0; i < groupqueryRESULT.length; i++)
-    {
-      //console.log("Only groupID: "+groupqueryRESULT[i]['groupID']);
-      models.Group.find({"_id" : groupqueryRESULT[i]['groupID']}).exec(
-      function (err, data) {
-        resultstring += '{"name":"'+data[0]['name']+'","id":"'+data[0]['id']+'"},';
-        count--;
-        console.log("result: ");
-        console.log(resultstring);
-      });
-    }
-    */
+
     resultstring += '[';
     for(var i=0;i<count;i++){
       console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
@@ -356,38 +344,53 @@ exports.viewGroup = function(req, res) {
     }
     resultstring +=']';
     console.log("ResultString: " + resultstring);
-    groupList = resultstring;
+    var groupList2 = JSON.parse(resultstring);
+    //groupList2 = JSON.parse(groupList2);
     console.log("Check1: Reached after the for loop");
-    //res.json(projects[0]);
-    /*
-    if (count == 0) {
-      console.log("Check2");
-      groupDone = true;
-      console.log("count: "+count);
-      resultstring = resultstring.substring(0, resultstring.length - 1);
-      return resultstring;
-    }*/
 
-    //retrieveFakeContactList();
-    retrieveFakeContactList();
-    retrieveFakeAnnouncementList();
-    retrieveFakeListList();
+//Query DB
+  console.log("======Retrieve Group Names======");
+  console.log("CURRENT USERID: "+ USERID);
+  var objectId = mongoose.Types.ObjectId(USERID);
 
-    groupName = id;
-      console.log('The Group : ' + groupName);
-      console.log('GroupList '+  (groupList));
-      console.log('Fake List '+ listList);
-      console.log('Contact List '+ contactList);
-      console.log('announcementList');
+  
+  //groupList = JSON.stringify(groupList);
+  console.log("Group List: "+groupList2);
+  
+  /*
+  for(var i=0;i<count;i++){
+  objectId = mongoose.Types.ObjectId(groupList2[i]['id']);
+  console.log("Query For: "+groupList2[i]);
 
-      res.render('groups',{
-        'projectName': groupName,
-        'groups': JSON.parse(groupList),
-        'announcements':JSON.parse(announcementList),
-        'contacts': JSON.parse(contactList),
-        'lists':JSON.parse(listList),
-        //'fakelists': JSON.parse(fakelistList),
-      });
+  models.Group.find({"_id" : objectId}).exec(function(err, data2){
+    console.log("=====Finished Retrieving Group Name======");
+    console.log("Query - Group Name: " + data2);
+    if(err) console.log(err);
+    groupList2[i]['name'] = data[0]['name'];
+  });
+  }*/
+
+  
+
+                        retrieveFakeContactList();
+                        retrieveFakeAnnouncementList();
+                        retrieveFakeListList();
+
+                        GROUPNAME = id;
+                          console.log('The Group : ' + GROUPNAME);
+                          console.log('GroupList '+  (groupList2));
+                          console.log('Fake List '+ listList);
+                          console.log('Contact List '+ contactList);
+                          console.log('announcementList' + announcementList);
+
+                          res.render('groups',{
+                            'projectName': GROUPNAME,
+                            'groups': (groupList2),
+                            'announcements':JSON.parse(announcementList),
+                            'contacts': JSON.parse(contactList),
+                            'lists':JSON.parse(listList),
+                            //'fakelists': JSON.parse(fakelistList),
+                          });
   }
   console.log("End of group.js");
   };
