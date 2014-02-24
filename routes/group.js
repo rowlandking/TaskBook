@@ -333,26 +333,25 @@ exports.viewGroup = function(req, res) {
     if(err) console.log(err);
     console.log("Query - Group List: "+data);
     var groupqueryRESULT = data;
-    var ALLGROUPIDS = '';
+    var ALLGROUPIDS = [];
     count = groupqueryRESULT.length;
     console.log("Result Count: "+count);
 
     resultstring += '[';
-    ALLGROUPIDS += '[';
+  
     for(var i=0;i<count;i++){
       console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
       resultstring += '{' + '\"name\":\"' + groupqueryRESULT[i]['groupID'] + '\",\"id\":\"' + groupqueryRESULT[i]['groupID']  + '\"}';
       
-      ALLGROUPIDS += '\''+groupqueryRESULT[i]['groupID']+'\'';
+      ALLGROUPIDS.push(groupqueryRESULT[i]['groupID']);
 
       if((i+1)!=groupqueryRESULT.length){
         resultstring += ',';
-        ALLGROUPIDS += ',';
+        //ALLGROUPIDS += ',';
       }
 
     }
     resultstring +=']';
-    ALLGROUPIDS +=']';
     console.log("ResultString: ");
     console.log(resultstring);
     var groupList2 = JSON.parse(resultstring);
@@ -373,7 +372,7 @@ exports.viewGroup = function(req, res) {
   //objectId = mongoose.Types.ObjectId(groupList2[i]['id']);
   //console.log("Query For: ");
   //console.log(groupList2[i]);
-  /*
+  
   models.Group.find({"_id" : { $in: 
         ALLGROUPIDS
     }
@@ -386,10 +385,8 @@ exports.viewGroup = function(req, res) {
       console.log(err);
     }
     //groupList2[i]['name'] = data[0]['name'];
-  });
-  
-*/
-  
+
+
 
                         retrieveFakeContactList();
                         retrieveFakeAnnouncementList();
@@ -410,6 +407,12 @@ exports.viewGroup = function(req, res) {
                             'lists':JSON.parse(listList),
                             //'fakelists': JSON.parse(fakelistList),
                           });
+  });
+  
+
+  
+
+
   }
   console.log("End of group.js");
   };
