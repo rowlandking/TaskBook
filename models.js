@@ -5,7 +5,8 @@ var ObjectId = Schema.ObjectId;
 var contactSchema = mongoose.Schema({
     name: String,
     email: {type: String, index:{unique:true}},
-    password: String
+    password: String, 
+    defaultgroup: ObjectId
     
 });
 

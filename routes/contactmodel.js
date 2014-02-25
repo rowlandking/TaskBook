@@ -53,10 +53,12 @@ exports.AddContactToDB = function(req, res)
 	var password_ = req.query.password;
 	console.log("pass" + password_);
 	console.log("does the contact exist");
+	//var objectId = mongoose.Types.ObjectId('000000000000');
 	var newContact = new models.Contact({
 		"name": "user",
 		"email": email_,
-		"password":password_
+		"password":password_,
+		"defaultgroup": null
 	});
 	newContact.save(function (err, data) {	
 		console.log("Added New Contact:"+data);
@@ -81,10 +83,28 @@ exports.AddContactToDB = function(req, res)
 			
 			var newGroupContact = new models.GroupContact({
 				"groupID": data2['_id'],
-				"contactID" : data['_id']
+				"contactID" : data['_id'],
 			}).save(function (err, data3) {	
 				console.log("New GroupContact:"+data3);
-				res.json(data3);
+
+
+				//Update Default group
+				var updateData = {
+				  defaultgroup: data2['_id']
+				};
+
+				//delete upsertData._id;
+
+				models.Contact.update({_id: data['_id']},updateData, function(err3,affected) {
+				  
+					if (err3) {
+						console.log(err);
+					}
+				  console.log('affected rows %d', affected);
+				  res.json(data3);
+				});
+
+				
 			});
 
 			//res.json(data);
