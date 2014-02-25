@@ -456,7 +456,7 @@ exports.viewGroup = function(req, res) {
                                               firstTask = false;
 
                                               console.log("YES " + listdata[i]['name'] )
-                                                taskList += "{\"id\":" + "\"" + taskdata[j]['name'] + "\",";
+                                                taskList += "{\"id\":" + "\"" + taskdata[j]['id'] + "\",";
                                                 taskList += "\"name\": " +  "\"" + taskdata[j]['name'] + "\"}";
 
                                                // if(j != taskdata.length - 1)
