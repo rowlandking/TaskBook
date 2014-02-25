@@ -11,6 +11,7 @@ var contactList;
 var listList;
 var fakelistList
 var mongoose = require('mongoose');
+var GROUPLISTDEBUG = true;
 function retrieveFakeGroupList(){
     groupList = JSON.stringify(groups);/*[
       { "name": "CSE 170 Project",
@@ -136,7 +137,7 @@ function retrieveGroupList(userid){
   //Apply Filters
 
   //Query DB
-  console.log("======Retrieve Group List======");
+  if(GROUPLISTDEBUG) console.log("======Retrieve Group List======");
   console.log("UserId: "+ userid);
   var objectId = mongoose.Types.ObjectId(userid);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
@@ -385,9 +386,12 @@ exports.viewGroup = function(req, res) {
       console.log(err);
     }
     //groupList2[i]['name'] = data[0]['name'];
+    GROUPNAME = id;
     for(var i = 0; i<groupList2.length;i++){
       for( var j = 0; j<data2.length;j++){
         if(groupList2[i]['id'] == data2[j]['_id']) groupList2[i]['name'] = data2[j]['name'];
+        if(data2[j]['_id'] == id) GROUPNAME = data2[j]['name'];
+
       }
       
 
@@ -398,7 +402,7 @@ exports.viewGroup = function(req, res) {
                         retrieveFakeAnnouncementList();
                         retrieveFakeListList();
 
-                        GROUPNAME = id;
+                        
                           console.log('The Group : ' + GROUPNAME);
                           console.log('GroupList '+  (groupList2));
                           console.log('Fake List '+ listList);

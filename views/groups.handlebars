@@ -36,10 +36,12 @@
         </button>
         <ul class="dropdown-menu">
           <li role="presentation" class="dropdown-header">My Groups</li>
+          <div id="addgrouparea">
           {{#each groups}}
           <li><a href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
+          </div>
            <li role="presentation" class="divider"></li>
         <li id="addGroupButton"><a href="#">Create New Group</a></li>
       

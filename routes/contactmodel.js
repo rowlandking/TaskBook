@@ -69,7 +69,7 @@ exports.AddContactToDB = function(req, res)
 		**********************/
 		
 		var newGroup = new models.Group({
-			"name": "My Group"
+			"name": "My Default Group"
 		})
 		.save(function (err, data2) {
 			//res.json(data2);
