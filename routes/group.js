@@ -27,59 +27,59 @@ function retrieveFakeGroupList(){
       { "name": "Book Club",
         "id": "4"
       }
-    ]);*/
+      ]);*/
 }
 function retrieveFakeAnnouncementList(){
   announcementList =  JSON.stringify([
-      { "type": "Reminder",
-        "name": "Buy Toilet Paper",
-        "groupid":"1",
-        "taskid":"1"
-      },
-      { 
-        "type": "Reminder",
-        "name": "Clean Toilet",
-        "groupid":"2",
-        "taskid":"2"
-      }
-    ]);
+    { "type": "Reminder",
+    "name": "Buy Toilet Paper",
+    "groupid":"1",
+    "taskid":"1"
+  },
+  { 
+    "type": "Reminder",
+    "name": "Clean Toilet",
+    "groupid":"2",
+    "taskid":"2"
+  }
+  ]);
 }
 function retrieveFakeContactList(){
   contactList = JSON.stringify([
-          {
-            "name": "Thuy Pham",
-            "id": "1"
-          },
-          {
-            "name": "Carla Sun",
-            "id": "2"
-          },
-          {
-            "name": "Tim Pham",
-            "id": "3"
-          },
-          {
-            "name": "Thuy Tran",
-            "id": "4"
-          },
-          {
-            "name": "Diana Pham",
-            "id": "5"
-          },
-          {
-            "name": "Marly Phung",
-            "id": "6"
-          },
-          {
-            "name": "David Phan",
-            "id": "7"
-          },
-          {
-            "name": "Troy Dam",
-            "id": "8"
-          }
+  {
+    "name": "Thuy Pham",
+    "id": "1"
+  },
+  {
+    "name": "Carla Sun",
+    "id": "2"
+  },
+  {
+    "name": "Tim Pham",
+    "id": "3"
+  },
+  {
+    "name": "Thuy Tran",
+    "id": "4"
+  },
+  {
+    "name": "Diana Pham",
+    "id": "5"
+  },
+  {
+    "name": "Marly Phung",
+    "id": "6"
+  },
+  {
+    "name": "David Phan",
+    "id": "7"
+  },
+  {
+    "name": "Troy Dam",
+    "id": "8"
+  }
 
-    ]);
+  ]);
 }
 
 function retrieveFakeListList(){
@@ -156,12 +156,12 @@ function retrieveGroupList(userid){
     {
       //console.log("Only groupID: "+groupqueryRESULT[i]['groupID']);
       models.Group.find({"_id" : groupqueryRESULT[i]['groupID']}).exec(
-      function (err, data) {
-        resultstring += '{"name":"'+data[0]['name']+'","id":"'+data[0]['id']+'"},';
-        count--;
-        console.log("result: ");
-        console.log(resultstring);
-      });
+        function (err, data) {
+          resultstring += '{"name":"'+data[0]['name']+'","id":"'+data[0]['id']+'"},';
+          count--;
+          console.log("result: ");
+          console.log(resultstring);
+        });
     }
     console.log("Check1: Reached after the for loop");
     //res.json(projects[0]);
@@ -180,24 +180,24 @@ function retrieveGroupList(userid){
 
   // Return JSON list from DB
   return JSON.stringify([
-      { "name": "CSE 170 Project",
-        "image": "lorempixel.people.1.jpeg",
-        "id": "1"
-        
-      },
-      { "name": "CSE 130",
-        "image": "lorempixel.city.1.jpeg",
-        "id": "2"
-      },
-      { "name": "Apartment 3449",
-        "image": "lorempixel.technics.1.jpeg",
-        "id": "3"
-      },
-      { "name": "Book Club",
-        "image": "lorempixel.abstract.1.jpeg",
-        "id": "4"
-      }
-    ]);
+    { "name": "CSE 170 Project",
+    "image": "lorempixel.people.1.jpeg",
+    "id": "1"
+
+  },
+  { "name": "CSE 130",
+  "image": "lorempixel.city.1.jpeg",
+  "id": "2"
+},
+{ "name": "Apartment 3449",
+"image": "lorempixel.technics.1.jpeg",
+"id": "3"
+},
+{ "name": "Book Club",
+"image": "lorempixel.abstract.1.jpeg",
+"id": "4"
+}
+]);
 }
 
 function retrieveListList(id, callbacklist){
@@ -223,8 +223,8 @@ function retrieveListList(id, callbacklist){
     for(var i = 0; i < data.length; i++)
     {
       jsonString+='{ \"id\":' + data[i]['_id'] + ','
-                       + '\"name\":' + data[i]['name'] + ','
-                       + "\"tasks\": }";
+      + '\"name\":' + data[i]['name'] + ','
+      + "\"tasks\": }";
 
       if(i != data.length-1)
         jsonString+=',';
@@ -242,25 +242,25 @@ function retrieveListList(id, callbacklist){
 
 
 
-}
+  }
 
-function retrieveAnnouncements(id){
-  return JSON.stringify([
+  function retrieveAnnouncements(id){
+    return JSON.stringify([
       { "type": "Reminder",
-        "name": "Buy Toilet Paper"
-      },
-      { 
-        "type": "Reminder",
-        "name": "Clean Toilet"
-      }
+      "name": "Buy Toilet Paper"
+    },
+    { 
+      "type": "Reminder",
+      "name": "Clean Toilet"
+    }
     ]);
-}
-function retrieveContacts(id){
+  }
+  function retrieveContacts(id){
 
 
-  console.log("does the contact exist");
-  var objectId = mongoose.Types.ObjectId(id);
-  models.Contact.find({"_id":objectId}, function(error, data){
+    console.log("does the contact exist");
+    var objectId = mongoose.Types.ObjectId(id);
+    models.Contact.find({"_id":objectId}, function(error, data){
 
     //console.log(data['email']);
     //console.log("no data");
@@ -269,49 +269,49 @@ function retrieveContacts(id){
     console.log(data);
 
   });
-  console.log("found something");
+    console.log("found something");
 
 
 
 
 
-  return JSON.stringify([
-          {
-            "name": "Thuy Pham",
-            "id": "1"
-          },
-          {
-            "name": "Carla Sun",
-            "id": "2"
-          },
-          {
-            "name": "Tim Pham",
-            "id": "3"
-          },
-          {
-            "name": "Thuy Tran",
-            "id": "4"
-          },
-          {
-            "name": "Diana Pham",
-            "id": "5"
-          },
-          {
-            "name": "Marly Phung",
-            "id": "6"
-          },
-          {
-            "name": "David Phan",
-            "id": "7"
-          },
-          {
-            "name": "Troy Dam",
-            "id": "8"
-          }
+    return JSON.stringify([
+    {
+      "name": "Thuy Pham",
+      "id": "1"
+    },
+    {
+      "name": "Carla Sun",
+      "id": "2"
+    },
+    {
+      "name": "Tim Pham",
+      "id": "3"
+    },
+    {
+      "name": "Thuy Tran",
+      "id": "4"
+    },
+    {
+      "name": "Diana Pham",
+      "id": "5"
+    },
+    {
+      "name": "Marly Phung",
+      "id": "6"
+    },
+    {
+      "name": "David Phan",
+      "id": "7"
+    },
+    {
+      "name": "Troy Dam",
+      "id": "8"
+    }
 
     ]);
-}
-exports.viewGroup = function(req, res) {
+  }
+  exports.viewGroup = function(req, res) {
   // controller code goes here 
   console.log("=======Entered group.js=======");
   var id = req.params.id;
@@ -339,7 +339,7 @@ exports.viewGroup = function(req, res) {
     console.log("Result Count: "+count);
 
     resultstring += '[';
-  
+
     for(var i=0;i<count;i++){
       console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
       resultstring += '{' + '\"name\":\"' + groupqueryRESULT[i]['groupID'] + '\",\"id\":\"' + groupqueryRESULT[i]['groupID']  + '\"}';
@@ -360,11 +360,11 @@ exports.viewGroup = function(req, res) {
     console.log("Check1: Reached after the for loop");
 
 //Query DB
-  console.log("======Retrieve Group Names======");
-  console.log("CURRENT USERID: "+ USERID);
-  var objectId = mongoose.Types.ObjectId(USERID);
+console.log("======Retrieve Group Names======");
+console.log("CURRENT USERID: "+ USERID);
+var objectId = mongoose.Types.ObjectId(USERID);
 
-  
+
   //groupList = JSON.stringify(groupList);
   console.log("Group List: ");
   console.log(groupList2);
@@ -375,16 +375,16 @@ exports.viewGroup = function(req, res) {
   //console.log(groupList2[i]);
   
   models.Group.find({"_id" : { $in: 
-        ALLGROUPIDS
-    }
+    ALLGROUPIDS
+  }
   }).exec(function(err, data2){
-    console.log("=====Finished Retrieving Group Name======");
-    console.log("Query - Group Name: ");
-    console.log(data2);
-    if(err){
-      console.log("Error: ");
-      console.log(err);
-    }
+  console.log("=====Finished Retrieving Group Name======");
+  console.log("Query - Group Name: ");
+  console.log(data2);
+  if(err){
+    console.log("Error: ");
+    console.log(err);
+  }
     //groupList2[i]['name'] = data[0]['name'];
     GROUPNAME = id;
     for(var i = 0; i<groupList2.length;i++){
@@ -397,109 +397,125 @@ exports.viewGroup = function(req, res) {
 
     }
 
+    //retrieveFakeContactList();
+    retrieveFakeAnnouncementList();
+      //retrieveFakeListList();
 
-                        retrieveFakeContactList();
-                        retrieveFakeAnnouncementList();
-                        //retrieveFakeListList();
+      //GROUPNAME = id;//the id belongs to the current group
 
-                        //GROUPNAME = id;//the id belongs to the current group
+      groupid_ = mongoose.Types.ObjectId(id);
 
-                       groupid_ = mongoose.Types.ObjectId(id);
+      models.List.find({"groupID" : groupid_
 
-                        models.List.find({"groupID" : groupid_
-
-                        }).exec(function(listerr, listdata){
-                          //console.log("inside query list " + id);
-                          if (listerr) {
-                          console.log(listerr);
-                          }
-                            //res.send();
-                            //console.log('all list data');
-                            //console.log(listdata);
+    }).exec(function(listerr, listdata){
+        //console.log("inside query list " + id);
+        if (listerr) {
+          console.log(listerr);
+        }
+          //res.send();
+          //console.log('all list data');
+          //console.log(listdata);
 
 
-                          LISTIDS=[];
+          LISTIDS=[];
 
-                          for(var i = 0; i < listdata.length; i++)
+          for(var i = 0; i < listdata.length; i++)
+          {
+            LISTIDS.push(listdata[i]['_id']);
+          }
+        //query all the tasks for the lists now
+        models.Task.find({"listID" : { $in: LISTIDS}}).exec(function(taskerr, taskdata){
+          console.log("inside query tasks ")
+          console.log(taskdata);
+                    //listdata = JSON.parse(listdata);
+                    //taskdata = JSON.parse(taskdata);
+                    listList = "["
+                    for(var i = 0; i < listdata.length; i++)
+                    {
+
+                        //look for the task for that list
+                        var taskList = "[";
+                        var firstTask = true;
+
+                        for(var j = 0; j < taskdata.length; j++)
+                        {
+                          //console.log("inner for " + j);
+                          //console.log("taskdata : " + taskdata[j]['listID']);
+                          //console.log("listdata : " + listdata[i]['_id']);
+                          //console.log("type of task : " + typeof taskdata[j]['listID']);
+                          //console.log("type of list : " + typeof listdata[i]['_id']);
+
+                          //console.log("true/false : " + (taskdata[j]['listID'].toString() == listdata[i]['_id'].toString()));
+                          if(taskdata[j]['listID'].toString() == listdata[i]['_id'].toString())
                           {
-                              LISTIDS.push(listdata[i]['_id']);
-                          }
-                          //query all the tasks for the lists now
-                          models.Task.find({"listID" : { $in: LISTIDS}}).exec(function(taskerr, taskdata){
-                                      console.log("inside query tasks ")
-                                      console.log(taskdata);
-                                      //listdata = JSON.parse(listdata);
-                                      //taskdata = JSON.parse(taskdata);
-                                      listList = "["
-                                      for(var i = 0; i < listdata.length; i++)
-                                      {
+                            if(!firstTask)
+                            {
+                              taskList+=",";
+                            }
+                            firstTask = false;
 
-                                          //look for the task for that list
-                                          var taskList = "[";
-                                          var firstTask = true;
+                            console.log("YES " + listdata[i]['name'] )
+                            taskList += "{\"id\":" + "\"" + taskdata[j]['id'] + "\",";
+                            taskList += "\"name\": " +  "\"" + taskdata[j]['name'] + "\"}";
 
-                                          for(var j = 0; j < taskdata.length; j++)
-                                          {
-                                            //console.log("inner for " + j);
-                                            //console.log("taskdata : " + taskdata[j]['listID']);
-                                            //console.log("listdata : " + listdata[i]['_id']);
-                                            //console.log("type of task : " + typeof taskdata[j]['listID']);
-                                            //console.log("type of list : " + typeof listdata[i]['_id']);
+                             // if(j != taskdata.length - 1)
+                           }
 
-                                            //console.log("true/false : " + (taskdata[j]['listID'].toString() == listdata[i]['_id'].toString()));
-                                            if(taskdata[j]['listID'].toString() == listdata[i]['_id'].toString())
-                                            {
-                                              if(!firstTask)
-                                              {
-                                                  taskList+=",";
-                                              }
-                                              firstTask = false;
+                         }
+                         taskList+="]";
 
-                                              console.log("YES " + listdata[i]['name'] )
-                                                taskList += "{\"id\":" + "\"" + taskdata[j]['id'] + "\",";
-                                                taskList += "\"name\": " +  "\"" + taskdata[j]['name'] + "\"}";
+                         console.log("the whole taskList" + taskList);
 
-                                               // if(j != taskdata.length - 1)
-                                            }
-                                            
-                                          }
-                                          taskList+="]";
-
-                                          console.log("the whole taskList" + taskList);
-
-                                          listList+="{";
-                                          listList+="\"id\":\"" + listdata[i]['_id'] + "\",";
-                                          listList+="\"name\":\""+listdata[i]['name'] + "\",";
-                                          listList+="\"tasks\": " + taskList;
-                                          listList+="}"
-                                          if(i != listdata.length -1) listList+=","
-                                      }
-                                      listList+="]";
-
-                                      console.log('The Group : ' + GROUPNAME);
-                                      console.log('GroupList '+  (groupList2));
-                                      console.log('Fake List '+ listList);
-                                      console.log('Contact List '+ contactList);
-                                      console.log('announcementList' + announcementList);
-
-                                      res.render('groups',{
-                                        'projectName': GROUPNAME,
-                                        'groups': (groupList2),
-                                        'announcements':JSON.parse(announcementList),
-                                        'contacts': JSON.parse(contactList),
-                                        'lists':JSON.parse(listList),
-                                        //'fakelists': JSON.parse(fakelistList),
-                                      });
-                        });//end find tasks
-                });//end find lists
-
-          
-  });
-  
-
-  
+                         listList+="{";
+                         listList+="\"id\":\"" + listdata[i]['_id'] + "\",";
+                         listList+="\"name\":\""+listdata[i]['name'] + "\",";
+                         listList+="\"tasks\": " + taskList;
+                         listList+="}"
+                         if(i != listdata.length -1) listList+=","
+                       }
+                     listList+="]";
 
 
-  }
-  console.log("End of group.js");
-  };
+                    models.GroupContact.find({"groupID" : groupid_}).exec(function(contactsingrouperr, contactsingroup){
+
+                      contactList="[";
+                      for(var i = 0; i<contactsingroup.length; i++){
+                        contactList+="{";
+                        contactList+="\"id\":\"" + contactsingroup[i]['contactID'] + "\",";
+                        contactList+="\"name\":\""+contactsingroup[i]['contactID'] + "\""; 
+                        contactList+="}"; 
+                        if(i != contactsingroup.length -1) contactsingroup+=",";
+                      }
+                      contactList+="]";
+
+
+
+
+                       console.log('The Group : ' + GROUPNAME);
+                       console.log('GroupList '+  (groupList2));
+                       console.log('Fake List '+ listList);
+                       console.log('Contact List '+ contactList);
+                       console.log('announcementList' + announcementList);
+
+                       res.render('groups',{
+                        'projectName': GROUPNAME,
+                        'groups': (groupList2),
+                        'announcements':JSON.parse(announcementList),
+                        'contacts': JSON.parse(contactList),
+                        'lists':JSON.parse(listList),
+                        //'fakelists': JSON.parse(fakelistList),
+                    });
+                });
+      });//end find tasks
+});//end find lists
+
+
+});
+
+
+
+
+
+}
+console.log("End of group.js");
+};
