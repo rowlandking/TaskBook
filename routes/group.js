@@ -409,42 +409,88 @@ exports.viewGroup = function(req, res) {
                         models.List.find({"groupID" : groupid_
 
                         }).exec(function(listerr, listdata){
-                          console.log("inside query list " + id);
+                          //console.log("inside query list " + id);
                           if (listerr) {
                           console.log(listerr);
                           }
                             //res.send();
-                            console.log('all list data');
-                            console.log(listdata);
-                            //console.log(JSON.parse(listdata));
-                            //listList = listdata;
-                          listList = "["
+                            //console.log('all list data');
+                            //console.log(listdata);
+
+
+                          LISTIDS=[];
+
                           for(var i = 0; i < listdata.length; i++)
                           {
-                              listList+="{";
-                              listList+="\"id\":\"" + listdata[i]['_id'] + "\",";
-                              listList+="\"name\":\""+listdata[i]['name'] + "\",";
-                              listList+="\"tasks\": \"test\"";
-                              listList+="}"
-                              if(i != listdata.length -1) listList+=","
+                              LISTIDS.push(listdata[i]['_id']);
                           }
-                          listList+="]";
+                          //query all the tasks for the lists now
+                          models.Task.find({"listID" : { $in: LISTIDS}}).exec(function(taskerr, taskdata){
+                                      console.log("inside query tasks ")
+                                      console.log(taskdata);
+                                      //listdata = JSON.parse(listdata);
+                                      //taskdata = JSON.parse(taskdata);
+                                      listList = "["
+                                      for(var i = 0; i < listdata.length; i++)
+                                      {
 
-                          console.log('The Group : ' + GROUPNAME);
-                          console.log('GroupList '+  (groupList2));
-                          console.log('Fake List '+ listList);
-                          console.log('Contact List '+ contactList);
-                          console.log('announcementList' + announcementList);
+                                          //look for the task for that list
+                                          var taskList = "[";
+                                          var firstTask = true;
 
-                          res.render('groups',{
-                            'projectName': GROUPNAME,
-                            'groups': (groupList2),
-                            'announcements':JSON.parse(announcementList),
-                            'contacts': JSON.parse(contactList),
-                            'lists':JSON.parse(listList),
-                            //'fakelists': JSON.parse(fakelistList),
-                          });
-                        });
+                                          for(var j = 0; j < taskdata.length; j++)
+                                          {
+                                            //console.log("inner for " + j);
+                                            //console.log("taskdata : " + taskdata[j]['listID']);
+                                            //console.log("listdata : " + listdata[i]['_id']);
+                                            //console.log("type of task : " + typeof taskdata[j]['listID']);
+                                            //console.log("type of list : " + typeof listdata[i]['_id']);
+
+                                            //console.log("true/false : " + (taskdata[j]['listID'].toString() == listdata[i]['_id'].toString()));
+                                            if(taskdata[j]['listID'].toString() == listdata[i]['_id'].toString())
+                                            {
+                                              if(!firstTask)
+                                              {
+                                                  taskList+=",";
+                                              }
+                                              firstTask = false;
+
+                                              console.log("YES " + listdata[i]['name'] )
+                                                taskList += "{\"name\": " +  "\"" + taskdata[j]['name'] + "\"}"
+
+                                               // if(j != taskdata.length - 1)
+                                            }
+                                            
+                                          }
+                                          taskList+="]";
+
+                                          console.log("the whole taskList" + taskList);
+
+                                          listList+="{";
+                                          listList+="\"id\":\"" + listdata[i]['_id'] + "\",";
+                                          listList+="\"name\":\""+listdata[i]['name'] + "\",";
+                                          listList+="\"tasks\": " + taskList;
+                                          listList+="}"
+                                          if(i != listdata.length -1) listList+=","
+                                      }
+                                      listList+="]";
+
+                                      console.log('The Group : ' + GROUPNAME);
+                                      console.log('GroupList '+  (groupList2));
+                                      console.log('Fake List '+ listList);
+                                      console.log('Contact List '+ contactList);
+                                      console.log('announcementList' + announcementList);
+
+                                      res.render('groups',{
+                                        'projectName': GROUPNAME,
+                                        'groups': (groupList2),
+                                        'announcements':JSON.parse(announcementList),
+                                        'contacts': JSON.parse(contactList),
+                                        'lists':JSON.parse(listList),
+                                        //'fakelists': JSON.parse(fakelistList),
+                                      });
+                        });//end find tasks
+                });//end find lists
 
           
   });
