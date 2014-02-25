@@ -1,5 +1,5 @@
 var homepage;
-    var resultDB = false;
+var resultDB = false;
 
 $(document).load(function(){
 
@@ -82,7 +82,7 @@ function SignupForm(){
 function LoginForm(){
     
     if(checkLogin()){
-        window.location.href='/groups/Book%20Club';
+        window.location.href='/groups/'+homepage;
     }
 }
 
@@ -136,6 +136,7 @@ function checkLogin(){
     if((result['password']==y)){
     resultDB = true;
     userID = result['_id'];
+    homepage = result['defaultgroup'];
     console.log("Set To True");
 
 
