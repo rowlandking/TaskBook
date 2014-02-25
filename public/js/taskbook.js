@@ -449,11 +449,17 @@ function AddGroup()
 {
     checkCookie();
   $.get("/addGroup", {name: document.getElementById('groupname').value, userID: getUserID()}, addGroupCallBack);
-  $("#addGroup").hide();
+
+  //<li><a href="/groups/{{id}}">{{name}}</a>
+  //addgrouparea
 }
 function addGroupCallBack(result)
 {
-  
+  $("#addGroup").hide();
+  var html ='<li><a href="/groups/'+result['groupID']+'">'+document.getElementById('groupname').value+'</a>';
+  $("#addgrouparea").append(
+    html);
+  document.getElementById('groupname').value= "";
 }
 
 function CancelAddGroup()

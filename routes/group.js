@@ -11,6 +11,7 @@ var contactList;
 var listList;
 var fakelistList
 var mongoose = require('mongoose');
+var GROUPLISTDEBUG = true;
 function retrieveFakeGroupList(){
     groupList = JSON.stringify(groups);/*[
       { "name": "CSE 170 Project",
@@ -136,7 +137,7 @@ function retrieveGroupList(userid){
   //Apply Filters
 
   //Query DB
-  console.log("======Retrieve Group List======");
+  if(GROUPLISTDEBUG) console.log("======Retrieve Group List======");
   console.log("UserId: "+ userid);
   var objectId = mongoose.Types.ObjectId(userid);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
@@ -333,17 +334,27 @@ exports.viewGroup = function(req, res) {
     if(err) console.log(err);
     console.log("Query - Group List: "+data);
     var groupqueryRESULT = data;
+    var ALLGROUPIDS = [];
     count = groupqueryRESULT.length;
     console.log("Result Count: "+count);
 
     resultstring += '[';
+  
     for(var i=0;i<count;i++){
       console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
       resultstring += '{' + '\"name\":\"' + groupqueryRESULT[i]['groupID'] + '\",\"id\":\"' + groupqueryRESULT[i]['groupID']  + '\"}';
-      if((i+1)!=groupqueryRESULT.length) resultstring += ',';
+      
+      ALLGROUPIDS.push(groupqueryRESULT[i]['groupID']);
+
+      if((i+1)!=groupqueryRESULT.length){
+        resultstring += ',';
+        //ALLGROUPIDS += ',';
+      }
+
     }
     resultstring +=']';
-    console.log("ResultString: " + resultstring);
+    console.log("ResultString: ");
+    console.log(resultstring);
     var groupList2 = JSON.parse(resultstring);
     //groupList2 = JSON.parse(groupList2);
     console.log("Check1: Reached after the for loop");
@@ -355,28 +366,70 @@ exports.viewGroup = function(req, res) {
 
   
   //groupList = JSON.stringify(groupList);
-  console.log("Group List: "+groupList2);
+  console.log("Group List: ");
+  console.log(groupList2);
   
-  /*
-  for(var i=0;i<count;i++){
-  objectId = mongoose.Types.ObjectId(groupList2[i]['id']);
-  console.log("Query For: "+groupList2[i]);
 
-  models.Group.find({"_id" : objectId}).exec(function(err, data2){
+  //objectId = mongoose.Types.ObjectId(groupList2[i]['id']);
+  //console.log("Query For: ");
+  //console.log(groupList2[i]);
+  
+  models.Group.find({"_id" : { $in: 
+        ALLGROUPIDS
+    }
+  }).exec(function(err, data2){
     console.log("=====Finished Retrieving Group Name======");
-    console.log("Query - Group Name: " + data2);
-    if(err) console.log(err);
-    groupList2[i]['name'] = data[0]['name'];
-  });
-  }*/
+    console.log("Query - Group Name: ");
+    console.log(data2);
+    if(err){
+      console.log("Error: ");
+      console.log(err);
+    }
+    //groupList2[i]['name'] = data[0]['name'];
+    GROUPNAME = id;
+    for(var i = 0; i<groupList2.length;i++){
+      for( var j = 0; j<data2.length;j++){
+        if(groupList2[i]['id'] == data2[j]['_id']) groupList2[i]['name'] = data2[j]['name'];
+        if(data2[j]['_id'] == id) GROUPNAME = data2[j]['name'];
 
-  
+      }
+      
+
+    }
+
 
                         retrieveFakeContactList();
                         retrieveFakeAnnouncementList();
-                        retrieveFakeListList();
+                        //retrieveFakeListList();
 
-                        GROUPNAME = id;
+                        GROUPNAME = id;//the id belongs to the current group
+
+                       groupid_ = mongoose.Types.ObjectId(id);
+
+                        models.List.find({"groupID" : groupid_
+
+                        }).exec(function(listerr, listdata){
+                          console.log("inside query list " + id);
+                          if (listerr) {
+                          console.log(listerr);
+                          }
+                            //res.send();
+                            console.log('all list data');
+                            console.log(listdata);
+                            //console.log(JSON.parse(listdata));
+                            //listList = listdata;
+                          listList = "["
+                          for(var i = 0; i < listdata.length; i++)
+                          {
+                              listList+="{";
+                              listList+="\"id\":\"" + listdata[i]['_id'] + "\",";
+                              listList+="\"name\":\""+listdata[i]['name'] + "\",";
+                              listList+="\"tasks\": \"test\"";
+                              listList+="}"
+                              if(i != listdata.length -1) listList+=","
+                          }
+                          listList+="]";
+
                           console.log('The Group : ' + GROUPNAME);
                           console.log('GroupList '+  (groupList2));
                           console.log('Fake List '+ listList);
@@ -391,6 +444,15 @@ exports.viewGroup = function(req, res) {
                             'lists':JSON.parse(listList),
                             //'fakelists': JSON.parse(fakelistList),
                           });
+                        });
+
+          
+  });
+  
+
+  
+
+
   }
   console.log("End of group.js");
   };
