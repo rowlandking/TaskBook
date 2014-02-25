@@ -52,7 +52,7 @@ $(document).load(function(){
 })
 
 $(document).ready(function() {
-  hideUrgencyIcon();
+  //hideUrgencyIcon();
   setupFakeStorage();
 })
 
@@ -212,36 +212,52 @@ $("#addgrouptlistssubmit").click(function(fname){
     var curr_url  = window.location.href.toString();
     var url_parts = curr_url.split("/");
     var group_id = url_parts[url_parts.length - 1];
+    console.log("Start Get");
     $.get('/addList', {name: document.getElementById('addlistinput').value, groupid: group_id }, addListcallback);
-    
-    var listID=1; // Connect with DB and return the listID
+    console.log("Finish Get");
+    //var listID=1; // Connect with DB and return the listID
 
-    function addListcallback(result)
-    {
-      //console.log('the list id is : ' + result['_id']);
-      listID = result['_id'];
-    }
 
-    var html=""
-    html+='<div class="panel panel-default">';
-    html+='<div class="panel-heading">';
-    html+='<strong>'+document.getElementById('addlistinput').value+'</strong>';
-    html+='</div>';
-    html+='<ul class="list-group">';
-    html+='<div id="list'+listID+'" class="listsoftasks">';
-    html+='</div></ul>';
-    html+='<div id="addlisttasksarea'+listID+'" onclick="addgrouplistsareafunction('+listID+')" style="width:inherit, height:inherit;">';
-    html+='<div id="addtasktext'+listID+'" class="panel-footer" style="text-align:right">Add Task</div>';
-    html+='</div>';
-    html+='<form action="" id="addtaskinputform'+listID+'" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput'+listID+'" class="addtaskinput" type="text" name="fname" >';
-    html+='<input type="submit" value="Submit"   onclick="addlisttaskssubmit('+listID+');return false;" id="addlisttasksubmit'+listID+'">';
-    html+='</form>';
-    html+='</div>';
-  $("#grouplists").append(
-    html);
-    document.getElementById('addlistinput').value = "";
+
 
 });
+
+function addListcallback(result)
+{
+  console.log("Start Get Callback");
+  console.log('the list id is : ' + result['_id']);
+var listID = result['_id']+'';
+console.log("ListID: "+listID);
+var html='';
+html+='<div class="panel panel-default">';
+html+='<div class="panel-heading">';
+html+='<strong>'+document.getElementById('addlistinput').value+'</strong>';
+html+='</div>';
+html+='<ul class="list-group">';
+html+='<div id="list'+listID+'" class="listsoftasks">';
+html+='</div></ul>';
+html+='<div id="addlisttasksarea'+listID+'" onclick="addgrouplistsareafunction(\''+listID+'\')" style="width:inherit, height:inherit;">';
+html+='<div id="addtasktext'+listID+'" class="panel-footer" style="text-align:right">Add Task</div>';
+html+='</div>';
+html+='<form action="" id="addtaskinputform'+listID+'" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput'+listID+'" class="addtaskinput" type="text" name="fname" >';
+html+='<input type="submit" value="Submit"   onclick="addlisttaskssubmit(\''+listID+'\');return false;" id="addlisttasksubmit'+1+'">';
+html+='</form>';
+html+='</div>';
+
+$("#grouplists").append(
+html);
+document.getElementById('addlistinput').value = "";
+
+}
+
+function a2hex(str) {
+  var arr = [];
+  for (var i = 0, l = str.length; i < l; i ++) {
+    var hex = Number(str.charCodeAt(i)).toString(16);
+    arr.push(hex);
+  }
+  return arr.join('');
+}
 
 $.ajaxSetup({
       async: false
@@ -527,21 +543,22 @@ function clearTasksFromLists(){
   $(".listsoftasks").empty();
 }
 
-function addTaskToList(listID,taskID){
-   var html =' <li class="list-group-item" onClick="editTaskFunction('+listID+','+taskID+')">';  //PUT THE LIST & ID of the TASK!
-        html += document.getElementById('addtaskinput'+listID).value;
+function addTaskToList(_listID,_taskID){
+
+   var html =' <li class="list-group-item" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
+        html += document.getElementById('addtaskinput'+_listID).value;
         html +='</li>'
   
-  $("#list"+listID).append(
+  $("#list"+_listID).append(
     html);
 }
 
-function addTaskToList2(listID,taskID, name){
-   var html =' <li class="list-group-item" onClick="editTaskFunction('+listID+','+taskID+')">';  //PUT THE LIST & ID of the TASK!
-        html += name;
+function addTaskToList2(_listID,_taskID, _name){
+   var html =' <li class="list-group-item" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
+        html += _name;
         html +='</li>'
   
-  $("#list"+listID).append(
+  $("#list"+_listID).append(
     html);
 }
 
