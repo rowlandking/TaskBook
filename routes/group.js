@@ -423,6 +423,7 @@ var objectId = mongoose.Types.ObjectId(USERID);
           {
             LISTIDS.push(listdata[i]['_id']);
           }
+
         //query all the tasks for the lists now
         models.Task.find({"listID" : { $in: LISTIDS}}).exec(function(taskerr, taskdata){
           console.log("inside query tasks ")
@@ -478,6 +479,17 @@ var objectId = mongoose.Types.ObjectId(USERID);
 
                     models.GroupContact.find({"groupID" : groupid_}).exec(function(contactsingrouperr, contactsingroup){
 
+                      CONTACTIDS=[];
+
+                      for(var i = 0; i < contactsingroup.length; i++)
+                      {
+                        CONTACTIDS.push(contactsingroup[i]['contactID']);
+                      }
+                      
+                      console.log("CONCTACTIDS: ");
+                      console.log(CONTACTIDS);
+
+
                       contactList="[";
                       for(var i = 0; i<contactsingroup.length; i++){
                         contactList+="{";
@@ -487,23 +499,34 @@ var objectId = mongoose.Types.ObjectId(USERID);
                         if(i != contactsingroup.length -1) contactsingroup+=",";
                       }
                       contactList+="]";
+                      contactList = JSON.parse(contactList);
+                      models.Contact.find({"_id" : { $in: CONTACTIDS}}).exec(function(contactnamesingrouperr, contactnamesingroup){
 
+                      console.log("Query Result for Contacts in Group: ");
+                      console.log(contactnamesingroup);
 
-
+                     for(var i = 0; i<contactList.length;i++){
+                        for( var j = 0; j<contactsingroup.length;j++){
+                          if(contactList[i]['id'] == contactnamesingroup[j]['_id']) contactList[i]['name'] = contactnamesingroup[j]['name'];
+                        }
+                      }
 
                        console.log('The Group : ' + GROUPNAME);
-                       console.log('GroupList '+  (groupList2));
-                       console.log('Fake List '+ listList);
-                       console.log('Contact List '+ contactList);
+                       console.log('========== Group List ===========');
+                       console.log(groupList2);
+                       console.log(' List List '+ listList);
+                       console.log('========== Contact List Result ==========');
+                       console.log(contactList);
                        console.log('announcementList' + announcementList);
 
                        res.render('groups',{
                         'projectName': GROUPNAME,
                         'groups': (groupList2),
                         'announcements':JSON.parse(announcementList),
-                        'contacts': JSON.parse(contactList),
+                        'contacts': (contactList),
                         'lists':JSON.parse(listList),
                         //'fakelists': JSON.parse(fakelistList),
+                      });
                     });
                 });
       });//end find tasks
