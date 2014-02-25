@@ -265,8 +265,8 @@ $.ajaxSetup({
 
 var new_TaskID;
 function addTaskCallback(result) {
-  taskID = result['_id'];
-  console.log(taskID);
+  new_TaskID = result['_id'];
+  console.log(new_TaskID);
 }
 
 function addlisttaskssubmit(listID){
@@ -538,21 +538,22 @@ function clearTasksFromLists(){
   $(".listsoftasks").empty();
 }
 
-function addTaskToList(listID,taskID){
-   var html =' <li class="list-group-item" onClick="editTaskFunction('+listID+','+taskID+')">';  //PUT THE LIST & ID of the TASK!
-        html += document.getElementById('addtaskinput'+listID).value;
+function addTaskToList(_listID,_taskID){
+
+   var html =' <li class="list-group-item" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
+        html += document.getElementById('addtaskinput'+_listID).value;
         html +='</li>'
   
-  $("#list"+listID).append(
+  $("#list"+_listID).append(
     html);
 }
 
-function addTaskToList2(listID,taskID, name){
-   var html =' <li class="list-group-item" onClick="editTaskFunction('+listID+','+taskID+')">';  //PUT THE LIST & ID of the TASK!
-        html += name;
+function addTaskToList2(_listID,_taskID, _name){
+   var html =' <li class="list-group-item" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
+        html += _name;
         html +='</li>'
   
-  $("#list"+listID).append(
+  $("#list"+_listID).append(
     html);
 }
 

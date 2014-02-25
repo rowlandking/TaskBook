@@ -253,7 +253,7 @@
   {{#each tasks}}
   <!--<div class="panel-body {{filters}}">{{name}}</div>-->
   <!--<li onClick="editTaskFunction({{../id}},{{id}})" class="list-group-item" id="task{{id}}">{{name}} </li>-->
- <li onClick="editTaskFunction('{{name}}')" class="list-group-item {{filters}}" id="task{{id}}">{{name}} <span class="glyphicon glyphicon-fire" style="display:none"></span> </li>
+ <li onClick="editTaskFunction('{{../id}}','{{id}}')" class="list-group-item {{filters}}" id="task{{id}}">{{name}} <span class="glyphicon glyphicon-fire" style="display:none"></span> </li>
   {{/each}}
   </div>
   </ul>
