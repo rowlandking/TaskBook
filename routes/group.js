@@ -390,9 +390,24 @@ exports.viewGroup = function(req, res) {
 
                         retrieveFakeContactList();
                         retrieveFakeAnnouncementList();
-                        retrieveFakeListList();
+                        //retrieveFakeListList();
 
-                        GROUPNAME = id;
+                        GROUPNAME = id;//the id belongs to the current group
+
+                       /* groupid_ = mongoose.Types.ObjectId(id);
+
+                        models.List.find({"groupID" : groupid_
+
+                        }).exec(function(listerr, listdata){
+                          if (listerr) {
+                          console.log(listerr);
+                          }
+                            //res.send();
+                            console.log('all list data');
+                            //console.log(JSON.parse(listdata));
+                            listList = listdata;
+                        });*/
+
                           console.log('The Group : ' + GROUPNAME);
                           console.log('GroupList '+  (groupList2));
                           console.log('Fake List '+ listList);
@@ -404,7 +419,7 @@ exports.viewGroup = function(req, res) {
                             'groups': (groupList2),
                             'announcements':JSON.parse(announcementList),
                             'contacts': JSON.parse(contactList),
-                            'lists':JSON.parse(listList),
+                            //'lists':JSON.parse(listList),
                             //'fakelists': JSON.parse(fakelistList),
                           });
   });
