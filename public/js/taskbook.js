@@ -52,7 +52,7 @@ $(document).load(function(){
 })
 
 $(document).ready(function() {
-  hideUrgencyIcon();
+  //hideUrgencyIcon();
   setupFakeStorage();
 })
 
