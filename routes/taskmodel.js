@@ -18,7 +18,7 @@ exports.addTask = function(req, res)
 
 	//for(var i = 0; i < lists.length; i++){}
 
-	console.log('add task tired');
+	/*console.log('add task tired');
 	console.log('the json\n' + JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,''));
 
 	var jStr = JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,'');
@@ -39,24 +39,27 @@ exports.addTask = function(req, res)
 	fs.writeFile('AllLists.json', finalstr, function (err) {});
 
 
-	console.log('after parse : ' + JSON.stringify(lists));
+	console.log('after parse : ' + JSON.stringify(lists));*/
 
-	/*new models.Task({
+	new models.Task({
 		"name": req.query.name,
-		//"filters": req.query.filters
+		"filters": req.query.filters
 	})
-	.save(afterSaving);*/
+	.save(afterSaving);
 
 	function afterSaving(err, data) {
 		if (err) {
 			console.log(err);
 			res.send(500);
 		}
-		data.send(data);
+		res.json(data);
+		//data.send(data);
+		//res.send(mongoose.Types.ObjectId(_id));
+//);
 		//res.redirect('/');
 	}
 
-	res.send(newTaskID);
+	
 }
 
 function addTaskCallBack(){
@@ -76,7 +79,9 @@ exports.deleteTask = function(req, res) {
   }
 }
 
-//exports.editTask = 
+exports.editTask = function(err, data) {
+	res.json(data);
+}
 
 /*exports.taskExists = function(req, res)
 {

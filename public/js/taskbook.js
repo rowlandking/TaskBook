@@ -265,14 +265,15 @@ $.ajaxSetup({
 
 var new_TaskID;
 function addTaskCallback(result) {
-  new_TaskID = parseInt(result);
+  taskID = result['_id'];
+  console.log(taskID);
 }
 
 function addlisttaskssubmit(listID){
   $("#addlisttasksarea"+listID).show();
   $("#addtaskinputform"+listID).hide();
     $("#addtasktext"+listID).show();
-    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value, listid : listID}, addTaskCallback);
+    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value}, addTaskCallback);
  if(document.getElementById('addtaskinput'+listID).value ==null||document.getElementById('addtaskinput'+listID).value ==''){
     document.getElementById('addtaskinput'+listID).value = "New Task Name";
   }
@@ -285,8 +286,8 @@ function addlisttaskssubmit(listID){
     //.get
   // RETURN VALUE
   var newTaskID = new_TaskID;// STICK RETURN VALUE HERE
-  addTaskToList(listID, newTaskID); 
-  location.reload();
+  addTaskToList(listID, newTaskID);
+  //location.reload();
 /*
   var html =' <li class="list-group-item {{filters}}" onClick="editTaskFunction(101,1001)">'; 
   html += document.getElementById('addtaskinput'+listID).value;
