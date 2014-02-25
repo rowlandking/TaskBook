@@ -385,7 +385,13 @@ exports.viewGroup = function(req, res) {
       console.log(err);
     }
     //groupList2[i]['name'] = data[0]['name'];
+    for(var i = 0; i<groupList2.length;i++){
+      for( var j = 0; j<data2.length;j++){
+        if(groupList2[i]['id'] == data2[j]['_id']) groupList2[i]['name'] = data2[j]['name'];
+      }
+      
 
+    }
 
 
                         retrieveFakeContactList();
