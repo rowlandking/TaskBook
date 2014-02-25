@@ -249,15 +249,15 @@ $.ajaxSetup({
 
 var new_TaskID;
 function addTaskCallback(result) {
-  taskID = result['_id'];
-  console.log(taskID);
+  new_TaskID = result['_id'];
+  console.log(new_TaskID);
 }
 
 function addlisttaskssubmit(listID){
   $("#addlisttasksarea"+listID).show();
   $("#addtaskinputform"+listID).hide();
     $("#addtasktext"+listID).show();
-    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value}, addTaskCallback);
+    $.get("/addTask",{ name: document.getElementById('addtaskinput'+listID).value, listid : listID}, addTaskCallback);
  if(document.getElementById('addtaskinput'+listID).value ==null||document.getElementById('addtaskinput'+listID).value ==''){
     document.getElementById('addtaskinput'+listID).value = "New Task Name";
   }
@@ -406,16 +406,21 @@ function editTaskFunction(listid, taskid)
   //$("#taskTitle").val(task);
 
   console.log("User clicked on color button");
-  $.get("/listtask",{ field1: listid, field2: taskid },newFunction2);
+  //$.get("/listtask",{ field1: listid, field2: taskid },newFunction2);
 
   $("#editTask").show();
   $("#taskTitle").val();
+  $.get("/getTaskInfo",{ taskid: taskid }, getTaskInfoCallback);
+
 
 }
 
-function newFunction2(result){
+function getTaskInfoCallback(result){
   $("#editTask").show();
   $("#taskTitle").val(result['name']);
+  //$("#taskDescription").val(result['']);
+  //$("#taskAssignedTo").val(result['']);
+  //$("#taskDueDate").val(result['']);
   console.log(result);
 }
 function clearTaskFields(){
