@@ -404,19 +404,31 @@ exports.viewGroup = function(req, res) {
 
                         GROUPNAME = id;//the id belongs to the current group
 
-                       /* groupid_ = mongoose.Types.ObjectId(id);
+                       groupid_ = mongoose.Types.ObjectId(id);
 
                         models.List.find({"groupID" : groupid_
 
                         }).exec(function(listerr, listdata){
+                          console.log("inside query list " + id);
                           if (listerr) {
                           console.log(listerr);
                           }
                             //res.send();
                             console.log('all list data');
+                            console.log(listdata);
                             //console.log(JSON.parse(listdata));
-                            listList = listdata;
-                        });*/
+                            //listList = listdata;
+                          listList = "["
+                          for(var i = 0; i < listdata.length; i++)
+                          {
+                              listList+="{";
+                              listList+="\"id\":\"" + listdata[i]['_id'] + "\",";
+                              listList+="\"name\":\""+listdata[i]['name'] + "\",";
+                              listList+="\"tasks\": \"test\"";
+                              listList+="}"
+                              if(i != listdata.length -1) listList+=","
+                          }
+                          listList+="]";
 
                           console.log('The Group : ' + GROUPNAME);
                           console.log('GroupList '+  (groupList2));
@@ -429,9 +441,12 @@ exports.viewGroup = function(req, res) {
                             'groups': (groupList2),
                             'announcements':JSON.parse(announcementList),
                             'contacts': JSON.parse(contactList),
-                            //'lists':JSON.parse(listList),
+                            'lists':JSON.parse(listList),
                             //'fakelists': JSON.parse(fakelistList),
                           });
+                        });
+
+          
   });
   
 
