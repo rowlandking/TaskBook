@@ -43,10 +43,12 @@ exports.addTask = function(req, res)
 
 	new models.Task({
 		"name": req.query.name,
-		"filters": req.query.filters
+		"filters": req.query.filters,
+		"listID": req.query.listid
 	})
 	.save(afterSaving);
 
+	console.log("listid: "+req.query.listid);
 	function afterSaving(err, data) {
 		if (err) {
 			console.log(err);
@@ -79,8 +81,20 @@ exports.deleteTask = function(req, res) {
   }
 }
 
-exports.editTask = function(err, data) {
-	res.json(data);
+exports.getTaskInfo = function(req, res) {
+	var taskID = req.query.taskid;
+
+	models.Task
+		.find({ "_id": taskID })
+		.exec(afterGetting);
+
+	function afterGetting(err, data) {
+		if (err) {
+			console.log(err);
+			res.send(500);
+		}
+		res.json(data[0]);
+	}
 }
 
 /*exports.taskExists = function(req, res)
