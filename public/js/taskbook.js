@@ -436,7 +436,7 @@ function getTaskInfoCallback(result){
   $("#taskTitle").val(result['name']);
   //$("#taskDescription").val(result['']);
   //$("#taskAssignedTo").val(result['']);
-  //$("#taskDueDate").val(result['']);
+  $("#taskDueDate").val(result['date']);
   console.log(result);
 }
 function clearTaskFields(){

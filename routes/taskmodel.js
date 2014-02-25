@@ -43,10 +43,12 @@ exports.addTask = function(req, res)
 
 	new models.Task({
 		"name": req.query.name,
-		"filters": req.query.filters
+		"filters": req.query.filters,
+		"listID": req.query.listid
 	})
 	.save(afterSaving);
 
+	console.log("listid: "+req.query.listid);
 	function afterSaving(err, data) {
 		if (err) {
 			console.log(err);
@@ -91,7 +93,7 @@ exports.getTaskInfo = function(req, res) {
 			console.log(err);
 			res.send(500);
 		}
-		res.json(data);
+		res.json(data[0]);
 	}
 }
 
