@@ -402,7 +402,7 @@ exports.viewGroup = function(req, res) {
                         retrieveFakeAnnouncementList();
                         //retrieveFakeListList();
 
-                        GROUPNAME = id;//the id belongs to the current group
+                        //GROUPNAME = id;//the id belongs to the current group
 
                        groupid_ = mongoose.Types.ObjectId(id);
 
