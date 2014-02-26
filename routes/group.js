@@ -316,6 +316,14 @@ function retrieveListList(id, callbacklist){
   console.log("=======Entered group.js=======");
   var id = req.params.id;
   var USERID = req.cookies.TBuserID;
+  if(USERID==""){
+  res.writeHead(302, {
+  'Location': '/'
+  //add other headers here...
+  });
+  res.end();
+  return;
+  }
   var GROUPNAME;
 
 

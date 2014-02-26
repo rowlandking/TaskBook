@@ -56,6 +56,9 @@ $(document).ready(function() {
   setupFakeStorage();
 })
 
+function logout(){
+      document.cookie="TBuserID=; path=/";
+}
 function visibleForm(name) {
     //do stuff
     /*var x=document.forms["taskForm"]["tname"].value;

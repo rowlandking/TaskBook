@@ -140,6 +140,7 @@ function checkLogin(){
     console.log("Set To True");
 
 
+
     
     }
   }
@@ -154,7 +155,7 @@ function checkLogin(){
         return false;
     }
 
-    document.cookie = "TBuserid=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie = "TBuserID=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie="TBuserID="+userID;
     return true;
 }
@@ -219,7 +220,7 @@ function addnewusercallback(result){
     hello =console.log("addnewusercallback: " + result);
       homepage = result['groupID'];
       userID = result['contactID'];
-    document.cookie = "TBuserid=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie = "TBuserId=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie="TBuserID="+userID;
        
     }
