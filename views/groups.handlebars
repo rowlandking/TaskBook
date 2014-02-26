@@ -241,11 +241,17 @@
 </div>
 
 
+<!--<form id="verifyDelList" class="alert alert-info hover">
+  <button type="button" class="default"> Yes </button>
+  <button type="button" class="default"> No </button>
+</form>-->
+
 <div id="grouplists" class="list hover">
 {{#each lists}}
 <div class="panel panel-default">
   <div class="panel-heading">
     <strong>{{name}}</strong>
+    <img src="/images/window-close.png" class="deleteList" onClick="showDeleteList('{{id}}','{{name}}')"></img>
   </div>
    <ul class="list-group">
   <div id="list{{id}}" class="listsoftasks">

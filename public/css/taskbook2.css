@@ -331,3 +331,9 @@
 #profileForm input {
     width:inherit;
 }
+
+.deleteList{
+    width: 20px;
+    height: 20px;
+    float: right;
+}
