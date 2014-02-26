@@ -96,6 +96,7 @@ app.get('/applyFilter',grouplists.applyFilter);
 app.get('/applySort',grouplists.applySort);
 app.get('/listmodel/:groupID', list.findLists)
 app.get('/addNewUser', contact.AddContactToDB);
+app.get('/addUserToGroup', contact.AddContactToGroup);
 // Example route
 // app.get('/users', user.list);
 

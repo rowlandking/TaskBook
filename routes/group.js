@@ -497,17 +497,20 @@ var objectId = mongoose.Types.ObjectId(USERID);
                       console.log("CONCTACTIDS: ");
                       console.log(CONTACTIDS);
 
+                      console.log("Contacts in Group Length: "+ contactsingroup.length);
 
                       contactList="[";
                       for(var i = 0; i<contactsingroup.length; i++){
+                        console.log("in for loop");
                         contactList+="{";
                         contactList+="\"id\":\"" + contactsingroup[i]['contactID'] + "\",";
                         contactList+="\"name\":\""+contactsingroup[i]['contactID'] + "\""; 
                         contactList+="}"; 
-                        if(i != contactsingroup.length -1) contactsingroup+=",";
+                        if(i != contactsingroup.length -1) contactList+=",";
                       }
                       contactList+="]";
                       contactList = JSON.parse(contactList);
+                      console.log("Querying for names - ");
                       models.Contact.find({"_id" : { $in: CONTACTIDS}}).exec(function(contactnamesingrouperr, contactnamesingroup){
 
                       console.log("Query Result for Contacts in Group: ");

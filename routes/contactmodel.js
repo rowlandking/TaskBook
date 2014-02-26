@@ -1,5 +1,5 @@
 var models = require('../models');
-
+var mongoose = require('mongoose');
 /*var mongoose = require('mongoose');
 
 var contactSchema = mongoose.Schema({
@@ -33,6 +33,7 @@ exports.contactExists = function(req, res)
 	var email_ = req.query.email;
 	var password_ = req.param.password;
 	console.log("does the contact exist");
+
 	models.Contact.find({email:email_}, function(error, data){
 
 		//console.log(data['email']);
@@ -123,15 +124,35 @@ exports.AddContactToDB = function(req, res)
 exports.AddContactToGroup = function(req, res)
 {
 	var email_ = req.query.email;
-	var password_ = req.param.password;
-	console.log("does the contact exist");
+	email_ = decodeURIComponent(email_);
+	//var password_ = req.param.password;
+	var groupid = req.query.groupid;
+	  var objectId = mongoose.Types.ObjectId(groupid);
+	console.log("does the contact exist: " + email_);
 	models.Contact.find({email:email_}, function(error, data){
 
 		//console.log(data['email']);
 		//console.log("no data");
 		//data_ = data.email;
 		if(error) console.log(error);
-    	res.json(data[0]);
+		if(data[0]==null){
+    		res.json(data[0]);
+    		console.log("Email not found!!!!!");
+    	}
+    	else{
+    		// Need to check if already in group
+    		console.log("Email Found");
+    		console.log("Group ID: " + objectId);
+    		console.log("Contact ID: " + data[0]['_id']);
+    		console.log("Email: " + email_);
+    		var newGroupContact = new models.GroupContact({
+				"groupID": objectId,
+				"contactID" : data[0]['_id'],
+			}).save(function (err, data3) {	
+				console.log("New GroupContact:"+data3);
+				res.json(data3);
+			});
+    	}
 
 	});
 	console.log("found something");

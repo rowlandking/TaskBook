@@ -212,9 +212,10 @@ $("#addgrouptlistssubmit").click(function(fname){
         html +=' <div id = "'+document.getElementById('addlistinput').value+'"class="panel-heading"><strong>' +document.getElementById('addlistinput').value+ '</strong></div>';
         html +=' <div id="add-Name" class="panel-footer"style="text-align:right">Add Task</div></div>'*/
     
-    var curr_url  = window.location.href.toString();
-    var url_parts = curr_url.split("/");
-    var group_id = url_parts[url_parts.length - 1];
+    //var curr_url  = window.location.href.toString();
+    //var url_parts = curr_url.split("/");
+   // var group_id = url_parts[url_parts.length - 1];
+    var group_id = getGroupID();
     console.log("Start Get");
     $.get('/addList', {name: document.getElementById('addlistinput').value, groupid: group_id }, addListcallback);
     console.log("Finish Get");
@@ -331,13 +332,21 @@ $('#addmembersubmit').click(function(){
     if(str==null||str==""){
         return false;
     }
-   var html =' <li class="list-group-item" onClick="editTaskFunction(101,1001)">'+str+'</li>';
+   //addUserToGroup
+   $.get("/addUserToGroup",{ email: str, groupid:getGroupID()},function(result){
+    if(result != null){
+
+       var html =' <li class="list-group-item">'+result['name']+'</li>';
   
-  $(".membercontainer").append(
-    html);
-    $('#addmemberinput').val("");
-$('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
-    return false;
+      $(".membercontainer").append(
+        html);
+        $('#addmemberinput').val("");
+      $('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
+          return false;
+
+      }
+   });
+
 });
 
 function addmemberareafunction()
