@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 exports.addGroup = function(req, res)
 {
 	var newGroup = new models.Group({
-		"name": "TEST"+req.query.name
+		"name": req.query.name
 	})
 	.save(afterSaving);
 	var objectId = mongoose.Types.ObjectId(req.cookies.TBuserID);
@@ -16,7 +16,7 @@ exports.addGroup = function(req, res)
 		
 		var newGroupContact = new models.GroupContact({
 			"groupID": data['_id'],
-			"contactID" : objectId
+			"contactID" : objectId,
 		}).save(afterSaving2);
 
 		function afterSaving2(err, data2) {	
