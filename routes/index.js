@@ -1,9 +1,23 @@
-
+var models = require('../models');
 /*
  * GET home page.
  */
 
 exports.view = function(req, res){
+  var USERID = req.cookies.TBuserID;
+  if(USERID!=""){
+     models.Contact.find({"_id" : USERID}).exec(function(contactnamesingrouperr, data){
+
+    var homepage = data[0]['defaultgroup'];
+    res.writeHead(302, {
+    'Location': '/groups/'+ homepage
+    //add other headers here...
+    });
+    res.end();
+    return;
+    });
+  }
+  else{
   res.render('index',{
   	'projects': [
       { 'name': 'Waiting in Line',
@@ -40,4 +54,5 @@ exports.view = function(req, res){
       }
     ]
   });
+}
 };

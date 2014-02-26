@@ -317,12 +317,12 @@ function retrieveListList(id, callbacklist){
   var id = req.params.id;
   var USERID = req.cookies.TBuserID;
   if(USERID==""){
-  res.writeHead(302, {
-  'Location': '/'
-  //add other headers here...
-  });
-  res.end();
-  return;
+    res.writeHead(302, {
+    'Location': '/'
+    //add other headers here...
+    });
+    res.end();
+    return;
   }
   var GROUPNAME;
 
