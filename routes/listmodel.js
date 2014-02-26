@@ -40,16 +40,23 @@ function addListCallBack(){
 }
 
 exports.deleteList = function(req, res) {
-  var listID = req.params.id;
+  var listID = req.query.id;
   var objectId = mongoose.Types.ObjectId(req.cookies.TBuserID);
-
+  console.log("inside deleteList" + listID);
   models.List
-    .find({"_id": objectId})
-    .remove()
+    //.find({"_id": objectId})
+    .remove({"_id": listID})
     .exec(afterRemoving);
 
   function afterRemoving(err, groups) {
-    if(err) console.log(err);
-    res.send(500);
+    	if(err) console.log(err);
+
+    	//res.send(500);
+    	//remove all tasks associated with that list
+    	models.Task.remove(models.Task.find({"listID": listID})).exec(function(taskerr, tasks){
+    		console.log("all the tasks " + tasks);
+    		if(taskerr) console.log(taskerr);
+    		res.send();
+    	});
   }
 }

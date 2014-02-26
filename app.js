@@ -89,6 +89,7 @@ app.get('/addTask', grouptasks.addTask);
 app.get('/listTask',grouplists.returnTask);
 app.get('/getTaskInfo', grouptasks.getTaskInfo);
 app.get('/addList',group_list.addList);
+app.get('/delList', group_list.deleteList)
 app.get('/addGroup', groupgroups.addGroup);
 //app.get('/contactmodel', contact.taskExists);
 app.get('/applyFilter',grouplists.applyFilter);

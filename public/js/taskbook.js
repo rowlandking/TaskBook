@@ -605,4 +605,15 @@ function fillTasksCallback(result){
   }
 }
 
+//show verification for delete list
+function showDeleteList(listid, listname){
+  var deltrue = confirm('Are you sure you want to delete the list: ' + listname);
 
+  if(deltrue)
+  {
+    console.log("TRUE FOR DELETE LIST");
+    $.get("/delList",{id:listid});
+    location.reload();
+  }
+
+}
