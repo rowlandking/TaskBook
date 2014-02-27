@@ -41,6 +41,7 @@ db.once('open', function callback () {
 var kitty = require('./routes/kitty');
 var contact = require('./routes/contactmodel');
 var list = require('./routes/listmodel');
+var filter = require('./routes/filtermodel');
 
 
 
@@ -97,6 +98,7 @@ app.get('/applySort',grouplists.applySort);
 app.get('/listmodel/:groupID', list.findLists)
 app.get('/addNewUser', contact.AddContactToDB);
 app.get('/addUserToGroup', contact.AddContactToGroup);
+app.get('/addFilter', filter.addFilter);
 // Example route
 // app.get('/users', user.list);
 
