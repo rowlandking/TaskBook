@@ -45,17 +45,35 @@ function signup(name) {
 
 //append to list{{id}}
 //<div class="panel-footer {{filters}}">{{name}}</div>
+function login(){
+      $("#signupbutton").hide();
+    $("#loginbutton").show();
+    $("#inputname").hide();
+    $("#confirmpassword").hide();
+    $("#newuserlink").show();
+    $("#olduserlink").hide();
 
-
-function signup(){
-    $("#signupbutton").show();
-    $("#loginbutton").hide();
-    $("#confirmpassword").show();
     $('#inputemail').css("background-color", "white");
     $('#inputpassword').css("background-color", "white");
     $('.errormsg').css("display","none");
 
+    $("#signuparea").css("padding-top","10px");
+}
 
+function signup(){
+    $("#signupbutton").show();
+    $("#loginbutton").hide();
+    $("#inputname").show();
+    $("#confirmpassword").show();
+
+    $("#newuserlink").hide();
+    $("#olduserlink").show();
+    $("#slick-login").css("height","200px");
+    $('#inputemail').css("background-color", "white");
+    $('#inputpassword').css("background-color", "white");
+    $('.errormsg').css("display","none");
+
+    $("#signuparea").css("padding-top","10px");
     /*var record = new kittySchema(
 
         kittySchema.speak();          
