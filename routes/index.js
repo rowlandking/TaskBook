@@ -4,8 +4,11 @@ var models = require('../models');
  */
 
 exports.view = function(req, res){
+
   var USERID = req.cookies.TBuserID;
-  if(USERID!="" && USERID!=null){
+
+  if((USERID!="")&&(USERID!=null)){
+    
      models.Contact.find({"_id" : USERID}).exec(function(contactnamesingrouperr, data){
 
     var homepage = data[0]['defaultgroup'];
