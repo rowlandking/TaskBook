@@ -703,5 +703,6 @@ var checkout = $('#dpd2').datepicker({
 }).data('datepicker');
 
 $("#dueDate").click(function(){
-  $('.datepicker').datepicker()
+  
 });
+$('.datepicker').datepicker();
