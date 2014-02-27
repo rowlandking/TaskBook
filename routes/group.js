@@ -9,6 +9,7 @@ var groupList;
 var announcementList;
 var contactList;
 var listList;
+var filterList;
 var fakelistList
 var mongoose = require('mongoose');
 var GROUPLISTDEBUG = true;
@@ -487,60 +488,89 @@ var objectId = mongoose.Types.ObjectId(USERID);
 
                     models.GroupContact.find({"groupID" : groupid_}).exec(function(contactsingrouperr, contactsingroup){
 
-                      CONTACTIDS=[];
+                              CONTACTIDS=[];
 
-                      for(var i = 0; i < contactsingroup.length; i++)
-                      {
-                        CONTACTIDS.push(contactsingroup[i]['contactID']);
-                      }
-                      
-                      console.log("CONCTACTIDS: ");
-                      console.log(CONTACTIDS);
+                              for(var i = 0; i < contactsingroup.length; i++)
+                              {
+                                CONTACTIDS.push(contactsingroup[i]['contactID']);
+                              }
+                              
+                              //console.log("CONCTACTIDS: ");
+                              //console.log(CONTACTIDS);
 
-                      console.log("Contacts in Group Length: "+ contactsingroup.length);
+                              console.log("Contacts in Group Length: "+ contactsingroup.length);
 
-                      contactList="[";
-                      for(var i = 0; i<contactsingroup.length; i++){
-                        console.log("in for loop");
-                        contactList+="{";
-                        contactList+="\"id\":\"" + contactsingroup[i]['contactID'] + "\",";
-                        contactList+="\"name\":\""+contactsingroup[i]['contactID'] + "\""; 
-                        contactList+="}"; 
-                        if(i != contactsingroup.length -1) contactList+=",";
-                      }
-                      contactList+="]";
-                      contactList = JSON.parse(contactList);
-                      console.log("Querying for names - ");
-                      models.Contact.find({"_id" : { $in: CONTACTIDS}}).exec(function(contactnamesingrouperr, contactnamesingroup){
+                              contactList="[";
+                              for(var i = 0; i<contactsingroup.length; i++){
+                                console.log("in for loop");
+                                contactList+="{";
+                                contactList+="\"id\":\"" + contactsingroup[i]['contactID'] + "\",";
+                                contactList+="\"name\":\""+contactsingroup[i]['contactID'] + "\""; 
+                                contactList+="}"; 
+                                if(i != contactsingroup.length -1) contactList+=",";
+                              }
+                              contactList+="]";
+                              contactList = JSON.parse(contactList);
+                              console.log("Querying for names - ");
+                              
 
-                      console.log("Query Result for Contacts in Group: ");
-                      console.log(contactnamesingroup);
+                              models.Contact.find({"_id" : { $in: CONTACTIDS}}).exec(function(contactnamesingrouperr, contactnamesingroup){
 
-                     for(var i = 0; i<contactList.length;i++){
-                        for( var j = 0; j<contactsingroup.length;j++){
-                          if(contactList[i]['id'] == contactnamesingroup[j]['_id']) contactList[i]['name'] = contactnamesingroup[j]['name'];
-                        }
-                      }
+                                        console.log("Query Result for Contacts in Group: ");
+                                        console.log(contactnamesingroup);
 
-                       console.log('The Group : ' + GROUPNAME);
-                       console.log('========== Group List ===========');
-                       console.log(groupList2);
-                       console.log(' List List '+ listList);
-                       console.log('========== Contact List Result ==========');
-                       console.log(contactList);
-                       console.log('announcementList' + announcementList);
+                                        for(var i = 0; i<contactList.length;i++){
+                                          for( var j = 0; j<contactsingroup.length;j++){
+                                            if(contactList[i]['id'] == contactnamesingroup[j]['_id']) contactList[i]['name'] = contactnamesingroup[j]['name'];
+                                          }
+                                        }
 
-                       res.render('groups',{
-                        'projectName': GROUPNAME,
-                        'groups': (groupList2),
-                        'announcements':JSON.parse(announcementList),
-                        'contacts': (contactList),
-                        'lists':JSON.parse(listList),
-                        //'fakelists': JSON.parse(fakelistList),
-                      });
-                    });
-                });
+                                         console.log('The Group : ' + GROUPNAME);
+                                         console.log('========== Group List ===========');
+                                         console.log(groupList2);
+                                         console.log(' List List '+ listList);
+                                         console.log('========== Contact List Result ==========');
+                                         console.log(contactList);
+                                         console.log('announcementList' + announcementList);
+
+
+                                        models.Filter.find({"contactID": objectId}).exec(function(filtererr, filterdata){
+                                                
+                                                if(filtererr)console.log(filtererr);
+                                                console.log('=======filters=======');
+                                                console.log(filterdata);
+                                                filterList = "["
+                                                for(var i =0; i<filterdata.length; i++){
+                                                    
+                                                    filterList += "{ \"name\": \""+filterdata[i]['name'] +"\",";
+                                                    filterList += "\"xdays\":\"" + filterdata[i]['xdays'] +"\",";
+                                                    filterList += "\"priority\":\"" + filterdata[i]['priority'] +"\",";
+                                                    filterList += "\"dueDate\":\"" + filterdata[i]['dueDate'] + "\"}";
+
+                                                    if(i!=filterdata.length-1)
+                                                      filterList+=",";
+
+                                                }
+                                                filterList +="]";
+
+                                                res.render('groups',{
+                                                  'projectName': GROUPNAME,
+                                                  'groups': (groupList2),
+                                                  'announcements':JSON.parse(announcementList),
+                                                  'contacts': (contactList),
+                                                  'lists':JSON.parse(listList),
+                                                  'filters':JSON.parse(filterList)
+                                                  //'fakelists': JSON.parse(fakelistList),
+                                                });
+
+                                        });//end find filters
+                            
+                            });//end find contact
+
+                });//end find groupcontacts
+      
       });//end find tasks
+
 });//end find lists
 
 
