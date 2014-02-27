@@ -192,6 +192,13 @@ function validateEmail(){
     var w=document.forms["slick-login"]["inputname"].value;
     var atpos=x.indexOf("@");
     var dotpos=x.lastIndexOf(".");
+
+    if(w==""||w==null){
+      $('#inputname').css("background-color", "yellow");
+      $('.errormsg').html("Please input name");
+      $('.errormsg').css("display","block");
+      return false;
+    }
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
       {
         $('#inputemail').css("background-color", "yellow");
@@ -202,10 +209,11 @@ function validateEmail(){
     else{// Check if email is taken
        //$.get("/contactmodel", {email:x, password:y},loginresponse);
     }
+        $('#inputname').css("background-color", "white");
         $('#inputemail').css("background-color", "white");
     if(z.length<4){
         $('#inputpassword').css("background-color", "yellow");
-        $('.errormsg').html("Password Is Too Short!");
+        $('.errormsg').html("Password needs to be greater than 4 characters!");
         $('.errormsg').css("display","block");
         return false;
     }
@@ -240,7 +248,7 @@ function validateEmail(){
     }
     //sleep(2000);
   }
-  
+
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
