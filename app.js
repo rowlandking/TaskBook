@@ -41,6 +41,7 @@ db.once('open', function callback () {
 var kitty = require('./routes/kitty');
 var contact = require('./routes/contactmodel');
 var list = require('./routes/listmodel');
+var filter = require('./routes/filtermodel');
 
 
 
@@ -88,6 +89,7 @@ app.get('/contactmodel', contact.contactExists);
 app.get('/addTask', grouptasks.addTask);
 app.get('/listTask',grouplists.returnTask);
 app.get('/getTaskInfo', grouptasks.getTaskInfo);
+app.get('/updateTaskInfo', grouptasks.updateTaskInfo);
 app.get('/addList',group_list.addList);
 app.get('/delList', group_list.deleteList)
 app.get('/addGroup', groupgroups.addGroup);
@@ -97,6 +99,7 @@ app.get('/applySort',grouplists.applySort);
 app.get('/listmodel/:groupID', list.findLists)
 app.get('/addNewUser', contact.AddContactToDB);
 app.get('/addUserToGroup', contact.AddContactToGroup);
+app.get('/addFilter', filter.addFilter);
 // Example route
 // app.get('/users', user.list);
 

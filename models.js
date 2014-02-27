@@ -46,7 +46,9 @@ exports.List = mongoose.model('List', listSchema);
 var taskSchema = Schema({
     name: String,
     listID: ObjectId,
-    urgent: Boolean,
+    description: String,
+    status: Boolean,
+    priority: Number,
     date: { type: Date, default: Date.now }
     
 });
@@ -57,3 +59,13 @@ exports.generateJSONFILES = function(req, res) {
 	console.log("Generating JSON FILES");
 
 }
+
+var filterSchema = Schema({
+    name: String,
+    xdays: String,//due in x days
+    priority: String,//1, 2, 3 - hi med lo
+    dueDate: Date, 
+    contactID: ObjectId
+});
+
+exports.Filter = mongoose.model('Filter', filterSchema);

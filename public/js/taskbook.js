@@ -365,6 +365,7 @@ function editGroupName(groupName)
   $("#editgroupname").html(groupName);
 }
 
+//add a new filter
 function newFilter()
 {
   $("#newFilter").show();
@@ -372,6 +373,7 @@ function newFilter()
 
 function saveFilter()
 {
+  //make sure user has entered a name
   if($("#filterName").val().length == 0)
   {
     $("#filterName").css('border-color', 'red');
@@ -380,16 +382,32 @@ function saveFilter()
   else
   { 
     $("#newFilter").hide();
+
+    var filterName_ = $("#filterName").val();
+    var e = document.getElementById("priority_");
+    var priority_ = e.options[e.selectedIndex].value;
+    var xDays_ = $("#xDays").val();
+    var dueDate_ = $("#dueDate").val();
+    checkCookie();
+    var contactID_ = getUserID();
+
+     //save to the db
+    $.get('/addFilter', {filterName:filterName_, priority:priority_, xDays:xDays_, 
+          dueDate:dueDate_, contactID:contactID_ });
+
+    //reset new filter form values
     $("#filterName").css('border-color', 'black');
     $("#filterName").attr('placeholder', 'Name');
     $("#filterKeywords").attr('placeholder', 'Keywords');
     $('#filterAssignedTo').attr('placeholder', 'Assigned To');
-    $('#dp').attr('placeholder','Due Date dd/mm/yy');
+    $('#dueDate').attr('placeholder','Due Date dd/mm/yy');
     
-    $("#filterKeywords").val('');
-    $("#filterAssignedTo").val('');
+    //$("#filterKeywords").val('');
+   // $("#filterAssignedTo").val('');
     $("#filterName").val('');
-    $("#dp").val('');
+    $("#dueDate").val('');
+
+   
 
 }
 
@@ -414,9 +432,10 @@ function cancelFilter()
 
 }
 
-
+var updatingTaskID;
 function editTaskFunction(listid, taskid)
 {
+  updatingTaskID = taskid;
   /* Local Storage Method
 
   var listIndex = findList(listid);
@@ -446,8 +465,20 @@ function editTaskFunction(listid, taskid)
 function getTaskInfoCallback(result){
   $("#editTask").show();
   $("#taskTitle").val(result['name']);
-  //$("#taskDescription").val(result['']);
+  $("#taskDescription").val(result['description']);
   //$("#taskAssignedTo").val(result['']);
+  var currName;
+  if (result['status']) currName = "true";
+  else currName = "false";
+  //$("#taskStatus").val($('select option[value=currName]').attr("selected",true););
+  $("#taskStatus").val(currName);
+  var currPriority;
+  if (result['priority'] == 0) currPriority = "0";
+  else if (result['priority'] == 1) currPriority = "1";
+  else if (result['priority'] == 2) currPriority = "2";
+  else currPriority = "3";
+  //$("#taskPriority").val($('select option[value=currPriority]').attr("selected",true););
+  $("#taskPriority").val(currPriority);
   $("#taskDueDate").val(result['date']);
   console.log(result);
 }
@@ -457,10 +488,28 @@ function clearTaskFields(){
 
 function saveEditTask()
 {
+  var e = document.getElementById("taskStatus");
+  var status = e.options[e.selectedIndex].value;
+  if (status == "false") status = false;
+  else status = true;
+  var d = document.getElementById("taskPriority");
+  var priority = d.options[d.selectedIndex].value;
+  if (priority == "0") priority = 0;
+  else if (priority == "1") priority = 1;
+  else if (priority == "2") priority = 2;
+  else priority = 3;
+  $.ajaxSetup({
+      async: false
+      });
+  $.get("/updateTaskInfo", { taskid : updatingTaskID, tasktitle : $("#taskTitle").val(), taskdescription : $("#taskDescription").val(), taskstatus : status, taskpriority :  priority}, saveEditTaskCallback);
   $("#editTask").hide();
-  //Put onto Server
   clearTaskFields();
+  updatingTaskID = null;
 }
+
+function saveEditTaskCallback(result) {
+}
+
 function cancelEditTask()
 {
   $("#editTask").hide();
@@ -620,9 +669,12 @@ function showDeleteList(listid, listname){
 
   if(deltrue)
   {
-    console.log("TRUE FOR DELETE LIST");
+    //console.log("TRUE FOR DELETE LIST");
     $.get("/delList",{id:listid});
     location.reload();
   }
 
 }
+
+//filter tasks
+

@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var models = require('../models');
 var lists = require('../AllLists.json');
 var fs = require('fs');
@@ -16,34 +17,10 @@ exports.addTask = function(req, res)
 	var listID = req.query.listid;
 	console.log(task_data);
 
-	//for(var i = 0; i < lists.length; i++){}
-
-	/*console.log('add task tired');
-	console.log('the json\n' + JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,''));
-
-	var jStr = JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,'');
-	var taskCount = jStr.match(/name/g).length;
-	var newTaskID = taskCount + 1000;
-	console.log('taskCount ' + taskCount);
-
-	var newTask = '{\"name\":\"' + req.query.name  + '\" ,\"filters\":\"' + req.query.filters + '\",\"id\":\"'+ newTaskID + '\"}';
-
-	var modTaskField = '[' + jStr + ',' + newTask + ']';
-
-	console.log(modTaskField);
-
-	lists[0]['tasks'] = JSON.parse(modTaskField);
-
-	var finalstr = JSON.stringify(lists);
-
-	fs.writeFile('AllLists.json', finalstr, function (err) {});
-
-
-	console.log('after parse : ' + JSON.stringify(lists));*/
-
 	new models.Task({
 		"name": req.query.name,
-		"filters": req.query.filters,
+		"priority": "0",
+		"status": "false",
 		"listID": req.query.listid
 	})
 	.save(afterSaving);
@@ -55,10 +32,7 @@ exports.addTask = function(req, res)
 			res.send(500);
 		}
 		res.json(data);
-		//data.send(data);
-		//res.send(mongoose.Types.ObjectId(_id));
-//);
-		//res.redirect('/');
+	
 	}
 
 	
@@ -95,6 +69,20 @@ exports.getTaskInfo = function(req, res) {
 		}
 		res.json(data[0]);
 	}
+}
+
+exports.updateTaskInfo = function(req, res) {
+	var taskID = req.query.taskid;
+	var taskTitle = req.query.tasktitle;
+	var taskDescription = req.query.taskdescription;
+	var taskStatus = req.query.taskstatus;
+	var taskPriority = req.query.taskpriority;
+	var updateData = { name: taskTitle, description: taskDescription, status: taskStatus, priority: taskPriority };
+	models.Task.update({_id: mongoose.Types.ObjectId(taskID)}, updateData, function(err, data) {
+		if (err) console.log(err);
+		console.log('data');
+		res.send(data);
+	});
 }
 
 /*exports.taskExists = function(req, res)
