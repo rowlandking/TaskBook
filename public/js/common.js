@@ -36,6 +36,7 @@ function getGroupID(){
  var curr_url  = window.location.href.toString();
     var url_parts = curr_url.split("/");
     var group_id = url_parts[url_parts.length - 1];
+    group_id = group_id.replace('#','');//remove # from the group id
     return group_id;
 
 }

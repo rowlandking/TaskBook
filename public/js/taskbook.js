@@ -365,6 +365,7 @@ function editGroupName(groupName)
   $("#editgroupname").html(groupName);
 }
 
+//add a new filter
 function newFilter()
 {
   $("#newFilter").show();
@@ -372,6 +373,7 @@ function newFilter()
 
 function saveFilter()
 {
+  //make sure user has entered a name
   if($("#filterName").val().length == 0)
   {
     $("#filterName").css('border-color', 'red');
@@ -380,16 +382,32 @@ function saveFilter()
   else
   { 
     $("#newFilter").hide();
+
+    var filterName_ = $("#filterName").val();
+    var e = document.getElementById("priority_");
+    var priority_ = e.options[e.selectedIndex].value;
+    var xDays_ = $("#xDays").val();
+    var dueDate_ = $("#dueDate").val();
+    checkCookie();
+    var contactID_ = getUserID();
+
+     //save to the db
+    $.get('/addFilter', {filterName:filterName_, priority:priority_, xDays:xDays_, 
+          dueDate:dueDate_, contactID:contactID_ });
+
+    //reset new filter form values
     $("#filterName").css('border-color', 'black');
     $("#filterName").attr('placeholder', 'Name');
     $("#filterKeywords").attr('placeholder', 'Keywords');
     $('#filterAssignedTo').attr('placeholder', 'Assigned To');
-    $('#dp').attr('placeholder','Due Date dd/mm/yy');
+    $('#dueDate').attr('placeholder','Due Date dd/mm/yy');
     
-    $("#filterKeywords").val('');
-    $("#filterAssignedTo").val('');
+    //$("#filterKeywords").val('');
+   // $("#filterAssignedTo").val('');
     $("#filterName").val('');
-    $("#dp").val('');
+    $("#dueDate").val('');
+
+   
 
 }
 
@@ -651,9 +669,12 @@ function showDeleteList(listid, listname){
 
   if(deltrue)
   {
-    console.log("TRUE FOR DELETE LIST");
+    //console.log("TRUE FOR DELETE LIST");
     $.get("/delList",{id:listid});
     location.reload();
   }
 
 }
+
+//filter tasks
+

@@ -17,31 +17,6 @@ exports.addTask = function(req, res)
 	var listID = req.query.listid;
 	console.log(task_data);
 
-	//for(var i = 0; i < lists.length; i++){}
-
-	/*console.log('add task tired');
-	console.log('the json\n' + JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,''));
-
-	var jStr = JSON.stringify(lists[0]['tasks']).replace(/[[\]]/g,'');
-	var taskCount = jStr.match(/name/g).length;
-	var newTaskID = taskCount + 1000;
-	console.log('taskCount ' + taskCount);
-
-	var newTask = '{\"name\":\"' + req.query.name  + '\" ,\"filters\":\"' + req.query.filters + '\",\"id\":\"'+ newTaskID + '\"}';
-
-	var modTaskField = '[' + jStr + ',' + newTask + ']';
-
-	console.log(modTaskField);
-
-	lists[0]['tasks'] = JSON.parse(modTaskField);
-
-	var finalstr = JSON.stringify(lists);
-
-	fs.writeFile('AllLists.json', finalstr, function (err) {});
-
-
-	console.log('after parse : ' + JSON.stringify(lists));*/
-
 	new models.Task({
 		"name": req.query.name,
 		"priority": "0",
@@ -57,10 +32,7 @@ exports.addTask = function(req, res)
 			res.send(500);
 		}
 		res.json(data);
-		//data.send(data);
-		//res.send(mongoose.Types.ObjectId(_id));
-//);
-		//res.redirect('/');
+	
 	}
 
 	
