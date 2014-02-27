@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var models = require('../models');
 var lists = require('../AllLists.json');
 var fs = require('fs');
@@ -43,7 +44,8 @@ exports.addTask = function(req, res)
 
 	new models.Task({
 		"name": req.query.name,
-		"filters": req.query.filters,
+		"priority": "0",
+		"status": "false",
 		"listID": req.query.listid
 	})
 	.save(afterSaving);
@@ -95,6 +97,20 @@ exports.getTaskInfo = function(req, res) {
 		}
 		res.json(data[0]);
 	}
+}
+
+exports.updateTaskInfo = function(req, res) {
+	var taskID = req.query.taskid;
+	var taskTitle = req.query.tasktitle;
+	var taskDescription = req.query.taskdescription;
+	var taskStatus = req.query.taskstatus;
+	var taskPriority = req.query.taskpriority;
+	var updateData = { name: taskTitle, description: taskDescription, status: taskStatus, priority: taskPriority };
+	models.Task.update({_id: mongoose.Types.ObjectId(taskID)}, updateData, function(err, data) {
+		if (err) console.log(err);
+		console.log('data');
+		res.send(data);
+	});
 }
 
 /*exports.taskExists = function(req, res)

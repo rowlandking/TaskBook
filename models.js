@@ -46,7 +46,9 @@ exports.List = mongoose.model('List', listSchema);
 var taskSchema = Schema({
     name: String,
     listID: ObjectId,
-    urgent: Boolean,
+    description: String,
+    status: Boolean,
+    priority: Number,
     date: { type: Date, default: Date.now }
     
 });

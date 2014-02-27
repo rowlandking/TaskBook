@@ -414,9 +414,10 @@ function cancelFilter()
 
 }
 
-
+var updatingTaskID;
 function editTaskFunction(listid, taskid)
 {
+  updatingTaskID = taskid;
   /* Local Storage Method
 
   var listIndex = findList(listid);
@@ -446,8 +447,20 @@ function editTaskFunction(listid, taskid)
 function getTaskInfoCallback(result){
   $("#editTask").show();
   $("#taskTitle").val(result['name']);
-  //$("#taskDescription").val(result['']);
+  $("#taskDescription").val(result['description']);
   //$("#taskAssignedTo").val(result['']);
+  var currName;
+  if (result['status']) currName = "true";
+  else currName = "false";
+  //$("#taskStatus").val($('select option[value=currName]').attr("selected",true););
+  $("#taskStatus").val(currName);
+  var currPriority;
+  if (result['priority'] == 0) currPriority = "0";
+  else if (result['priority'] == 1) currPriority = "1";
+  else if (result['priority'] == 2) currPriority = "2";
+  else currPriority = "3";
+  //$("#taskPriority").val($('select option[value=currPriority]').attr("selected",true););
+  $("#taskPriority").val(currPriority);
   $("#taskDueDate").val(result['date']);
   console.log(result);
 }
@@ -457,10 +470,28 @@ function clearTaskFields(){
 
 function saveEditTask()
 {
+  var e = document.getElementById("taskStatus");
+  var status = e.options[e.selectedIndex].value;
+  if (status == "false") status = false;
+  else status = true;
+  var d = document.getElementById("taskPriority");
+  var priority = d.options[d.selectedIndex].value;
+  if (priority == "0") priority = 0;
+  else if (priority == "1") priority = 1;
+  else if (priority == "2") priority = 2;
+  else priority = 3;
+  $.ajaxSetup({
+      async: false
+      });
+  $.get("/updateTaskInfo", { taskid : updatingTaskID, tasktitle : $("#taskTitle").val(), taskdescription : $("#taskDescription").val(), taskstatus : status, taskpriority :  priority}, saveEditTaskCallback);
   $("#editTask").hide();
-  //Put onto Server
   clearTaskFields();
+  updatingTaskID = null;
 }
+
+function saveEditTaskCallback(result) {
+}
+
 function cancelEditTask()
 {
   $("#editTask").hide();
