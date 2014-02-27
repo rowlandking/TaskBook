@@ -105,9 +105,12 @@
     <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
     <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
       <li role="presentation" class="dropdown-header">Filters</li>
-      <li><a href="#" onClick="filterTasks('.ready')">Ready</a></li>
+      <!--li><a href="#" onClick="filterTasks('.ready')">Ready</a></li>
       <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
-      <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li>
+      <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li-->
+      {{#each filters}}
+      <li>{{name}}</li>
+      {{/each}}
       <li role="presentation" class="divider"></li>
       <li><a href="#" onClick="newFilter()">New Filter</a></li>
     </ul>
