@@ -347,9 +347,11 @@ function retrieveListList(id, callbacklist){
 
     if(url_part_parts[1] == "groups"){
       console.log("===============NORMAL VIEW ================= ")
+      testvalue = false;
     }
     else{
       console.log("===============ALTERNATE VIEW ================= ")
+      testvalue = true;
     }
   }
 
@@ -596,7 +598,7 @@ var objectId = mongoose.Types.ObjectId(USERID);
                                                   'contacts': (contactList),
                                                   'lists':JSON.parse(listList),
                                                   'filters':JSON.parse(filterList),
-                                                  //'test':true
+                                                  'test':testvalue
                                                   //'fakelists': JSON.parse(fakelistList),
                                                 });
 
