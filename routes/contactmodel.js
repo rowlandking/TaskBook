@@ -151,7 +151,7 @@ exports.AddContactToGroup = function(req, res)
     		// Need to check if already in group
 
     		models.GroupContact.find({"contactID" : data[0]['_id']}).exec(function(err, result){
-    			if(result[0] !=null){
+    			if(result[0] ==null){
     				res.send("AlreadyInGroup")
     			}
     			else{
