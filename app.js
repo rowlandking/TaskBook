@@ -104,6 +104,7 @@ app.get('/addNewUser', contact.AddContactToDB);
 app.get('/addUserToGroup', contact.AddContactToGroup);
 app.get('/addFilter', filter.addFilter);
 app.get('/filterTasks', filter.filterTasks);
+app.get('/deleteFilter', filter.deleteFilter);
 
 //app.get('/filterTasks', filter.filterTasks);
 // Example route

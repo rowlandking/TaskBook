@@ -41,8 +41,9 @@ exports.filterTasks = function(req, res){
 	//var dueDate = date_.toISOString();
 	//var finalDate = new Date(dueDate);
 	var xdays = req.query.xdays_;
+	console.log("XDAYS " + xdays);
 	var start = new Date();
-	var end = new Date(start.setDate(start.getDate()+xdays));
+	var end = new Date(new Date().setDate(new Date().getDate()+xdays));
 	console.log("start " + start);
 	console.log("end " + end);
 
@@ -58,9 +59,9 @@ exports.filterTasks = function(req, res){
 				console.log("++++++++inside filter tasks outside find+++++++");
 				console.log(allLists);
 
-				//models.Task.find({"listID": {$in: allLists}, "priority": priority}).exec(function(terr, tdata){
+				models.Task.find({"listID": {$in: allLists}, "priority": priority, "duedate": {$gte:start, $lt:end}, "status": false}).exec(function(terr, tdata){
 				//models.Task.find({"duedate": dd}).exec(function(terr, tdata){
-				models.Task.find({"duedate": {$gte:start, $lt:end}}).exec(function(terr, tdata){
+				//models.Task.find({"duedate": {$gte:start, $lt:end}}).exec(function(terr, tdata){
 				
 					if(terr)console.log(terr);
 					console.log("inside filter model======filter tasks");
@@ -71,3 +72,13 @@ exports.filterTasks = function(req, res){
 }
 
 //filter by!
+
+exports.deleteFilter = function(req, res){
+	var filtername = req.query.name;
+	var contactID = req.query.contactID;
+
+	models.Filter.remove({"name": filtername, "contactID": contactID}).exec(function(err, data){
+		if(err)console.log(err);
+		res.send();
+	});
+}

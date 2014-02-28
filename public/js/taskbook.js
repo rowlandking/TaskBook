@@ -449,6 +449,19 @@ function cancelFilter()
 
 }
 
+//delete a filter
+function deleteFilter(name_, contactID_){
+  console.log("about to delete filter");  
+  var delFilter = confirm('Are you sure you want to delete the filter '+name_);
+  
+  if(delFilter){
+    $.get('/deleteFilter', {name:name_, contactID:contactID_});
+    location.reload();
+  }
+
+}
+
+
 var updatingTaskID;
 function editTaskFunction(listid, taskid)
 {
@@ -691,7 +704,7 @@ function addTaskToList2(_listID,_taskID, _name){
 function filterthetasks(filtername, xdays, priority, dueDate)
 {
   console.log("ENTER FILTER TASKS *****");
-
+  console.log(new Date());
  
          var groupid = getGroupID();
          console.log("groupID IDIDIDIDIDID" + groupid);
