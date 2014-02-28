@@ -409,7 +409,7 @@ function saveFilter()
     $("#filterName").val('');
     $("#dueDate").val('');
 
-   
+   location.reload();
 
 }
 
@@ -668,7 +668,7 @@ function filterthetasks(filtername, xdays, priority, dueDate)
           $.ajaxSetup({
             async: false
             });
-          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority}, afterFilter);
+          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority, dueDate_:dueDate}, afterFilter);
 
 }
 
