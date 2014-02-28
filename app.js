@@ -87,6 +87,7 @@ app.get('/groups/:id',group.viewGroup);
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
 app.get('/addTask', grouptasks.addTask);
+app.get('/deleteTask', grouptasks.deleteTask);
 app.get('/listTask',grouplists.returnTask);
 app.get('/getTaskInfo', grouptasks.getTaskInfo);
 app.get('/updateTaskInfo', grouptasks.updateTaskInfo);

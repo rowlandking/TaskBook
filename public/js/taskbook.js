@@ -512,6 +512,23 @@ function saveEditTask()
 function saveEditTaskCallback(result) {
 }
 
+function deleteEditTask()
+{
+  var deltrue = confirm('Are you sure you want to delete this task?');
+
+  if(deltrue)
+  {
+    $.get("/deleteTask", { taskid : updatingTaskID }, deleteEditTaskCallback);
+    location.reload();
+  }
+  $("#editTask").hide();
+  clearTaskFields();
+  updatingTaskID = null;
+} 
+
+function deleteEditTaskCallback(result) {
+}
+
 function cancelEditTask()
 {
   $("#editTask").hide();
