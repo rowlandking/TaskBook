@@ -1,3 +1,5 @@
+//var models = require('../models');
+//var mongoose = require('mongoose');
 
 var taskStorage = new Array(); 
 var listStorage = new Array();
@@ -385,7 +387,7 @@ function saveFilter()
 
     var filterName_ = $("#filterName").val();
     var e = document.getElementById("priority_");
-    var priority_ = e.options[e.selectedIndex].value;
+    var priority_ = e.selectedIndex;
     var xDays_ = $("#xDays").val();
     var dueDate_ = $("#dueDate").val();
     checkCookie();
@@ -477,9 +479,9 @@ function getTaskInfoCallback(result){
   else if (result['priority'] == 1) currPriority = "1";
   else if (result['priority'] == 2) currPriority = "2";
   else currPriority = "3";
-  //$("#taskPriority").val($('select option[value=currPriority]').attr("selected",true););
   $("#taskPriority").val(currPriority);
-  $("#taskDueDate").val(result['date']);
+  var currDueDate = result['duedate'][5]+result['duedate'][6]+"/"+result['duedate'][8]+result['duedate'][9]+"/"+result['duedate'][0]+result['duedate'][1]+result['duedate'][2]+result['duedate'][3];
+  $("#taskDueDate").val(currDueDate);
   console.log(result);
 }
 function clearTaskFields(){
@@ -501,13 +503,30 @@ function saveEditTask()
   $.ajaxSetup({
       async: false
       });
-  $.get("/updateTaskInfo", { taskid : updatingTaskID, tasktitle : $("#taskTitle").val(), taskdescription : $("#taskDescription").val(), taskstatus : status, taskpriority :  priority}, saveEditTaskCallback);
+  $.get("/updateTaskInfo", { taskid : updatingTaskID, tasktitle : $("#taskTitle").val(), taskdescription : $("#taskDescription").val(), taskstatus : status, taskpriority :  priority, taskduedate : new Date($("#taskDueDate").val()) }, saveEditTaskCallback);
   $("#editTask").hide();
   clearTaskFields();
   updatingTaskID = null;
 }
 
 function saveEditTaskCallback(result) {
+}
+
+function deleteEditTask()
+{
+  var deltrue = confirm('Are you sure you want to delete this task?');
+
+  if(deltrue)
+  {
+    $.get("/deleteTask", { taskid : updatingTaskID }, deleteEditTaskCallback);
+    location.reload();
+  }
+  $("#editTask").hide();
+  clearTaskFields();
+  updatingTaskID = null;
+} 
+
+function deleteEditTaskCallback(result) {
 }
 
 function cancelEditTask()
@@ -644,6 +663,31 @@ function addTaskToList2(_listID,_taskID, _name){
   if($(selected_filter).is(":visible") == false)
        $(selected_filter).show();
  }
+
+
+//real filtertasks
+function filterthetasks(filtername, xdays, priority, dueDate)
+{
+  console.log("ENTER FILTER TASKS *****");
+
+ 
+         var groupid = getGroupID();
+         console.log("groupID IDIDIDIDIDID" + groupid);
+          function afterFilter(result)
+          {
+            console.log("============filtered tasks==============");
+            console.log(result);
+            clearTasksFromLists();
+            for(var i = 0; i < result.length; i++){
+              addTaskToList2(result[i]['listID'], result[i]['_id'], result[i]['name']);
+            }
+          }
+          $.ajaxSetup({
+            async: false
+            });
+          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority}, afterFilter);
+
+}
 
 function sortTasks(name){
   FILTERTYPE = name;

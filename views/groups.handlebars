@@ -110,7 +110,7 @@
       <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
       <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li-->
       {{#each filters}}
-      <li>{{name}}</li>
+      <li onClick="filterthetasks('{{name}}','{{xdays}}','{{priority}}', '{{dueDate}}')"><a href="#"></a>{{name}}</li>
       {{/each}}
       <li role="presentation" class="divider"></li>
       <li><a href="#" onClick="newFilter()">New Filter</a></li>
@@ -210,8 +210,9 @@
           </select>
 </form>
 <strong>Due Date:</strong>
-<input type="text" class="datepicker" placeholder="Click me!"><br><br><br>
+<input type="text" class="datepicker" placeholder="Click me!" id="taskDueDate"><br><br><br>
   <button type="button" class="default" onClick="saveEditTask()"> Save </button>
+  <button type="button" class="default" onClick="deleteEditTask()"> Delete </button>
   <button type="button" class="default" onClick="cancelEditTask()"> Cancel </button>
 </div>
 

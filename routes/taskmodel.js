@@ -42,11 +42,11 @@ function addTaskCallBack(){
 }
 
 exports.deleteTask = function(req, res) {
-  var taskID = req.params.id;
-
+  var taskID = req.query.taskid;
+  console.log("task ID is..."+taskID);
   models.Task
-    .find({"_id": taskID})
-    .remove()
+    //.find()
+    .remove({"_id": taskID})
     .exec(afterRemoving);
 
   function afterRemoving(err, tasks) {
@@ -77,7 +77,8 @@ exports.updateTaskInfo = function(req, res) {
 	var taskDescription = req.query.taskdescription;
 	var taskStatus = req.query.taskstatus;
 	var taskPriority = req.query.taskpriority;
-	var updateData = { name: taskTitle, description: taskDescription, status: taskStatus, priority: taskPriority };
+	var taskDueDate = req.query.taskduedate;
+	var updateData = { name: taskTitle, description: taskDescription, status: taskStatus, priority: taskPriority, duedate: taskDueDate };
 	models.Task.update({_id: mongoose.Types.ObjectId(taskID)}, updateData, function(err, data) {
 		if (err) console.log(err);
 		console.log('data');

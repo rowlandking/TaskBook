@@ -50,7 +50,7 @@ var taskSchema = Schema({
     status: Boolean,
     priority: Number,
     date: { type: Date, default: Date.now },
-    duedate: { type: Date}
+    duedate: { type: Date }
 });
 
 exports.Task = mongoose.model('Task', taskSchema);
@@ -62,8 +62,8 @@ exports.generateJSONFILES = function(req, res) {
 
 var filterSchema = Schema({
     name: String,
-    xdays: String,//due in x days
-    priority: String,//1, 2, 3 - hi med lo
+    xdays: Number,//due in x days
+    priority: Number,//1, 2, 3 - hi med lo
     dueDate: Date, 
     contactID: ObjectId
 });
