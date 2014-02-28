@@ -100,11 +100,11 @@
     /* give it dimensions */
     min-height: 10em;
     width: 95%;
-    height: 95%;
+    height: 450px;
     clear:both;
     text-align: center;
     overflow: hidden;
-    visibility:hidden;
+    display:none;
     position:fixed;
     z-index:1040;
     background-color:white;

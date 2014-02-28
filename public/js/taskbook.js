@@ -144,12 +144,12 @@ function toggleEditGroup(name, name_Field, groupName) {
     }*/
 
     document.getElementById(name_Field).innerHTML = groupName;
-
+/*
     if (document.getElementById(name).style.visibility=="visible") {
         document.getElementById(name).style.visibility="hidden";
     }
     else document.getElementById(name).style.visibility="visible";
- 
+ */
     
     /*if( $("#"+name).is(":visible") == true ){
       $("#"+name).hide();
@@ -157,7 +157,7 @@ function toggleEditGroup(name, name_Field, groupName) {
     else{
       $("#"+name).show();
     }*/
-
+ $("#"+name).show();
     return true;
 }
 /*
