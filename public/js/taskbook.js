@@ -424,6 +424,7 @@ function saveFilter()
     $("#filterName").val('');
     $("#dueDate").val('');
 
+    location.reload();
    
 
 }
