@@ -490,8 +490,13 @@ var objectId = mongoose.Types.ObjectId(USERID);
                           //console.log("type of list : " + typeof listdata[i]['_id']);
 
                           //console.log("true/false : " + (taskdata[j]['listID'].toString() == listdata[i]['_id'].toString()));
+
                           if(taskdata[j]['listID'].toString() == listdata[i]['_id'].toString())
                           {
+                            console.log("Task status: "+ taskdata[j]['status']);
+                           if(taskdata[j]['status'].toString()=='true'){
+                            continue;
+                            }
                             if(!firstTask)
                             {
                               taskList+=",";
