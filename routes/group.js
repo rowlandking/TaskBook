@@ -546,10 +546,17 @@ var objectId = mongoose.Types.ObjectId(USERID);
                               models.Contact.find({"_id" : { $in: CONTACTIDS}}).exec(function(contactnamesingrouperr, contactnamesingroup){
 
                                         console.log("Query Result for Contacts in Group: ");
+                                        console.log("Contactnamesingroup: ");
                                         console.log(contactnamesingroup);
+                                        console.log("Contacts in group:");
+                                        console.log(contactsingroup);
+
 
                                         for(var i = 0; i<contactList.length;i++){
-                                          for( var j = 0; j<contactsingroup.length;j++){
+                                          for( var j = 0; j<contactnamesingroup.length;j++){
+                                            if(contactnamesingroup[j]==null){
+                                              continue;
+                                            }
                                             if(contactList[i]['id'] == contactnamesingroup[j]['_id']) contactList[i]['name'] = contactnamesingroup[j]['name'];
                                           }
                                         }
@@ -588,7 +595,8 @@ var objectId = mongoose.Types.ObjectId(USERID);
                                                   'announcements':JSON.parse(announcementList),
                                                   'contacts': (contactList),
                                                   'lists':JSON.parse(listList),
-                                                  'filters':JSON.parse(filterList)
+                                                  'filters':JSON.parse(filterList),
+                                                  //'test':true
                                                   //'fakelists': JSON.parse(fakelistList),
                                                 });
 

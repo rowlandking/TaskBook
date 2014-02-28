@@ -132,22 +132,30 @@ exports.AddContactToGroup = function(req, res)
 		//data_ = data.email;
 		if(error) console.log(error);
 		if(data[0]==null){
-    		res.json(data[0]);
-    		console.log("Email not found!!!!!");
+    		res.send("UserDoesNotExist");
+    		console.log("UserDoesNotExist");
     	}
     	else{
     		// Need to check if already in group
-    		console.log("Email Found");
-    		console.log("Group ID: " + objectId);
-    		console.log("Contact ID: " + data[0]['_id']);
-    		console.log("Email: " + email_);
-    		var newGroupContact = new models.GroupContact({
-				"groupID": objectId,
-				"contactID" : data[0]['_id'],
-			}).save(function (err, data3) {	
-				console.log("New GroupContact:"+data3);
-				res.json(data3);
-			});
+
+    		models.GroupContact.find({"contactID" : data[0]['_id']}).exec(function(err, result){
+    			if(result[0] !=null){
+    				res.send("AlreadyInGroup")
+    			}
+    			else{
+		    		console.log("Email Found");
+		    		console.log("Group ID: " + objectId);
+		    		console.log("Contact ID: " + data[0]['_id']);
+		    		console.log("Email: " + email_);
+		    		var newGroupContact = new models.GroupContact({
+						"groupID": objectId,
+						"contactID" : data[0]['_id'],
+					}).save(function (err, data3) {	
+						console.log("New GroupContact:"+data3);
+						res.json(data);
+					});
+				}
+    		});
     	}
 
 	});

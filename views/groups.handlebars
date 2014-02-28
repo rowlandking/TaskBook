@@ -164,8 +164,10 @@
     <input id="addmemberinput" class="addmemberinput" type="text" name="fname" >
     <input type="submit" value="Submit" onSubmit="return false;" id="addmembersubmit">
   </form>
+  <div class = "errormsgmain"></div>
       <!--<button type="button" class="default" onClick="hideForm('editgroup')">Save</button>-->
-      <button type="button" class="default" onClick="hideForm('editgroup')">Close</button>
+
+      <button type="button" class="default" onClick="hideForm('editgroup'); hideForm('addmemberinputform')">Close</button>
     </div>
 
 <div id="newFilter"  class="alert alert-info hover">

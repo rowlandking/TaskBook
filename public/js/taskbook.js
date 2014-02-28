@@ -316,7 +316,8 @@ function addlisttaskssubmit(listID){
 
 function hideForm(the_id)
 {
-   document.getElementById(the_id).style.visibility="hidden";
+   //document.getElementById(the_id).style.visibility="hidden";
+   $('#'+the_id).hide();
 }
 
 /*function addmembersubmit(){
@@ -337,15 +338,26 @@ $('#addmembersubmit').click(function(){
    //addUserToGroup
    $.get("/addUserToGroup",{ email: str, groupid:getGroupID()},function(result){
     if(result != null){
-
-       var html =' <li class="list-group-item">'+result['name']+'</li>';
-  
-      $(".membercontainer").append(
-        html);
-        $('#addmemberinput').val("");
-      $('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
+        if(result =="UserDoesNotExist"){
+          $('.errormsgmain').html("Email does not exist");
+          $('.errormsgmain').css("display","block");
+        }
+        else if(result=="AlreadyInGroup"){
+          $('.errormsgmain').html("User already in group");
+          $('.errormsgmain').css("display","block");
           return false;
-
+        }
+        else{
+          console.log("Adding this user:");
+          console.log(result);
+          var html =' <li class="list-group-item">'+result['name']+'</li>';
+          $(".membercontainer").append(html);
+          $('#addmemberinput').val("");
+          $('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
+          return false; //Why
+        }
+      }
+      else{ //Why
       }
    });
 
@@ -355,6 +367,8 @@ function addmemberareafunction()
 {
   $("#addMember").hide();
   $("#addmemberinputform").show();
+  //$("#addmemberinputform").show();
+  
 }
 
 //groupmemberslist
@@ -519,7 +533,7 @@ function deleteEditTask()
   if(deltrue)
   {
     $.get("/deleteTask", { taskid : updatingTaskID }, deleteEditTaskCallback);
-    location.reload();
+   // location.reload();
   }
   $("#editTask").hide();
   clearTaskFields();
