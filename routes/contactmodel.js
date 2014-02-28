@@ -117,6 +117,18 @@ exports.AddContactToDB = function(req, res)
 	//  $.get("/AddNewUser", {email:"sk2@gmail.com", password:"1234"},func1); ADD THIS TO FRONT END
 }
 
+exports.updateContactInfo = function(req, res) {
+	var email_ = req.query.email;
+	var password_ = req.query.password;
+	var name_= req.query.namefield;
+	var updateData = { name: name_, email: email_, password: password_ };
+	models.Contact.update( {email : email_}, updateData, function(err, data) {
+		if (err) console.log(err);
+		console.log('data');
+		res.send(data);
+	});
+}
+
 exports.AddContactToGroup = function(req, res)
 {
 	var email_ = req.query.email;

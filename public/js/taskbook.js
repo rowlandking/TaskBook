@@ -554,8 +554,9 @@ function cancelEditTask()
 
 function saveEditProfile()
 {
+  $.get("/updateContact", { namefield : $("#username").val(), password : $("#userpassword").val(), email : $("#useremail").val() }, function() {});
+  $("#dropdownContactName").html($("#username").val());
   $("#editProfile").hide();
-
 }
 function cancelEditProfile()
 {

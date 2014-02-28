@@ -328,6 +328,9 @@ function retrieveListList(id, callbacklist){
     return;
   }
   var GROUPNAME;
+  var USERNAME;
+  var PASSWORD;
+  var EMAIL;
 
   // A/B Testing - Parse for URL
   var url = require('url');
@@ -558,6 +561,11 @@ var objectId = mongoose.Types.ObjectId(USERID);
                                               continue;
                                             }
                                             if(contactList[i]['id'] == contactnamesingroup[j]['_id']) contactList[i]['name'] = contactnamesingroup[j]['name'];
+                                            if(contactnamesingroup[j]['_id'] == USERID) {
+                                              USERNAME = contactnamesingroup[j]['name'];
+                                              PASSWORD = contactnamesingroup[j]['password'];
+                                              EMAIL = contactnamesingroup[j]['email'];
+                                            }
                                           }
                                         }
 
@@ -594,6 +602,9 @@ var objectId = mongoose.Types.ObjectId(USERID);
                                                   'groups': (groupList2),
                                                   'announcements':JSON.parse(announcementList),
                                                   'contacts': (contactList),
+                                                  'contactName': USERNAME,
+                                                  'password': PASSWORD,
+                                                  'email': EMAIL,
                                                   'lists':JSON.parse(listList),
                                                   'filters':JSON.parse(filterList),
                                                   //'test':true
