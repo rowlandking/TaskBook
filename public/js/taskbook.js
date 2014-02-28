@@ -656,7 +656,7 @@ function addTaskToList2(_listID,_taskID, _name){
    var html =' <li class="list-group-item" id="task'
         html += _taskID
         html += '" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
-        html += document.getElementById('addtaskinput'+_listID).value;
+        html += _name;// document.getElementById('addtaskinput'+_listID).value;
         html +='</li>'
   
   $("#list"+_listID).append(
@@ -706,7 +706,7 @@ function filterthetasks(filtername, xdays, priority, dueDate)
           $.ajaxSetup({
             async: false
             });
-          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority}, afterFilter);
+          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority, dueDate_:dueDate, xdays_:xdays}, afterFilter);
 
 }
 

@@ -33,22 +33,19 @@ exports.filterTasks = function(req, res){
 	var allLists = [];
 	var groupid = req.query.groupID;
 	//var xdays = req.query.xdays_;
-	var dd = req.query.dueDate_;
-	console.log("dd is : " + dd);
+	//var dd = req.query.dueDate_;
+	//console.log("dd is : " + dd);
 	//var tempdd = dd.split("/");
-	var date_ = new Date(dd);
+	//var date_ = new Date(dd);
 
-	var dueDate = date_.toISOString();
-	var finalDate = new Date(dueDate);
-	console.log("FINAL DATE : "+ dueDate);
-	//var isoDD = mongoose.Types.ISODate(dueDate);
+	//var dueDate = date_.toISOString();
+	//var finalDate = new Date(dueDate);
+	var xdays = req.query.xdays_;
+	var start = new Date();
+	var end = new Date(start.setDate(start.getDate()+xdays));
+	console.log("start " + start);
+	console.log("end " + end);
 
-	//console.log("the real date isoDD : " + isoDD);
-	//var dueDate = new Date(tempdd[2], tempdd[1], tempdd[0]);
-	console.log("typeof dd " + typeof dd);
-	console.log("priority : " + priority);
-	console.log("The group id is : " + groupid);
-	//console.log("Date : " + dueDate);
 	models.List.find({"groupID": groupid}).exec(afterfindList);
 
 	function afterfindList(err, data)
@@ -61,8 +58,9 @@ exports.filterTasks = function(req, res){
 				console.log("++++++++inside filter tasks outside find+++++++");
 				console.log(allLists);
 
-				models.Task.find({"listID": {$in: allLists}, "priority": priority, "duedate": dd}).exec(function(terr, tdata){
+				//models.Task.find({"listID": {$in: allLists}, "priority": priority}).exec(function(terr, tdata){
 				//models.Task.find({"duedate": dd}).exec(function(terr, tdata){
+				models.Task.find({"duedate": {$gte:start, $lt:end}}).exec(function(terr, tdata){
 				
 					if(terr)console.log(terr);
 					console.log("inside filter model======filter tasks");
