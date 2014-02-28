@@ -50,7 +50,7 @@ var taskSchema = Schema({
     status: Boolean,
     priority: Number,
     date: { type: Date, default: Date.now },
-    duedate: { type: Date}
+    duedate: { type: Date }
 });
 
 exports.Task = mongoose.model('Task', taskSchema);

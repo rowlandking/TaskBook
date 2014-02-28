@@ -477,9 +477,9 @@ function getTaskInfoCallback(result){
   else if (result['priority'] == 1) currPriority = "1";
   else if (result['priority'] == 2) currPriority = "2";
   else currPriority = "3";
-  //$("#taskPriority").val($('select option[value=currPriority]').attr("selected",true););
   $("#taskPriority").val(currPriority);
-  $("#taskDueDate").val(result['date']);
+  var currDueDate = result['duedate'][5]+result['duedate'][6]+"/"+result['duedate'][8]+result['duedate'][9]+"/"+result['duedate'][0]+result['duedate'][1]+result['duedate'][2]+result['duedate'][3];
+  $("#taskDueDate").val(currDueDate);
   console.log(result);
 }
 function clearTaskFields(){
@@ -501,7 +501,7 @@ function saveEditTask()
   $.ajaxSetup({
       async: false
       });
-  $.get("/updateTaskInfo", { taskid : updatingTaskID, tasktitle : $("#taskTitle").val(), taskdescription : $("#taskDescription").val(), taskstatus : status, taskpriority :  priority}, saveEditTaskCallback);
+  $.get("/updateTaskInfo", { taskid : updatingTaskID, tasktitle : $("#taskTitle").val(), taskdescription : $("#taskDescription").val(), taskstatus : status, taskpriority :  priority, taskduedate : new Date($("#taskDueDate").val()) }, saveEditTaskCallback);
   $("#editTask").hide();
   clearTaskFields();
   updatingTaskID = null;
