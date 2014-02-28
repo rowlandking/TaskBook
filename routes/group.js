@@ -143,7 +143,6 @@ function retrieveGroupList(userid){
   var objectId = mongoose.Types.ObjectId(userid);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
   
-
   var groupqueryRESULT;
   var resultstring="";
   function afterQuery(err, data) {

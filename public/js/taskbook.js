@@ -1,3 +1,5 @@
+//var models = require('../models');
+//var mongoose = require('mongoose');
 
 var taskStorage = new Array(); 
 var listStorage = new Array();
@@ -385,7 +387,7 @@ function saveFilter()
 
     var filterName_ = $("#filterName").val();
     var e = document.getElementById("priority_");
-    var priority_ = e.options[e.selectedIndex].value;
+    var priority_ = e.selectedIndex;
     var xDays_ = $("#xDays").val();
     var dueDate_ = $("#dueDate").val();
     checkCookie();
@@ -644,6 +646,31 @@ function addTaskToList2(_listID,_taskID, _name){
   if($(selected_filter).is(":visible") == false)
        $(selected_filter).show();
  }
+
+
+//real filtertasks
+function filterthetasks(filtername, xdays, priority, dueDate)
+{
+  console.log("ENTER FILTER TASKS *****");
+
+ 
+         var groupid = getGroupID();
+         console.log("groupID IDIDIDIDIDID" + groupid);
+          function afterFilter(result)
+          {
+            console.log("============filtered tasks==============");
+            console.log(result);
+            clearTasksFromLists();
+            for(var i = 0; i < result.length; i++){
+              addTaskToList2(result[i]['listID'], result[i]['_id'], result[i]['name']);
+            }
+          }
+          $.ajaxSetup({
+            async: false
+            });
+          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority}, afterFilter);
+
+}
 
 function sortTasks(name){
   FILTERTYPE = name;

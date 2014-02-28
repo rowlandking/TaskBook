@@ -109,7 +109,7 @@
       <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
       <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li-->
       {{#each filters}}
-      <li>{{name}}</li>
+      <li onClick="filterthetasks('{{name}}','{{xdays}}','{{priority}}', '{{dueDate}}')"><a href="#"></a>{{name}}</li>
       {{/each}}
       <li role="presentation" class="divider"></li>
       <li><a href="#" onClick="newFilter()">New Filter</a></li>
