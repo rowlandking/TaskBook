@@ -480,7 +480,9 @@ function getTaskInfoCallback(result){
   else if (result['priority'] == 2) currPriority = "2";
   else currPriority = "3";
   $("#taskPriority").val(currPriority);
-  var currDueDate = result['duedate'][5]+result['duedate'][6]+"/"+result['duedate'][8]+result['duedate'][9]+"/"+result['duedate'][0]+result['duedate'][1]+result['duedate'][2]+result['duedate'][3];
+  if (result['duedate'] != null) {
+    var currDueDate = result['duedate'][5]+result['duedate'][6]+"/"+result['duedate'][8]+result['duedate'][9]+"/"+result['duedate'][0]+result['duedate'][1]+result['duedate'][2]+result['duedate'][3];
+  }
   $("#taskDueDate").val(currDueDate);
   console.log(result);
 }
@@ -510,6 +512,23 @@ function saveEditTask()
 }
 
 function saveEditTaskCallback(result) {
+}
+
+function deleteEditTask()
+{
+  var deltrue = confirm('Are you sure you want to delete the task: ' + $("#taskTitle").val());
+
+  if(deltrue)
+  {
+    $("#task"+updatingTaskID).hide();
+    $.get("/deleteTask", { taskid : updatingTaskID }, deleteEditTaskCallback);
+  }
+  $("#editTask").hide();
+  clearTaskFields();
+  updatingTaskID = null;
+} 
+
+function deleteEditTaskCallback(result) {
 }
 
 function cancelEditTask()
@@ -608,7 +627,9 @@ function clearTasksFromLists(){
 
 function addTaskToList(_listID,_taskID){
 
-   var html =' <li class="list-group-item" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
+   var html =' <li class="list-group-item" id="task'
+        html += _taskID
+        html += '" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
         html += document.getElementById('addtaskinput'+_listID).value;
         html +='</li>'
   
@@ -617,8 +638,10 @@ function addTaskToList(_listID,_taskID){
 }
 
 function addTaskToList2(_listID,_taskID, _name){
-   var html =' <li class="list-group-item" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
-        html += _name;
+   var html =' <li class="list-group-item" id="task'
+        html += _taskID
+        html += '" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
+        html += document.getElementById('addtaskinput'+_listID).value;
         html +='</li>'
   
   $("#list"+_listID).append(

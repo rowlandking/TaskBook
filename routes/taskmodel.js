@@ -42,16 +42,19 @@ function addTaskCallBack(){
 }
 
 exports.deleteTask = function(req, res) {
-  var taskID = req.params.id;
-
+  var taskID = req.query.taskid;
+  console.log("task ID is..."+taskID);
   models.Task
-    .find({"_id": taskID})
-    .remove()
+    //.find()
+    .remove({"_id": taskID})
     .exec(afterRemoving);
 
   function afterRemoving(err, tasks) {
-    if(err) console.log(err);
-    res.send(500);
+    if(err) {
+    	console.log(err);
+    	res.send(500);
+    }
+    res.send(200);
   }
 }
 

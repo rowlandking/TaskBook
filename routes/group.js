@@ -12,7 +12,10 @@ var listList;
 var filterList;
 var fakelistList
 var mongoose = require('mongoose');
-var GROUPLISTDEBUG = true;
+var DEBUG_GROUPLIST = true;
+var DEBUG_ABTEST = true;
+var DEBUG_LISTLIST = true;
+
 function retrieveFakeGroupList(){
     groupList = JSON.stringify(groups);/*[
       { "name": "CSE 170 Project",
@@ -138,7 +141,7 @@ function retrieveGroupList(userid){
   //Apply Filters
 
   //Query DB
-  if(GROUPLISTDEBUG) console.log("======Retrieve Group List======");
+  if(DEBUG_GROUPLIST) console.log("======Retrieve Group List======");
   console.log("UserId: "+ userid);
   var objectId = mongoose.Types.ObjectId(userid);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
@@ -326,10 +329,34 @@ function retrieveListList(id, callbacklist){
   }
   var GROUPNAME;
 
+  // A/B Testing - Parse for URL
+  var url = require('url');
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  var url_path = url_parts.path;
+  var url_part_parts = url_path.split('/');
+
+  // AB TEST DEBUG STATEMENTS
+  if(DEBUG_ABTEST){
+    console.log("URL: "+url);
+    console.log("URL Parts: ");
+    console.log(url_parts);
+    console.log("URL Path: ");
+    console.log(url_part_parts);
+    console.log("URL first part: "+url_part_parts[1]);
+
+    if(url_part_parts[1] == "groups"){
+      console.log("===============NORMAL VIEW ================= ")
+    }
+    else{
+      console.log("===============ALTERNATE VIEW ================= ")
+    }
+  }
 
 
   //Query DB
-  console.log("======Retrieve Group List======");
+  if(DEBUG_GROUPLIST) console.log("======Retrieve Group List======"); 
+  
   console.log("CURRENT USERID: "+ USERID);
   var objectId = mongoose.Types.ObjectId(USERID);
   models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
@@ -338,18 +365,19 @@ function retrieveListList(id, callbacklist){
 
   var resultstring="";
   function afterQuery(err, data) {
-    console.log("=====Finished Retrieving Groups======");
+    if(DEBUG_GROUPLIST) console.log("=====Finished Retrieving Groups======");
+
     if(err) console.log(err);
-    console.log("Query - Group List: "+data);
+    if(DEBUG_GROUPLIST) console.log("Query - Group List: "+data);
     var groupqueryRESULT = data;
     var ALLGROUPIDS = [];
     count = groupqueryRESULT.length;
-    console.log("Result Count: "+count);
+    if(DEBUG_GROUPLIST) console.log("Result Count: "+count);
 
     resultstring += '[';
 
     for(var i=0;i<count;i++){
-      console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
+      if(DEBUG_GROUPLIST) console.log("Group List (Loop "+i+" of "+count+"): " + resultstring);
       resultstring += '{' + '\"name\":\"' + groupqueryRESULT[i]['groupID'] + '\",\"id\":\"' + groupqueryRESULT[i]['groupID']  + '\"}';
       
       ALLGROUPIDS.push(groupqueryRESULT[i]['groupID']);
@@ -361,8 +389,10 @@ function retrieveListList(id, callbacklist){
 
     }
     resultstring +=']';
-    console.log("ResultString: ");
-    console.log(resultstring);
+    if(DEBUG_GROUPLIST) {
+      console.log("ResultString: ");
+      console.log(resultstring);
+    }
     var groupList2 = JSON.parse(resultstring);
     //groupList2 = JSON.parse(groupList2);
     console.log("Check1: Reached after the for loop");

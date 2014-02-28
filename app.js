@@ -79,6 +79,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/groups/:id',group.viewGroup);
+app.get('/groupsALT/:id',group.viewGroup);
 //app.get('/tasks', tasks.view);
 //app.get('/lists', lists.view);
 //app.get('/groups', groups.view);
@@ -87,6 +88,7 @@ app.get('/groups/:id',group.viewGroup);
 app.get('/kitty', kitty.speak);
 app.get('/contactmodel', contact.contactExists);
 app.get('/addTask', grouptasks.addTask);
+app.get('/deleteTask', grouptasks.deleteTask);
 app.get('/listTask',grouplists.returnTask);
 app.get('/getTaskInfo', grouptasks.getTaskInfo);
 app.get('/updateTaskInfo', grouptasks.updateTaskInfo);
