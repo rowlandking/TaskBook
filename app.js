@@ -79,6 +79,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/groups/:id',group.viewGroup);
+app.get('/groupsALT/:id',group.viewGroup);
 //app.get('/tasks', tasks.view);
 //app.get('/lists', lists.view);
 //app.get('/groups', groups.view);
