@@ -77,7 +77,7 @@
           <li role="presentation" class="dropdown-header">Settings</li>
           <li><a href="#">{{name}}</a></li>
           <li role="presentation" class="divider"></li>
-          <li role="presentation" class="dropdown-header">Karen Wu</li>
+          <li role="presentation" class="dropdown-header" id="dropdownContactName">{{contactName}}</li>
           <li><a href="#" id="profilebutton">Edit Profile</a></li>
           <li onclick="logout()"><a href="/">Logout</a></li>
         </ul>
@@ -225,11 +225,11 @@
 <br>
 <form id="profileForm">
   <div id="profilediv">
-    <strong>Name:</strong><input id="username" type="text" value="Karen Wu">
+    <strong>Name:</strong><input id="username" type="text" value="{{contactName}}">
   <br><br>
-    <strong>Password:</strong><input id="userpassword" type="text" value="********">
+    <strong>Password:</strong><input id="userpassword" type="password" value="{{password}}">
   <br><br>
-    <strong>E-Mail:</strong><input id="useremail" type="text" value="aznkarebear@gmail.com">
+    <strong>E-Mail:</strong><input id="useremail" type="text" value="{{email}}">
   </div>
   <br><br>
 </form>
