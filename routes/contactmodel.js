@@ -41,9 +41,9 @@ exports.contactExists = function(req, res)
 		//data_ = data.email;
 		if(error) console.log(error);
     	res.json(data[0]);
-
+		console.log("found something");
 	});
-	console.log("found something");
+
 	//console.log("yohoho" + newContact.name);
 }
 
@@ -52,21 +52,23 @@ exports.AddContactToDB = function(req, res)
 	var USERID;
 	var email_ = req.query.email;
 	var password_ = req.query.password;
+	var name_= req.query.namefield;
+	console.log("name: "+name_);
 	console.log("pass" + password_);
 	console.log("does the contact exist");
 	//var objectId = mongoose.Types.ObjectId('000000000000');
 	var newContact = new models.Contact({
-		"name": "user",
+		"name": name_,
 		"email": email_,
 		"password":password_,
 		"defaultgroup": null
 	});
 	newContact.save(function (err, data) {	
+		if(data==null){
+			res.send("UserExists");
+		}
+		else{
 		console.log("Added New Contact:"+data);
-		//res.json(data);
-
-		//res.send();
-
 		/*********************
 		* Copied Code From GroupModel.js
 		**********************/
@@ -103,20 +105,14 @@ exports.AddContactToDB = function(req, res)
 					}
 				  console.log('affected rows %d', affected);
 				  res.json(data3);
-				});
-
-				
-			});
-
-			//res.json(data);
-			//res.redirect('/');
-			
+				});				
+			});	
 		});
-	
+	}
 	});
 	//////////////////END COPY
 
-	console.log("found something");
+	console.log("Finished adding to db");
 	//console.log("yohoho" + newContact.name);
 	//  $.get("/AddNewUser", {email:"sk2@gmail.com", password:"1234"},func1); ADD THIS TO FRONT END
 }

@@ -96,6 +96,7 @@ function SignupForm(){
     if(validateEmail()){
     window.location.href='/groups/'+homepage;
     }
+    //validateEmail();
 }
 function LoginForm(){
     
@@ -179,7 +180,7 @@ function checkLogin(){
 }
 
 
-
+    var contactexists = true;
 function validateEmail(){
     $('#inputemail').css("background-color", "white");
     $('#inputpassword').css("background-color", "white");
@@ -188,8 +189,16 @@ function validateEmail(){
     var x=document.forms["slick-login"]["inputemail"].value;
     var z=document.forms["slick-login"]["inputpassword"].value;
     var y=document.forms["slick-login"]["confirmpassword"].value;
+    var w=document.forms["slick-login"]["inputname"].value;
     var atpos=x.indexOf("@");
     var dotpos=x.lastIndexOf(".");
+
+    if(w==""||w==null){
+      $('#inputname').css("background-color", "yellow");
+      $('.errormsg').html("Please input name");
+      $('.errormsg').css("display","block");
+      return false;
+    }
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
       {
         $('#inputemail').css("background-color", "yellow");
@@ -198,12 +207,13 @@ function validateEmail(){
       return false;
       }
     else{// Check if email is taken
-
+       //$.get("/contactmodel", {email:x, password:y},loginresponse);
     }
+        $('#inputname').css("background-color", "white");
         $('#inputemail').css("background-color", "white");
     if(z.length<4){
         $('#inputpassword').css("background-color", "yellow");
-        $('.errormsg').html("Password Is Too Short!");
+        $('.errormsg').html("Password needs to be greater than 4 characters!");
         $('.errormsg').css("display","block");
         return false;
     }
@@ -220,10 +230,25 @@ function validateEmail(){
           $.ajaxSetup({
       async: false
       });
-    $.get("/AddNewUser", {email:x, password:y},addnewusercallback);
+
+    //$.get("/contactmodel", {email:x},checkifemailexists);
+
+    
+    //else{
+    $.get("/AddNewUser", {email:x, password:y, namefield:w},addnewusercallback);
+   if(contactexists){
+                $('#inputemail').css("background-color", "yellow");
+        $('.errormsg').html("Email already exists!");
+        $('.errormsg').css("display","block");
+      return false;
+    }
+    else{
+
+      return true;
+    }
     //sleep(2000);
-    return true;
-}
+  }
+
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
@@ -235,13 +260,26 @@ function sleep(milliseconds) {
 
 var hello;
 function addnewusercallback(result){
+    console.log("Added new user:")
+    console.log(result);
     hello =console.log("addnewusercallback: " + result);
-      homepage = result['groupID'];
-      userID = result['contactID'];
+    homepage = result['groupID'];
+    userID = result['contactID'];
+
+  if(result !="UserExists"&& userID !="undefined"){
+
     document.cookie = "TBuserId=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie="TBuserID="+userID;
-       
-    }
+    //window.location.href='/groups/'+homepage;
+    contactexists = false;
+  }
+  else{
+
+    contactexists = true;
+    //return false;
+  }
+
+}
 
 
 function validatePassword(){
