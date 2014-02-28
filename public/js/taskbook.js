@@ -253,7 +253,7 @@ html+='</div>';
 $("#grouplists").append(
 html);
 document.getElementById('addlistinput').value = "";
-
+location.reload();
 }
 
 function a2hex(str) {
