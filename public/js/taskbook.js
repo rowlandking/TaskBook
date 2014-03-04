@@ -704,15 +704,10 @@ function addTaskToList2(_listID,_taskID, _name){
 //real filtertasks
 function filterthetasks(filtername, xdays, priority, dueDate)
 {
-  console.log("ENTER FILTER TASKS *****");
-  console.log(new Date());
  
          var groupid = getGroupID();
-         console.log("groupID IDIDIDIDIDID" + groupid);
           function afterFilter(result)
           {
-            console.log("============filtered tasks==============");
-            console.log(result);
             clearTasksFromLists();
             for(var i = 0; i < result.length; i++){
               addTaskToList2(result[i]['listID'], result[i]['_id'], result[i]['name']);
@@ -727,7 +722,21 @@ function filterthetasks(filtername, xdays, priority, dueDate)
 
 function sortTasks(name){
   FILTERTYPE = name;
-    $.get("/applySort",{sort:name},fillTasksCallback);
+    //$.get("/applySort",{sort:name},fillTasksCallback);
+    var groupid_ = getGroupID();
+    function afterSort(result)
+    {
+        clearTasksFromLists();
+        for(var i = 0; i < result.length; i++){
+            addTaskToList2(result[i]['listID'], result[i]['_id'], result[i]['name']);
+        }
+
+    }
+     $.ajaxSetup({
+            async: false
+            });
+    $.get("/sortAlpha", {groupid:groupid_}, afterSort);
+
 
 }
 
