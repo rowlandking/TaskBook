@@ -314,6 +314,47 @@ function retrieveListList(id, callbacklist){
 
     ]);
   }
+
+
+
+  exports.defaultGroup = function(req, res){
+    var USERID = req.cookies.TBuserID;
+     models.Contact.find({'_id' : USERID}).exec(function(err_, data_){
+          console.log("CONTACTS FIND DEFAULT");
+          console.log(data_);
+          var defaultgroupId = data_[0]['defaultgroup'];
+          console.log("DEFAULT GROUP ID IS NOW " + defaultgroupId);
+          //window.location = window.location.hostname + '/groups/' + defaultgroupId;
+          res.writeHead(302,{
+            'Location' : '/' + 'groups' + '/'+defaultgroupId
+          });
+          res.end();
+          return;
+          
+
+      });
+
+  }
+  
+  exports.defaultGroupAlt = function(req, res){
+    var USERID = req.cookies.TBuserID;
+     models.Contact.find({'_id' : USERID}).exec(function(err_, data_){
+          console.log("CONTACTS FIND DEFAULT");
+          console.log(data_);
+          var defaultgroupId = data_[0]['defaultgroup'];
+          console.log("DEFAULT GROUP ID IS NOW " + defaultgroupId);
+          //window.location = window.location.hostname + '/groups/' + defaultgroupId;
+          res.writeHead(302,{
+            'Location' : '/' + 'groupsAlt' + '/'+defaultgroupId
+          });
+          res.end();
+          return;
+          
+
+      });
+
+  }
+
   exports.viewGroup = function(req, res) {
   // controller code goes here 
   console.log("=======Entered group.js=======");
