@@ -354,7 +354,7 @@ $('#addmembersubmit').click(function(){
           $(".membercontainer").append(html);
           $('#addmemberinput').val("");
           $('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
-            $("#addMember").show();
+           // $("#addMember").show();
           return false; //Why
         }
       }
@@ -366,7 +366,7 @@ $('#addmembersubmit').click(function(){
 
 function addmemberareafunction()
 {
-  $("#addMember").hide();
+  //$("#addMember").hide();
   $("#addmemberinputform").show();
   //$("#addmemberinputform").show();
   
