@@ -80,6 +80,8 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/groups/:id',group.viewGroup);
 app.get('/groupsALT/:id',group.viewGroup);
+app.get('/groups/',group.defaultGroup);
+app.get('/groupsALT/',group.defaultGroupAlt);
 //app.get('/tasks', tasks.view);
 //app.get('/lists', lists.view);
 //app.get('/groups', groups.view);
