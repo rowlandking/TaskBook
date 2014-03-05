@@ -189,6 +189,7 @@ $("#profilebutton").click(function(){
 
 $("#addGroupButton").click(function(){
   $("#addGroup").show();
+  ga("send", "event", "createNewGroupButton", "click");
 });
 $("#addgrouplistsarea").click(function(){
   $("#addlisttext").hide();
@@ -795,3 +796,16 @@ $("#dueDate").click(function(){
   
 });
 $('.datepicker').datepicker();
+
+$("#myGroupsButton").click(function(){
+  ga("send", "event", "myGroupsButton", "click");
+});
+
+$("#addgrouparea").click(function(){
+  ga("send", "event", "myGroupsArea", "click");
+});
+
+
+$("#settingsButton").click(function(){
+  ga("send", "event", "settingsButton", "click");
+})
