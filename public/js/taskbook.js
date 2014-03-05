@@ -788,6 +788,7 @@ var checkin = $('#dpd1').datepicker({
     newDate.setDate(newDate.getDate() + 1);
     checkout.setValue(newDate);
   }
+
   checkin.hide();
   $('#dpd2')[0].focus();
 }).data('datepicker');
