@@ -56,7 +56,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
-          <li><a href="/groups/{{id}}">{{name}}</a>
+          <li><a href="/{{../urlname}}/{{id}}">{{name}}</a>
           </li>
           {{/each}}
           </div>
@@ -283,7 +283,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
-          <li><a href="/groups/{{id}}">{{name}}</a>
+          <li><a href="/{{../urlname}}/{{id}}">{{name}}</a>
           </li>
           {{/each}}
           </div>

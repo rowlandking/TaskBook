@@ -635,7 +635,7 @@ var objectId = mongoose.Types.ObjectId(USERID);
 
                                                 }
                                                 filterList +="]";
-
+                                                var urlname = (url_part_parts[1]).toString();
                                                 res.render('groups',{
                                                   'projectName': GROUPNAME,
                                                   'groups': (groupList2),
@@ -646,7 +646,8 @@ var objectId = mongoose.Types.ObjectId(USERID);
                                                   'email': EMAIL,
                                                   'lists':JSON.parse(listList),
                                                   'filters':JSON.parse(filterList),
-                                                  'test':testvalue
+                                                  'test':testvalue,
+                                                  'urlname': urlname
                                                   //'fakelists': JSON.parse(fakelistList),
                                                 });
 
