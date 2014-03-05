@@ -40,3 +40,11 @@ function getGroupID(){
     return group_id;
 
 }
+function getViewType(){
+ var curr_url  = window.location.href.toString();
+    var url_parts = curr_url.split("/");
+    var group_id = url_parts[2];
+    group_id = group_id.substring(0,24);//remove # from the group id
+    return group_id;
+
+}
