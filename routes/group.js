@@ -364,12 +364,43 @@ function retrieveListList(id, callbacklist){
   
   console.log("CURRENT USERID: "+ USERID);
   var objectId = mongoose.Types.ObjectId(USERID);
-  models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);
+  models.GroupContact.find({"contactID" : objectId}).exec(afterQuery);//returns all the groups contact is in
   
 
 
   var resultstring="";
   function afterQuery(err, data) {
+
+
+    //check if current group id in the url in inside the groups the contact is a part of
+    var groupBelongs = false;
+    for(var i = 0; i < data.length; i++){
+      if(data[i]['groupID'] == id)
+        groupBelongs = true;
+    }
+    if(!groupBelongs)
+    {
+      //if the group doesn't belong to the contact then redirect to contact's default group
+      console.log('THE CONTACTID IS NOW');
+      console.log(objectId);
+      models.Contact.find({'_id' : USERID}).exec(function(err_, data_){
+          console.log("CONTACTS FIND DEFAULT");
+          console.log(data_);
+          var defaultgroupId = data_[0]['defaultgroup'];
+          console.log("DEFAULT GROUP ID IS NOW " + defaultgroupId);
+          //window.location = window.location.hostname + '/groups/' + defaultgroupId;
+          res.writeHead(302,{
+            'Location' : '/' + url_part_parts[1] + '/'+defaultgroupId
+          });
+          res.end();
+          return;
+          
+
+      });
+
+
+    }
+    else{
     if(DEBUG_GROUPLIST) console.log("=====Finished Retrieving Groups======");
 
     if(err) console.log(err);
@@ -631,7 +662,7 @@ var objectId = mongoose.Types.ObjectId(USERID);
 
 
 });
-
+}
 
 
 
