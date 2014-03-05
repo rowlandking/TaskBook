@@ -22,6 +22,20 @@
     <![endif]-->        
 
 
+<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82885301-1',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
 
 </head>
 
@@ -38,11 +52,11 @@
         <button type="button" class="btn btn-default dropdown-toggle" id="myGroupsButton" data-toggle="dropdown">
           <span class="glyphicon glyphicon-th-large"></span> 
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu  dropdown-menu-left"  style="right: 0; left: auto;">
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
-          <li><a href="/groups/{{id}}">{{name}}</a>
+          <li><a class="mygrouparea" href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
           </div>
@@ -130,6 +144,7 @@
           <li role="presentation" class="dropdown-header">Sort By</li>
           <li onclick="sortTasks('None')"><a href="#" id="non">None</a></li>
            <li onclick="sortTasks('Alphabetical')"><a href="#" id="alpha">Alphabetical</a></li>
+           <li onclick="sortTasks('Date')"><a href="#" id="sortDate">Due Date</a></li>
           <li role="presentation" class="divider"></li>
           <li><a href="#">Customize Sort</a></li>
         </ul>
@@ -268,7 +283,7 @@
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
-          <li><a href="/groups/{{id}}">{{name}}</a>
+          <li><a class="mygrouparea" href="/groups/{{id}}" onclick="myGroupsArea();">{{name}}</a>
           </li>
           {{/each}}
           </div>
@@ -299,7 +314,7 @@
 
      <div class="btn-group fright buttoncenter">
       <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span>
+          <button type="button" class="btn btn-default dropdown-toggle" id="settingsButton" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
           <li role="presentation" class="dropdown-header">Settings</li>
@@ -357,6 +372,7 @@
           <li role="presentation" class="dropdown-header">Sort By</li>
           <li onclick="sortTasks('None')"><a href="#" id="non">None</a></li>
            <li onclick="sortTasks('Alphabetical')"><a href="#" id="alpha">Alphabetical</a></li>
+           <li onclick="sortTasks('Date')"><a href="#" id="sortDate">Due Date</a></li>
           <li role="presentation" class="divider"></li>
           <li><a href="#">Customize Sort</a></li>
         </ul>

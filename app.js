@@ -94,6 +94,7 @@ app.get('/listTask',grouplists.returnTask);
 app.get('/getTaskInfo', grouptasks.getTaskInfo);
 app.get('/updateTaskInfo', grouptasks.updateTaskInfo);
 app.get('/sortAlpha', grouptasks.sortAlphabetical);
+app.get('/sortDateDesc', grouptasks.sortDateDescending);
 app.get('/addList',group_list.addList);
 app.get('/delList', group_list.deleteList)
 app.get('/addGroup', groupgroups.addGroup);

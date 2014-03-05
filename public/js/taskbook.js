@@ -142,7 +142,7 @@ function toggleEditGroup(name, name_Field, groupName) {
         alert("Enter a task");
         return false;
     }*/
-
+    logClick();
     document.getElementById(name_Field).innerHTML = groupName;
 /*
     if (document.getElementById(name).style.visibility=="visible") {
@@ -724,6 +724,10 @@ function filterthetasks(filtername, xdays, priority, dueDate)
 function sortTasks(name){
   FILTERTYPE = name;
     //$.get("/applySort",{sort:name},fillTasksCallback);
+    if(FILTERTYPE=='None'){
+      location.reload();
+      return;
+    }
     var groupid_ = getGroupID();
     function afterSort(result)
     {
@@ -736,7 +740,11 @@ function sortTasks(name){
      $.ajaxSetup({
             async: false
             });
-    $.get("/sortAlpha", {groupid:groupid_}, afterSort);
+    if(FILTERTYPE=='Alphabetical')
+      $.get("/sortAlpha", {groupid:groupid_}, afterSort);
+    else
+      $.get("/sortDateDesc", {groupid:groupid_}, afterSort);
+
 
 
 }
@@ -801,11 +809,19 @@ $("#myGroupsButton").click(function(){
   ga("send", "event", "myGroupsButton", "click");
 });
 
-$("#addgrouparea").click(function(){
+function myGroupsArea(){
   ga("send", "event", "myGroupsArea", "click");
-});
+  return true;
+};
 
 
 $("#settingsButton").click(function(){
   ga("send", "event", "settingsButton", "click");
-})
+});
+
+//google analytics code
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
