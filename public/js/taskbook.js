@@ -142,7 +142,8 @@ function toggleEditGroup(name, name_Field, groupName) {
         alert("Enter a task");
         return false;
     }*/
-    ga("send", "event", "groupMembersButton", "click");
+    if (getViewType() == 'groups') ga("send", "event", "groupMembersButton1", "click");
+    else ga("send", "event", "groupMembersButton2", "click");
     document.getElementById(name_Field).innerHTML = groupName;
 /*
     if (document.getElementById(name).style.visibility=="visible") {
@@ -806,20 +807,24 @@ $("#dueDate").click(function(){
 $('.datepicker').datepicker();
 
 $("#myGroupsButton").click(function(){
-  ga("send", "event", "myGroupsButton", "click");
+  if (getViewType() == 'groups') ga("send", "event", "myGroupsButton1", "click");
+  else ga("send", "event", "myGroupsButton2", "click");
 });
 
 
 $("#settingsButton").click(function(){
-  ga("send", "event", "settingsButton", "click");
+  if (getViewType() == 'groups') ga("send", "event", "settingsButton1", "click");
+  else ga("send", "event", "settingsButton2", "click");
 });
 
 $("#sortButton").click(function(){
-  ga("send", "event", "sortButton", "click");
+  if (getViewType() == 'groups') ga("send", "event", "sortButton1", "click");
+  else ga("send", "event", "sortButton2", "click");
 });
 
 $("#filterButton").click(function(){
-  ga("send", "event", "filterButton", "click");
+  if (getViewType() == 'groups') ga("send", "event", "filterButton1", "click");
+  else ga("send", "event", "filterButton2", "click");
 });
 
 //google analytics code

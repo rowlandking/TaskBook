@@ -43,7 +43,7 @@ function getGroupID(){
 function getViewType(){
  var curr_url  = window.location.href.toString();
     var url_parts = curr_url.split("/");
-    var group_id = url_parts[1];
+    var group_id = url_parts[3];
     group_id = group_id.substring(0,24);//remove # from the group id
     return group_id;
 
