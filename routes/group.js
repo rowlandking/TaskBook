@@ -596,7 +596,8 @@ var objectId = mongoose.Types.ObjectId(USERID);
                                                     filterList += "{ \"name\": \""+filterdata[i]['name'] +"\",";
                                                     filterList += "\"xdays\":\"" + filterdata[i]['xdays'] +"\",";
                                                     filterList += "\"priority\":\"" + filterdata[i]['priority'] +"\",";
-                                                    filterList += "\"dueDate\":\"" + filterdata[i]['dueDate'] + "\"}";
+                                                    filterList += "\"dueDate\":\"" + filterdata[i]['dueDate'] + "\",";
+                                                    filterList += "\"contactID\":\"" + filterdata[i]['contactID'] + "\"}";
 
                                                     if(i!=filterdata.length-1)
                                                       filterList+=",";

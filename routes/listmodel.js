@@ -54,7 +54,6 @@ exports.deleteList = function(req, res) {
     	//res.send(500);
     	//remove all tasks associated with that list
     	models.Task.remove(models.Task.find({"listID": listID})).exec(function(taskerr, tasks){
-    		console.log("all the tasks " + tasks);
     		if(taskerr) console.log(taskerr);
     		res.send();
     	});

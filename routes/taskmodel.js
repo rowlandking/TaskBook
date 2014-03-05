@@ -89,6 +89,47 @@ exports.updateTaskInfo = function(req, res) {
 	});
 }
 
+exports.sortAlphabetical = function(req, res){
+
+	var groupid = req.query.groupid;
+	var allLists =[];
+
+	models.List.find({"groupID" : groupid}).exec(function(err, data){
+
+			for(var i = 0; i < data.length; i++)
+	        	allLists.push(data[i]['_id']);
+	    
+			models.Task.find({"listID":{$in: allLists}}).sort('name').exec(function(terr, tdata){
+
+				if(terr)console.log(terr);
+				console.log("SORTED TASKS " + tdata);
+				res.send(tdata);
+
+			});
+
+	});
+}
+
+exports.sortDateDescending = function(req, res){
+
+	var groupid = req.query.groupid;
+	var allLists =[];
+
+	models.List.find({"groupID" : groupid}).exec(function(err, data){
+
+			for(var i = 0; i < data.length; i++)
+	        	allLists.push(data[i]['_id']);
+	    
+			models.Task.find({"listID":{$in: allLists}}).sort({'duedate': -1}).exec(function(terr, tdata){
+
+				if(terr)console.log(terr);
+				console.log("SORTED TASKS " + tdata);
+				res.send(tdata);
+
+			});
+
+	});
+}
 /*exports.taskExists = function(req, res)
 {
 	console.log("does the task exist");

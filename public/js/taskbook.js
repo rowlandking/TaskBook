@@ -142,7 +142,7 @@ function toggleEditGroup(name, name_Field, groupName) {
         alert("Enter a task");
         return false;
     }*/
-
+    logClick();
     document.getElementById(name_Field).innerHTML = groupName;
 /*
     if (document.getElementById(name).style.visibility=="visible") {
@@ -424,6 +424,7 @@ function saveFilter()
     $("#filterName").val('');
     $("#dueDate").val('');
 
+    location.reload();
    
 
 }
@@ -448,6 +449,19 @@ function cancelFilter()
 
 
 }
+
+//delete a filter
+function deleteFilter(name_, contactID_){
+  console.log("about to delete filter");  
+  var delFilter = confirm('Are you sure you want to delete the filter '+name_);
+  
+  if(delFilter){
+    $.get('/deleteFilter', {name:name_, contactID:contactID_});
+    location.reload();
+  }
+
+}
+
 
 var updatingTaskID;
 function editTaskFunction(listid, taskid)
@@ -657,7 +671,7 @@ function addTaskToList2(_listID,_taskID, _name){
    var html =' <li class="list-group-item" id="task'
         html += _taskID
         html += '" onClick="editTaskFunction(\''+_listID+'\',\''+_taskID+'\')">';  //PUT THE LIST & ID of the TASK!
-        html += document.getElementById('addtaskinput'+_listID).value;
+        html += _name;// document.getElementById('addtaskinput'+_listID).value;
         html +='</li>'
   
   $("#list"+_listID).append(
@@ -690,15 +704,10 @@ function addTaskToList2(_listID,_taskID, _name){
 //real filtertasks
 function filterthetasks(filtername, xdays, priority, dueDate)
 {
-  console.log("ENTER FILTER TASKS *****");
-
  
          var groupid = getGroupID();
-         console.log("groupID IDIDIDIDIDID" + groupid);
           function afterFilter(result)
           {
-            console.log("============filtered tasks==============");
-            console.log(result);
             clearTasksFromLists();
             for(var i = 0; i < result.length; i++){
               addTaskToList2(result[i]['listID'], result[i]['_id'], result[i]['name']);
@@ -707,13 +716,35 @@ function filterthetasks(filtername, xdays, priority, dueDate)
           $.ajaxSetup({
             async: false
             });
-          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority}, afterFilter);
+          $.get('/filterTasks', {groupID:getGroupID(), priority_:priority, dueDate_:dueDate, xdays_:xdays}, afterFilter);
 
 }
 
 function sortTasks(name){
   FILTERTYPE = name;
-    $.get("/applySort",{sort:name},fillTasksCallback);
+    //$.get("/applySort",{sort:name},fillTasksCallback);
+    if(FILTERTYPE=='None'){
+      location.reload();
+      return;
+    }
+    var groupid_ = getGroupID();
+    function afterSort(result)
+    {
+        clearTasksFromLists();
+        for(var i = 0; i < result.length; i++){
+            addTaskToList2(result[i]['listID'], result[i]['_id'], result[i]['name']);
+        }
+
+    }
+     $.ajaxSetup({
+            async: false
+            });
+    if(FILTERTYPE=='Alphabetical')
+      $.get("/sortAlpha", {groupid:groupid_}, afterSort);
+    else
+      $.get("/sortDateDesc", {groupid:groupid_}, afterSort);
+
+
 
 }
 
@@ -772,3 +803,16 @@ $("#dueDate").click(function(){
   
 });
 $('.datepicker').datepicker();
+
+
+//google analytics code
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+function logClick(){
+  ga("send", "event", "button", "click");
+}

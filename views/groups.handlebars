@@ -21,6 +21,43 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->        
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  //ga('create', 'UA-48557376-1', 'task-book.herokuapp.com');
+  ga('create', 'UA-48557376-1',  {'cookieDomain':'none'});
+
+  ga('send', 'pageview');
+
+
+  //button clicked
+
+</script>
+
+
+
+
+<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82885301-1',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
+
+
 </head>
 
 <body>
@@ -39,7 +76,7 @@
         <ul class="dropdown-menu  dropdown-menu-left"  style="right: 0; left: auto;">
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
-          {{#each groups}}
+          {{#each groups}}http://www.youtube.com/watch?v=JIL0Iu9CfT8
           <li><a href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
@@ -128,6 +165,7 @@
           <li role="presentation" class="dropdown-header">Sort By</li>
           <li onclick="sortTasks('None')"><a href="#" id="non">None</a></li>
            <li onclick="sortTasks('Alphabetical')"><a href="#" id="alpha">Alphabetical</a></li>
+           <li onclick="sortTasks('Date')"><a href="#" id="sortDate">Due Date</a></li>
           <li role="presentation" class="divider"></li>
           <li><a href="#">Customize Sort</a></li>
         </ul>
@@ -176,7 +214,7 @@
         <br>
         <form>
           <strong>Name :</strong><input id="filterName" type="text" placeholder="Name"><br><br>
-          <strong>Due Date :</strong><input id="dueDate" type="text" class="datepicker" placeholder="due date : mm/dd/yyyy"><br><br>
+          <!--strong>Due Date :</strong><input id="dueDate" type="text" class="datepicker" placeholder="due date : mm/dd/yyyy"><br><br-->
           <strong>Due in </strong><input id="xDays" type="text" class="xdays"><strong>days</strong><br><br>
           <!--input id="dp" type="text" placeholder="Due Date dd/mm/yy"><br><br-->
           <strong>Priority:</strong><select id = "priority_" name="priority">
@@ -337,7 +375,8 @@
       <li><a href="#" onClick="filterTasks('.needsoon')">Need Soon</a></li>
       <li><a href="#" onClick="filterTasks('.urgent')">Urgent</a></li-->
       {{#each filters}}
-      <li onClick="filterthetasks('{{name}}','{{xdays}}','{{priority}}', '{{dueDate}}')"><a href="#"></a>{{name}}</li>
+      <li onClick="filterthetasks('{{name}}','{{xdays}}','{{priority}}', '{{dueDate}}')"><a href="#"></a>
+        <!--img src="/images/window-close.png" class="deleteFilter" onclick="deleteFilter('{{name}}', '{{contactID}}'')"></img-->{{name}}</li>
       {{/each}}
       <li role="presentation" class="divider"></li>
       <li><a href="#" onClick="newFilter()">New Filter</a></li>
@@ -354,6 +393,7 @@
           <li role="presentation" class="dropdown-header">Sort By</li>
           <li onclick="sortTasks('None')"><a href="#" id="non">None</a></li>
            <li onclick="sortTasks('Alphabetical')"><a href="#" id="alpha">Alphabetical</a></li>
+           <li onclick="sortTasks('Date')"><a href="#" id="sortDate">Due Date</a></li>
           <li role="presentation" class="divider"></li>
           <li><a href="#">Customize Sort</a></li>
         </ul>
@@ -402,14 +442,14 @@
         <br>
         <form>
           <strong>Name :</strong><input id="filterName" type="text" placeholder="Name"><br><br>
-          <strong>Due Date :</strong><input id="dueDate" type="text" class="datepicker" placeholder="due date : mm/dd/yyyy"><br><br>
+          <!--strong>Due Date :</strong><input id="dueDate" type="text" class="datepicker" placeholder="due date : mm/dd/yyyy"><br><br-->
           <strong>Due in </strong><input id="xDays" type="text" class="xdays"><strong>days</strong><br><br>
           <!--input id="dp" type="text" placeholder="Due Date dd/mm/yy"><br><br-->
           <strong>Priority:</strong><select id = "priority_" name="priority">
             <option>None</option>
-            <option>High</option>
-            <option>Medium</option>
             <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
           </select>
         </form>
         <button type="button" class="default" onClick="saveFilter()"> Save </button>
