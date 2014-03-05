@@ -142,7 +142,7 @@ function toggleEditGroup(name, name_Field, groupName) {
         alert("Enter a task");
         return false;
     }*/
-    logClick();
+    ga("send", "event", "groupMembersButton", "click");
     document.getElementById(name_Field).innerHTML = groupName;
 /*
     if (document.getElementById(name).style.visibility=="visible") {
@@ -189,7 +189,6 @@ $("#profilebutton").click(function(){
 
 $("#addGroupButton").click(function(){
   $("#addGroup").show();
-  ga("send", "event", "createNewGroupButton", "click");
 });
 $("#addgrouplistsarea").click(function(){
   $("#addlisttext").hide();
@@ -809,14 +808,17 @@ $("#myGroupsButton").click(function(){
   ga("send", "event", "myGroupsButton", "click");
 });
 
-function myGroupsArea(){
-  ga("send", "event", "myGroupsArea", "click");
-  return true;
-};
-
 
 $("#settingsButton").click(function(){
   ga("send", "event", "settingsButton", "click");
+});
+
+$("#sortButton").click(function(){
+  ga("send", "event", "sortButton", "click");
+});
+
+$("#filterButton").click(function(){
+  ga("send", "event", "filterButton", "click");
 });
 
 //google analytics code

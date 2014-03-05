@@ -56,7 +56,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
-          <li><a class="mygrouparea" href="/groups/{{id}}">{{name}}</a>
+          <li><a href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
           </div>
@@ -120,7 +120,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 <div class="btn-group fright buttoncenter">
   <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
+    <button type="button" class="btn btn-default dropdown-toggle groupBtn" id="filterButton" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
     <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
       <li role="presentation" class="dropdown-header">Filters</li>
       <!--li><a href="#" onClick="filterTasks('.ready')">Ready</a></li>
@@ -138,7 +138,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
        <div class="btn-group fright buttoncenter">
       <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-sort groupBtnIcon"></span> </button>
+        <button type="button" class="btn btn-default dropdown-toggle groupBtn" id="sortButton" data-toggle="dropdown"><span class="glyphicon glyphicon-sort groupBtnIcon"></span> </button>
         <!--No dropdown here, just do popup with members-->
                 <ul class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;">
           <li role="presentation" class="dropdown-header">Sort By</li>
@@ -176,8 +176,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       </div>
     </div>
  
-    <!--<div id="addMember" onClick="addmemberareafunction()" class="panel-footer addMemberPanel" style="text-align:right">
-    Add Member</div>-->
+    <div id="addMember" onClick="addmemberareafunction()" class="panel-footer addMemberPanel" style="text-align:right">
+    Add Member</div>
   <form action="" id="addmemberinputform" class="addmemberinputform" onsubmit="return false;"> 
     <input id="addmemberinput" class="addmemberinput" type="text" name="fname" >
     <input type="submit" value="Submit" onSubmit="return false;" id="addmembersubmit">
@@ -283,7 +283,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li role="presentation" class="dropdown-header">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
-          <li><a class="mygrouparea" href="/groups/{{id}}" onclick="myGroupsArea();">{{name}}</a>
+          <li><a href="/groups/{{id}}">{{name}}</a>
           </li>
           {{/each}}
           </div>
@@ -347,7 +347,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 <div class="btn-group fright buttoncenter">
   <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
+    <button type="button" class="btn btn-default dropdown-toggle groupBtn" id="filterButton" data-toggle="dropdown"><span class="glyphicon glyphicon-filter groupBtnIcon"></span> </button>
     <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
       <li role="presentation" class="dropdown-header">Filters</li>
       <!--li><a href="#" onClick="filterTasks('.ready')">Ready</a></li>
@@ -366,7 +366,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
        <div class="btn-group fright buttoncenter">
       <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle groupBtn" data-toggle="dropdown"><span class="glyphicon glyphicon-sort groupBtnIcon"></span> </button>
+        <button type="button" class="btn btn-default dropdown-toggle groupBtn" id="sortButton" data-toggle="dropdown"><span class="glyphicon glyphicon-sort groupBtnIcon"></span> </button>
         <!--No dropdown here, just do popup with members-->
                 <ul class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;">
           <li role="presentation" class="dropdown-header">Sort By</li>
@@ -404,8 +404,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       </div>
     </div>
  
-    <!--<div id="addMember" onClick="addmemberareafunction()" class="panel-footer addMemberPanel" style="text-align:right">
-    Add Member</div>-->
+    <div id="addMember" onClick="addmemberareafunction()" class="panel-footer addMemberPanel" style="text-align:right">
+    Add Member</div>
   <form action="" id="addmemberinputform" class="addmemberinputform" onsubmit="return false;"> 
     <input id="addmemberinput" class="addmemberinput" type="text" name="fname" >
     <input type="submit" value="Submit" onSubmit="return false;" id="addmembersubmit">
