@@ -351,11 +351,11 @@ $('#addmembersubmit').click(function(){
         else{
           console.log("Adding this user:");
           console.log(result);
-          var html =' <li class="list-group-item">'+result['name']+'</li>';
+          var html =' <li class="list-group-item">'+result[0]['name']+'</li>';
           $(".membercontainer").append(html);
           $('#addmemberinput').val("");
           $('.membercontainer').scrollTop($('.membercontainer')[0].scrollHeight);
-            $("#addMember").show();
+           // $("#addMember").show();
           return false; //Why
         }
       }
@@ -367,7 +367,7 @@ $('#addmembersubmit').click(function(){
 
 function addmemberareafunction()
 {
-  $("#addMember").hide();
+  //$("#addMember").hide();
   $("#addmemberinputform").show();
   //$("#addmemberinputform").show();
   
