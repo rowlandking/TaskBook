@@ -723,6 +723,10 @@ function filterthetasks(filtername, xdays, priority, dueDate)
 function sortTasks(name){
   FILTERTYPE = name;
     //$.get("/applySort",{sort:name},fillTasksCallback);
+    if(FILTERTYPE=='None'){
+      location.reload();
+      return;
+    }
     var groupid_ = getGroupID();
     function afterSort(result)
     {
@@ -735,7 +739,11 @@ function sortTasks(name){
      $.ajaxSetup({
             async: false
             });
-    $.get("/sortAlpha", {groupid:groupid_}, afterSort);
+    if(FILTERTYPE=='Alphabetical')
+      $.get("/sortAlpha", {groupid:groupid_}, afterSort);
+    else
+      $.get("/sortDateDesc", {groupid:groupid_}, afterSort);
+
 
 
 }
