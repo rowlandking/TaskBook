@@ -53,7 +53,8 @@
 
 
 .groupBtn{
-    width: 10px;
+    width: 45px;
+    height:33px;
     text-align: center;
     padding-left: 15px;
     padding-right:15px;
@@ -62,9 +63,12 @@
 
 }
 
+.btn{
+    padding: 8px 15px;
+}
 .groupBtnIcon{
 
-    right:7px;
+    /*right:7px;*/
 
 }
 .navbar{

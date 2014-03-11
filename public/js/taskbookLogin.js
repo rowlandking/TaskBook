@@ -94,14 +94,14 @@ function signup(){
 
 function SignupForm(){
     if(validateEmail()){
-    window.location.href='/groups/'+homepage;
+    window.location.href='/groupsAlt/'+homepage;
     }
     //validateEmail();
 }
 function LoginForm(){
     
     if(checkLogin()){
-        window.location.href='/groups/'+homepage;
+        window.location.href='/groupsAlt/'+homepage;
     }
 }
 
