@@ -73,6 +73,7 @@
 }
 .navbar{
     margin-bottom: 2px;
+    background-image: linear-gradient(to bottom,#FFB140 0,#FFB140 100%);
 }
 
 
@@ -350,4 +351,8 @@
     width: 20px;
     height: 20px;
     float: right;
+}
+
+body{
+    background-color:#FFF5E7;
 }
