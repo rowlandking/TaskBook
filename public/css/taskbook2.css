@@ -363,6 +363,26 @@
     float: right;
 }
 
+#settingsButton{
+    background-image: none;
+}
+#myGroupsButton{
+    background-image:none;
+}
+#dropdownContactName{
+    font-weight: bold;
+    font-size:15px;
+}
+#dropdownGroupName{
+    font-weight: bold;
+    font-size:15px;
+}
+#addgrouparea{
+    font-size:15px;
+}
+#mysettingsdropdown{
+    font-size:15px;
+}
 body{
     background-color:#FFF5E7;
 }

@@ -55,7 +55,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <span class="glyphicon glyphicon-th-large"></span> 
         </button>
         <ul class="dropdown-menu  dropdown-menu-left"  style="right: 0; left: auto;">
-          <li role="presentation" class="dropdown-header">My Groups</li>
+          <li role="presentation" class="dropdown-header" id="dropdownGroupName">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
           <li><a href="/{{../urlname}}/{{id}}">{{name}}</a>
@@ -91,10 +91,9 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" id="settingsButton" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span>
         </button>
-        <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
-          <li role="presentation" class="dropdown-header">Settings</li>
-          <li><a href="#">{{name}}</a></li>
-          <li role="presentation" class="divider"></li>
+        <ul class="dropdown-menu dropdown-menu-left" id="mysettingsdropdown" style="right: 0; left: auto;">
+          <!--<li role="presentation" class="dropdown-header">{{name}}</li> <li role="presentation" class="dropdown-header">Settings</li><li><a href="#">{{name}}</a></li>-->
+          <!--<li role="presentation" class="divider"></li>-->
           <li role="presentation" class="dropdown-header" id="dropdownContactName">{{contactName}}</li>
           <li><a href="#" id="profilebutton">Edit Profile</a></li>
           <li onclick="logout()"><a href="/">Logout</a></li>
@@ -286,7 +285,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <span class="glyphicon glyphicon-th-large"></span> 
         </button>
         <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">My Groups</li>
+          <li role="presentation" class="dropdown-header" id="dropdownGroupName">My Groups</li>
           <div id="addgrouparea">
           {{#each groups}}
           <li><a href="/{{../urlname}}/{{id}}">{{name}}</a>
@@ -322,10 +321,10 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" id="settingsButton" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span>
         </button>
-        <ul class="dropdown-menu dropdown-menu-left" style="right: 0; left: auto;">
-          <li role="presentation" class="dropdown-header">Settings</li>
-          <li><a href="#">{{name}}</a></li>
-          <li role="presentation" class="divider"></li>
+        <ul class="dropdown-menu dropdown-menu-left" id="mysettingsdropdown" style="right: 0; left: auto;">
+          
+          <!--<li role="presentation" class="dropdown-header">{{name}}</li><li role="presentation" class="dropdown-header">Settings</li><li><a href="#">{{name}}</a></li>-->
+          <!--<li role="presentation" class="divider"></li>-->
           <li role="presentation" class="dropdown-header" id="dropdownContactName">{{contactName}}</li>
           <li><a href="#" id="profilebutton">Edit Profile</a></li>
           <li onclick="logout()"><a href="/">Logout</a></li>
