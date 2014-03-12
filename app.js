@@ -100,6 +100,7 @@ app.get('/sortDateDesc', grouptasks.sortDateDescending);
 app.get('/addList',group_list.addList);
 app.get('/delList', group_list.deleteList)
 app.get('/addGroup', groupgroups.addGroup);
+app.get('/editGroupName', groupgroups.editGroupName);
 //app.get('/contactmodel', contact.taskExists);
 app.get('/applyFilter',grouplists.applyFilter);
 app.get('/applySort',grouplists.applySort);

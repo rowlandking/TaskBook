@@ -39,7 +39,7 @@ exports.deleteGroup = function(req, res) {
   var groupID = req.params.id;
 
   models.Group
-    .find({"_id": taskID})
+    .find({"_id": groupID})
     .remove()
     .exec(afterRemoving);
 
@@ -49,6 +49,24 @@ exports.deleteGroup = function(req, res) {
   }
 }
 
+exports.editGroupName = function(req, res){
+
+	var groupID = req.query.groupid;
+	var newTitle = req.query.name;
+	console.log('the id $$$$$$$$$$$$$$$ ' + groupID);
+	console.log('the new title $$$$$$$$$$$$$$4 ' + newTitle);
+	models.Group.update(
+		{"_id": groupID},
+		{
+			$set:{"name": newTitle}
+		}
+	).exec(function(err, data){
+		 if(err) console.log(err + 'there has been an err dude');
+         res.send(500);
+	});
+	
+
+}
 
 
 
