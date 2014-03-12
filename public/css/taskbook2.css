@@ -381,6 +381,7 @@
     float:right;
     margin-right:20px;
     margin-top:2px;
+    display:none;
 }
 .xdays{
     width:20px;
@@ -475,7 +476,9 @@ body{
 }
 
 .pencilColor{
+    display:none;
     opacity: 0.4;
+    margin-top:5px;
 }
 
 .buttonsColor{
