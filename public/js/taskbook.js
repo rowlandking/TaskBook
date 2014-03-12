@@ -774,6 +774,32 @@ function showDeleteList(listid, listname){
 
 }
 
+//edit group name
+function editGroupTitle()
+{
+  var gID = getGroupID();
+  var newTitle = $('textarea#edit_title').val();//document.getElementById('edit_title').value;
+  $.get('/editGroupName', {groupid: getGroupID(), name: $('textarea#edit_title').val()});
+
+  //function titleCB()
+  location.reload();
+
+  $("#editgrouptitle").hide();
+
+
+
+}
+
+function showEditGroupName(groupName)
+{
+  $("#editgrouptitle").show();
+  $("#edit_title").html(groupName);
+}
+function hideEditGroupName()
+{
+  $("#editgrouptitle").hide();
+}
+
 //filter tasks
 
 var nowTemp = new Date();
