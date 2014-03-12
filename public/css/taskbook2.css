@@ -93,7 +93,7 @@
     margin-left: 2.5%;
     margin-right:2.5%;
     /*height: 45px;*/
-    background-color: #FFEBD0; 
+    background-color: #FFE4BE; 
 }
 
 #editgroup{
@@ -467,7 +467,7 @@
 }
 
 #listnavbar{
-    background-image: linear-gradient(to bottom,#FFEBD0 0,#FFEBD0 100%);
+    background-image: linear-gradient(to bottom,#FFE4BE 0,#FFE4BE 100%);
 }
 
 body{
