@@ -466,6 +466,10 @@
     margin-bottom:15px;
 }
 
+#listnavbar{
+    background-image: linear-gradient(to bottom,#FFEBD0 0,#FFEBD0 100%);
+}
+
 body{
     background-color:#FFF5E7;
 }
