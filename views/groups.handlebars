@@ -162,8 +162,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li onclick="sortTasks('None')"><a href="#" id="non">None</a></li>
            <li onclick="sortTasks('Alphabetical')"><a href="#" id="alpha">Alphabetical</a></li>
            <li onclick="sortTasks('Date')"><a href="#" id="sortDate">Due Date</a></li>
-          <li role="presentation" class="divider"></li>
-          <li><a href="#">Customize Sort</a></li>
+          <!--<li role="presentation" class="divider"></li>
+          <li><a href="#">Customize Sort</a></li>-->
         </ul>
       </div>
     </div>
@@ -209,9 +209,9 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
         <strong><h1>New Filter</h1></strong>
         <br>
         <form>
-          <strong>Name :</strong><input id="filterName" type="text" placeholder="Name"><br><br>
+          <strong>Name :</strong><input id="filterName" type="text" placeholder="Name">
           <!--strong>Due Date :</strong><input id="dueDate" type="text" class="datepicker" placeholder="due date : mm/dd/yyyy"><br><br-->
-          <strong>Due in </strong><input id="xDays" type="text" class="xdays"><strong>days</strong><br><br>
+         
           <!--input id="dp" type="text" placeholder="Due Date dd/mm/yy"><br><br-->
           <strong>Priority:</strong><select id = "priority_" name="priority">
             <option>None</option>
@@ -219,6 +219,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
             <option>Medium</option>
             <option>Low</option>
           </select>
+           <strong>Due within </strong><input id="xDays" type="text" class="xdays"><strong> days</strong>
         </form>
         <button type="button" class="default" onClick="saveFilter()"> Save </button>
         <button type="button" class="default" onClick="cancelFilter()"> Cancel </button>
@@ -396,8 +397,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li onclick="sortTasks('None')"><a href="#" id="non">None</a></li>
            <li onclick="sortTasks('Alphabetical')"><a href="#" id="alpha">Alphabetical</a></li>
            <li onclick="sortTasks('Date')"><a href="#" id="sortDate">Due Date</a></li>
-          <li role="presentation" class="divider"></li>
-          <li><a href="#">Customize Sort</a></li>
+          <!--<li role="presentation" class="divider"></li>
+          <li><a href="#">Customize Sort</a></li>-->
         </ul>
       </div>
     </div>
@@ -443,9 +444,9 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
         <strong><h1>New Filter</h1></strong>
         <br>
         <form>
-          <strong>Name :</strong><input id="filterName" type="text" placeholder="Name"><br><br>
+          <strong>Name :</strong><input id="filterName" type="text" placeholder="Name">
           <!--strong>Due Date :</strong><input id="dueDate" type="text" class="datepicker" placeholder="due date : mm/dd/yyyy"><br><br-->
-          <strong>Due in </strong><input id="xDays" type="text" class="xdays"><strong>days</strong><br><br>
+          
           <!--input id="dp" type="text" placeholder="Due Date dd/mm/yy"><br><br-->
           <strong>Priority:</strong><select id = "priority_" name="priority">
             <option>None</option>
@@ -453,6 +454,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
             <option>Medium</option>
             <option>High</option>
           </select>
+          <strong>Due in </strong><input id="xDays" type="text" class="xdays"><strong>days</strong>
         </form>
         <button type="button" class="default" onClick="saveFilter()"> Save </button>
         <button type="button" class="default" onClick="cancelFilter()"> Cancel </button>

@@ -448,6 +448,22 @@
    
    clear:both;
 }
+#filterName{
+    width:100%;
+    margin-bottom:15px;
+    height:30px;
+}
+#xDays{
+    height:30px;
+    width:45px;
+}
+
+#priority_{
+     width:100%;
+    height:30px;
+    margin-bottom:15px;
+}
+
 body{
     background-color:#FFF5E7;
 }
