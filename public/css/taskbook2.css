@@ -442,7 +442,12 @@
      width:100%;
     height:30px;
 }
-
+.editgrouptitle{
+   text-align:right;
+   float:right;
+   
+   clear:both;
+}
 body{
     background-color:#FFF5E7;
 }
