@@ -467,3 +467,11 @@
 body{
     background-color:#FFF5E7;
 }
+
+.pencilColor{
+    opacity: 0.4;
+}
+
+.buttonsColor{
+    background-color: #FFD633;
+}
