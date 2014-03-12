@@ -39,7 +39,8 @@
     text-align: center;
     text-overflow:ellipsis;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: bold;
     width:100%;
     height:inherit;
     overflow: hidden;

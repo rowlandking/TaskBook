@@ -113,7 +113,11 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       <button type="button" class="default">Cancel</button>
 </div>-->
 
-<h2 class="groupTitleText" style="text-align:left; margin-left:2.5%;">{{projectName}}</h2>
+<h4 class="groupTitleText" style="text-align:left; margin-left:2.5%;">{{projectName}}
+    <img height="20" width="20" src="/images/pencil.png"></img>
+  
+
+</h4>
 
 <div class="groupTitle">
   <!--<button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-pushpin"></span> </button>
@@ -340,8 +344,11 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       <button type="button" class="default">Cancel</button>
 </div>-->
 
-<h2 class="groupTitleText">{{projectName}}</h2>
+<h4 class="groupTitleText">
+  {{projectName}}
+  <img height="20" width="20" src="/images/pencil.png"></img>
 
+</h4>
 <div class="groupTitle">
   <!--<button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-pushpin"></span> </button>
   <button type="button" class="btn btn-default navbar-btn fleft pin" ><span class="glyphicon glyphicon-sort"></span> </button>
@@ -509,7 +516,11 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 {{#each lists}}
 <div class="panel panel-default">
   <div class="panel-heading">
-    <strong>{{name}}</strong>
+
+    <strong>{{name}} 
+   </strong>
+     <img height="15" width="15" src="/images/pencil.png"></img>
+   
     <img src="/images/window-close.png" class="deleteList" onClick="showDeleteList('{{id}}','{{name}}')"></img>
   </div>
    <ul class="list-group">
