@@ -29,6 +29,7 @@
 .groupTitle{
     padding-left: 2.5%;
     padding-right: 2.5%;
+    margin-bottom:4px;
     width:inherit;
     height:50px;
     text-align: center;
@@ -405,6 +406,7 @@
     font-weight: bold;
     font-size:15px;
 }
+
 #addgrouparea{
     font-size:15px;
 }
