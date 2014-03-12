@@ -303,7 +303,7 @@
     /* give it dimensions */
     min-height: 10em;
     width: 95%;
-    height: 450px;
+    height: 95%;
     clear:both;
     text-align: center;
     overflow: hidden;
@@ -376,7 +376,11 @@
     height: 20px;
     float: right;
 }
-
+.editlist{
+    float:right;
+    margin-right:20px;
+    margin-top:2px;
+}
 .xdays{
     width:20px;
     height: 20px;
@@ -407,6 +411,38 @@
 #mysettingsdropdown{
     font-size:15px;
 }
+#taskTitle{
+    width:100%;
+    height:30px;
+    font-size:15px;
+    margin: 0 0 10px 0;
+    padding: 3px;
+}
+#taskDescription{
+    width:100%;
+    height:30px;
+    font-size:15px;
+    margin: 0 0 10px 0;
+    padding: 3px;
+}
+#taskDueDate{
+    width:100%;
+
+}
+.datepicker {
+    width:85%;
+    margin-bottom:15px;
+}
+#taskStatus{
+    width:100%;
+    height:30px;
+    margin-bottom:15px;
+}
+#taskPriority{
+     width:100%;
+    height:30px;
+}
+
 body{
     background-color:#FFF5E7;
 }
