@@ -237,7 +237,7 @@ var listID = result['_id']+'';
 console.log("ListID: "+listID);
 var html='';
 html+='<div class="panel panel-default">';
-html+='<div class="panel-heading">';
+html+='<div class="panel-heading" id="listnavbar">';
 html+='<strong>'+document.getElementById('addlistinput').value+'</strong>';
 html+='</div>';
 html+='<ul class="list-group">';
