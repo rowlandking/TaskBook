@@ -53,8 +53,6 @@ exports.editGroupName = function(req, res){
 
 	var groupID = req.query.groupid;
 	var newTitle = req.query.name;
-	console.log('the id $$$$$$$$$$$$$$$ ' + groupID);
-	console.log('the new title $$$$$$$$$$$$$$4 ' + newTitle);
 	models.Group.update(
 		{"_id": groupID},
 		{
@@ -65,9 +63,22 @@ exports.editGroupName = function(req, res){
          res.send(500);
 	});
 	
-
 }
 
+
+//leave group
+exports.leaveGroup = function(req, res){
+	var groupID = req.query.groupid;
+	var contactID = req.query.contactid;
+
+	models.GroupContact
+	.remove({"groupID": groupID, "contactID": contactID})
+	.exec(function(err, data){
+		 if(err) console.log(err + 'there has been an err dude');
+		 res.send(500);
+	});
+
+}
 
 
 //exports.editTask = 

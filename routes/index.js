@@ -13,7 +13,7 @@ exports.view = function(req, res){
 
     var homepage = data[0]['defaultgroup'];
     res.writeHead(302, {
-    'Location': '/groups/'+ homepage
+    'Location': '/groupsAlt/'+ homepage
     //add other headers here...
     });
     res.end();  

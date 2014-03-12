@@ -801,6 +801,13 @@ function hideEditGroupName()
   $("#editgrouptitle").hide();
 }
 
+//leave group
+function leaveGroup(){
+  checkCookie();
+  $.get('/leaveGroup', {groupid:getGroupID(), contactid:getUserID()});
+  //location.reload();
+}
+
 //filter tasks
 
 var nowTemp = new Date();
