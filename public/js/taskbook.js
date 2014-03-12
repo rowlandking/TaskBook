@@ -590,10 +590,11 @@ function AddGroup()
 function addGroupCallBack(result)
 {
   $("#addGroup").hide();
-  var html ='<li><a href="/groups/'+result['groupID']+'">'+document.getElementById('groupname').value+'</a>';
+  var html ='<li><a href="/groupsAlt/'+result['groupID']+'">'+document.getElementById('groupname').value+'</a>';
   $("#addgrouparea").append(
     html);
   document.getElementById('groupname').value= "";
+  window.location.href='/groupsAlt/'+result['groupID'];
 }
 
 function CancelAddGroup()
