@@ -80,5 +80,19 @@ exports.leaveGroup = function(req, res){
 
 }
 
+//return the groups the contact is in, check how many
+exports.findGroups = function(req, res){
+	//var groupID = req.query.groupid;
+	var contactID = req.query.contactid;
+
+	models.GroupContact.
+	find({"contactID": contactID}).
+	exec(function(err, data){
+		if(err) console.log(err);
+
+		res.json(data);
+	})
+
+}
 
 //exports.editTask = 

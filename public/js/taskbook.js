@@ -107,9 +107,9 @@ function showContact(name, name_Field, contactName) {
 
     return true;
 }
-function logOut(){
+/*function logOut(){
     window.location.href ='/';
-}
+}*/
 
 function visibleTaskForm(name) {
     //do stuff
@@ -804,8 +804,45 @@ function hideEditGroupName()
 //leave group
 function leaveGroup(){
   checkCookie();
-  $.get('/leaveGroup', {groupid:getGroupID(), contactid:getUserID()});
+  //check if the user is in at least one group
+  $.get('/findGroups', {contactid:getUserID}, numGroups)
+  var enoughGroups = false;
+  function numGroups(result){
+    if(result.length > 1){
+      enoughGroups = true;
+
+    }
+      //console.log("amount of groups");
+      //console.log(result.length);
+
+      if(enoughGroups)
+      {
+        checkCookie();
+        $.get('/leaveGroup', {groupid:getGroupID(), contactid:getUserID()});
+        location.reload();
+      }
+      else{
+        window.alert("Sorry you can't be in less than 1 group");
+      }
+  }
+  
   //location.reload();
+}
+
+function editListName()
+{
+
+
+}
+function hideEditList(){
+  $("#editlistname").hide();
+
+}
+function showEditList(listName)
+{
+  $("#editlistname").show();
+  $("#edit_listname").html(listName);
+
 }
 
 //filter tasks
