@@ -201,7 +201,7 @@
 
 
 .addlistinput{
-    width: inherit;
+    width: 70%;
     margin-top: 10px;
     margin-bottom:auto;
     background-color: transparent;  
@@ -520,7 +520,7 @@ body{
 }
 .theright{
     width: 30%;
-    height: 40px;
+    height: 4px;
     float:right;
 }
 .orange-btn {
