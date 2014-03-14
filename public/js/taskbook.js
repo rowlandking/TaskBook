@@ -303,6 +303,7 @@ function addlisttaskssubmit(listID){
   $("#list"+listID).append(   
     html);*/
     document.getElementById('addtaskinput'+listID).value = "";
+    location.reload();
 
 
 }
@@ -838,10 +839,28 @@ function hideEditList(){
   $("#editlistname").hide();
 
 }
-function showEditList(listName)
+function showEditList(listName, theid)
 {
   $("#editlistname").show();
   $("#edit_listname").html(listName);
+  $("#thelistid").html(theid);
+  console.log(theid);
+
+}
+function deleteList()
+{
+  var listid = $("textarea#thelistid").val();
+  console.log('THE LIST ID');
+  console.log(listid);
+
+   var deltrue = confirm('Are you sure you want to delete the list? ' );
+
+  if(deltrue)
+  {
+    console.log("TRUE FOR DELETE LIST");
+    $.get("/delList",{id:listid});
+    location.reload();
+  }
 
 }
 
