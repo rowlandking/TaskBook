@@ -520,10 +520,7 @@ body{
 }
 .theright{
     width: 30%;
-        margin-right: auto;
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    height: 50px;
     float:right;
 }
 .orange-btn {
