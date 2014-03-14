@@ -329,11 +329,11 @@
     /* give it dimensions */
     min-height: 10em;
     width: 95%;
-    height: 500px;
+    height: 95%;
 
     clear:both;
     text-align: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
     display:none;
     position:fixed;
     z-index:1040;
