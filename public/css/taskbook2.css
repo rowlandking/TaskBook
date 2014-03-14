@@ -184,7 +184,7 @@
 
 
 #addlistinputform{
-    width: 70%;
+    width: 90%;
     margin-right: auto;
     margin-left: auto;
     margin-top: auto;
@@ -239,7 +239,6 @@
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
-    height: inherit;
     display: none;
     height: 40px;
 }
