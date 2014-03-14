@@ -218,7 +218,7 @@
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
-    text-align: auto;
+    text-align: center;
     height: 41px;
     display: none;
 }
@@ -517,7 +517,9 @@ body{
 .theleft{
     float:left;
 }
-
+.theright{
+    float:right;
+}
 .orange-btn {
   background-color: hsl(47, 100%, 47%) !important;
   background-repeat: repeat-x;
