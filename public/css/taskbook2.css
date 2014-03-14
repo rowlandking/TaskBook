@@ -388,6 +388,8 @@
 
 #helpDialogue{
     text-align: left;
+    max-height: 100%;
+    overflow-y:scroll;
 }
 
 #addGroup{
