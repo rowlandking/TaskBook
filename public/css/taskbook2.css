@@ -201,7 +201,7 @@
 
 
 .addlistinput{
-    width: 70%;
+    width: 90%;
     margin-top: 10px;
     margin-bottom:auto;
     background-color: transparent;  
@@ -209,7 +209,7 @@
     border-width: 0px 0px 1px 0px;  
     border-color: blue; 
     outline:0; 
-    height:35px;
+    height:41px;
 }
 
 .addtaskinputform{
