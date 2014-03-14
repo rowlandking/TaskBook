@@ -330,12 +330,12 @@
     min-height: 10em;
     width: 95%;
     height: 95%;
-
+    min-height: 300px;
     clear:both;
     text-align: center;
-    /*overflow: hidden;*/
+    overflow: hidden;
     display:none;
-    /*position:fixed;*/
+    position:fixed;
     z-index:1040;
     background-color:white;
     /*background-image: linear-gradient(to bottom,#d9edf7 0,#d9edf7 100%);*/
