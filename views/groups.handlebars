@@ -97,6 +97,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           <li role="presentation" class="dropdown-header" id="dropdownContactName">{{contactName}}</li>
           <li><a href="#" id="profilebutton">Edit Profile</a></li>
           <li><a href="#" id="leavegroup" onclick="leaveGroup()">Leave Group</a></li>
+          <li><a href="#" id="helpbutton">Help</a></li>
           <li onclick="logout()"><a href="/">Logout</a></li>
         </ul>
       </div>
@@ -274,6 +275,22 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </form>
   <button type="button" class="default orange-btn" onClick="saveEditProfile()"> Save </button>
   <button type="button" class="default orange-btn" onClick="cancelEditProfile()"> Cancel </button>
+</div>
+
+<div id="helpbox"  class="alert alert-info hover">
+<strong><h1>Help</h1></strong>
+<br>
+  <!--<input type="text" value="3" class="field left" readonly>-->
+  <div class="well" id="helpDialogue">
+    Here's what each buttons does...<br><br>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> </button> My Groups: Switch between all your groups or create a new one.<br><br>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> </button> Group Members: View people within your current group. You can also add more people!<br><br>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort"></span> </button> Sort: Sort your tasks.<br><br>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-filter"></span> </button> Filter: Create new filters to separate out your tasks according to custom preferences.<br><br>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> </button> Edit the corrosponding group, list, or task that it is next to.<br><br>
+  </div>
+  <br>
+  <button type="button" class="default" onClick="closeHelp()"> Close </button>
 </div>
 
 <div id="addGroup"  class="alert alert-info hover">
