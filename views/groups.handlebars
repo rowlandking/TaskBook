@@ -121,7 +121,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   <img height="20" width="20"  src="/images/pencil.png" onclick="showEditGroupName('{{projectName}}')"></img></h4>
 <div id="editgrouptitle"  class="alert alert-info hover" style:"overflow-y:scroll">
       <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
-      
+      <strong><h1> Group</h1> </strong><br>
       <textarea id="edit_title"></textarea> <br><br>
       <button type="button" class="default" onclick="editGroupTitle()">Save</button>
       <button type="button" class="default" onclick="hideEditGroupName()">Cancel</button>
@@ -533,6 +533,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 <div id="editlistname"  class="alert alert-info hover" style:"overflow-y:scroll">
       <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+      <strong> <h1>List </h1></strong><br>
+
       <textarea id="thelistid" style="display:none;">
     </textarea>
       <textarea id="edit_listname"  class="thecenter"></textarea> <br>
@@ -580,7 +582,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     Add Task   </div>
     </div>
      <form action="" id="addtaskinputform{{id}}" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput{{id}}" class="addtaskinput" type="text" name="fname" >
-  <input type="submit" value="Submit"   onclick="addlisttaskssubmit('{{id}}');return false;" id="addlisttasksubmit{{id}}">
+  <input type="submit" value="Submit"  class="orange-btn" onclick="addlisttaskssubmit('{{id}}');return false;" id="addlisttasksubmit{{id}}">
 </form>
 
   

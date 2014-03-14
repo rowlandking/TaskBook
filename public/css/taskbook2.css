@@ -514,3 +514,20 @@ body{
     margin-right: auto;
     display:block;
 }
+
+.orange-btn {
+  background-color: hsl(47, 100%, 47%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffcb0f", endColorstr="#efbb00");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffcb0f), to(#efbb00));
+  background-image: -moz-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: -ms-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffcb0f), color-stop(100%, #efbb00));
+  background-image: -webkit-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: -o-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: linear-gradient(#ffcb0f, #efbb00);
+  border-color: #efbb00 #efbb00 hsl(47, 100%, 45.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.09);
+  -webkit-font-smoothing: antialiased;
+}
