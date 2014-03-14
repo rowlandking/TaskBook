@@ -184,7 +184,7 @@
 
 
 #addlistinputform{
-    width: 70%;
+    width: 90%;
     margin-right: auto;
     margin-left: auto;
     margin-top: auto;
@@ -201,7 +201,7 @@
 
 
 .addlistinput{
-    width: inherit;
+    width: 90%;
     margin-top: 10px;
     margin-bottom:auto;
     background-color: transparent;  
@@ -209,11 +209,11 @@
     border-width: 0px 0px 1px 0px;  
     border-color: blue; 
     outline:0; 
-    height:35px;
+    height:40px;
 }
 
 .addtaskinputform{
-    width: 70%;
+    width: 90%;
     margin-right: auto;
     margin-left: auto;
     margin-top: auto;
@@ -233,15 +233,14 @@
     outline:0; 
 }
 #addlistinputform{
-    width: 70%;
+    width: 90%;
     margin-right: auto;
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
-    height: inherit;
     display: none;
-    height: 50px;
+    height: 40px;
 }
 
 .membercontainer {
@@ -411,7 +410,8 @@
     position:fixed;
     z-index:1040;
     background-color:white;
-    background-image: linear-gradient(to bottom,#d9edf7 0,#d9edf7 100%);
+     background-image:  linear-gradient(to bottom,#FFEBD0 0,#FFEBD0 100%);
+
 }
 #profileForm {
     width:100%;
@@ -542,4 +542,29 @@ body{
      margin-left: auto;
     margin-right: auto;
     display:block;
+}
+.theleft{
+    width: 70%;
+    float:left;
+}
+.theright{
+    width: 30%;
+    height: 40px;
+    float:right;
+}
+.orange-btn {
+  background-color: hsl(47, 100%, 47%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffcb0f", endColorstr="#efbb00");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffcb0f), to(#efbb00));
+  background-image: -moz-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: -ms-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffcb0f), color-stop(100%, #efbb00));
+  background-image: -webkit-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: -o-linear-gradient(top, #ffcb0f, #efbb00);
+  background-image: linear-gradient(#ffcb0f, #efbb00);
+  border-color: #efbb00 #efbb00 hsl(47, 100%, 45.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.09);
+  -webkit-font-smoothing: antialiased;
 }

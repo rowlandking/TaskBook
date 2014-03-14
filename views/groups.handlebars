@@ -122,10 +122,10 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   <img height="20" width="20"  src="/images/pencil.png" onclick="showEditGroupName('{{projectName}}')"></img></h4>
 <div id="editgrouptitle"  class="alert alert-info hover" style:"overflow-y:scroll">
       <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
-      
+      <strong><h1> Group</h1> </strong><br>
       <textarea id="edit_title"></textarea> <br><br>
-      <button type="button" class="default" onclick="editGroupTitle()">Save</button>
-      <button type="button" class="default" onclick="hideEditGroupName()">Cancel</button>
+      <button type="button" class="default orange-btn" onclick="editGroupTitle()">Save</button>
+      <button type="button" class="default orange-btn" onclick="hideEditGroupName()">Cancel</button>
 
     
 </div>
@@ -224,8 +224,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           </select>
            <strong>Due within </strong><input id="xDays" type="text" class="xdays"><strong> days</strong>
         </form>
-        <button type="button" class="default" onClick="saveFilter()"> Save </button>
-        <button type="button" class="default" onClick="cancelFilter()"> Cancel </button>
+        <button type="button" class="default orange-btn" onClick="saveFilter()"> Save </button>
+        <button type="button" class="default orange-btn" onClick="cancelFilter()"> Cancel </button>
 
 </div>
 
@@ -254,9 +254,9 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 
 </form>
-  <button type="button" class="default" onClick="saveEditTask()"> Save </button>
-  <button type="button" class="default" onClick="deleteEditTask()"> Delete </button>
-  <button type="button" class="default" onClick="cancelEditTask()"> Cancel </button>
+  <button type="button" class="default orange-btn" onClick="saveEditTask()"> Save </button>
+  <button type="button" class="default orange-btn" onClick="deleteEditTask()"> Delete </button>
+  <button type="button" class="default orange-btn" onClick="cancelEditTask()"> Cancel </button>
 </div>
 
 
@@ -273,8 +273,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   </div>
   <br><br>
 </form>
-  <button type="button" class="default" onClick="saveEditProfile()"> Save </button>
-  <button type="button" class="default" onClick="cancelEditProfile()"> Cancel </button>
+  <button type="button" class="default orange-btn" onClick="saveEditProfile()"> Save </button>
+  <button type="button" class="default orange-btn" onClick="cancelEditProfile()"> Cancel </button>
 </div>
 
 <div id="helpbox"  class="alert alert-info hover">
@@ -302,8 +302,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   </div>
   <br><br>
 </form>
-  <button type="button" class="default" onClick="AddGroup()"> Add Group </button>
-  <button type="button" class="default" onClick="CancelAddGroup()"> Cancel </button>
+  <button type="button" class="default orange-btn" onClick="AddGroup()"> Add Group </button>
 </div>
 
 {{else}}
@@ -452,12 +451,12 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     Add Member</div-->
   <form action="" id="addmemberinputform" class="addmemberinputform" onsubmit="return false;"> 
     <input id="addmemberinput" class="addmemberinput" type="text" name="fname" >
-    <input type="submit" value="Submit" onSubmit="return false;" id="addmembersubmit">
+    <input type="submit" class=" orange-btn" value="Submit" onSubmit="return false;" id="addmembersubmit">
   </form>
   <div class = "errormsgmain"></div>
       <!--<button type="button" class="default" onClick="hideForm('editgroup')">Save</button>-->
 
-      <button type="button" class="default" onClick="hideForm('editgroup');">Close</button>
+      <button type="button" class="default  orange-btn" onClick="hideForm('editgroup');">Close</button>
     </div>
 
 <div id="newFilter"  class="alert alert-info hover">
@@ -476,8 +475,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           </select>
           <strong>Due in </strong><input id="xDays" type="text" class="xdays"><strong>days</strong>
         </form>
-        <button type="button" class="default" onClick="saveFilter()"> Save </button>
-        <button type="button" class="default" onClick="cancelFilter()"> Cancel </button>
+        <button type="button" class="default orange-btn" onClick="saveFilter()"> Save </button>
+        <button type="button" class="default orange-btn" onClick="cancelFilter()"> Cancel </button>
 
 </div>
 
@@ -504,9 +503,9 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </form>
 <strong>Due Date:</strong>
 <input type="text" class="datepicker" placeholder="Click me!" id="taskDueDate"><br><br><br>
-  <button type="button" class="default" onClick="saveEditTask()"> Save </button>
-  <button type="button" class="default" onClick="deleteEditTask()"> Delete </button>
-  <button type="button" class="default" onClick="cancelEditTask()"> Cancel </button>
+  <button type="button" class="default orange-btn" onClick="saveEditTask()"> Save </button>
+  <button type="button" class="default orange-btn" onClick="deleteEditTask()"> Delete </button>
+  <button type="button" class="default orange-btn" onClick="cancelEditTask()"> Cancel </button>
 </div>
 
 
@@ -523,8 +522,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   </div>
   <br><br>
 </form>
-  <button type="button" class="default" onClick="saveEditProfile()"> Save </button>
-  <button type="button" class="default" onClick="cancelEditProfile()"> Cancel </button>
+  <button type="button" class="default orange-btn" onClick="saveEditProfile()"> Save </button>
+  <button type="button" class="default orange-btn" onClick="cancelEditProfile()"> Cancel </button>
 </div>
 
 <div id="addGroup"  class="alert alert-info hover">
@@ -536,8 +535,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   </div>
   <br><br>
 </form>
-  <button type="button" class="default" onClick="AddGroup()"> Add Group </button>
-  <button type="button" class="default" onClick="CancelAddGroup()"> Cancel </button>
+  <button type="button" class="default orange-btn" onClick="AddGroup()"> Add Group </button>
+  <button type="button" class="default orange-btn" onClick="CancelAddGroup()"> Cancel </button>
 </div>
 
 
@@ -550,12 +549,14 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 <div id="editlistname"  class="alert alert-info hover" style:"overflow-y:scroll">
       <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+      <strong> <h1>List </h1></strong><br>
+
       <textarea id="thelistid" style="display:none;">
     </textarea>
       <textarea id="edit_listname"  class="thecenter"></textarea> <br>
-      <button type="button" class="default" onclick="editListName()">Save</button>
-      <button type="button" class="default" onclick="deleteList()">Delete</button>
-      <button type="button" class="default" onclick="hideEditList()">Cancel</button>
+      <button type="button" class="default orange-btn" onclick="editListName()">Save</button>
+      <button type="button" class="default orange-btn" onclick="deleteList()">Delete</button>
+      <button type="button" class="default orange-btn" onclick="hideEditList()">Cancel</button>
     
   </div>
 
@@ -596,8 +597,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   <div id="addtasktext{{id}}" class="panel-footer" style="text-align:center">
     Add Task   </div>
     </div>
-     <form action="" id="addtaskinputform{{id}}" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput{{id}}" class="addtaskinput" type="text" name="fname" >
-  <input type="submit" value="Submit"   onclick="addlisttaskssubmit('{{id}}');return false;" id="addlisttasksubmit{{id}}">
+     <form action="" id="addtaskinputform{{id}}" class="addtaskinputform" onsubmit="return false;"> <input id="addtaskinput{{id}}"  class="addtaskinput theleft" type="text" name="fname" >
+  <input type="submit" value="Submit"  class="orange-btn theright" onclick="addlisttaskssubmit('{{id}}');return false;" id="addlisttasksubmit{{id}}">
 </form>
 
   
@@ -621,8 +622,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   <div id="addlisttext" class="panel-body">
     Add List   </div>
     </div>
-     <form action="" id="addlistinputform"> <input id="addlistinput" class="addlistinput" type="text" name="fname" >
-  <input type="submit" value="Submit" onclick="return false;" id="addgrouptlistssubmit">
+     <form action="" id="addlistinputform"> <input id="addlistinput" class="addlistinput theleft" type="text" name="fname" >
+  <input type="submit" value="Submit" class="orange-btn theright"onclick="return false;" id="addgrouptlistssubmit">
 </form>
   
     <!-- on click add code
