@@ -833,7 +833,15 @@ function leaveGroup(){
 function editListName()
 {
 
+  console.log("inside editlistname");
 
+  var listname =  $("textarea#edit_listname").val(); 
+  var listid = $("textarea#thelistid").val();
+  console.log(listname);
+  console.log(listid);
+  $.get('/editListName', {id:listid, name:listname});
+  location.reload();
+  
 }
 function hideEditList(){
   $("#editlistname").hide();

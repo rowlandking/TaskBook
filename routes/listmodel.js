@@ -59,3 +59,19 @@ exports.deleteList = function(req, res) {
     	});
   }
 }
+
+exports.editListName = function(req, res)
+{
+	var listID = req.query.id;
+	var newName = req.query.name;
+
+	models.List.update(
+		{"_id": listID},
+		{
+			$set:{"name": newName}
+		}
+	).exec(function(err, data){
+		 if(err) console.log(err + 'there has been an err dude');
+         res.send(500);
+	});
+}

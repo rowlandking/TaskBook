@@ -99,6 +99,7 @@ app.get('/sortAlpha', grouptasks.sortAlphabetical);
 app.get('/sortDateDesc', grouptasks.sortDateDescending);
 app.get('/addList',group_list.addList);
 app.get('/delList', group_list.deleteList)
+app.get('/editListName', group_list.editListName);
 app.get('/addGroup', groupgroups.addGroup);
 app.get('/editGroupName', groupgroups.editGroupName);
 app.get('/leaveGroup', groupgroups.leaveGroup);
