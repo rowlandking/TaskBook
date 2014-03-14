@@ -188,6 +188,15 @@ $("#profilebutton").click(function(){
   $("#editProfile").show();
 });
 
+$("#helpbutton").click(function(){
+  $("#helpbox").show();
+});
+
+function closeHelp()
+{
+  $("#helpbox").hide();
+}
+
 $("#addGroupButton").click(function(){
   $("#addGroup").show();
 });
